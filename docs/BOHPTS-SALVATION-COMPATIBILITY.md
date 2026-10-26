@@ -58,3 +58,23 @@ Adding 140 or 152 to `AllowedProtocolRevisions` alone is NOT sufficient. The ser
 - Client resource listings for “Salvation 140 Protocol”: https://mmo-dev.info/tags/salvation/
 - Server project references describing High Five protocol 273 and Salvation protocol 140: https://forum.lucera2.com/threads/high-five-h5-fafurion-i-pererabotka-seti.9157/page-2
 - Compatibility catalog listing High Five revisions and Salvation 140/152: https://www.strix-guard.info/en/compatibility
+
+## Packet-shuffling investigation (2026-10-26)
+Further research found a public L2J Mobius Salvation/Arena packet-shuffler discussion describing a protocol mode in which a non-zero obfuscation seed in the version-check response causes the client to shuffle packet opcodes. This is a separate mechanism from Blowfish packet encryption.
+
+Concrete findings in this repository:
+- `gameserver/network/serverpackets/KeyPacket.java` currently writes an obfuscation key of `0` unconditionally.
+- `gameserver/network/GamePacketHandler.java` resolves incoming base and extended opcodes directly through static packet arrays.
+- Therefore, a non-zero seed cannot safely be sent until per-client opcode maps are generated and the dispatcher translates shuffled opcodes back to the original IDs. The extended opcode path must be handled consistently as well.
+- The published example is useful as a research lead, not a drop-in patch. It references packet identifiers and assumptions that may not match this CT 2.6 branch, and it does not establish full client compatibility.
+
+Implementation order:
+1. Implement an isolated, deterministic shuffler with explicit seed and range validation.
+2. Add per-connection inbound opcode translation and tests for normal, extended, and maintained handshake opcodes.
+3. Advertise a non-zero seed only for the explicitly enabled Salvation protocol, leaving High Five unchanged.
+4. Verify the complete login-to-world sequence against the exact client build before enabling it by default.
+
+Research references:
+- Packet-shuffling discussion for L2J Mobius Salvation/Arena (2026-01): https://mmo-dev.info/threads/packet-shuffler-for-l2jmobius-salvation-arena.35169/
+- General explanation of Lineage 2 opcode obfuscation and protocol handshake: https://npetrovski.github.io/l2js-client/guide/gameProtocol.html
+
