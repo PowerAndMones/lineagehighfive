@@ -24,6 +24,9 @@ import java.util.logging.Logger;
 
 import org.l2jmobius.gameserver.config.ServerConfig;
 import org.l2jmobius.gameserver.network.GameClient;
+import org.l2jmobius.gameserver.network.PacketShuffler;
+import org.l2jmobius.commons.util.Rnd;
+import org.l2jmobius.gameserver.network.SalvationProtocol;
 import org.l2jmobius.gameserver.network.serverpackets.KeyPacket;
 
 /**
@@ -66,6 +69,33 @@ public class ProtocolVersion extends ClientPacket
 		{
 			// This is just a ping attempt from the new C2 client.
 			client.disconnect();
+		}
+		else if (SalvationProtocol.isEnabledFor(_version))
+		{
+			// Salvation client handshake. The adapter consumes the extra handshake
+			// block in readImpl and registers the per-client opcode shuffler when
+			// SalvationShuffle is enabled.
+			client.setProtocolVersion(_version);
+			client.setProtocolOk(true);
+			client.setSalvationMode(true);
+			
+			int obfuscationKey = 0;
+			if (ServerConfig.SALVATION_SHUFFLE)
+			{
+				final PacketShuffler shuffler = new PacketShuffler();
+				int seed = 0;
+				while (seed == 0)
+				{
+					seed = Rnd.get(Integer.MIN_VALUE, Integer.MAX_VALUE);
+				}
+				
+				shuffler.makeShuffledPacket(seed);
+				obfuscationKey = seed;
+				client.setPacketShuffler(shuffler);
+				LOGGER_ACCOUNTING.info("Salvation client " + client + ": opcode shuffling enabled (seed " + seed + ")");
+			}
+			
+			client.sendPacket(new KeyPacket(client.enableCrypt(), 1, obfuscationKey));
 		}
 		else if (!ServerConfig.PROTOCOL_LIST.contains(_version))
 		{

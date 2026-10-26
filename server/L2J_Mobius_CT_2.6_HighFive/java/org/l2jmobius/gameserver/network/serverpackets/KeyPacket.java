@@ -23,17 +23,33 @@ package org.l2jmobius.gameserver.network.serverpackets;
 import org.l2jmobius.commons.network.buffer.WriteBuffer;
 import org.l2jmobius.gameserver.config.ServerConfig;
 import org.l2jmobius.gameserver.network.GameClient;
+import org.l2jmobius.gameserver.network.SalvationProtocol;
 import org.l2jmobius.gameserver.network.ServerPackets;
 
 public class KeyPacket extends ServerPacket
 {
 	private final byte[] _key;
 	private final int _result;
+	private final int _obfuscationKey;
 	
 	public KeyPacket(byte[] key, int result)
 	{
 		_key = key;
 		_result = result;
+		_obfuscationKey = 0;
+	}
+	
+	/**
+	 * KeyPacket with an opcode obfuscation seed for Salvation clients.
+	 * @param key the Blowfish session key
+	 * @param result protocol check result (0 - wrong protocol, 1 - ok)
+	 * @param obfuscationKey the non-zero opcode shuffling seed, or 0 to disable shuffling
+	 */
+	public KeyPacket(byte[] key, int result, int obfuscationKey)
+	{
+		_key = key;
+		_result = result;
+		_obfuscationKey = obfuscationKey;
 	}
 	
 	@Override
@@ -49,6 +65,12 @@ public class KeyPacket extends ServerPacket
 		buffer.writeInt(ServerConfig.PACKET_ENCRYPTION); // use blowfish encryption
 		buffer.writeInt(ServerConfig.SERVER_ID); // server id
 		buffer.writeByte(1);
-		buffer.writeInt(0); // obfuscation key
+		buffer.writeInt(_obfuscationKey); // obfuscation key (non-zero enables client opcode shuffling)
+		
+		// Salvation clients read one extra byte after the obfuscation key.
+		if ((client != null) && (client.getProtocolVersion() == SalvationProtocol.SALVATION_PROTOCOL_REVISION))
+		{
+			buffer.writeByte((ServerConfig.SERVER_LIST_TYPE & 0x400) == 0x400); // isClassic
+		}
 	}
 }

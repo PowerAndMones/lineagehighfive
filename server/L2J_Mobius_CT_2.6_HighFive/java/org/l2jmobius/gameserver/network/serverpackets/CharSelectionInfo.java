@@ -42,7 +42,9 @@ import org.l2jmobius.gameserver.network.Disconnection;
 import org.l2jmobius.gameserver.network.GameClient;
 import org.l2jmobius.gameserver.network.PacketLogger;
 import org.l2jmobius.gameserver.network.ServerPackets;
+import org.l2jmobius.gameserver.mechanics.olympiad.Hero;
 import org.l2jmobius.gameserver.network.holders.CharacterInfoHolder;
+import org.l2jmobius.gameserver.network.SalvationProtocol;
 
 public class CharSelectionInfo extends ServerPacket
 {
@@ -84,6 +86,30 @@ public class CharSelectionInfo extends ServerPacket
 		final int size = _characterPackages.size();
 		buffer.writeInt(size); // Created character count
 		buffer.writeInt(ServerConfig.MAX_CHARACTERS_NUMBER_PER_ACCOUNT); // Can prevent players from creating new characters (if 0); (if 1, the client will ask if chars may be created (0x13) Response: (0x0D) ).
+		if ((client != null) && (client.getProtocolVersion() == SalvationProtocol.SALVATION_PROTOCOL_REVISION))
+		{
+			writeSalvationHeader(buffer, size);
+			long lastAccessSalvation = 0;
+			int activeId = _activeId;
+			if (activeId == -1)
+			{
+				for (int i = 0; i < size; i++)
+				{
+					if (lastAccessSalvation < _characterPackages.get(i).getLastAccess())
+					{
+						lastAccessSalvation = _characterPackages.get(i).getLastAccess();
+						activeId = i;
+					}
+				}
+			}
+			
+			for (int i = 0; i < size; i++)
+			{
+				writeSalvationCharacter(buffer, _characterPackages.get(i), _loginName, _sessionId, i == activeId);
+			}
+			return;
+		}
+		
 		buffer.writeByte(0);
 		long lastAccess = 0;
 		if (_activeId == -1)
@@ -174,6 +200,133 @@ public class CharSelectionInfo extends ServerPacket
 			buffer.writeDouble(0); // Current pet MP
 			buffer.writeInt(charInfoPackage.getVitalityPoints()); // Vitality
 		}
+	}
+	
+	/**
+	 * Writes the Salvation (protocol 140) account header block.
+	 * @param buffer the target buffer
+	 * @param size the created character count
+	 */
+	private void writeSalvationHeader(WriteBuffer buffer, int size)
+	{
+		buffer.writeByte(size == ServerConfig.MAX_CHARACTERS_NUMBER_PER_ACCOUNT); // if 1 can't create new char
+		buffer.writeByte(1); // 0 = can't play, 1 = can play free until level 85, 2 = 100% free play
+		buffer.writeInt(2); // if 1, Korean client
+		buffer.writeByte(0); // Gift message for inactive accounts
+		buffer.writeByte(0); // Balthus Knights creation
+	}
+	
+	/**
+	 * Writes one character entry in the Salvation (protocol 140) layout.
+	 * @param buffer the target buffer
+	 * @param charInfoPackage the character select data
+	 * @param loginName the account name
+	 * @param sessionId the login session id
+	 * @param active whether this character is the active selection
+	 */
+	private void writeSalvationCharacter(WriteBuffer buffer, CharacterInfoHolder charInfoPackage, String loginName, int sessionId, boolean active)
+	{
+		buffer.writeString(charInfoPackage.getName()); // Character name
+		buffer.writeInt(charInfoPackage.getObjectId()); // Character ID
+		buffer.writeString(loginName); // Account name
+		buffer.writeInt(sessionId); // Account ID
+		buffer.writeInt(charInfoPackage.getClanId()); // Clan ID
+		buffer.writeInt(0); // Builder level
+		buffer.writeInt(charInfoPackage.getSex()); // Sex
+		buffer.writeInt(charInfoPackage.getRace()); // Race
+		buffer.writeInt(charInfoPackage.getBaseClassId());
+		buffer.writeInt(1); // GameServerName
+		buffer.writeInt(charInfoPackage.getX());
+		buffer.writeInt(charInfoPackage.getY());
+		buffer.writeInt(charInfoPackage.getZ());
+		buffer.writeDouble(charInfoPackage.getCurrentHp());
+		buffer.writeDouble(charInfoPackage.getCurrentMp());
+		buffer.writeLong(charInfoPackage.getSp()); // Salvation: SP as long
+		buffer.writeLong(charInfoPackage.getExp());
+		buffer.writeDouble((float) (charInfoPackage.getExp() - ExperienceData.getInstance().getExpForLevel(charInfoPackage.getLevel())) / (ExperienceData.getInstance().getExpForLevel(charInfoPackage.getLevel() + 1) - ExperienceData.getInstance().getExpForLevel(charInfoPackage.getLevel())));
+		buffer.writeInt(charInfoPackage.getLevel());
+		buffer.writeInt(charInfoPackage.getKarma()); // reputation
+		buffer.writeInt(charInfoPackage.getPkKills());
+		buffer.writeInt(charInfoPackage.getPvPKills());
+		buffer.writeInt(0);
+		buffer.writeInt(0);
+		buffer.writeInt(0);
+		buffer.writeInt(0);
+		buffer.writeInt(0);
+		buffer.writeInt(0);
+		buffer.writeInt(0);
+		buffer.writeInt(0); // Ertheia
+		buffer.writeInt(0); // Ertheia
+		for (int slot : getPaperdollOrder())
+		{
+			buffer.writeInt(charInfoPackage.getPaperdollItemId(slot));
+		}
+		// Salvation paperdoll tail: brooch and brooch jewel slots (not used by High Five).
+		for (int i = 0; i < 7; i++)
+		{
+			buffer.writeInt(0);
+		}
+		buffer.writeInt(0); // Salvation
+		buffer.writeInt(0); // Salvation
+		buffer.writeInt(0); // Salvation
+		buffer.writeInt(0); // Salvation
+		buffer.writeInt(0); // Salvation
+		// Visual ids (High Five has no visual system; item ids are sent).
+		buffer.writeInt(charInfoPackage.getPaperdollItemId(Inventory.PAPERDOLL_RHAND));
+		buffer.writeInt(charInfoPackage.getPaperdollItemId(Inventory.PAPERDOLL_LHAND));
+		buffer.writeInt(charInfoPackage.getPaperdollItemId(Inventory.PAPERDOLL_GLOVES));
+		buffer.writeInt(charInfoPackage.getPaperdollItemId(Inventory.PAPERDOLL_CHEST));
+		buffer.writeInt(charInfoPackage.getPaperdollItemId(Inventory.PAPERDOLL_LEGS));
+		buffer.writeInt(charInfoPackage.getPaperdollItemId(Inventory.PAPERDOLL_FEET));
+		buffer.writeInt(charInfoPackage.getPaperdollItemId(Inventory.PAPERDOLL_RHAND));
+		buffer.writeInt(charInfoPackage.getPaperdollItemId(Inventory.PAPERDOLL_HAIR));
+		buffer.writeInt(charInfoPackage.getPaperdollItemId(Inventory.PAPERDOLL_HAIR2));
+		buffer.writeShort(0); // Upper Body enchant level
+		buffer.writeShort(0); // Lower Body enchant level
+		buffer.writeShort(0); // Headgear enchant level
+		buffer.writeShort(0); // Gloves enchant level
+		buffer.writeShort(0); // Boots enchant level
+		buffer.writeInt(charInfoPackage.getHairStyle());
+		buffer.writeInt(charInfoPackage.getHairColor());
+		buffer.writeInt(charInfoPackage.getFace());
+		buffer.writeDouble(charInfoPackage.getMaxHp()); // Maximum HP
+		buffer.writeDouble(charInfoPackage.getMaxMp()); // Maximum MP
+		if (charInfoPackage.getAccessLevel() > -1)
+		{
+			// Deleted.
+			if (charInfoPackage.getDeleteTimer() > 0)
+			{
+				buffer.writeInt((int) ((charInfoPackage.getDeleteTimer() - System.currentTimeMillis()) / 1000));
+			}
+			else // Normal.
+			{
+				buffer.writeInt(0);
+			}
+		}
+		else // Banned.
+		{
+			buffer.writeInt(-1);
+		}
+		
+		buffer.writeInt(charInfoPackage.getClassId());
+		buffer.writeInt(active);
+		buffer.writeByte(Math.min(charInfoPackage.getEnchantEffect(), 127)); // weapon enchant
+		buffer.writeInt(charInfoPackage.getAugmentationId() & 0xFFFF); // augmentation option 1
+		buffer.writeInt(charInfoPackage.getAugmentationId() >> 16); // augmentation option 2
+		buffer.writeInt(0); // Currently on retail when you are on character select you don't see your transformation.
+		buffer.writeInt(0); // Pet NpcId
+		buffer.writeInt(0); // Pet level
+		buffer.writeInt(0); // Pet Food
+		buffer.writeInt(0); // Pet Food Level
+		buffer.writeDouble(0); // Current pet HP
+		buffer.writeDouble(0); // Current pet MP
+		buffer.writeInt(charInfoPackage.getVitalityPoints()); // Vitality
+		buffer.writeInt(0); // Vitality Percent
+		buffer.writeInt(0); // Remaining vitality item uses
+		buffer.writeInt(charInfoPackage.getAccessLevel() != -100); // Char is active or not
+		buffer.writeByte(0); // Noble glow
+		buffer.writeByte(Hero.getInstance().isHero(charInfoPackage.getObjectId())); // Hero glow
+		buffer.writeByte(0); // Show hair accessory if enabled.
 	}
 	
 	private static List<CharacterInfoHolder> loadCharacterSelectInfo(String loginName)

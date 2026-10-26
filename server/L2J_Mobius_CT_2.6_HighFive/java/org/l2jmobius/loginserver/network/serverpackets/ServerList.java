@@ -26,6 +26,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import org.l2jmobius.loginserver.config.LoginConfig;
 import java.util.logging.Logger;
 
 import org.l2jmobius.commons.network.buffer.WriteBuffer;
@@ -172,32 +173,49 @@ public class ServerList extends LoginServerPacket
 			buffer.writeByte(server._brackets ? 1 : 0);
 		}
 		
-		buffer.writeShort(0x00); // Unknown.
-		if (_charsOnServers != null)
+		if (LoginConfig.SALVATION_CLIENT)
 		{
-			buffer.writeByte(_charsOnServers.size());
-			for (Entry<Integer, Integer> entry : _charsOnServers.entrySet())
+			// Salvation layout: feature bitmask instead of the unknown short, then
+			// a plain per-server (id, charCount) list without deletion data.
+			buffer.writeShort(0xA4); // unknown (Salvation)
+			if (_charsOnServers != null)
 			{
-				final int servId = entry.getKey();
-				buffer.writeByte(servId);
-				buffer.writeByte(entry.getValue());
-				if ((_charsToDelete == null) || !_charsToDelete.containsKey(servId))
+				for (ServerData server : _servers)
 				{
-					buffer.writeByte(0);
-				}
-				else
-				{
-					buffer.writeByte(_charsToDelete.get(servId).length);
-					for (long deleteTime : _charsToDelete.get(servId))
-					{
-						buffer.writeInt((int) ((deleteTime - System.currentTimeMillis()) / 1000));
-					}
+					buffer.writeByte(server._serverId);
+					buffer.writeByte(_charsOnServers.getOrDefault(server._serverId, 0));
 				}
 			}
 		}
 		else
 		{
-			buffer.writeByte(0);
+			buffer.writeShort(0x00); // Unknown.
+			if (_charsOnServers != null)
+			{
+				buffer.writeByte(_charsOnServers.size());
+				for (Entry<Integer, Integer> entry : _charsOnServers.entrySet())
+				{
+					final int servId = entry.getKey();
+					buffer.writeByte(servId);
+					buffer.writeByte(entry.getValue());
+					if ((_charsToDelete == null) || !_charsToDelete.containsKey(servId))
+					{
+						buffer.writeByte(0);
+					}
+					else
+					{
+						buffer.writeByte(_charsToDelete.get(servId).length);
+						for (long deleteTime : _charsToDelete.get(servId))
+						{
+							buffer.writeInt((int) ((deleteTime - System.currentTimeMillis()) / 1000));
+						}
+					}
+				}
+			}
+			else
+			{
+				buffer.writeByte(0);
+			}
 		}
 	}
 }

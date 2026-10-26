@@ -20,12 +20,13 @@ If a run is red, do not use its package. Open the run and inspect the failed bui
 - [x] Automated build on JDK 27.
 - [x] Successful baseline compilation confirmed: [build run](https://github.com/PowerAndMones/lineagehighfive/actions/runs/40306655739).
 - [x] Successful build publishes a downloadable artifact.
-- [ ] Salvation protocol 140 compatibility implemented and verified.
-- [ ] Login, character selection, Enter World, movement, combat, and gameplay tested with the exact target client.
+- [x] Salvation protocol 140 compatibility implemented (opcode remapping, Salvation packet layouts, optional opcode shuffling).
+- [ ] Salvation protocol 140 verified with the target client (smoke test pending).
+- [ ] Login, character selection, Enter World, and movement to be verified with the exact target client.
 
 ## Compatibility warning
 
-**The current compiled package is the original High Five server baseline, not a confirmed Salvation-ready server.** Merely adding protocol 140 to `AllowedProtocolRevisions` is unsafe. The login/game packet mappings and payload formats must be adapted and tested against the exact Salvation client distribution.
+**Salvation (protocol 140) support is implemented behind the `EnableSalvationProtocol` setting but is still experimental until the smoke test with the target client passes.** High Five clients (267;268;271;273) continue to work unchanged. Set `EnableSalvationProtocol = True` in `dist/game/config/Server.ini` and `SalvationClientMode = True` in `dist/login/config/Server.ini` (both enabled by default in this repository). See `docs/BOHPTS-SALVATION-COMPATIBILITY.md` for the implementation details.
 
 ## Source and licensing
 

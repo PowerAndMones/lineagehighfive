@@ -57,11 +57,32 @@ public class GamePacketHandler implements PacketHandler<GameClient>
 			return null;
 		}
 		
+		// Salvation clients shuffle client-to-server opcodes when a non-zero
+		// obfuscation seed has been announced; undo the shuffle first, then
+		// remap Salvation opcode spaces to the local High Five tables.
+		final PacketShuffler shuffler = client.getPacketShuffler();
+		final boolean shuffled = (shuffler != null) && shuffler.isEnabled();
+		final int realPacketId = shuffled ? shuffler.getOriginalId(packetId) : packetId;
+		
 		// Ex client packet.
-		if (packetId == 0xD0)
+		if (realPacketId == 0xD0)
 		{
+			int exPacketId = Short.toUnsignedInt(buffer.readShort());
+			if (shuffled)
+			{
+				exPacketId = shuffler.getOriginalExId(exPacketId);
+			}
+			if (client.isSalvationMode())
+			{
+				exPacketId = SalvationProtocol.translateIncomingExId(exPacketId);
+				if (exPacketId < 0)
+				{
+					// Salvation-only packet without a local counterpart.
+					return null;
+				}
+			}
+			
 			// Check if packet id is within valid range.
-			final int exPacketId = Short.toUnsignedInt(buffer.readShort());
 			if ((exPacketId < 0) || (exPacketId >= ExClientPackets.PACKET_ARRAY.length))
 			{
 				return null;
@@ -120,13 +141,13 @@ public class GamePacketHandler implements PacketHandler<GameClient>
 		}
 		
 		// Check if packet id is within valid range.
-		if ((packetId < 0) || (packetId >= ClientPackets.PACKET_ARRAY.length))
+		if ((realPacketId < 0) || (realPacketId >= ClientPackets.PACKET_ARRAY.length))
 		{
 			return null;
 		}
 		
 		// Find packet enum.
-		final ClientPackets packetEnum = ClientPackets.PACKET_ARRAY[packetId];
+		final ClientPackets packetEnum = ClientPackets.PACKET_ARRAY[realPacketId];
 		if (packetEnum == null)
 		{
 			return null;

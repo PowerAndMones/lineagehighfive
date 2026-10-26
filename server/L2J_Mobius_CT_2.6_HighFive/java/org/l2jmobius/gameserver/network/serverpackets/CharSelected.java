@@ -23,6 +23,7 @@ package org.l2jmobius.gameserver.network.serverpackets;
 import org.l2jmobius.commons.network.buffer.WriteBuffer;
 import org.l2jmobius.gameserver.entity.actor.Player;
 import org.l2jmobius.gameserver.network.GameClient;
+import org.l2jmobius.gameserver.network.SalvationProtocol;
 import org.l2jmobius.gameserver.network.ServerPackets;
 import org.l2jmobius.gameserver.taskmanagers.GameTimeTaskManager;
 
@@ -56,25 +57,53 @@ public class CharSelected extends ServerPacket
 		buffer.writeInt(_player.getZ());
 		buffer.writeDouble(_player.getCurrentHp());
 		buffer.writeDouble(_player.getCurrentMp());
-		buffer.writeInt((int) _player.getSp());
-		buffer.writeLong(_player.getExp());
-		buffer.writeInt(_player.getLevel());
-		buffer.writeInt(_player.getKarma()); // thx evill33t
-		buffer.writeInt(_player.getPkKills());
-		buffer.writeInt(_player.getINT());
-		buffer.writeInt(_player.getSTR());
-		buffer.writeInt(_player.getCON());
-		buffer.writeInt(_player.getMEN());
-		buffer.writeInt(_player.getDEX());
-		buffer.writeInt(_player.getWIT());
-		buffer.writeInt(GameTimeTaskManager.getInstance().getGameTime() % (24 * 60)); // "reset" on 24th hour
-		buffer.writeInt(0);
-		buffer.writeInt(_player.getPlayerClass().getId());
-		buffer.writeInt(0);
-		buffer.writeInt(0);
-		buffer.writeInt(0);
-		buffer.writeInt(0);
-		buffer.writeBytes(new byte[64]);
-		buffer.writeInt(0);
+		if ((client != null) && (client.getProtocolVersion() == SalvationProtocol.SALVATION_PROTOCOL_REVISION))
+		{
+			// Salvation layout: SP as long, reputation, no base stats block.
+			buffer.writeLong(_player.getSp());
+			buffer.writeLong(_player.getExp());
+			buffer.writeInt(_player.getLevel());
+			buffer.writeInt(_player.getKarma()); // reputation
+			buffer.writeInt(_player.getPkKills());
+			buffer.writeInt(GameTimeTaskManager.getInstance().getGameTime() % (24 * 60)); // "reset" on 24th hour
+			buffer.writeInt(0);
+			buffer.writeInt(_player.getPlayerClass().getId());
+			buffer.writeBytes(new byte[16]);
+			buffer.writeInt(0);
+			buffer.writeInt(0);
+			buffer.writeInt(0);
+			buffer.writeInt(0);
+			buffer.writeInt(0);
+			buffer.writeInt(0);
+			buffer.writeInt(0);
+			buffer.writeInt(0);
+			buffer.writeInt(0);
+			buffer.writeBytes(new byte[28]);
+			buffer.writeInt(0);
+		}
+		else
+		{
+			// High Five layout.
+			buffer.writeInt((int) _player.getSp());
+			buffer.writeLong(_player.getExp());
+			buffer.writeInt(_player.getLevel());
+			buffer.writeInt(_player.getKarma()); // thx evill33t
+			buffer.writeInt(_player.getPkKills());
+			buffer.writeInt(_player.getINT());
+			buffer.writeInt(_player.getSTR());
+			buffer.writeInt(_player.getCON());
+			buffer.writeInt(_player.getMEN());
+			buffer.writeInt(_player.getDEX());
+			buffer.writeInt(_player.getWIT());
+			buffer.writeInt(GameTimeTaskManager.getInstance().getGameTime() % (24 * 60)); // "reset" on 24th hour
+			buffer.writeInt(0);
+			buffer.writeInt(_player.getPlayerClass().getId());
+			buffer.writeInt(0);
+			buffer.writeInt(0);
+			buffer.writeInt(0);
+			buffer.writeInt(0);
+			buffer.writeBytes(new byte[64]);
+			buffer.writeInt(0);
+		}
 	}
 }

@@ -78,3 +78,37 @@ Research references:
 - Packet-shuffling discussion for L2J Mobius Salvation/Arena (2026-01): https://mmo-dev.info/threads/packet-shuffler-for-l2jmobius-salvation-arena.35169/
 - General explanation of Lineage 2 opcode obfuscation and protocol handshake: https://npetrovski.github.io/l2js-client/guide/gameProtocol.html
 
+
+## Implemented: Salvation 140 adapter (2026-10-26)
+
+The first working Salvation 140 adapter is implemented on `main`. Design notes:
+
+### Opcode research results (Mobius CT 2.6 HighFive vs Mobius 5.0 Salvation)
+- Client-to-server regular opcodes: identical (170/170 packet names share the same ids).
+- Server-to-client regular opcodes: identical among all common packet names.
+- Client-to-server Ex opcodes (0xD0 xx): 83 ids shifted; Salvation space is larger (max 0x15F vs local 0x97).
+- Server-to-client Ex opcodes (0xFE xx): 146 ids shifted; Salvation space is larger (max 0x1FB vs local 0xE8).
+- The Mobius 5.0 Salvation baseline ships seed 0 (no shuffling) and works with Salvation clients; shuffling is therefore optional and off by default.
+- Login protocol (Init/AuthLogin/ServerList/ServerLogin opcodes) is identical; only the ServerList tail layout differs (Salvation writes feature mask 0xA4 and a plain per-server character-count list without deletion data).
+
+### Changes on main
+- `gameserver/network/SalvationProtocol.java` (new): generated Ex-opcode remap tables (Salvation <-> High Five, name-matched from both baselines) plus the outgoing 0xFE xx translation hook.
+- `gameserver/network/PacketShuffler.java` (new): deterministic client-to-server opcode shuffler (public MrKirill1232 algorithm) operating over the Salvation opcode space, with the maintain list (EnterWorld, CharacterSelect, NetPing, ExPacket, raid connect/return).
+- `gameserver/config/ServerConfig.java` + `dist/game/config/Server.ini`: `EnableSalvationProtocol` (adapter gate; 140 is rejected while off) and `SalvationShuffle` (optional non-zero obfuscation seed).
+- `gameserver/network/clientpackets/ProtocolVersion.java`: accepts 140 only through the adapter gate, consumes the optional 0x104-byte handshake block, registers the per-client shuffler when shuffling is enabled, and sends the obfuscation seed inside KeyPacket.
+- `gameserver/network/GamePacketHandler.java`: per-client inbound opcode pipeline - unshuffle (when enabled), then Salvation-to-local Ex remap; Salvation-only Ex packets without a local counterpart are dropped.
+- `gameserver/network/GameClient.java`: outbound Ex opcode remap applied in `encrypt()` before encryption, so all server packets reach the 140 client with Salvation-space ids.
+- `gameserver/network/serverpackets/KeyPacket.java`: obfuscation key field now carries the shuffler seed (0 keeps shuffling off) and Salvation clients receive the trailing `isClassic` byte the Salvation protocol appends.
+- `gameserver/network/serverpackets/CharSelectionInfo.java`: Salvation character-select layout (header flags, SP as long, reputation, 33-slot paperdoll, visual ids, per-slot enchant shorts, augmentation option pair, vitality/hero/noble tail).
+- `gameserver/network/serverpackets/CharSelected.java`: Salvation EnterWorld layout (SP as long, no base-stat block, adjusted padding).
+- `loginserver/config/LoginConfig.java` + `dist/login/config/Server.ini`: `SalvationClientMode` switch (the login protocol carries no client revision, so the mode is server-side).
+- `loginserver/network/serverpackets/ServerList.java`: Salvation ServerList tail (0xA4 mask + simplified per-server character counts) while keeping the High Five layout for regular clients.
+
+### Validation performed
+- Full clean compile of the source tree (JDK preview build; CI uses the declared JDK).
+- Self-test of the generated tables and the shuffler: key mappings (2nd password, bookmark, raid), table ranges, permutation bijectivity, maintain-id stability, seed determinism - all passed.
+
+### Next steps
+1. Smoke test against the exact Salvation 140 client: login, server list, character selection, Enter World, movement.
+2. Fix any packet payload mismatches discovered during the smoke test (the remaining payload differences between High Five and Salvation are handled packet-by-packet).
+3. Only after the static path is verified, evaluate `SalvationShuffle` with the target client.

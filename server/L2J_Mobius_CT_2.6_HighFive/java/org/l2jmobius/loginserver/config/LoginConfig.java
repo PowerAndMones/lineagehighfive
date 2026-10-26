@@ -51,6 +51,7 @@ public class LoginConfig
 	public static long LOGIN_SERVER_SCHEDULE_RESTART_TIME;
 	public static boolean SHOW_LICENCE;
 	public static boolean AUTO_CREATE_ACCOUNTS;
+	public static boolean SALVATION_CLIENT;
 	public static boolean FLOOD_PROTECTION;
 	public static int FAST_CONNECTION_LIMIT;
 	public static int NORMAL_CONNECTION_TIME;
@@ -80,6 +81,10 @@ public class LoginConfig
 		LOGIN_SERVER_SCHEDULE_RESTART_TIME = config.getLong("LoginRestartTime", 24);
 		SHOW_LICENCE = config.getBoolean("ShowLicence", true);
 		AUTO_CREATE_ACCOUNTS = config.getBoolean("AutoCreateAccounts", true);
+		// Salvation clients receive a Salvation-format server list (protocol research,
+		// see docs/BOHPTS-SALVATION-COMPATIBILITY.md). The login protocol carries no
+		// client revision, therefore the mode is configured server-side.
+		SALVATION_CLIENT = config.getBoolean("SalvationClientMode", false);
 		FLOOD_PROTECTION = config.getBoolean("EnableFloodProtection", true);
 		FAST_CONNECTION_LIMIT = config.getInt("FastConnectionLimit", 15);
 		NORMAL_CONNECTION_TIME = config.getInt("NormalConnectionTime", 700);

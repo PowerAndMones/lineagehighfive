@@ -73,6 +73,8 @@ public class GameClient extends Client<org.l2jmobius.commons.network.Connection<
 	private boolean _isAuthedGG;
 	private boolean _protocolOk;
 	private int _protocolVersion;
+	private boolean _salvationMode;
+	private PacketShuffler _packetShuffler = null;
 	private int[][] _trace;
 	
 	public GameClient(org.l2jmobius.commons.network.Connection<GameClient> connection)
@@ -103,6 +105,12 @@ public class GameClient extends Client<org.l2jmobius.commons.network.Connection<
 	@Override
 	public boolean encrypt(WriteBuffer data, int offset, int size)
 	{
+		// Salvation clients expect Salvation-space Ex opcodes; remap before encryption.
+		if (_salvationMode)
+		{
+			SalvationProtocol.translateOutgoingOpcode(data, offset);
+		}
+		
 		if (ServerConfig.PACKET_ENCRYPTION && (_encryption != null))
 		{
 			_encryption.encrypt(data, offset, size);
@@ -597,6 +605,26 @@ public class GameClient extends Client<org.l2jmobius.commons.network.Connection<
 	public ConnectionState getConnectionState()
 	{
 		return _connectionState;
+	}
+	
+	public void setSalvationMode(boolean value)
+	{
+		_salvationMode = value;
+	}
+	
+	public boolean isSalvationMode()
+	{
+		return _salvationMode;
+	}
+	
+	public void setPacketShuffler(PacketShuffler shuffler)
+	{
+		_packetShuffler = shuffler;
+	}
+	
+	public PacketShuffler getPacketShuffler()
+	{
+		return _packetShuffler;
 	}
 	
 	public void setProtocolVersion(int version)
