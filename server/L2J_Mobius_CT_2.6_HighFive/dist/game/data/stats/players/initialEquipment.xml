@@ -2,107 +2,172 @@
 <list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/initialEquipment.xsd">
 	<!-- Human Fighter -->
 	<equipment classId="0">
-		<item id="2369" count="1" equipped="true" /> <!-- Squire's Sword -->
+		<item id="66" count="1" equipped="true" /> <!-- Gladius -->
 		<item id="10" count="1" /> <!-- Dagger -->
-		<item id="1146" count="1" equipped="true" /> <!-- Squire's Shirt -->
-		<item id="1147" count="1" equipped="true" /> <!-- Squire's Pants -->
+		<item id="20" count="1" equipped="true" /> <!-- Buckler -->
+		<item id="23" count="1" equipped="true" /> <!-- Wooden Breastplate -->
+		<item id="2386" count="1" equipped="true" /> <!-- Wooden Gaiters -->
+		<item id="40" count="1" equipped="true" /> <!-- Leather Boots -->
+		<item id="43" count="1" equipped="true" /> <!-- Wooden Helmet -->
+		<item id="57" count="1000000" /> <!-- Adena -->
+		<item id="1835" count="3000" /> <!-- Soulshot: No Grade -->
+		<item id="1060" count="100" /> <!-- Lesser Healing Potion -->
+		<item id="1062" count="50" /> <!-- Haste Potion -->
+		<item id="736" count="20" /> <!-- Scroll of Escape -->
 		<item id="5588" count="1" /> <!-- Tutorial Guide -->
 		<item id="10650" count="5" /> <!-- Adventurer's Scroll of Escape -->
 		<item id="12753" count="10" /> <!-- Kamael Village Teleportation Scroll -->
 	</equipment>
 	<!-- Human Mystic -->
 	<equipment classId="10">
-		<item id="6" count="1" equipped="true" /> <!-- Apprentice's Wand -->
-		<item id="425" count="1" equipped="true" /> <!-- Apprentice's Tunic -->
-		<item id="461" count="1" equipped="true" /> <!-- Apprentice's Stockings -->
+		<item id="178" count="1" equipped="true" /> <!-- Bone Staff -->
+		<item id="427" count="1" equipped="true" /> <!-- Cotton Robe -->
+		<item id="57" count="1000000" /> <!-- Adena -->
+		<item id="3947" count="3000" /> <!-- Blessed Spiritshot: No Grade -->
+		<item id="1060" count="100" /> <!-- Lesser Healing Potion -->
+		<item id="1062" count="50" /> <!-- Haste Potion -->
+		<item id="736" count="20" /> <!-- Scroll of Escape -->
 		<item id="5588" count="1" /> <!-- Tutorial Guide -->
 		<item id="10650" count="5" /> <!-- Adventurer's Scroll of Escape -->
 		<item id="12753" count="10" /> <!-- Kamael Village Teleportation Scroll -->
 	</equipment>
 	<!-- Elven Fighter -->
 	<equipment classId="18">
-		<item id="2369" count="1" equipped="true" /> <!-- Squire's Sword -->
+		<item id="66" count="1" equipped="true" /> <!-- Gladius -->
 		<item id="10" count="1" /> <!-- Dagger -->
-		<item id="1146" count="1" equipped="true" /> <!-- Squire's Shirt -->
-		<item id="1147" count="1" equipped="true" /> <!-- Squire's Pants -->
+		<item id="20" count="1" equipped="true" /> <!-- Buckler -->
+		<item id="23" count="1" equipped="true" /> <!-- Wooden Breastplate -->
+		<item id="2386" count="1" equipped="true" /> <!-- Wooden Gaiters -->
+		<item id="40" count="1" equipped="true" /> <!-- Leather Boots -->
+		<item id="43" count="1" equipped="true" /> <!-- Wooden Helmet -->
+		<item id="57" count="1000000" /> <!-- Adena -->
+		<item id="1835" count="3000" /> <!-- Soulshot: No Grade -->
+		<item id="1060" count="100" /> <!-- Lesser Healing Potion -->
+		<item id="1062" count="50" /> <!-- Haste Potion -->
+		<item id="736" count="20" /> <!-- Scroll of Escape -->
 		<item id="5588" count="1" /> <!-- Tutorial Guide -->
 		<item id="10650" count="5" /> <!-- Adventurer's Scroll of Escape -->
 		<item id="12753" count="10" /> <!-- Kamael Village Teleportation Scroll -->
 	</equipment>
 	<!-- Elven Mystic -->
 	<equipment classId="25">
-		<item id="6" count="1" equipped="true" /> <!-- Apprentice's Wand -->
-		<item id="425" count="1" equipped="true" /> <!-- Apprentice's Tunic -->
-		<item id="461" count="1" equipped="true" /> <!-- Apprentice's Stockings -->
+		<item id="178" count="1" equipped="true" /> <!-- Bone Staff -->
+		<item id="427" count="1" equipped="true" /> <!-- Cotton Robe -->
+		<item id="57" count="1000000" /> <!-- Adena -->
+		<item id="3947" count="3000" /> <!-- Blessed Spiritshot: No Grade -->
+		<item id="1060" count="100" /> <!-- Lesser Healing Potion -->
+		<item id="1062" count="50" /> <!-- Haste Potion -->
+		<item id="736" count="20" /> <!-- Scroll of Escape -->
 		<item id="5588" count="1" /> <!-- Tutorial Guide -->
 		<item id="10650" count="5" /> <!-- Adventurer's Scroll of Escape -->
 		<item id="12753" count="10" /> <!-- Kamael Village Teleportation Scroll -->
 	</equipment>
 	<!-- Dark Fighter -->
 	<equipment classId="31">
-		<item id="2369" count="1" equipped="true" /> <!-- Squire's Sword -->
+		<item id="66" count="1" equipped="true" /> <!-- Gladius -->
 		<item id="10" count="1" /> <!-- Dagger -->
-		<item id="1146" count="1" equipped="true" /> <!-- Squire's Shirt -->
-		<item id="1147" count="1" equipped="true" /> <!-- Squire's Pants -->
+		<item id="20" count="1" equipped="true" /> <!-- Buckler -->
+		<item id="23" count="1" equipped="true" /> <!-- Wooden Breastplate -->
+		<item id="2386" count="1" equipped="true" /> <!-- Wooden Gaiters -->
+		<item id="40" count="1" equipped="true" /> <!-- Leather Boots -->
+		<item id="43" count="1" equipped="true" /> <!-- Wooden Helmet -->
+		<item id="57" count="1000000" /> <!-- Adena -->
+		<item id="1835" count="3000" /> <!-- Soulshot: No Grade -->
+		<item id="1060" count="100" /> <!-- Lesser Healing Potion -->
+		<item id="1062" count="50" /> <!-- Haste Potion -->
+		<item id="736" count="20" /> <!-- Scroll of Escape -->
 		<item id="5588" count="1" /> <!-- Tutorial Guide -->
 		<item id="10650" count="5" /> <!-- Adventurer's Scroll of Escape -->
 		<item id="12753" count="10" /> <!-- Kamael Village Teleportation Scroll -->
 	</equipment>
 	<!-- Dark Mystic -->
 	<equipment classId="38">
-		<item id="6" count="1" equipped="true" /> <!-- Apprentice's Wand -->
-		<item id="425" count="1" equipped="true" /> <!-- Apprentice's Tunic -->
-		<item id="461" count="1" equipped="true" /> <!-- Apprentice's Stockings -->
+		<item id="178" count="1" equipped="true" /> <!-- Bone Staff -->
+		<item id="427" count="1" equipped="true" /> <!-- Cotton Robe -->
+		<item id="57" count="1000000" /> <!-- Adena -->
+		<item id="3947" count="3000" /> <!-- Blessed Spiritshot: No Grade -->
+		<item id="1060" count="100" /> <!-- Lesser Healing Potion -->
+		<item id="1062" count="50" /> <!-- Haste Potion -->
+		<item id="736" count="20" /> <!-- Scroll of Escape -->
 		<item id="5588" count="1" /> <!-- Tutorial Guide -->
 		<item id="10650" count="5" /> <!-- Adventurer's Scroll of Escape -->
 		<item id="12753" count="10" /> <!-- Kamael Village Teleportation Scroll -->
 	</equipment>
 	<!-- Orc Fighter -->
 	<equipment classId="44">
-		<item id="2369" count="1" /> <!-- Squire's Sword -->
-		<item id="2368" count="1" equipped="true" /> <!-- Training Gloves -->
-		<item id="1146" count="1" equipped="true" /> <!-- Squire's Shirt -->
-		<item id="1147" count="1" equipped="true" /> <!-- Squire's Pants -->
+		<item id="66" count="1" equipped="true" /> <!-- Gladius -->
+		<item id="10" count="1" /> <!-- Dagger -->
+		<item id="20" count="1" equipped="true" /> <!-- Buckler -->
+		<item id="23" count="1" equipped="true" /> <!-- Wooden Breastplate -->
+		<item id="2386" count="1" equipped="true" /> <!-- Wooden Gaiters -->
+		<item id="40" count="1" equipped="true" /> <!-- Leather Boots -->
+		<item id="43" count="1" equipped="true" /> <!-- Wooden Helmet -->
+		<item id="57" count="1000000" /> <!-- Adena -->
+		<item id="1835" count="3000" /> <!-- Soulshot: No Grade -->
+		<item id="1060" count="100" /> <!-- Lesser Healing Potion -->
+		<item id="1062" count="50" /> <!-- Haste Potion -->
+		<item id="736" count="20" /> <!-- Scroll of Escape -->
 		<item id="5588" count="1" /> <!-- Tutorial Guide -->
 		<item id="10650" count="5" /> <!-- Adventurer's Scroll of Escape -->
 		<item id="12753" count="10" /> <!-- Kamael Village Teleportation Scroll -->
 	</equipment>
 	<!-- Orc Mystic -->
-	<!-- NOTE: This is orc_mage (orc_shaman is retail typo) -->
 	<equipment classId="49">
-		<item id="2368" count="1" equipped="true" /> <!-- Training Gloves -->
-		<item id="425" count="1" equipped="true" /> <!-- Apprentice's Tunic -->
-		<item id="461" count="1" equipped="true" /> <!-- Apprentice's Stockings -->
+		<item id="178" count="1" equipped="true" /> <!-- Bone Staff -->
+		<item id="427" count="1" equipped="true" /> <!-- Cotton Robe -->
+		<item id="57" count="1000000" /> <!-- Adena -->
+		<item id="3947" count="3000" /> <!-- Blessed Spiritshot: No Grade -->
+		<item id="1060" count="100" /> <!-- Lesser Healing Potion -->
+		<item id="1062" count="50" /> <!-- Haste Potion -->
+		<item id="736" count="20" /> <!-- Scroll of Escape -->
 		<item id="5588" count="1" /> <!-- Tutorial Guide -->
 		<item id="10650" count="5" /> <!-- Adventurer's Scroll of Escape -->
 		<item id="12753" count="10" /> <!-- Kamael Village Teleportation Scroll -->
 	</equipment>
 	<!-- Dwarf Fighter -->
 	<equipment classId="53">
-		<item id="2370" count="1" equipped="true" /> <!-- Guild Member's Club -->
+		<item id="66" count="1" equipped="true" /> <!-- Gladius -->
 		<item id="10" count="1" /> <!-- Dagger -->
-		<item id="1146" count="1" equipped="true" /> <!-- Squire's Shirt -->
-		<item id="1147" count="1" equipped="true" /> <!-- Squire's Pants -->
+		<item id="20" count="1" equipped="true" /> <!-- Buckler -->
+		<item id="23" count="1" equipped="true" /> <!-- Wooden Breastplate -->
+		<item id="2386" count="1" equipped="true" /> <!-- Wooden Gaiters -->
+		<item id="40" count="1" equipped="true" /> <!-- Leather Boots -->
+		<item id="43" count="1" equipped="true" /> <!-- Wooden Helmet -->
+		<item id="57" count="1000000" /> <!-- Adena -->
+		<item id="1835" count="3000" /> <!-- Soulshot: No Grade -->
+		<item id="1060" count="100" /> <!-- Lesser Healing Potion -->
+		<item id="1062" count="50" /> <!-- Haste Potion -->
+		<item id="736" count="20" /> <!-- Scroll of Escape -->
 		<item id="5588" count="1" /> <!-- Tutorial Guide -->
 		<item id="10650" count="5" /> <!-- Adventurer's Scroll of Escape -->
 		<item id="12753" count="10" /> <!-- Kamael Village Teleportation Scroll -->
 	</equipment>
-	<!-- Male Kamael Soldier -->
+	<!-- Kamael Soldier (male) -->
 	<equipment classId="123">
 		<item id="2369" count="1" equipped="true" /> <!-- Squire's Sword -->
 		<item id="10" count="1" /> <!-- Dagger -->
 		<item id="1146" count="1" equipped="true" /> <!-- Squire's Shirt -->
 		<item id="1147" count="1" equipped="true" /> <!-- Squire's Pants -->
+		<item id="57" count="1000000" /> <!-- Adena -->
+		<item id="1835" count="3000" /> <!-- Soulshot: No Grade -->
+		<item id="1060" count="100" /> <!-- Lesser Healing Potion -->
+		<item id="1062" count="50" /> <!-- Haste Potion -->
+		<item id="736" count="20" /> <!-- Scroll of Escape -->
 		<item id="5588" count="1" /> <!-- Tutorial Guide -->
 		<item id="10650" count="5" /> <!-- Adventurer's Scroll of Escape -->
 		<item id="12753" count="10" /> <!-- Kamael Village Teleportation Scroll -->
 	</equipment>
-	<!-- Female Kamael Soldier -->
+	<!-- Kamael Soldier (female) -->
 	<equipment classId="124">
 		<item id="2369" count="1" equipped="true" /> <!-- Squire's Sword -->
 		<item id="10" count="1" /> <!-- Dagger -->
 		<item id="1146" count="1" equipped="true" /> <!-- Squire's Shirt -->
 		<item id="1147" count="1" equipped="true" /> <!-- Squire's Pants -->
+		<item id="57" count="1000000" /> <!-- Adena -->
+		<item id="1835" count="3000" /> <!-- Soulshot: No Grade -->
+		<item id="1060" count="100" /> <!-- Lesser Healing Potion -->
+		<item id="1062" count="50" /> <!-- Haste Potion -->
+		<item id="736" count="20" /> <!-- Scroll of Escape -->
 		<item id="5588" count="1" /> <!-- Tutorial Guide -->
 		<item id="10650" count="5" /> <!-- Adventurer's Scroll of Escape -->
 		<item id="12753" count="10" /> <!-- Kamael Village Teleportation Scroll -->
