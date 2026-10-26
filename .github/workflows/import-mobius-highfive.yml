@@ -27,7 +27,10 @@ jobs:
 
       - name: Clone upstream Mobius source
         run: |
-          git clone --depth 1 --branch master https://gitlab.com/MobiusDevelopment/L2J_Mobius.git /tmp/L2J_Mobius
+          # Mobius contains hundreds of thousands of files across many chronicles.
+          # Use a sparse checkout so the runner downloads only High Five, avoiding disk exhaustion.
+          git clone --depth 1 --filter=blob:none --sparse --branch master https://gitlab.com/MobiusDevelopment/L2J_Mobius.git /tmp/L2J_Mobius
+          git -C /tmp/L2J_Mobius sparse-checkout set L2J_Mobius_CT_2.6_HighFive
           test -d /tmp/L2J_Mobius/L2J_Mobius_CT_2.6_HighFive
 
       - name: Copy High Five source and upstream license notices
