@@ -1,22 +1,37 @@
-# BOHPTS Salvation — High Five compatibility work
+# Salvation client compatibility — High Five server
 
-This document concerns ONLY the new High Five server project.
+This document concerns ONLY the new High Five server project. The previously shared Interlude `system.7z` is unrelated and must not be used for this work.
 
-## Scope
+## Project scope
 - Server base: L2J Mobius CT 2.6 HighFive.
-- Target client: BOHPTS Salvation.
-- The previously shared `system.7z` archive belongs to Lineage II Interlude and is OUT OF SCOPE.
-- Do not use the Interlude archive as evidence for High Five client compatibility.
-- Keep all new compatibility work isolated on the `import/mobius-highfive` branch until validated.
+- Intended game content: High Five.
+- Target client family: Salvation.
+- Keep all compatibility work isolated on a feature branch until validated.
 
-## Initial source checks
-- The upstream `build.xml` declares JDK 27 and Ant 1.9.10+ as build requirements.
-- `dist/game/config/Server.ini` currently allows protocol revisions `267;268;271;273`.
-- The target client's actual protocol revision and packet compatibility have not yet been verified.
+## Protocol research
+Public client archives and server-project references identify multiple Salvation protocol variants:
+- Salvation protocol 140 is a documented and commonly distributed client variant.
+- Salvation protocol 152 is also documented for some client distributions/regions.
+- High Five commonly uses protocol revisions 267, 268, 271, and 273.
 
-## Next steps
-1. Obtain files/version details from the BOHPTS Salvation High Five client specifically.
-2. Identify its exact client build and protocol revision.
-3. Compare the client system files and protocol implementation with this server source.
-4. Run build and login/game connection tests.
-5. Implement only confirmed differences, on a separate feature branch.
+The current imported Mobius High Five configuration at `dist/game/config/Server.ini` allows `267;268;271;273` only. Therefore, this source does not currently advertise Salvation 140 or 152 as supported.
+
+## Recommended target
+Start the compatibility investigation with Salvation protocol 140 as the primary target. Keep protocol 152 as a separate possible target until the exact client distribution is chosen and verified. Do not promise 152 support based only on the word “Salvation”.
+
+## Important technical note
+Adding 140 or 152 to `AllowedProtocolRevisions` alone is NOT sufficient. The server needs compatible protocol handling and packet implementations, and must pass login, server-list, game-server handshake, character selection, Enter World, and gameplay smoke tests.
+
+## Work plan
+1. Inspect the imported source's protocol-version validation and packet implementations.
+2. Determine how this Mobius branch structures client protocol handling and whether multiple revisions are supported cleanly.
+3. Compare existing High Five packet handlers with Salvation 140; identify concrete gaps before editing.
+4. Implement support on an isolated feature branch, keeping High Five behavior intact.
+5. Build with the JDK declared in upstream `build.xml` (currently JDK 27) and run smoke tests.
+6. Test Salvation 140; consider 152 only as a separate compatibility target.
+
+## Sources reviewed
+- Client system archive catalog listing Salvation RU/NA/EU protocol variants 140 and 152: https://sites.google.com/site/l2clientdev/system-m0nster-io
+- Client resource listings for “Salvation 140 Protocol”: https://mmo-dev.info/tags/salvation/
+- Server project references describing High Five protocol 273 and Salvation protocol 140: https://forum.lucera2.com/threads/high-five-h5-fafurion-i-pererabotka-seti.9157/page-2
+- Compatibility catalog listing High Five revisions and Salvation 140/152: https://www.strix-guard.info/en/compatibility
