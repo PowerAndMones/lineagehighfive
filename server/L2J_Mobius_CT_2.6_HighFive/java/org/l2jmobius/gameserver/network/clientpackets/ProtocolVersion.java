@@ -41,6 +41,15 @@ public class ProtocolVersion extends ClientPacket
 		try
 		{
 			_version = readInt();
+			
+			// Salvation protocol 140 may append a 0x104-byte handshake block
+			// (0x100-byte data field followed by a 4-byte check field).
+			// Consume the complete optional block so it cannot be mistaken for
+			// another packet. This does not by itself enable Salvation support.
+			if ((_version == 140) && (remaining() == 0x104))
+			{
+				readBytes(0x104);
+			}
 		}
 		catch (Exception e)
 		{
