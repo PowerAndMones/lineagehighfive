@@ -1,0 +1,53 @@
+name: Import L2J Mobius High Five
+
+on:
+  workflow_dispatch:
+    inputs:
+      target_branch:
+        description: 'Branch to receive the imported source'
+        required: true
+        default: 'import/mobius-highfive'
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: mobius-highfive-import
+  cancel-in-progress: false
+
+jobs:
+  import-source:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout this repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Clone upstream Mobius source
+        run: |
+          git clone --depth 1 --branch master https://gitlab.com/MobiusDevelopment/L2J_Mobius.git /tmp/L2J_Mobius
+          test -d /tmp/L2J_Mobius/L2J_Mobius_CT_2.6_HighFive
+
+      - name: Copy High Five source and upstream license notices
+        run: |
+          mkdir -p server
+          rm -rf server/L2J_Mobius_CT_2.6_HighFive
+          cp -a /tmp/L2J_Mobius/L2J_Mobius_CT_2.6_HighFive server/
+          for f in LICENSE LICENSE.md COPYING NOTICE; do
+            if [ -f "/tmp/L2J_Mobius/$f" ]; then cp "/tmp/L2J_Mobius/$f" "server/MOBIUS_UPSTREAM_$f"; fi
+          done
+          printf '\n\n## Imported server source\n\nThe upstream L2J Mobius CT 2.6 High Five source is imported by the manual GitHub Actions workflow into `server/L2J_Mobius_CT_2.6_HighFive`. Review upstream licensing and notices before redistribution. Client compatibility with BOHPTS Salvation has not yet been implemented or verified.\n' >> README.md
+
+      - name: Commit source to a dedicated branch
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TARGET_BRANCH: ${{ inputs.target_branch }}
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git switch -C "$TARGET_BRANCH"
+          git add server README.md
+          git commit -m 'chore: import L2J Mobius CT 2.6 High Five source' || echo 'No changes to commit'
+          git push --force-with-lease origin "$TARGET_BRANCH"
