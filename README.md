@@ -26,3 +26,7 @@ Protocol compatibility is not established yet. A High Five server foundation doe
 ## Client files and licensing
 
 Only add client assets or third-party code when redistribution is permitted. Prefer technical notes, patch metadata, and compatibility code over committing a full proprietary game client.
+
+## Imported server source
+
+The upstream L2J Mobius CT 2.6 High Five source is imported by the manual GitHub Actions workflow into `server/L2J_Mobius_CT_2.6_HighFive`. Review upstream licensing and notices before redistribution. Client compatibility with BOHPTS Salvation has not yet been implemented or verified.
