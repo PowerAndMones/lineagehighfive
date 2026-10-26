@@ -25,7 +25,11 @@ Start the compatibility investigation with Salvation protocol 140 as the primary
 - `loginserver/network/LoginClientPackets.java` has a separate fixed packet table for the login protocol. Login compatibility must be checked independently from game-server protocol compatibility.
 - `GameClient.java` stores the negotiated protocol version, but the inspected `ProtocolVersion` handler does not itself select a Salvation-specific packet table or protocol adapter.
 
-## Detailed dispatch findings (feature branch)
+## First implementation step on main
+- `ProtocolVersion.java` now consumes the optional `0x104`-byte payload observed in a public Salvation-related protocol handler when the announced revision is 140. The block consists of `0x100` bytes plus a 4-byte check field. This prevents those bytes from being left in the packet buffer and misread as another packet.
+- This is only handshake parsing groundwork. Protocol 140 remains unenabled by default because the High Five packet tables and payload layouts have not yet been verified against the target client.
+
+## Detailed dispatch findings
 - `gameserver/network/GamePacketHandler.java` reads the first byte and resolves it through the single static `ClientPackets.PACKET_ARRAY`; extended opcode `0xD0` is resolved through the static `ExClientPackets.PACKET_ARRAY`.
 - `ClientPackets.java` and `ExClientPackets.java` are enum-based lookup tables. The dispatcher does not select a table based on `GameClient.getProtocolVersion()`.
 - This means the current server has no demonstrated per-revision packet dispatch layer. A safe implementation must first introduce a protocol-specific packet mapping/adapter or prove that Salvation 140 uses compatible opcode mappings for the target packet set. We must not infer that compatibility from the revision number alone.
