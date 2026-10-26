@@ -1,0 +1,28 @@
+name: High Five build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up JDK 27
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '27'
+      - name: Set up Ant
+        run: sudo apt-get update && sudo apt-get install -y ant
+      - name: Build High Five
+        working-directory: server/L2J_Mobius_CT_2.6_HighFive
+        run: ant
