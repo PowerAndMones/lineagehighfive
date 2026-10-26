@@ -6,7 +6,7 @@ This document concerns ONLY the new High Five server project. The previously sha
 - Server base: L2J Mobius CT 2.6 HighFive.
 - Intended game content: High Five.
 - Target client family: Salvation.
-- Keep all compatibility work isolated on a feature branch until validated.
+- Compatibility work is being developed directly on `main`, as requested. Keep changes incremental and verify builds before claiming support.
 
 ## Protocol research
 Public client archives and server-project references identify multiple Salvation protocol variants:
@@ -25,6 +25,19 @@ Start the compatibility investigation with Salvation protocol 140 as the primary
 - `loginserver/network/LoginClientPackets.java` has a separate fixed packet table for the login protocol. Login compatibility must be checked independently from game-server protocol compatibility.
 - `GameClient.java` stores the negotiated protocol version, but the inspected `ProtocolVersion` handler does not itself select a Salvation-specific packet table or protocol adapter.
 
+## Detailed dispatch findings (feature branch)
+- `gameserver/network/GamePacketHandler.java` reads the first byte and resolves it through the single static `ClientPackets.PACKET_ARRAY`; extended opcode `0xD0` is resolved through the static `ExClientPackets.PACKET_ARRAY`.
+- `ClientPackets.java` and `ExClientPackets.java` are enum-based lookup tables. The dispatcher does not select a table based on `GameClient.getProtocolVersion()`.
+- This means the current server has no demonstrated per-revision packet dispatch layer. A safe implementation must first introduce a protocol-specific packet mapping/adapter or prove that Salvation 140 uses compatible opcode mappings for the target packet set. We must not infer that compatibility from the revision number alone.
+- The imported L2J Mobius High Five baseline has been merged into `main`. Continue all project changes on `main`.
+
+## Validation gates before enabling Salvation 140
+1. Unit tests for revision selection: High Five revisions remain accepted; Salvation 140 is accepted only when the Salvation adapter is explicitly enabled; unsupported revisions are rejected.
+2. Packet dispatch tests for known client opcodes and extended opcodes, including invalid/out-of-range values and null/unimplemented handlers.
+3. Protocol handshake tests covering protocol version, encryption key exchange, login, server list, game-server authentication, character list, character selection, and Enter World.
+4. A clean Ant build on the JDK version declared by upstream `build.xml`.
+5. Manual client smoke test with the exact Salvation distribution targeted for release. Until this succeeds, label support experimental.
+
 ## Important technical note
 Adding 140 or 152 to `AllowedProtocolRevisions` alone is NOT sufficient. The server needs compatible protocol handling and packet implementations, and must pass login, server-list, game-server handshake, character selection, Enter World, and gameplay smoke tests.
 
@@ -32,7 +45,7 @@ Adding 140 or 152 to `AllowedProtocolRevisions` alone is NOT sufficient. The ser
 1. Inspect the imported source's protocol-version validation and packet implementations.
 2. Determine how this Mobius branch structures client protocol handling and whether multiple revisions are supported cleanly.
 3. Compare existing High Five packet handlers with Salvation 140; identify concrete gaps before editing.
-4. Implement support on an isolated feature branch, keeping High Five behavior intact.
+4. Implement support directly on `main`, keeping existing High Five behavior intact.
 5. Build with the JDK declared in upstream `build.xml` (currently JDK 27) and run smoke tests.
 6. Test Salvation 140; consider 152 only as a separate compatibility target.
 
