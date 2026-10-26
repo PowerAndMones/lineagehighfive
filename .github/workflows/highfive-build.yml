@@ -26,3 +26,11 @@ jobs:
       - name: Build High Five
         working-directory: server/L2J_Mobius_CT_2.6_HighFive
         run: ant
+
+      - name: Upload ready-to-copy server package
+        uses: actions/upload-artifact@v4
+        with:
+          name: L2J-Mobius-HighFive-build
+          path: server/build/L2J_Mobius_CT_2.6_HighFive.zip
+          if-no-files-found: error
+          retention-days: 14
