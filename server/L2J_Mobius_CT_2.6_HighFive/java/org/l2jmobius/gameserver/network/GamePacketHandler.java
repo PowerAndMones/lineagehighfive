@@ -74,10 +74,12 @@ public class GamePacketHandler implements PacketHandler<GameClient>
 			}
 			if (client.isSalvationMode())
 			{
+				final int salvationExId = exPacketId;
 				exPacketId = SalvationProtocol.translateIncomingExId(exPacketId);
 				if (exPacketId < 0)
 				{
 					// Salvation-only packet without a local counterpart.
+					LOGGER.info("SALVATION: dropped client Ex packet without local counterpart (salvationExId=" + salvationExId + ")");
 					return null;
 				}
 			}
@@ -150,12 +152,20 @@ public class GamePacketHandler implements PacketHandler<GameClient>
 		final ClientPackets packetEnum = ClientPackets.PACKET_ARRAY[realPacketId];
 		if (packetEnum == null)
 		{
+			if (client.isSalvationMode())
+			{
+				LOGGER.info("SALVATION: dropped unknown client packet id=0x" + Integer.toHexString(realPacketId));
+			}
 			return null;
 		}
 		
 		// Check connection state.
 		if (!packetEnum.getConnectionStates().contains(client.getConnectionState()))
 		{
+			if (client.isSalvationMode())
+			{
+				LOGGER.info("SALVATION: dropped client packet id=0x" + Integer.toHexString(realPacketId) + " - wrong connection state " + client.getConnectionState());
+			}
 			return null;
 		}
 		

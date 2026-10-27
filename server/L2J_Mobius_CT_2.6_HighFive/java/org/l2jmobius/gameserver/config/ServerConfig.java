@@ -92,6 +92,7 @@ public class ServerConfig
         public static List<Integer> PROTOCOL_LIST;
         public static boolean ENABLE_SALVATION_PROTOCOL;
         public static boolean SALVATION_SHUFFLE;
+        public static boolean SALVATION_IS_CLASSIC;
         public static int SERVER_LIST_TYPE;
         public static int SERVER_LIST_AGE;
         public static boolean SERVER_LIST_BRACKET;
@@ -216,6 +217,9 @@ public class ServerConfig
                 ENABLE_SALVATION_PROTOCOL = config.getBoolean("EnableSalvationProtocol", false);
                 // Optional client-to-server opcode shuffling (non-zero obfuscation seed in KeyPacket).
                 SALVATION_SHUFFLE = config.getBoolean("SalvationShuffle", false);
+                // Announce classic-mode server to Salvation clients so they load the lighter
+                // classic data set (avoids the 32-bit "Insufficient Memory" client crash).
+                SALVATION_IS_CLASSIC = config.getBoolean("SalvationIsClassic", false);
                 
                 SERVER_LIST_TYPE = getServerTypeId(config.getString("ServerListType", "Free").split(","));
                 SERVER_LIST_AGE = config.getInt("ServerListAge", 0);

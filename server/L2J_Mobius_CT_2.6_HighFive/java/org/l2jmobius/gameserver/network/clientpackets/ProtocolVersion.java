@@ -96,6 +96,7 @@ public class ProtocolVersion extends ClientPacket
 			}
 			
 			client.sendPacket(new KeyPacket(client.enableCrypt(), 1, obfuscationKey));
+			LOGGER_ACCOUNTING.info("SALVATION: protocol 140 client accepted, KeyPacket sent (isClassic=" + (ServerConfig.SALVATION_IS_CLASSIC || ((ServerConfig.SERVER_LIST_TYPE & 0x400) == 0x400)) + ")");
 		}
 		else if (!ServerConfig.PROTOCOL_LIST.contains(_version))
 		{

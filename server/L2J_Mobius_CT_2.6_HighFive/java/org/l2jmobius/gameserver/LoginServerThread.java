@@ -339,6 +339,7 @@ public class LoginServerThread extends Thread
 									final CharSelectionInfo cl = new CharSelectionInfo(wcToRemove.account, wcToRemove.gameClient.getSessionId().playOkID1);
 									wcToRemove.gameClient.sendPacket(cl);
 									wcToRemove.gameClient.setCharSelection(cl.getCharInfo());
+									LOGGER.info("SALVATION: auth ok for " + wcToRemove.account + ", CharSelectionInfo sent (" + cl.getCharInfo().size() + " characters)");
 								}
 								else
 								{
@@ -427,6 +428,7 @@ public class LoginServerThread extends Thread
 			_waitingClients.add(new WaitingClient(accountName, client, key));
 		}
 		
+		LOGGER.info("SALVATION: PlayerAuthRequest sent to login server for account " + accountName);
 		sendPacket(new PlayerAuthRequest(accountName, key));
 	}
 	

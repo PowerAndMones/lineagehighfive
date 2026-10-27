@@ -20,6 +20,9 @@
  */
 package org.l2jmobius.gameserver.network.clientpackets;
 
+import java.util.logging.Logger;
+
+
 import org.l2jmobius.gameserver.LoginServerThread;
 import org.l2jmobius.gameserver.LoginServerThread.SessionKey;
 import org.l2jmobius.gameserver.network.GameClient;
@@ -29,6 +32,9 @@ import org.l2jmobius.gameserver.network.GameClient;
  */
 public class AuthLogin extends ClientPacket
 {
+	private static final Logger LOGGER = Logger.getLogger(AuthLogin.class.getName());
+
+
 	// loginName + keys must match what the loginserver used.
 	private String _loginName;
 	private int _playKey1;
@@ -67,9 +73,11 @@ public class AuthLogin extends ClientPacket
 				
 				// client.setSessionId(key);
 				LoginServerThread.getInstance().addWaitingClientAndSendRequest(_loginName, client, key);
+				LOGGER.info("SALVATION: AuthLogin '" + _loginName + "' -> session key check sent to login server");
 			}
 			else
 			{
+				LOGGER.warning("SALVATION: AuthLogin '" + _loginName + "' rejected - account already logged in or stale session");
 				client.close(null);
 			}
 		}

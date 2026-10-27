@@ -94,11 +94,13 @@ The first working Salvation 140 adapter is implemented on `main`. Design notes:
 ### Changes on main
 - `gameserver/network/SalvationProtocol.java` (new): generated Ex-opcode remap tables (Salvation <-> High Five, name-matched from both baselines) plus the outgoing 0xFE xx translation hook.
 - `gameserver/network/PacketShuffler.java` (new): deterministic client-to-server opcode shuffler (public MrKirill1232 algorithm) operating over the Salvation opcode space, with the maintain list (EnterWorld, CharacterSelect, NetPing, ExPacket, raid connect/return).
-- `gameserver/config/ServerConfig.java` + `dist/game/config/Server.ini`: `EnableSalvationProtocol` (adapter gate; 140 is rejected while off) and `SalvationShuffle` (optional non-zero obfuscation seed).
+- `gameserver/config/ServerConfig.java` + `dist/game/config/Server.ini`: `EnableSalvationProtocol` (adapter gate; 140 is rejected while off), `SalvationShuffle` (optional non-zero obfuscation seed) and `SalvationIsClassic` (see below).
 - `gameserver/network/clientpackets/ProtocolVersion.java`: accepts 140 only through the adapter gate, consumes the optional 0x104-byte handshake block, registers the per-client shuffler when shuffling is enabled, and sends the obfuscation seed inside KeyPacket.
-- `gameserver/network/GamePacketHandler.java`: per-client inbound opcode pipeline - unshuffle (when enabled), then Salvation-to-local Ex remap; Salvation-only Ex packets without a local counterpart are dropped.
+- `gameserver/network/GamePacketHandler.java`: per-client inbound opcode pipeline - unshuffle (when enabled), then Salvation-to-local Ex remap; Salvation-only Ex packets without a local counterpart are dropped and logged (`SALVATION:` prefix).
 - `gameserver/network/GameClient.java`: outbound Ex opcode remap applied in `encrypt()` before encryption, so all server packets reach the 140 client with Salvation-space ids.
 - `gameserver/network/serverpackets/KeyPacket.java`: obfuscation key field now carries the shuffler seed (0 keeps shuffling off) and Salvation clients receive the trailing `isClassic` byte the Salvation protocol appends.
+- `SalvationIsClassic` (default `False`, shipped as `True` in `Server.ini`): controls the KeyPacket `isClassic` byte. With `True` the client loads its lighter classic data set instead of the full live data (item upgrade system etc.). This avoids the 32-bit `Insufficient Memory` crash inside `FL2UpgradeSystemData::Serialize <- LoadAlternateGameData <- OnChangeServerType <- VersionCheckPacket` that happens when a Salvation client enters the character selection screen on a memory-limited host. Packet layouts are identical in both modes.
+- Handshake tracing: the whole Salvation login chain is logged with a `SALVATION:` prefix in `GameServer.log` - protocol acceptance (`ProtocolVersion`), `AuthLogin` (account + session key check), `PlayerAuthRequest`/auth result and the `CharSelectionInfo` character count - so a stuck client can be located precisely.
 - `gameserver/network/serverpackets/CharSelectionInfo.java`: Salvation character-select layout (header flags, SP as long, reputation, 33-slot paperdoll, visual ids, per-slot enchant shorts, augmentation option pair, vitality/hero/noble tail).
 - `gameserver/network/serverpackets/CharSelected.java`: Salvation EnterWorld layout (SP as long, no base-stat block, adjusted padding).
 - `loginserver/config/LoginConfig.java` + `dist/login/config/Server.ini`: `SalvationClientMode` switch (the login protocol carries no client revision, so the mode is server-side).
@@ -107,6 +109,7 @@ The first working Salvation 140 adapter is implemented on `main`. Design notes:
 ### Validation performed
 - Full clean compile of the source tree (JDK preview build; CI uses the declared JDK).
 - Self-test of the generated tables and the shuffler: key mappings (2nd password, bookmark, raid), table ranges, permutation bijectivity, maintain-id stability, seed determinism - all passed.
+- Live smoke test: Salvation 140 client passes login -> server list -> gameserver KeyPacket handshake. The remaining blocker was the client-side 32-bit OOM described above, addressed by the `SalvationIsClassic` flag plus standard client-side remedies (Windows pagefile, 4GB/LAA patch on `l2.exe`).
 
 ### Next steps
 1. Smoke test against the exact Salvation 140 client: login, server list, character selection, Enter World, movement.

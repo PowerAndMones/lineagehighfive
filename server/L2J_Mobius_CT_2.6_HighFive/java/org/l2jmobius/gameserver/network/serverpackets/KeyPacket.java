@@ -68,9 +68,12 @@ public class KeyPacket extends ServerPacket
 		buffer.writeInt(_obfuscationKey); // obfuscation key (non-zero enables client opcode shuffling)
 		
 		// Salvation clients read one extra byte after the obfuscation key.
+		// It tells the client which data set to load: classic (lighter) or live
+		// (heavy, includes the item upgrade system). Classic mode avoids the
+		// 32-bit "Insufficient Memory" crash on character selection.
 		if ((client != null) && (client.getProtocolVersion() == SalvationProtocol.SALVATION_PROTOCOL_REVISION))
 		{
-			buffer.writeByte((ServerConfig.SERVER_LIST_TYPE & 0x400) == 0x400); // isClassic
+			buffer.writeByte(ServerConfig.SALVATION_IS_CLASSIC || ((ServerConfig.SERVER_LIST_TYPE & 0x400) == 0x400)); // isClassic
 		}
 	}
 }
