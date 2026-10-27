@@ -88,6 +88,7 @@ import org.l2jmobius.gameserver.network.ConnectionState;
 import org.l2jmobius.gameserver.network.Disconnection;
 import org.l2jmobius.gameserver.network.GameClient;
 import org.l2jmobius.gameserver.network.PacketLogger;
+import org.l2jmobius.gameserver.network.SalvationProtocol;
 import org.l2jmobius.gameserver.network.SystemMessageId;
 import org.l2jmobius.gameserver.network.enums.ChatType;
 import org.l2jmobius.gameserver.network.holders.ClientHardwareInfoHolder;
@@ -139,6 +140,25 @@ public class EnterWorld extends ClientPacket
 	@Override
 	protected void readImpl()
 	{
+		if (getClient().getProtocolVersion() == SalvationProtocol.SALVATION_PROTOCOL_REVISION)
+		{
+			// Salvation layout: tracert block first, then 4 unknown ints, then a
+			// 64-byte array, then 1 unknown int.
+			for (int i = 0; i < 5; i++)
+			{
+				for (int o = 0; o < 4; o++)
+				{
+					_tracert[i][o] = readUnsignedByte();
+				}
+			}
+			readInt(); // Unknown Value
+			readInt(); // Unknown Value
+			readInt(); // Unknown Value
+			readInt(); // Unknown Value
+			readBytes(64); // Unknown Byte Array
+			readInt(); // Unknown Value
+			return;
+		}
 		readBytes(32); // Unknown Byte Array
 		readInt(); // Unknown Value
 		readInt(); // Unknown Value

@@ -115,3 +115,24 @@ The first working Salvation 140 adapter is implemented on `main`. Design notes:
 1. Smoke test against the exact Salvation 140 client: login, server list, character selection, Enter World, movement.
 2. Fix any packet payload mismatches discovered during the smoke test (the remaining payload differences between High Five and Salvation are handled packet-by-packet).
 3. Only after the static path is verified, evaluate `SalvationShuffle` with the target client.
+
+
+## Full verification against the complete Mobius 5.0 Salvation source (2026-10-28)
+
+The complete Mobius 5.0 Salvation server source (`L2J_Mobius_05.0_Salvation`, 23104 files) was extracted and every packet in the Salvation client chain was diffed against this build. Results:
+
+### Verified identical / correct
+- Regular client packets (`ClientPackets`): all common names map to identical ids - 100% compatible.
+- Regular server packets (`ServerPackets`): 0 mismatches (252 local entries checked).
+- `ExClientPackets` / `ServerPackets` Ex remap tables in `SalvationProtocol.java`: regenerated from the FULL enums (not the earlier 12-file sample) - the shipped tables match the regenerated ones exactly (CM: 132 matched, 0 collisions; SM: 203 matched, 0 collisions). Key mappings confirmed: `REQUEST_EX_2ND_PASSWORD_CHECK` 0xA6 -> 0x93, `EX_2ND_PASSWORD_CHECK` 0xE5 -> 0x105.
+- `KeyPacket`: structure matches the reference (result, 8 key bytes, encryption flag, server id, byte 1, obfuscation key, trailing `isClassic` byte).
+- `CharSelectionInfo` Salvation branch: header and character entry layouts match the reference byte-for-byte in sizes and order (cosmetic value differences only: clan id vs 0, karma vs reputation, zeros for vitality percent / noble).
+- `CharacterSelect` (client) and `CharSelected` Salvation branch: identical to the reference.
+- `AuthLogin` read: identical.
+- `ServerList` Salvation tail: identical (0xA4 + per-server character counts).
+- `Encryption`: same blowfish + running-XOR algorithm (local copy only optimizes byte->int masking).
+- `NewCharacterSuccess`: identical structure (only cap values 70/10 vs 99/1 differ).
+- Reference default `ServerListType = Free` -> the real Salvation server sends `isClassic = 0` (live data set) by default. Our `SalvationIsClassic = True` is a deliberate deviation to avoid the 32-bit client OOM; the client supports both modes and the flag is configurable without rebuilding.
+
+### Fixed: EnterWorld read order
+The Salvation client sends `EnterWorld` fields in a different order than High Five: tracert block (5x4 bytes) FIRST, then 4 unknown ints, a 64-byte array and 1 int (High Five: 32-byte array, 4 ints, 32-byte array, 1 int, tracert last). Total length is the same (104 bytes), so the packet parsed without errors before, but `_tracert` captured misaligned garbage. `EnterWorld.readImpl()` now branches on protocol 140 and reads the Salvation layout, so client IP tracert logging works correctly for Salvation clients.
