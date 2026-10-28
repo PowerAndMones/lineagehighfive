@@ -209,3 +209,22 @@ Test of v1.5: inventory duplication is gone and status bars are correct, but **n
 
 ### Client crash with a third-party system folder
 A test with a different `system` folder crashed the client after server select inside `FL2OneDayRewardSystem::Serialize <- LoadAlternateGameData <- OnChangeServerType` (client build dated 2018). This is a client-side DAT mismatch (old/incompatible `OneDayRewardSetting.dat` in that repack), not a server issue: our `KeyPacket` layout matches the reference (result, key, encryption, server id, obfuscation key, isClassic byte). Use the system folder that matches the working client build.
+
+## Full opcode-table alignment; ExUserInfo set; packet format branches (phase 5.2)
+
+Test of v1.6: mobs and NPCs render and can be attacked, but show **no names**; teleporting into a city produces a **black screen** and the character disappears; the skill window stays empty. A full diff of the reference build against ours exposed a systemic protocol drift that piecemeal fixes could never cover.
+
+### Root causes
+1. **The High Five and Salvation-140 server opcode tables differ systematically.** Of the 485 packet constants in our `ServerPackets` enum, 146 share their reference name but carry a different wire id (`SkillList 0x5F -> 0x40`, `ExQuestItemList 0xC6 -> 0xC7`, `ExBasicActionList 0x5F -> 0x60`, plus ~143 Ex-packets shifted by one). The 140 client silently dropped every mismatched packet - the skill list response never arrived (the client kept re-sending `REQUEST_SKILL_LIST`), quest items and the basic action list never loaded.
+2. **NPC names.** The reference datapack does not enable `usingServerSideName` either - the stock 140 client resolves NPC names from its own DAT files. On the tested client install those names did not render, so the server now always sends the `NpcInfoType.NAME` component for salvation clients.
+3. **Teleport/visibility tails.** `TeleportToLocation` was 4 bytes short (missing the trailing "unknown" int), `ValidateLocation` missed the heading-validation byte, `DeleteObject` wrote an int where 140 expects a byte, `SpawnItem` lacked the 3-byte enchant/augment/abilities tail.
+4. **Equipment paperdoll.** The 140 client draws the paperdoll exclusively from `ExUserInfoEquipSlot` (`0xFE 0x156`), sent by the reference at enter-world and on every equip change. Our build never sent it - hence "equipment cells do not match".
+
+### Changes
+- **Central opcode override mechanism.** `ServerPacket` exposes `getCurrentWritingClient()` (ThreadLocal, set/cleared around `writeImpl`); the generated `ServerPacketsSalvation` map (146 entries, diffed from the reference enum) is consulted by `ServerPackets.writeId` whenever the receiving client is in salvation mode. Ten new enum constants (`EX_USER_INFO_EQUIP_SLOT`, `EX_SUBJOB_INFO`, ...) carry their 140 ids directly.
+- **New packets ported from the reference**: `ExUserInfoEquipSlot` (38-slot mask layout, mapped onto our paperdoll indices; agathion/brooch slots write zeros), `ExUserInfoInvenWeight`, `ExAdenaInvenCount`, `ExUserInfoCubic`, `ExUserInfoAbnormalVisualEffect`, `ExSubjobInfo`, `ExVitalityEffectInfo`, `ExWorldChatCnt`, `InventorySlot` enum, `SalvationAveMap` (49 common H5 abnormal-visual-effect names mapped to 140 client ids).
+- **EnterWorld** now sends the ExUserInfo set after `ShortcutInit`; `Inventory.setPaperdollItem` broadcasts `ExUserInfoEquipSlot` on every equip/unequip.
+- **Full 140 wire branches** for `Attack` (inline first hit, int flags + grade), `MagicSkillUse` (casting type head, reuse group, action id tail), `ShortcutInit` (item augment/visual ints, skill short level + sub level), `SkillList` (short level/sub level, reuse delay group, tail), `HennaInfo` (short stats + premium block), `RelationChanged` (byte mask header, byte entry flags), `ExStorageMaxCount` (12 ints), `CreatureSay` (whisper relation tail), `Die` (7 teleport flags + hide animation + items), `CharInfo` (complete 140 branch for other players).
+- `NpcInfo`: the NAME component is always included for salvation clients.
+
+Expected next test (v1.7): NPC/mob names visible, teleport lands clean, equipment occupies correct paperdoll cells, the skill window lists skills, other players render correctly.

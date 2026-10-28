@@ -42,3 +42,27 @@ Stage Summary:
 - Push 0727553b..ce1292ab SUCCESS; CI 40688628500 success; артефакт верифицирован javap (NpcInfoType.class + addNpcInfoMask в jar)
 - Release v1.6 опубликован (id 426647369): https://github.com/PowerAndMones/lineagehighfive/releases/download/v1.6/L2J_Mobius_CT_2.6_HighFive_x50_Salvation140.zip; анонимная проверка HTTP 200
 - Примечание: середина сессии - Environment glitch #2 (файл AbstractNpcInfo мигал версиями, в индекс попала испорченная); вылечено фикс+ретраи+немедленный git add; в релиз ушёл корректный байт-код (CI компилирует из git)
+
+Task ID: 22
+Agent: main
+Task: Фаза 5.2 - полный системный проход по протоколу 140 (опкоды + форматы + ExUserInfo)
+
+Work Log:
+- Тест v1.6 (лог 28/10 17:53): мобы/NPC видимы и атакуемы, НО без имён; телепорт в город - чёрный экран, персонаж исчез; скиллы кастуются. Запрос пользователя: "досконально пройтись по сборкам и что нужно с 5.0 Salvation сделать в HighFive" - не по одной фиче, а всё сразу
+- ИНВЕНТАРИЗАЦИЯ: serverpackets REF=447 файлов vs OURS=390; ServerPackets REF=763 констант vs OURS=485
+- ГЛАВНОЕ ОТКРЫТИЕ: таблицы SP-опкодов H5 и 140 различаются системно - 146 совпадающих по имени констант с разными ID (SkillList 0x5F->0x40, ExQuestItemList 0xC6->0xC7, ExBasicActionList 0x5F->0x60, ~143 Ex-сдвиги на +1). Т.е. клиент 140 молча дропал SkillList (в логе повторный REQUEST_SKILL_LIST - клиент не получал ответ!), квест-инвентарь, ExBasicActionList и пр.
+- CM-таблица: расхождение ТОЛЬКО 0x38 RequestMagicSkillList (класса у нас нет; тихо игнорится)
+- Имена NPC: XSD/датапак эталона тоже не шлёт NAME (usingServerSideName=false везде) - клиент 140 на эталоне берёт имена из DAT; у пользователя DAT-имена не показались -> форсировали hasName=true в salvation-ветке NpcInfo
+- Чёрный город: наш TeleportToLocation обрезан (нет финального int 0 "Unknown"), ValidateLocation без финального byte 1; DeleteObject int вместо byte; SpawnItem без 3-byte хвоста
+- Кривые ячейки экипировки: эталон шлёт ExUserInfoEquipSlot (0xFE 0x156) на входе (EnterWorld) и при каждой экипировке (Inventory.setPaperdollItem); наш вообще не шёл - клиент 140 рисует paperdoll из него. Плюс ExSubjobInfo/ExUserInfoInvenWeight/ExAdenaInvenCount/ExVitalityEffectInfo/ExWorldChatCnt
+- Центральный механизм: ServerPacket.getCurrentWritingClient() (ThreadLocal, set/clear в write()) + ServerPacketsSalvation.java (146 override'ов) + writeId() проверяет режим клиента; 10 новых констант enum (EX_USER_INFO_* и др. с 140-значениями)
+- Новые файлы (11): ServerPacketsSalvation, InventorySlot (маппинг в НАШИ paperdoll-индексы, AGATHION/BROOCH=-1), ExUserInfoEquipSlot, ExUserInfoInvenWeight, ExAdenaInvenCount, ExUserInfoCubic, ExUserInfoAbnormalVisualEffect, ExSubjobInfo, ExVitalityEffectInfo, ExWorldChatCnt, SalvationAveMap (49 общих AVE: H5-маска -> 140 clientId)
+- Форматные ветки 140: Attack (первый хит inline + int flags + grade), MagicSkillUse (castingType, reuseGroup, actionId tail), ShortcutInit (ITEM aug/visual int'ы, SKILL short level+subLevel), SkillList (short level/subLevel, reuseDelayGroup, tail lastLearned), HennaInfo (8 short статов + premium-блок), RelationChanged (byte mask header, byte flags), ExStorageMaxCount (12 int), CreatureSay (WHISPER tail mask+level), Die (7 флагов + hideAnimation + items), CharInfo (полная 140-ветка writeSalvation140)
+- EnterWorld: salvation -> шлёт ExSubjobInfo, ExUserInfoInvenWeight, ExAdenaInvenCount, ExUserInfoEquipSlot, ExVitalityEffectInfo, ExWorldChatCnt после ShortcutInit
+- Inventory.setPaperdollItem: broadcast ExUserInfoEquipSlot при каждой смене экипировки (salvation)
+- Фиксы сборки: двойные @Override (replace_method оставлял старый), ServerPacket вставка поля (anchor '{' не совпал - tab), SkillList потерял inner class Skill (восстановлен), ShortcutInit _player field добавлен, \timport -> import
+- Компиляция 1921 файлов exit 0; javap-верификация (getCurrentWritingClient, ServerPacketsSalvation, _player, ExUserInfoEquipSlot)
+
+Stage Summary:
+- Ожидаемый тест v1.7: (1) имена у NPC/мобов; (2) телепорт без чёрного города; (3) экипировка в правильных ячейках (ExUserInfoEquipSlot + корректный SkillList/ShortcutInit); (4) список скиллов отображается (опкод 0x40); (5) другие игроки/декоры видны (CharInfo 140)
+- Следующие кандидаты: SummonInfo/PetInfo (0x8B) для петов, ExPetInfo; CM 0x38 RequestMagicSkillList (ответить ExAcquirableSkillListByClass-заглушкой)
