@@ -251,3 +251,11 @@ The reference sends `ExTeleportToLocationActivate` (0xFE 0x14A) when a teleport 
 
 ### Deferred (no High Five data model for it)
 GMView* admin viewers, FakePlayerInfo, SiegeDefenderList, ExOlympiadMatchResult, private-store manage list rewrites, beauty shop, MPCC rooms, pledge recruit board. These either target GM tools or features the 140 client only opens through content we do not run yet.
+
+## Quest journal display fix (v1.9)
+
+User report: quests "worked but did not display properly". Audit of every quest-related server packet against the Salvation 5.0 reference found exactly one server-side wire gap:
+
+- **QuestList** (opcode 0x86, layout unchanged in 140): our build sent a 128-byte tail of **zeros** where the reference sends the **one-time completed quest bitmask** (`index = (questId % 10000) / 8`, `bit = questId % 8`, applied only to completed quests with `questId <= 255` or `10256 <= questId <= 11023`). Without the mask the 140 client never marks completed one-time quests in the quest journal. The mask is now built in the constructor from `Player.getAllQuestStates()` (new accessor over the internal quest map). Harmless for High Five clients - same packet layout, honest mask.
+- Everything else checks out: active quests populate via `getAllActiveQuests()` (started, ids 1..19999); cond/status encoding follows the documented client semantics; `ExQuestNpcLogList` is wire-compatible; `ExShowQuestInfo`/`NpcQuestHtmlMessage` are byte-identical to the reference; quest items already ride the phase-4 `ExQuestItemList` quartet; quest marks/tutorial packets carry phase-6 branches.
+- Quest **names** are taken from the client's own DAT tables (Essence content layer); server cannot send them - mismatched ids there are a content-layer matter, not a protocol one.
