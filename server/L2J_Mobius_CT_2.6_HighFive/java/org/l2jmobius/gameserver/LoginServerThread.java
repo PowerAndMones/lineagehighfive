@@ -336,6 +336,13 @@ public class LoginServerThread extends Thread
 									sendPacket(pig);
 									wcToRemove.gameClient.setConnectionState(ConnectionState.AUTHENTICATED);
 									wcToRemove.gameClient.setSessionId(wcToRemove.sessionKey);
+									if (wcToRemove.gameClient.isSalvationMode())
+									{
+										// Salvation clients require the LOGIN_SUCCESS marker (LoginFail with success = -1)
+										// before CharSelectionInfo, otherwise the character selection screen stays inactive.
+										wcToRemove.gameClient.sendPacket(LoginFail.LOGIN_SUCCESS);
+										LOGGER.info("SALVATION: sent LoginFail.LOGIN_SUCCESS marker before CharSelectionInfo");
+									}
 									final CharSelectionInfo cl = new CharSelectionInfo(wcToRemove.account, wcToRemove.gameClient.getSessionId().playOkID1);
 									wcToRemove.gameClient.sendPacket(cl);
 									wcToRemove.gameClient.setCharSelection(cl.getCharInfo());

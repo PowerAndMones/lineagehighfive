@@ -38,6 +38,14 @@ public class LoginFail extends ServerPacket
 	public static final int ACCESS_FAILED_TRY_LATER4 = 9;
 	public static final int ACCESS_FAILED_TRY_LATER5 = 10;
 	
+	/**
+	 * Salvation clients expect this "login ok" marker (LoginFail with success = -1)
+	 * right before CharSelectionInfo, otherwise the character selection screen stays
+	 * inactive. Emulates the official Salvation server behavior.
+	 */
+	public static final LoginFail LOGIN_SUCCESS = new LoginFail(-1, NO_TEXT);
+	
+	private final int _success;
 	private final int _reason;
 	
 	/**
@@ -45,6 +53,17 @@ public class LoginFail extends ServerPacket
 	 */
 	public LoginFail(int reason)
 	{
+		_success = 0;
+		_reason = reason;
+	}
+	
+	/**
+	 * @param success
+	 * @param reason
+	 */
+	public LoginFail(int success, int reason)
+	{
+		_success = success;
 		_reason = reason;
 	}
 	
@@ -52,6 +71,11 @@ public class LoginFail extends ServerPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.LOGIN_FAIL.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+			// Salvation protocol sends both the success marker and the reason.
+			buffer.writeInt(_success);
+		}
 		buffer.writeInt(_reason);
 	}
 }

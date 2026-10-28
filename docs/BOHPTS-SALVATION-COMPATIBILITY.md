@@ -150,3 +150,16 @@ Improvements shipped with this finding:
 
 ### CharacterCreate verified
 `CharacterCreate` read layout is byte-identical between High Five and Salvation (`cSdddddddddddd`: name, race, sex, classId, 6 stat ints, hairStyle, hairColor, face), and `NewCharacter`/`NewCharacterSuccess` was verified earlier. Character creation is expected to work without adapter changes.
+
+## Live smoke test: client stalls at character selection (v1.2, 2026-10-28)
+
+Log signature: `auth ok` -> `CharSelectionInfo sent (1 characters)` -> ~12 seconds of silence -> 2x `ignored EX_SEND_CLIENT_INI (salvationExId=260)` -> `CM 0x0 LOGOUT` -> client disconnect. The full packet tracing shipped in v1.2 proves the client sent nothing else in between: no `CharacterSelect (0x12)`, no `NewCharacter (0x13)` - the character selection screen was rendered but never activated.
+
+### Root cause: missing LOGIN_SUCCESS marker
+The reference `LoginServerThread` (PlayerAuthResponse ok branch) sends `LoginFail.LOGIN_SUCCESS` - a `LoginFail` packet with `success = -1, reason = 0` (wire layout: SM `0x0A` + int -1 + int 0) - to the game client immediately BEFORE `CharSelectionInfo`. The High Five build never sent it. Without the marker the Salvation client does not activate the character selection screen: it waits for roughly 12 seconds, uploads its client INI (2x `EX_SEND_CLIENT_INI`), then gives up (`LOGOUT`) and disconnects.
+
+### Fix
+- `LoginFail.java`: added the `_success` field, a 2-arg constructor and the `LOGIN_SUCCESS` constant; `writeImpl` writes the success int only for salvation-mode clients, so classic High Five clients keep the legacy single-int layout.
+- `LoginServerThread.java`: on successful auth, salvation clients now receive `LoginFail.LOGIN_SUCCESS` right before `CharSelectionInfo`, with a `SALVATION: sent LoginFail.LOGIN_SUCCESS marker` trace line.
+
+Expected next test: the client activates the character selection screen; clicking a character and pressing Start sends `CM 0x12 CHARACTER_SELECT` (visible in the SALVATION trace), followed by `CharSelected` and the already-fixed `EnterWorld` (protocol-140 layout).
