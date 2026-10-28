@@ -1519,6 +1519,11 @@ public class Player extends Playable
 	 * Gets all the active quests.
 	 * @return a list of active quests
 	 */
+	public List<QuestState> getAllQuestStates()
+	{
+		return new ArrayList<>(_quests.values());
+	}
+	
 	public List<Quest> getAllActiveQuests()
 	{
 		final List<Quest> quests = new ArrayList<>();

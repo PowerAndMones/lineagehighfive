@@ -32,10 +32,25 @@ import org.l2jmobius.gameserver.network.ServerPackets;
 public class QuestList extends ServerPacket
 {
 	final Player _player;
+	private final byte[] _oneTimeQuestMask;
 	
 	public QuestList(Player player)
 	{
 		_player = player;
+		_oneTimeQuestMask = new byte[128];
+		for (QuestState qs : player.getAllQuestStates())
+		{
+			if ((qs == null) || (qs.getQuest() == null))
+			{
+				continue;
+			}
+			
+			final int questId = qs.getQuest().getId();
+			if ((questId > 0) && qs.isCompleted() && !(((questId > 255) && (questId < 10256)) || (questId > 11023)))
+			{
+				_oneTimeQuestMask[(questId % 10000) / 8] |= 1 << (questId % 8);
+			}
+		}
 	}
 	
 	@Override
@@ -97,6 +112,6 @@ public class QuestList extends ServerPacket
 			}
 		}
 		
-		buffer.writeBytes(new byte[128]);
+		buffer.writeBytes(_oneTimeQuestMask);
 	}
 }
