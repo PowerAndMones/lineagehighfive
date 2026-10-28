@@ -60,11 +60,22 @@ public class MagicSkillUse extends ServerPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.MAGIC_SKILL_USE.writeId(this, buffer);
+		final boolean salvation = (client != null) && client.isSalvationMode();
+		if (salvation)
+		{
+			buffer.writeInt(0); // Casting bar type
+		}
+		
 		buffer.writeInt(_creature.getObjectId());
 		buffer.writeInt(_target.getObjectId());
 		buffer.writeInt(_skillId);
 		buffer.writeInt(_skillLevel);
 		buffer.writeInt(_hitTime);
+		if (salvation)
+		{
+			buffer.writeInt(0); // Reuse delay group
+		}
+		
 		buffer.writeInt(_reuseDelay);
 		buffer.writeInt(_creature.getX());
 		buffer.writeInt(_creature.getY());
@@ -85,5 +96,10 @@ public class MagicSkillUse extends ServerPacket
 		buffer.writeInt(_target.getX());
 		buffer.writeInt(_target.getY());
 		buffer.writeInt(_target.getZ());
+		if (salvation)
+		{
+			buffer.writeInt(0); // Action id used
+			buffer.writeInt(0); // Action id
+		}
 	}
 }

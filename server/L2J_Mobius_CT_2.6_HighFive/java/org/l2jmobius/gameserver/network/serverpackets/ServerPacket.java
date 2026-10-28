@@ -34,6 +34,15 @@ import org.l2jmobius.gameserver.network.PacketLogger;
  */
 public abstract class ServerPacket extends WritablePacket<GameClient>
 {
+	private static final ThreadLocal<GameClient> CURRENT_WRITING_CLIENT = new ThreadLocal<>();
+	
+	/**
+	 * @return the client the current packet instance is being serialized for.
+	 */
+	public static GameClient getCurrentWritingClient()
+	{
+		return CURRENT_WRITING_CLIENT.get();
+	}
 	private static final int[] PAPERDOLL_ORDER =
 	{
 		Inventory.PAPERDOLL_UNDER,
@@ -80,6 +89,7 @@ public abstract class ServerPacket extends WritablePacket<GameClient>
 		
 		try
 		{
+			CURRENT_WRITING_CLIENT.set(c);
 			writeImpl(c, buffer);
 			return true;
 		}
@@ -87,6 +97,10 @@ public abstract class ServerPacket extends WritablePacket<GameClient>
 		{
 			PacketLogger.warning("Error writing packet " + this + " to client (" + e.getMessage() + ") " + c + "]]");
 			PacketLogger.warning(TraceUtil.getStackTrace(e));
+		}
+		finally
+		{
+			CURRENT_WRITING_CLIENT.remove();
 		}
 		
 		return false;

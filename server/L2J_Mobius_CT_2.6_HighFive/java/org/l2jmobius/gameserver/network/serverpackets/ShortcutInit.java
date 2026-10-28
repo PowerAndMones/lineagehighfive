@@ -25,20 +25,25 @@ import java.util.Collection;
 import org.l2jmobius.commons.network.buffer.WriteBuffer;
 import org.l2jmobius.gameserver.entity.actor.Player;
 import org.l2jmobius.gameserver.entity.actor.holders.player.Shortcut;
+import org.l2jmobius.gameserver.entity.item.instance.Item;
+import org.l2jmobius.gameserver.mechanics.options.Augmentation;
 import org.l2jmobius.gameserver.network.GameClient;
 import org.l2jmobius.gameserver.network.ServerPackets;
 
 public class ShortcutInit extends ServerPacket
 {
 	private Collection<Shortcut> _shortcuts;
+	private final Player _player;
 	
 	public ShortcutInit(Player player)
 	{
 		if (player == null)
 		{
+			_player = null;
 			return;
 		}
 		
+		_player = player;
 		_shortcuts = player.getAllShortcuts();
 	}
 	
@@ -46,6 +51,7 @@ public class ShortcutInit extends ServerPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.SHORT_CUT_INIT.writeId(this, buffer);
+		final boolean salvation = (client != null) && client.isSalvationMode();
 		buffer.writeInt(_shortcuts.size());
 		for (Shortcut sc : _shortcuts)
 		{
@@ -60,14 +66,34 @@ public class ShortcutInit extends ServerPacket
 					buffer.writeInt(sc.getSharedReuseGroup());
 					buffer.writeInt(0);
 					buffer.writeInt(0);
-					buffer.writeShort(0);
-					buffer.writeShort(0);
+					if (salvation)
+					{
+						final Item item = _player.getInventory().getItemByObjectId(sc.getId());
+						final Augmentation augmentation = item != null ? item.getAugmentation() : null;
+						buffer.writeInt(augmentation != null ? augmentation.getAugmentationId() : 0); // Option 1
+						buffer.writeInt(0); // Option 2
+						buffer.writeInt(0); // Visual id
+					}
+					else
+					{
+						buffer.writeShort(0);
+						buffer.writeShort(0);
+					}
 					break;
 				}
 				case SKILL:
 				{
 					buffer.writeInt(sc.getId());
-					buffer.writeInt(sc.getLevel());
+					if (salvation)
+					{
+						buffer.writeShort(sc.getLevel());
+						buffer.writeShort(0); // Sub level
+						buffer.writeInt(sc.getSharedReuseGroup());
+					}
+					else
+					{
+						buffer.writeInt(sc.getLevel());
+					}
 					buffer.writeByte(0); // C5
 					buffer.writeInt(1); // C6
 					break;

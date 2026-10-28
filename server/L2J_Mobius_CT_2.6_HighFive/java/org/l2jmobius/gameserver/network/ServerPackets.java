@@ -378,6 +378,16 @@ public enum ServerPackets
 	EX_SPAWN_EMITTER(0xFE, 0x5D),
 	EX_ENCHANT_SKILL_INFO_DETAIL(0xFE, 0x5E),
 	EX_BASIC_ACTION_LIST(0xFE, 0x5F),
+	NPC_INFO_ABNORMAL_VISUAL_EFFECT(0x4B),
+	EX_WORLD_CHAT_CNT(0xFE, 0x175),
+	EX_VITALITY_EFFECT_INFO(0xFE, 0x118),
+	EX_SUBJOB_INFO(0xFE, 0xEA),
+	EX_USER_INFO_INVEN_WEIGHT(0xFE, 0x166),
+	EX_ADENA_INVEN_COUNT(0xFE, 0x13E),
+	EX_USER_INFO_FISHING(0xFE, 0x159),
+	EX_USER_INFO_ABNORMAL_VISUAL_EFFECT(0xFE, 0x158),
+	EX_USER_INFO_CUBIC(0xFE, 0x157),
+	EX_USER_INFO_EQUIP_SLOT(0xFE, 0x156),
 	EX_AIRSHIP_INFO(0xFE, 0x60),
 	EX_ATTRIBUTE_ENCHANT_RESULT(0xFE, 0x61),
 	EX_CHOOSE_INVENTORY_ATTRIBUTE_ITEM(0xFE, 0x62),
@@ -532,6 +542,31 @@ public enum ServerPackets
 	
 	public void writeId(ServerPacket packet, WriteBuffer buffer)
 	{
+		final GameClient salvationClient = ServerPacket.getCurrentWritingClient();
+		if ((salvationClient != null) && salvationClient.isSalvationMode())
+		{
+			final int[] salvationIds = ServerPacketsSalvation.getOverride(this);
+			if (salvationIds != null)
+			{
+				if (DevelopmentConfig.DEBUG_SERVER_PACKETS)
+				{
+					final String salvationName = packet.getClass().getSimpleName();
+					if (!DevelopmentConfig.EXCLUDED_DEBUG_PACKETS.contains(salvationName))
+					{
+						PacketLogger.info((salvationIds[1] > 0 ? "[S EX 140] " : "[S 140] ") + salvationName);
+					}
+				}
+				
+				buffer.writeByte(salvationIds[0]);
+				if (salvationIds[1] > 0)
+				{
+					buffer.writeShort(salvationIds[1]);
+				}
+				
+				return;
+			}
+		}
+		
 		if (DevelopmentConfig.DEBUG_SERVER_PACKETS)
 		{
 			final String name = packet.getClass().getSimpleName();

@@ -171,7 +171,7 @@ public abstract class AbstractNpcInfo extends ServerPacket
 			if ((client != null) && client.isSalvationMode())
 			{
 				// Salvation (protocol 140) mask-based NpcInfo layout (ported from the reference).
-				final boolean hasName = (localisation != null) || _npc.getTemplate().isUsingServerSideName();
+				final boolean hasName = true; // Salvation: always send the server-side name.
 				final String name = (localisation != null) ? localisation[0] : _npc.getName();
 				
 				String title;

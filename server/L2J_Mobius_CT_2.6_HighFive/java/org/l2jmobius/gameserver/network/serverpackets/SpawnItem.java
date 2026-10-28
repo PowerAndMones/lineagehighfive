@@ -48,6 +48,15 @@ public class SpawnItem extends ServerPacket
 		buffer.writeInt(_item.isStackable());
 		buffer.writeLong(_item.getCount());
 		buffer.writeInt(0); // c2
-		buffer.writeInt(0); // freya unk
+		if ((client != null) && client.isSalvationMode())
+		{
+			buffer.writeByte(_item.getEnchantLevel()); // Enchant level
+			buffer.writeByte(_item.getAugmentation() != null); // Augmented
+			buffer.writeByte(0); // Special abilities
+		}
+		else
+		{
+			buffer.writeInt(0); // freya unk
+		}
 	}
 }

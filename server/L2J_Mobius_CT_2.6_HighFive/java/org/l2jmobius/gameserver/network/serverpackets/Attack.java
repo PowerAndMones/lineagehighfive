@@ -101,6 +101,35 @@ public class Attack extends ServerPacket
 	{
 		final Iterator<Hit> it = _hits.iterator();
 		ServerPackets.ATTACK.writeId(this, buffer);
+		
+		if ((client != null) && client.isSalvationMode())
+		{
+			final Hit firstHit = it.next();
+			buffer.writeInt(_attackerObjId);
+			buffer.writeInt(firstHit.getTargetId());
+			buffer.writeInt(0); // Soulshot visual substitute
+			buffer.writeInt(firstHit.getDamage());
+			buffer.writeInt(firstHit.getFlags());
+			buffer.writeInt(0); // Grade
+			buffer.writeInt(_attackerLoc.getX());
+			buffer.writeInt(_attackerLoc.getY());
+			buffer.writeInt(_attackerLoc.getZ());
+			buffer.writeShort(_hits.size() - 1);
+			while (it.hasNext())
+			{
+				final Hit hit = it.next();
+				buffer.writeInt(hit.getTargetId());
+				buffer.writeInt(hit.getDamage());
+				buffer.writeInt(hit.getFlags());
+				buffer.writeInt(0); // Grade
+			}
+			
+			buffer.writeInt(_targetLoc.getX());
+			buffer.writeInt(_targetLoc.getY());
+			buffer.writeInt(_targetLoc.getZ());
+			return;
+		}
+		
 		buffer.writeInt(_attackerObjId);
 		writeHit(it.next(), buffer);
 		buffer.writeInt(_attackerLoc.getX());

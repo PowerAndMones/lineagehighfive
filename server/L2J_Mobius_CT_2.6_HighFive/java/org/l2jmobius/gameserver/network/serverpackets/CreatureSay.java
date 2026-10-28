@@ -102,6 +102,11 @@ public class CreatureSay extends ServerPacket
 		if (_text != null)
 		{
 			buffer.writeString(_text);
+			if ((client != null) && client.isSalvationMode() && (_sender != null) && _sender.isPlayer() && (_chatType == ChatType.WHISPER))
+			{
+				buffer.writeByte(0); // Relation mask
+				buffer.writeByte(_sender.getLevel()); // Sender level
+			}
 		}
 		else if (_parameters != null)
 		{

@@ -69,8 +69,7 @@ public class Die extends ServerPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.DIE.writeId(this, buffer);
-		buffer.writeInt(_objectId);
-		buffer.writeInt(_canTeleport);
+		
 		if (_creature.isPlayer())
 		{
 			final Player player = _creature.asPlayer();
@@ -86,6 +85,10 @@ public class Die extends ServerPacket
 			}
 		}
 		
+		boolean toHideout = false;
+		boolean toCastle = false;
+		boolean toSiegeHq = false;
+		boolean toFortress = false;
 		if (_canTeleport && (_clan != null) && !_isJailed)
 		{
 			boolean isInCastleDefense = false;
@@ -113,26 +116,37 @@ public class Die extends ServerPacket
 				}
 			}
 			
-			buffer.writeInt(_clan.getHideoutId() > 0); // 6d 01 00 00 00 - to hide away
-			buffer.writeInt((_clan.getCastleId() > 0) || isInCastleDefense); // 6d 02 00 00 00 - to castle
-			buffer.writeInt((TerritoryWarManager.getInstance().getHQForClan(_clan) != null) || ((siegeClan != null) && !isInCastleDefense && !isInFortDefense && !siegeClan.getFlag().isEmpty()) || ((hall != null) && (hall.getSiege() != null) && hall.getSiege().checkIsAttacker(_clan))); // siege HQ
-			buffer.writeInt(_sweepable); // sweepable (blue glow)
-			buffer.writeInt(_staticRes); // 6d 04 00 00 00 - to FIXED
-			buffer.writeInt((_clan.getFortId() > 0) || isInFortDefense); // 6d 05 00 00 00 - to fortress
-		}
-		else
-		{
-			buffer.writeInt(0); // 6d 01 00 00 00 - to hide away
-			buffer.writeInt(0); // 6d 02 00 00 00 - to castle
-			buffer.writeInt(0); // 6d 03 00 00 00 - to siege HQ
-			buffer.writeInt(_sweepable); // sweepable (blue glow)
-			buffer.writeInt(_staticRes); // 6d 04 00 00 00 - to FIXED
-			buffer.writeInt(0); // 6d 05 00 00 00 - to fortress
+			toHideout = _clan.getHideoutId() > 0;
+			toCastle = (_clan.getCastleId() > 0) || isInCastleDefense;
+			toSiegeHq = (TerritoryWarManager.getInstance().getHQForClan(_clan) != null) || ((siegeClan != null) && !isInCastleDefense && !isInFortDefense && !siegeClan.getFlag().isEmpty()) || ((hall != null) && (hall.getSiege() != null) && hall.getSiege().checkIsAttacker(_clan));
+			toFortress = (_clan.getFortId() > 0) || isInFortDefense;
 		}
 		
-		// TODO: protocol 152
-		// buffer.writeByte(0); // show die animation
-		// buffer.writeInt(0); // agathion ress button
-		// buffer.writeInt(0); // additional free space
+		if ((client != null) && client.isSalvationMode())
+		{
+			buffer.writeInt(_objectId);
+			buffer.writeInt(_canTeleport); // To village
+			buffer.writeInt(toHideout); // To clan hall
+			buffer.writeInt(toCastle); // To castle
+			buffer.writeInt(toSiegeHq); // To outpost
+			buffer.writeInt(_sweepable); // Sweepable
+			buffer.writeInt(_staticRes); // Use feather
+			buffer.writeInt(toFortress); // To fortress
+			buffer.writeInt(0); // Disables use Feather button for X seconds
+			buffer.writeInt(0); // Adventure's Song
+			buffer.writeByte(0); // Hide animation
+			buffer.writeInt(0); // Items enabled
+			buffer.writeInt(0); // Items count
+			return;
+		}
+		
+		buffer.writeInt(_objectId);
+		buffer.writeInt(_canTeleport);
+		buffer.writeInt(toHideout);
+		buffer.writeInt(toCastle);
+		buffer.writeInt(toSiegeHq);
+		buffer.writeInt(_sweepable);
+		buffer.writeInt(_staticRes);
+		buffer.writeInt(toFortress);
 	}
 }

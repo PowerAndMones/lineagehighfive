@@ -52,5 +52,9 @@ public class TeleportToLocation extends ServerPacket
 		buffer.writeInt(_z);
 		buffer.writeInt(0); // Fade 0, Instant 1.
 		buffer.writeInt(_heading);
+		if ((client != null) && client.isSalvationMode())
+		{
+			buffer.writeInt(0); // Unknown.
+		}
 	}
 }

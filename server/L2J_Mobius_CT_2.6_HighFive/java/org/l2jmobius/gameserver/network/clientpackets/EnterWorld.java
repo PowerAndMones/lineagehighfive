@@ -96,6 +96,7 @@ import org.l2jmobius.gameserver.network.serverpackets.ActionFailed;
 import org.l2jmobius.gameserver.network.serverpackets.CreatureSay;
 import org.l2jmobius.gameserver.network.serverpackets.Die;
 import org.l2jmobius.gameserver.network.serverpackets.EtcStatusUpdate;
+import org.l2jmobius.gameserver.network.serverpackets.ExAdenaInvenCount;
 import org.l2jmobius.gameserver.network.serverpackets.ExBasicActionList;
 import org.l2jmobius.gameserver.network.serverpackets.ExGetBookMarkInfoPacket;
 import org.l2jmobius.gameserver.network.serverpackets.ExNoticePostArrived;
@@ -104,7 +105,12 @@ import org.l2jmobius.gameserver.network.serverpackets.ExRotation;
 import org.l2jmobius.gameserver.network.serverpackets.ExShowContactList;
 import org.l2jmobius.gameserver.network.serverpackets.ExShowScreenMessage;
 import org.l2jmobius.gameserver.network.serverpackets.ExStorageMaxCount;
+import org.l2jmobius.gameserver.network.serverpackets.ExSubjobInfo;
+import org.l2jmobius.gameserver.network.serverpackets.ExUserInfoEquipSlot;
+import org.l2jmobius.gameserver.network.serverpackets.ExUserInfoInvenWeight;
+import org.l2jmobius.gameserver.network.serverpackets.ExVitalityEffectInfo;
 import org.l2jmobius.gameserver.network.serverpackets.ExVoteSystemInfo;
+import org.l2jmobius.gameserver.network.serverpackets.ExWorldChatCnt;
 import org.l2jmobius.gameserver.network.serverpackets.FriendList;
 import org.l2jmobius.gameserver.network.serverpackets.HennaInfo;
 import org.l2jmobius.gameserver.network.serverpackets.ExQuestItemList;
@@ -449,6 +455,16 @@ public class EnterWorld extends ClientPacket
 		
 		// Send Shortcuts
 		player.sendPacket(new ShortcutInit(player));
+		if (client.isSalvationMode())
+		{
+			// Salvation (protocol 140): extended user info set.
+			player.sendPacket(new ExSubjobInfo(player));
+			player.sendPacket(new ExUserInfoInvenWeight(player));
+			player.sendPacket(new ExAdenaInvenCount(player));
+			player.sendPacket(new ExUserInfoEquipSlot(player));
+			player.sendPacket(new ExVitalityEffectInfo(player));
+			player.sendPacket(new ExWorldChatCnt(player));
+		}
 		
 		// Send Action list
 		player.sendPacket(ExBasicActionList.STATIC_PACKET);

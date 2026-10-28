@@ -57,6 +57,11 @@ public class ExStorageMaxCount extends ServerPacket
 		ServerPackets.EX_STORAGE_MAX_COUNT.writeId(this, buffer);
 		buffer.writeInt(_inventory);
 		buffer.writeInt(_warehouse);
+		if ((client != null) && client.isSalvationMode())
+		{
+			buffer.writeInt(0); // Freight
+		}
+		
 		buffer.writeInt(_clan);
 		buffer.writeInt(_privateSell);
 		buffer.writeInt(_privateBuy);
@@ -64,5 +69,10 @@ public class ExStorageMaxCount extends ServerPacket
 		buffer.writeInt(_recipe);
 		buffer.writeInt(_inventoryExtraSlots); // Belt inventory slots increase count
 		buffer.writeInt(_inventoryQuestItems);
+		if ((client != null) && client.isSalvationMode())
+		{
+			buffer.writeInt(40); // Unknown
+			buffer.writeInt(40); // Unknown
+		}
 	}
 }

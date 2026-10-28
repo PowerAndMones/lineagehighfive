@@ -54,6 +54,7 @@ import org.l2jmobius.gameserver.mechanics.events.EventType;
 import org.l2jmobius.gameserver.mechanics.events.holders.actor.player.OnPlayerItemUnequip;
 import org.l2jmobius.gameserver.mechanics.skill.Skill;
 import org.l2jmobius.gameserver.mechanics.skill.holders.SkillHolder;
+	import org.l2jmobius.gameserver.network.serverpackets.ExUserInfoEquipSlot;
 import org.l2jmobius.gameserver.network.serverpackets.SkillCoolTime;
 
 /**
@@ -1137,6 +1138,17 @@ public abstract class Inventory extends ItemContainer
 			if ((owner != null) && owner.isPlayer() && EventDispatcher.getInstance().hasListener(EventType.ON_PLAYER_ITEM_UNEQUIP, old.getTemplate()))
 			{
 				EventDispatcher.getInstance().notifyEventAsync(new OnPlayerItemUnequip(owner.asPlayer(), old), old.getTemplate());
+			}
+		}
+		
+		// Salvation (protocol 140): the 140 client renders the paperdoll from ExUserInfoEquipSlot.
+		final Creature salvationOwner = getOwner();
+		if ((salvationOwner != null) && salvationOwner.isPlayer())
+		{
+			final Player salvationPlayer = salvationOwner.asPlayer();
+			if ((salvationPlayer.getClient() != null) && salvationPlayer.getClient().isSalvationMode())
+			{
+				salvationPlayer.sendPacket(new ExUserInfoEquipSlot(salvationPlayer));
 			}
 		}
 		

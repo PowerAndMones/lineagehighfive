@@ -50,6 +50,31 @@ public class HennaInfo extends ServerPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.HENNA_INFO.writeId(this, buffer);
+		final boolean salvation = (client != null) && client.isSalvationMode();
+		if (salvation)
+		{
+			buffer.writeShort(_player.getHennaStatINT()); // equip INT
+			buffer.writeShort(_player.getHennaStatSTR()); // equip STR
+			buffer.writeShort(_player.getHennaStatCON()); // equip CON
+			buffer.writeShort(_player.getHennaStatMEN()); // equip MEN
+			buffer.writeShort(_player.getHennaStatDEX()); // equip DEX
+			buffer.writeShort(_player.getHennaStatWIT()); // equip WIT
+			buffer.writeShort(0); // equip LUC
+			buffer.writeShort(0); // equip CHA
+			buffer.writeInt(3); // Slots
+			buffer.writeInt(_hennas.size()); // Size
+			for (Henna henna : _hennas)
+			{
+				buffer.writeInt(henna.getDyeId());
+				buffer.writeInt(1); // Allowed class
+			}
+			
+			buffer.writeInt(0); // Premium Slot Dye ID
+			buffer.writeInt(0); // Premium Slot Dye Time Left
+			buffer.writeInt(0); // Premium Slot Dye ID isValid
+			return;
+		}
+		
 		buffer.writeByte(_player.getHennaStatINT()); // equip INT
 		buffer.writeByte(_player.getHennaStatSTR()); // equip STR
 		buffer.writeByte(_player.getHennaStatCON()); // equip CON

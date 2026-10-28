@@ -44,14 +44,34 @@ public class SkillList extends ServerPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.SKILL_LIST.writeId(this, buffer);
+		final boolean salvation = (client != null) && client.isSalvationMode();
 		buffer.writeInt(_skills.size());
 		for (Skill temp : _skills)
 		{
 			buffer.writeInt(temp.passive);
-			buffer.writeInt(temp.level);
+			if (salvation)
+			{
+				buffer.writeShort(temp.level);
+				buffer.writeShort(0); // Sub level
+			}
+			else
+			{
+				buffer.writeInt(temp.level);
+			}
+			
 			buffer.writeInt(temp.id);
+			if (salvation)
+			{
+				buffer.writeInt(0); // Reuse delay group
+			}
+			
 			buffer.writeByte(temp.disabled);
 			buffer.writeByte(temp.enchanted);
+		}
+		
+		if (salvation)
+		{
+			buffer.writeInt(0); // Last learned skill id
 		}
 	}
 	

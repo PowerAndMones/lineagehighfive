@@ -44,6 +44,13 @@ public class DeleteObject extends ServerPacket
 	{
 		ServerPackets.DELETE_OBJECT.writeId(this, buffer);
 		buffer.writeInt(_objectId);
-		buffer.writeInt(1); // C2 - If the object is mounted, with 0 it will be dismounted, with 1 it will disappear.
+		if ((client != null) && client.isSalvationMode())
+		{
+			buffer.writeByte(0); // c2
+		}
+		else
+		{
+			buffer.writeInt(1); // C2 - If the object is mounted, with 0 it will be dismounted, with 1 it will disappear.
+		}
 	}
 }

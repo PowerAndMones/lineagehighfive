@@ -94,6 +94,25 @@ public class RelationChanged extends ServerPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.RELATION_CHANGED.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+			if (_multi == null)
+			{
+				buffer.writeByte(0x01); // SEND_ONE
+				writeRelation140(_singled, buffer);
+			}
+			else
+			{
+				buffer.writeByte(0x02); // SEND_MULTI
+				buffer.writeShort(_multi.size());
+				for (Relation relation : _multi)
+				{
+					writeRelation140(relation, buffer);
+				}
+			}
+			return;
+		}
+		
 		if (_multi == null)
 		{
 			buffer.writeInt(1);
@@ -116,5 +135,14 @@ public class RelationChanged extends ServerPacket
 		buffer.writeInt(relation._autoAttackable);
 		buffer.writeInt(relation._karma);
 		buffer.writeInt(relation._pvpFlag);
+	}
+	
+	private void writeRelation140(Relation relation, WriteBuffer buffer)
+	{
+		buffer.writeInt(relation._objId);
+		buffer.writeInt(relation._relation);
+		buffer.writeByte(relation._autoAttackable);
+		buffer.writeInt(relation._karma); // Reputation
+		buffer.writeByte(relation._pvpFlag);
 	}
 }

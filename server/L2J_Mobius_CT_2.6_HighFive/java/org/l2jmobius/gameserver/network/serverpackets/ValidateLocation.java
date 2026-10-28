@@ -46,5 +46,9 @@ public class ValidateLocation extends ServerPacket
 		buffer.writeInt(_loc.getY());
 		buffer.writeInt(_loc.getZ());
 		buffer.writeInt(_loc.getHeading());
+		if ((client != null) && client.isSalvationMode())
+		{
+			buffer.writeByte(1); // Stops the heading validation.
+		}
 	}
 }
