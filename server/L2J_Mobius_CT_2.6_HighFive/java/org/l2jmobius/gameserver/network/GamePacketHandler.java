@@ -146,6 +146,12 @@ public class GamePacketHandler implements PacketHandler<GameClient>
 				return null;
 			}
 			
+			// Salvation tracing: log every accepted client packet (Ex path).
+			if (client.isSalvationMode())
+			{
+				LOGGER.info("SALVATION: CM Ex 0x" + Integer.toHexString(exPacketId) + " " + packetEnum.name() + " (state=" + client.getConnectionState() + ")");
+			}
+			
 			// Create new ClientPacket.
 			return packetEnum.newPacket();
 		}
@@ -175,6 +181,12 @@ public class GamePacketHandler implements PacketHandler<GameClient>
 				LOGGER.info("SALVATION: dropped client packet id=0x" + Integer.toHexString(realPacketId) + " - wrong connection state " + client.getConnectionState());
 			}
 			return null;
+		}
+		
+		// Salvation tracing: log every accepted client packet (regular path).
+		if (client.isSalvationMode())
+		{
+			LOGGER.info("SALVATION: CM 0x" + Integer.toHexString(realPacketId) + " " + packetEnum.name() + " (state=" + client.getConnectionState() + ")");
 		}
 		
 		// Create new ClientPacket.

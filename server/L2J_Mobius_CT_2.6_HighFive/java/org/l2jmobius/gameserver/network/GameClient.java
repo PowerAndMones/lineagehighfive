@@ -93,6 +93,11 @@ public class GameClient extends Client<org.l2jmobius.commons.network.Connection<
 	public void onDisconnection()
 	{
 		LOGGER_ACCOUNTING.finer("Client disconnected: " + this);
+		if (isSalvationMode())
+		{
+			LOGGER.info("SALVATION: client disconnected: " + this + " (state=" + _connectionState + ")");
+		}
+		
 		LoginServerThread.getInstance().sendLogout(_accountName);
 		if ((_player == null) || !_player.isInOfflineMode())
 		{
