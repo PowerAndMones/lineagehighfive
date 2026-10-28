@@ -119,6 +119,23 @@ public class AcquireSkillInfo extends ServerPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.ACQUIRE_SKILL_INFO.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+                 buffer.writeInt(_id);
+                        buffer.writeInt(_level);
+                        buffer.writeLong(_spCost); // Salvation (protocol 140): long SP cost
+                        buffer.writeInt(_type.ordinal());
+                        buffer.writeInt(_reqs.size());
+                        for (Req temp : _reqs)
+                        {
+                                buffer.writeInt(temp.type);
+                                buffer.writeInt(temp.itemId);
+                                buffer.writeLong(temp.count);
+                                buffer.writeInt(temp.unk);
+                        }
+			return;
+		}
+
 		buffer.writeInt(_id);
 		buffer.writeInt(_level);
 		buffer.writeInt(_spCost);

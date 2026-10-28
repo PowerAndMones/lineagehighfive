@@ -36,6 +36,13 @@ public class ExShowQuestMark extends ServerPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.EX_SHOW_QUEST_MARK.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+                  buffer.writeInt(_questId);
+                        buffer.writeInt(0); // Quest state (Salvation protocol 140)
+			return;
+		}
+
 		buffer.writeInt(_questId);
 	}
 }

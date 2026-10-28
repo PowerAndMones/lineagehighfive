@@ -37,6 +37,13 @@ public class FriendAddRequest extends ServerPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.FRIEND_ADD_REQUEST.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+                 buffer.writeByte(1);
+                        buffer.writeString(_requestorName);
+			return;
+		}
+
 		buffer.writeString(_requestorName);
 		buffer.writeInt(0);
 	}

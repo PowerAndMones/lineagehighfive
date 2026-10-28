@@ -77,6 +77,25 @@ public class AcquireSkillList extends ServerPacket
 		}
 		
 		ServerPackets.ACQUIRE_SKILL_LIST.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+			// Salvation (protocol 140) shape: short count + per-skill block.
+			// Costs/items data is not available on the High Five data model, sent as zeros.
+			buffer.writeShort(_skills.size());
+			for (Skill temp : _skills)
+			{
+				buffer.writeInt(temp.id);
+				buffer.writeInt(temp.nextLevel);
+				buffer.writeLong(0); // Level up SP
+				buffer.writeByte(0); // Get level
+				buffer.writeByte(0); // Dual class level
+				buffer.writeByte(1); // Can be learned
+				buffer.writeByte(0); // Required items count
+				buffer.writeByte(0); // Remove skills count
+			}
+			return;
+		}
+
 		buffer.writeInt(_skillType.ordinal());
 		buffer.writeInt(_skills.size());
 		for (Skill temp : _skills)

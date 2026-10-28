@@ -37,6 +37,20 @@ public class RequestShortcutReg extends ClientPacket
 	@Override
 	protected void readImpl()
 	{
+		if (getClient() != null && getClient().isSalvationMode())
+		{
+			final int typeId = readInt();
+			_type = ShortcutType.values()[(typeId < 1) || (typeId > 6) ? 0 : typeId];
+			final int slot = readInt();
+			_slot = slot % 12;
+			_page = slot / 12;
+			_id = readInt();
+			_level = readShort();
+			readShort(); // Skill sub level
+			_characterType = readInt();
+			return;
+		}
+
 		final int typeId = readInt();
 		_type = ShortcutType.values()[(typeId < 1) || (typeId > 6) ? 0 : typeId];
 		final int slot = readInt();

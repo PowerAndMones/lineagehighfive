@@ -48,6 +48,35 @@ public class PartySpelled extends ServerPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.PARTY_SPELLED.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+			buffer.writeInt(_creature.isServitor() ? 2 : _creature.isPet() ? 1 : 0);
+			buffer.writeInt(_creature.getObjectId());
+			buffer.writeInt(_effects.size());
+			for (BuffInfo info : _effects)
+			{
+				if ((info != null) && info.isInUse())
+				{
+					buffer.writeInt(info.getSkill().getDisplayId());
+					buffer.writeShort(info.getSkill().getDisplayLevel());
+					buffer.writeShort(0); // skill sub level
+					buffer.writeInt(info.getSkill().getAbnormalType() != null ? info.getSkill().getAbnormalType().getClientId() : 0);
+					final int time = info.getTime();
+					if ((time >= 0) && (time < Short.MAX_VALUE))
+					{
+						buffer.writeByte(1);
+						buffer.writeShort(time);
+					}
+					else
+					{
+						buffer.writeByte(0);
+						buffer.writeInt(time);
+					}
+				}
+			}
+			return;
+		}
+
 		buffer.writeInt(_creature.isServitor() ? 2 : _creature.isPet() ? 1 : 0);
 		buffer.writeInt(_creature.getObjectId());
 		buffer.writeInt(_effects.size());

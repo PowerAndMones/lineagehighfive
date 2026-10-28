@@ -38,6 +38,15 @@ public class PledgeInfo extends ServerPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.PLEDGE_INFO.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+			buffer.writeInt(1); // Server id (Salvation protocol 140)
+			buffer.writeInt(_clan.getId());
+			buffer.writeString(_clan.getName());
+			buffer.writeString(_clan.getAllyName());
+			return;
+		}
+
 		buffer.writeInt(_clan.getId());
 		buffer.writeString(_clan.getName());
 		buffer.writeString(_clan.getAllyName());

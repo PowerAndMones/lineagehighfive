@@ -41,6 +41,13 @@ public class RequestExEnchantItemAttribute extends ClientPacket
 	@Override
 	protected void readImpl()
 	{
+		if (getClient() != null && getClient().isSalvationMode())
+		{
+			_objectId = readInt();
+			readLong(); // Stone count
+			return;
+		}
+
 		_objectId = readInt();
 	}
 	

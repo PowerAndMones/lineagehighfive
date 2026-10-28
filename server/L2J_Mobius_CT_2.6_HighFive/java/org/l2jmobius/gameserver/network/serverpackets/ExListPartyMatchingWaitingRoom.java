@@ -51,6 +51,22 @@ public class ExListPartyMatchingWaitingRoom extends ServerPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.EX_LIST_PARTY_MATCHING_WAITING_ROOM.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+			buffer.writeInt(_members.size());
+			buffer.writeInt(0); // Page
+			for (Player member : _members)
+			{
+				buffer.writeString(member.getName());
+				buffer.writeInt(member.getObjectId());
+				buffer.writeInt(member.getLevel());
+				buffer.writeInt(member.getPlayerClass().getId());
+				buffer.writeInt(1); // Party room open
+				buffer.writeInt(0); // Party substitute
+			}
+			return;
+		}
+
 		if (_mode == 0)
 		{
 			buffer.writeInt(0);

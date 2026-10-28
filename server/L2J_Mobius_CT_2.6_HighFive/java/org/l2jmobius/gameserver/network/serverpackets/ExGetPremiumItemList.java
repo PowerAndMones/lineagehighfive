@@ -40,6 +40,21 @@ public class ExGetPremiumItemList extends ServerPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.EX_GET_PREMIUM_ITEM_LIST.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+			buffer.writeInt(_player.getPremiumItemList().size());
+			for (Entry<Integer, PremiumItem> entry : _player.getPremiumItemList().entrySet())
+			{
+				final PremiumItem item = entry.getValue();
+				buffer.writeLong(entry.getKey());
+				buffer.writeInt(item.getItemId());
+				buffer.writeLong(item.getCount());
+				buffer.writeInt(0); // Unknown (Salvation protocol 140)
+				buffer.writeString(item.getSender());
+			}
+			return;
+		}
+
 		buffer.writeInt(_player.getPremiumItemList().size());
 		for (Entry<Integer, PremiumItem> entry : _player.getPremiumItemList().entrySet())
 		{

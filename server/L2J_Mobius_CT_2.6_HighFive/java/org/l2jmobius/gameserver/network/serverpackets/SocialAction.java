@@ -41,6 +41,14 @@ public class SocialAction extends ServerPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.SOCIAL_ACTION.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+                  buffer.writeInt(_objectId);
+                        buffer.writeInt(_actionId);
+                        buffer.writeInt(0); // Salvation (protocol 140)
+			return;
+		}
+
 		buffer.writeInt(_objectId);
 		buffer.writeInt(_actionId);
 	}

@@ -45,6 +45,24 @@ public class DropItem extends ServerPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.DROP_ITEM.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+                  buffer.writeInt(_objectId);
+                        buffer.writeInt(_item.getObjectId());
+                        buffer.writeInt(_item.getDisplayId());
+                        buffer.writeInt(_item.getX());
+                        buffer.writeInt(_item.getY());
+                        buffer.writeInt(_item.getZ());
+                        // Only show item count if it is a stackable item.
+                        buffer.writeByte(_item.isStackable());
+                        buffer.writeLong(_item.getCount());
+                        buffer.writeByte(0);
+                        buffer.writeByte(_item.getEnchantLevel()); // Salvation (protocol 140)
+                        buffer.writeByte(_item.getAugmentation() != null);
+                        buffer.writeByte(0); // Special abilities: not present on High Five
+			return;
+		}
+
 		buffer.writeInt(_objectId);
 		buffer.writeInt(_item.getObjectId());
 		buffer.writeInt(_item.getDisplayId());

@@ -40,6 +40,19 @@ public class RecipeShopItemInfo extends ServerPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.RECIPE_SHOP_ITEM_INFO.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+			buffer.writeInt(_player.getObjectId());
+			buffer.writeInt(_recipeId);
+			buffer.writeInt((int) _player.getCurrentMp());
+			buffer.writeInt(_player.getMaxMp());
+			buffer.writeInt(-1); // item creation none/success/failed
+			buffer.writeLong(0); // Manufacture price (Salvation protocol 140)
+			buffer.writeByte(0); // Offering window (Salvation protocol 140)
+			buffer.writeLong(0); // Offering adena
+			return;
+		}
+
 		buffer.writeInt(_player.getObjectId());
 		buffer.writeInt(_recipeId);
 		buffer.writeInt((int) _player.getCurrentMp());

@@ -37,6 +37,19 @@ public class ExPartyPetWindowUpdate extends ServerPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.EX_PARTY_PET_WINDOW_UPDATE.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+                   buffer.writeInt(_summon.getObjectId());
+                        buffer.writeInt(_summon.getTemplate().getDisplayId() + 1000000);
+                        buffer.writeByte(_summon.getSummonType());
+                        buffer.writeInt(_summon.getOwner().getObjectId());
+                        buffer.writeInt((int) _summon.getCurrentHp());
+                        buffer.writeInt(_summon.getMaxHp());
+                        buffer.writeInt((int) _summon.getCurrentMp());
+                        buffer.writeInt(_summon.getMaxMp());
+			return;
+		}
+
 		buffer.writeInt(_summon.getObjectId());
 		buffer.writeInt(_summon.getTemplate().getDisplayId() + 1000000);
 		buffer.writeInt(_summon.getSummonType());

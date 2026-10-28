@@ -33,6 +33,13 @@ public class RequestTutorialLinkHtml extends ClientPacket
 	@Override
 	protected void readImpl()
 	{
+		if (getClient() != null && getClient().isSalvationMode())
+		{
+			readInt(); // Type
+			_bypass = readString();
+			return;
+		}
+
 		_bypass = readString();
 	}
 	

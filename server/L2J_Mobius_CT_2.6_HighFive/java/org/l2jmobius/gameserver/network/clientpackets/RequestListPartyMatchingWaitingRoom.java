@@ -32,6 +32,24 @@ public class RequestListPartyMatchingWaitingRoom extends ClientPacket
 	@Override
 	protected void readImpl()
 	{
+		if (getClient() != null && getClient().isSalvationMode())
+		{
+			_page = readInt();
+			_minLevel = readInt();
+			_maxLevel = readInt();
+			final int classCount = readInt();
+			for (int i = 0; i < classCount; i++)
+			{
+				readInt(); // Class id
+			}
+			if (remaining() > 0)
+			{
+				readString(); // Query
+			}
+			_mode = 0;
+			return;
+		}
+
 		_page = readInt();
 		_minLevel = readInt();
 		_maxLevel = readInt();

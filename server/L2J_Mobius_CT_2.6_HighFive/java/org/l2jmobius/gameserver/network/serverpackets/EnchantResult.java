@@ -41,6 +41,16 @@ public class EnchantResult extends ServerPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.ENCHANT_RESULT.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+                        buffer.writeInt(_result);
+                        buffer.writeInt(_crystal);
+                        buffer.writeLong(_count);
+                        buffer.writeInt(0); // Enchant level (Salvation protocol 140)
+                        // Enchant options: none on High Five
+			return;
+		}
+
 		buffer.writeInt(_result);
 		buffer.writeInt(_crystal);
 		buffer.writeLong(_count);

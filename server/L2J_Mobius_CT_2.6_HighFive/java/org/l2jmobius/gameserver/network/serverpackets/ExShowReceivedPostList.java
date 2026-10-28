@@ -40,6 +40,37 @@ public class ExShowReceivedPostList extends ServerPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.EX_SHOW_RECEIVED_POST_LIST.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+			buffer.writeInt((int) (System.currentTimeMillis() / 1000));
+			if ((_inbox != null) && !_inbox.isEmpty())
+			{
+				buffer.writeInt(_inbox.size());
+				for (MailMessage msg : _inbox)
+				{
+					buffer.writeInt(0); // Mail type (Salvation protocol 140)
+					buffer.writeInt(msg.getId());
+					buffer.writeString(msg.getSubject());
+					buffer.writeString(msg.getSenderName());
+					buffer.writeInt(msg.isLocked());
+					buffer.writeInt(msg.getExpirationSeconds());
+					buffer.writeInt(msg.isUnread());
+					buffer.writeInt(1); // Regular mail
+					buffer.writeInt(msg.hasAttachments());
+					buffer.writeInt(msg.isReturned());
+					buffer.writeInt(0); // SysString
+				}
+			}
+			else
+			{
+				buffer.writeInt(0);
+			}
+
+			buffer.writeInt(100); // Message fee
+			buffer.writeInt(100); // Message fee per slot
+			return;
+		}
+
 		buffer.writeInt((int) (System.currentTimeMillis() / 1000));
 		if ((_inbox != null) && !_inbox.isEmpty())
 		{

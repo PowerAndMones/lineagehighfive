@@ -56,6 +56,42 @@ public class ShopPreviewList extends ServerPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.SHOP_PREVIEW_LIST.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+			buffer.writeInt(5056);
+			buffer.writeLong(_money);
+			buffer.writeInt(_listId);
+			int newlength = 0;
+			for (Product product : _list)
+			{
+				if ((product.getItem().getCrystalType().getLevel() <= _expertise) && product.getItem().isEquipable())
+				{
+					newlength++;
+				}
+			}
+
+			buffer.writeShort(newlength);
+			for (Product product : _list)
+			{
+				if ((product.getItem().getCrystalType().getLevel() <= _expertise) && product.getItem().isEquipable())
+				{
+					buffer.writeInt(product.getItemId());
+					buffer.writeShort(product.getItem().getType2());
+					if (product.getItem().getType1() != ItemTemplate.TYPE1_ITEM_QUESTITEM_ADENA)
+					{
+						buffer.writeLong(product.getItem().getBodyPart().getMask());
+					}
+					else
+					{
+						buffer.writeLong(0);
+					}
+
+					buffer.writeLong(GeneralConfig.WEAR_PRICE);
+				}
+			}
+			return;
+		}
+
 		buffer.writeByte(0xC0); // ?
 		buffer.writeByte(0x13); // ?
 		buffer.writeByte(0); // ?

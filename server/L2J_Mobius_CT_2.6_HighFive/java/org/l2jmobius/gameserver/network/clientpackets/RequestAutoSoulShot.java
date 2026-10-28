@@ -40,6 +40,14 @@ public class RequestAutoSoulShot extends ClientPacket
 	@Override
 	protected void readImpl()
 	{
+		if (getClient() != null && getClient().isSalvationMode())
+		{
+			_itemId = readInt();
+			_type = readInt() == 1 ? 1 : 0;
+			readInt(); // Shot type
+			return;
+		}
+
 		_itemId = readInt();
 		_type = readInt();
 	}

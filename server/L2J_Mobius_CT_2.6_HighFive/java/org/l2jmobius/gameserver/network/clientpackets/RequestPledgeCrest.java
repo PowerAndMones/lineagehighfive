@@ -33,6 +33,13 @@ public class RequestPledgeCrest extends ClientPacket
 	@Override
 	protected void readImpl()
 	{
+		if (getClient() != null && getClient().isSalvationMode())
+		{
+			_crestId = readInt();
+			readInt(); // Clan id
+			return;
+		}
+
 		_crestId = readInt();
 	}
 	

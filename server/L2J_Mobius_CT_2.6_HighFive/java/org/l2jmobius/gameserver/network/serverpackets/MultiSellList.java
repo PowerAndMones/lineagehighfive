@@ -56,6 +56,90 @@ public class MultiSellList extends ServerPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.MULTI_SELL_LIST.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+			// Salvation (protocol 140) multisell layout.
+			buffer.writeByte(0); // Helios
+			buffer.writeInt(_list.getListId());
+			buffer.writeByte(0); // GOD unknown
+			buffer.writeInt(1 + (_index / PAGE_SIZE));
+			buffer.writeInt(_finished ? 1 : 0);
+			buffer.writeInt(PAGE_SIZE);
+			buffer.writeInt(_size);
+			buffer.writeByte(0); // Grand Crusade
+			buffer.writeByte(0); // chance multisell
+			buffer.writeInt(32); // Helios
+			int salvationIndex = _index;
+			int salvationSize = _size;
+			while (salvationSize-- > 0)
+			{
+				final Entry entry = _list.getEntries().get(salvationIndex++);
+				buffer.writeInt(salvationIndex); // Entry ID, starts from 1
+				buffer.writeByte(entry.isStackable());
+				buffer.writeShort(0); // enchant level
+				buffer.writeInt(0); // augment option 1
+				buffer.writeInt(0); // augment option 2
+				for (byte i = 0; i < 8; i++)
+				{
+					buffer.writeShort(0); // elemental attributes
+				}
+				buffer.writeByte(0); // soul crystal options
+				buffer.writeByte(0); // special soul crystal options
+				buffer.writeShort(entry.getProducts().size());
+				buffer.writeShort(entry.getIngredients().size());
+				for (Ingredient product : entry.getProducts())
+				{
+					if (product.getTemplate() != null)
+					{
+						buffer.writeInt(product.getTemplate().getDisplayId());
+						buffer.writeLong(product.getTemplate().getBodyPart().getMask());
+						buffer.writeShort(product.getTemplate().getType2());
+					}
+					else
+					{
+						buffer.writeInt(product.getItemId());
+						buffer.writeLong(0);
+						buffer.writeShort(65535);
+					}
+					buffer.writeLong(product.getItemCount());
+					buffer.writeShort(product.getEnchantLevel());
+					buffer.writeInt(100); // chance
+					buffer.writeInt(0); // augment option 1
+					buffer.writeInt(0); // augment option 2
+					for (byte i = 0; i < 8; i++)
+					{
+						buffer.writeShort(0); // elemental attributes
+					}
+					buffer.writeByte(0); // soul crystal options
+					buffer.writeByte(0); // special soul crystal options
+				}
+				for (Ingredient ingredient : entry.getIngredients())
+				{
+					if (ingredient.getTemplate() != null)
+					{
+						buffer.writeInt(ingredient.getTemplate().getDisplayId());
+						buffer.writeShort(ingredient.getTemplate().getType2());
+					}
+					else
+					{
+						buffer.writeInt(ingredient.getItemId());
+						buffer.writeShort(65535);
+					}
+					buffer.writeLong(ingredient.getItemCount());
+					buffer.writeShort(ingredient.getEnchantLevel());
+					buffer.writeInt(0); // augment option 1
+					buffer.writeInt(0); // augment option 2
+					for (byte i = 0; i < 8; i++)
+					{
+						buffer.writeShort(0); // elemental attributes
+					}
+					buffer.writeByte(0); // soul crystal options
+					buffer.writeByte(0); // special soul crystal options
+				}
+			}
+			return;
+		}
+
 		buffer.writeInt(_list.getListId()); // list id
 		buffer.writeInt(1 + (_index / PAGE_SIZE)); // page started from 1
 		buffer.writeInt(_finished); // finished

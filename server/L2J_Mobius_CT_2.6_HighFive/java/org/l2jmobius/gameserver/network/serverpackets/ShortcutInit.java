@@ -70,8 +70,9 @@ public class ShortcutInit extends ServerPacket
 					{
 						final Item item = _player.getInventory().getItemByObjectId(sc.getId());
 						final Augmentation augmentation = item != null ? item.getAugmentation() : null;
-						buffer.writeInt(augmentation != null ? augmentation.getAugmentationId() : 0); // Option 1
-						buffer.writeInt(0); // Option 2
+						final int augId = augmentation != null ? augmentation.getAugmentationId() : 0;
+						buffer.writeInt(augId >> 16); // Option 1
+						buffer.writeInt(augId & 0xFFFF); // Option 2
 						buffer.writeInt(0); // Visual id
 					}
 					else

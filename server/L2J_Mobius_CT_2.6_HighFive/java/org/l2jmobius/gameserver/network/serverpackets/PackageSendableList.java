@@ -43,6 +43,19 @@ public class PackageSendableList extends AbstractItemPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.PACKAGE_SENDABLE_LIST.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+			buffer.writeByte(2);
+			buffer.writeInt(_items.size());
+			buffer.writeInt(_items.size());
+			for (Item item : _items)
+			{
+				writeItem140(item, buffer);
+				buffer.writeInt(item.getObjectId());
+			}
+			return;
+		}
+
 		buffer.writeInt(_playerObjId);
 		buffer.writeLong(_adena);
 		buffer.writeInt(_items.size());

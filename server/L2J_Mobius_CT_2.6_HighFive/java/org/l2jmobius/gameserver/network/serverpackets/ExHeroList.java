@@ -41,6 +41,23 @@ public class ExHeroList extends ServerPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.EX_HERO_LIST.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+			buffer.writeInt(_heroList.size());
+			for (StatSet hero : _heroList.values())
+			{
+				buffer.writeString(hero.getString(Olympiad.CHAR_NAME));
+				buffer.writeInt(hero.getInt(Olympiad.CLASS_ID));
+				buffer.writeString(hero.getString(Hero.CLAN_NAME, ""));
+				buffer.writeInt(hero.getInt(Hero.CLAN_CREST, 0));
+				buffer.writeString(hero.getString(Hero.ALLY_NAME, ""));
+				buffer.writeInt(hero.getInt(Hero.ALLY_CREST, 0));
+				buffer.writeInt(hero.getInt(Hero.COUNT));
+				buffer.writeInt(0);
+			}
+			return;
+		}
+
 		buffer.writeInt(_heroList.size());
 		for (StatSet hero : _heroList.values())
 		{

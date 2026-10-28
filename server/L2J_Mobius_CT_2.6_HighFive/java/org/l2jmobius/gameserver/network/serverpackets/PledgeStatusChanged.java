@@ -38,6 +38,19 @@ public class PledgeStatusChanged extends ServerPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.PLEDGE_STATUS_CHANGED.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+			buffer.writeInt(0);
+			buffer.writeInt(_clan.getLeaderId());
+			buffer.writeInt(_clan.getId());
+			buffer.writeInt(_clan.getCrestId());
+			buffer.writeInt(_clan.getAllyId());
+			buffer.writeInt(_clan.getAllyCrestId());
+			buffer.writeInt(_clan.getCrestLargeId());
+			buffer.writeInt(0); // Pledge type
+			return;
+		}
+
 		buffer.writeInt(_clan.getLeaderId());
 		buffer.writeInt(_clan.getId());
 		buffer.writeInt(_clan.getCrestId());

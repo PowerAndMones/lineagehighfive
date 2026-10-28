@@ -87,6 +87,10 @@ public class SystemMessage extends ServerPacket
 	// 15 exists in goddess of destruction but also may works in h5 needs to be verified!
 	// private static final byte TYPE_CLASS_ID = 15;
 	// id 14 unknown
+	public static final byte TYPE_FACTION_NAME = 24; // c(short), faction id. (Salvation protocol 140)
+	public static final byte TYPE_BYTE = 20; // c(byte) (Salvation protocol 140)
+	public static final byte TYPE_POPUP_ID = 16; // ddd (Salvation protocol 140)
+	public static final byte TYPE_CLASS_ID = 15; // h(short) (Salvation protocol 140)
 	public static final byte TYPE_SYSTEM_STRING = 13;
 	public static final byte TYPE_PLAYER_NAME = 12;
 	public static final byte TYPE_DOOR_NAME = 11;
@@ -344,6 +348,78 @@ public class SystemMessage extends ServerPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.SYSTEM_MESSAGE.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+			// SALVATION_140_LAYOUT: id is a short, parameter count/type are bytes,
+			// castle/system/instance/class ids are shorts. Ported from the reference.
+			buffer.writeShort(getId());
+			buffer.writeByte(_params.length);
+			for (SMParam param : _params)
+			{
+				if (param == null)
+				{
+					continue;
+				}
+
+				buffer.writeByte(param.getType());
+				switch (param.getType())
+				{
+					case TYPE_ELEMENT_NAME:
+					case TYPE_BYTE:
+					case TYPE_FACTION_NAME:
+					{
+						buffer.writeByte(param.getIntValue());
+						break;
+					}
+					case TYPE_CASTLE_NAME:
+					case TYPE_SYSTEM_STRING:
+					case TYPE_INSTANCE_NAME:
+					case TYPE_CLASS_ID:
+					{
+						buffer.writeShort(param.getIntValue());
+						break;
+					}
+					case TYPE_ITEM_NAME:
+					case TYPE_INT_NUMBER:
+					case TYPE_NPC_NAME:
+					case TYPE_DOOR_NAME:
+					{
+						buffer.writeInt(param.getIntValue());
+						break;
+					}
+					case TYPE_LONG_NUMBER:
+					{
+						buffer.writeLong(param.getLongValue());
+						break;
+					}
+					case TYPE_TEXT:
+					case TYPE_PLAYER_NAME:
+					{
+						buffer.writeString(param.getStringValue());
+						break;
+					}
+					case TYPE_SKILL_NAME:
+					{
+						final int[] array = param.getIntArrayValue();
+						buffer.writeInt(array[0]); // skill id
+						buffer.writeShort(array[1]); // skill level
+						buffer.writeShort(array.length > 2 ? array[2] : 0); // skill sub level
+						break;
+					}
+					case TYPE_POPUP_ID:
+					case TYPE_ZONE_NAME:
+					{
+						final int[] array = param.getIntArrayValue();
+						buffer.writeInt(array[0]); // x
+						buffer.writeInt(array[1]); // y
+						buffer.writeInt(array[2]); // z
+						break;
+					}
+				}
+			}
+			return;
+		}
+
 		
 		// Localisation related.
 		if (MultilingualSupportConfig.MULTILANG_ENABLE)

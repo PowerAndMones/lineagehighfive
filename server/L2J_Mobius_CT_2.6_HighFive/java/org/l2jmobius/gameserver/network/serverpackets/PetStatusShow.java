@@ -27,16 +27,25 @@ import org.l2jmobius.gameserver.network.ServerPackets;
 public class PetStatusShow extends ServerPacket
 {
 	private final int _summonType;
+	private final int _summonObjectId;
 	
 	public PetStatusShow(Summon summon)
 	{
 		_summonType = summon.getSummonType();
+		_summonObjectId = summon.getObjectId();
 	}
 	
 	@Override
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.PET_STATUS_SHOW.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+			buffer.writeInt(_summonType);
+			buffer.writeInt(_summonObjectId);
+			return;
+		}
+
 		buffer.writeInt(_summonType);
 	}
 }

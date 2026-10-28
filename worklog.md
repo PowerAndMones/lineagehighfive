@@ -66,3 +66,36 @@ Work Log:
 Stage Summary:
 - Ожидаемый тест v1.7: (1) имена у NPC/мобов; (2) телепорт без чёрного города; (3) экипировка в правильных ячейках (ExUserInfoEquipSlot + корректный SkillList/ShortcutInit); (4) список скиллов отображается (опкод 0x40); (5) другие игроки/декоры видны (CharInfo 140)
 - Следующие кандидаты: SummonInfo/PetInfo (0x8B) для петов, ExPetInfo; CM 0x38 RequestMagicSkillList (ответить ExAcquirableSkillListByClass-заглушкой)
+
+## Task 22 - Phase 6: mass wire-format port (v1.8)
+
+Дата: 28/10/2026. Запрос пользователя: "Пройдись по всем скриптам 5.0 Salvation и сделай все в highfive чтобы вся совместимость была в каждом файле".
+
+Аудит (scripts/audit_wire_diff3.py, audit_triage.py, audit_branches.py):
+- 129 serverpackets/clientpackets с реальными различиями wire-форматов + 57 REF-ONLY пакетов
+- Проверка существующих веток: UserInfo/CharInfo/NpcInfo-маска/ItemList/RelationChanged подтверждены байт-в-байт корректными
+
+ЧЁРНЫЙ ГОРОД ПОСЛЕ ТЕЛЕПОРТА - НАЙДЕНА ПРИЧИНА: эталон после телепорта шлёт ExTeleportToLocationActivate (0xFE 0x14A) "teleport finished" - у нас отсутствовал. Создан пакет + отправка в Creature.onTeleported/Player.onTeleported.
+
+СУММА (102 файла, +2635 строк):
+- ServerPackets: +EX_TELEPORT_TO_LOCATION_ACTIVATE(0xFE,0x14A), +EX_PET_INFO(0xFE,0x15E), +SUMMON_INFO(0x8B)
+- Новый ExTeleportToLocationActivate.java
+- SystemMessage/ConfirmDlg: 140-сериализация (short id, byte счётчик, byte тип; castle/system/instance/class = short; +TYPE_BYTE/CLASS_ID/POPUP_ID/FACTION_NAME константы)
+- AbnormalType.getClientId(): статическая карта 549 clientId из эталона
+- Абнормальные иконки: AbnormalStatusUpdate/PartySpelled/ExOlympiadSpelledInfo (subLevel + abnormalType + short-time блоки)
+- Пати: PartySmallWindowAdd/All (byte/short поля, vitality, race short), PartySmallWindowUpdate (mask-based 512-flags)
+- Петомцы: SummonInfo -> SUMMON_INFO 0x8B маска-лейаут (для чужих); PetInfo -> полный PetSummonInfo лейаут (для владельца); ExPartyPetWindowAdd/Update/Delete; PetStatusShow/Update
+- Магазины/трейд: BuyList/ExBuySellList/BuyListSeed(manus)/MultiSellList (полный 140-лейаут: entry header + augment/elemental/ensoul блоки)/ShopPreviewList/TradeStart (квартет sendType 1+2 как ItemList, sender в Player)+TradeOwnAdd/OtherAdd/Update (writeItem140)/PrivateStoreManageList* — wait, не ported: PrivateStore*, GMView*(частично)
+- writeItem140: +overload с countOverride + writeItem140Product (Product)
+- Склад: WareHouseDepositList/WithdrawalList sendType 2
+- Почта: ExReplyPostItemList/ExReplyReceivedPost/ExReplySentPost/ExShowReceivedPostList/ExShowSentPostList
+- Хенны: HennaEquipList (+HennaInfo был готов)
+- Клан: PledgeCrest/AllyCrest(энюм ALLIANCE_CREST)/PledgeInfo/PledgeShowInfoUpdate/PledgeShowMemberListUpdate/PledgeStatusChanged/PledgeSkillList
+- Misc: MyTargetSelected(+int 1 marker), ActionFailed(castingType 0), JoinParty/SocialAction(+tail), StopRotation(int), MagicSkillLaunched(castingType), FlyToLocation(+3 int), DropItem(byte stackable+tail), FriendAddRequest, ExAutoSoulShot(3 int), ExShowQuestMark, TutorialShowHtml/QuestionMark, NpcHtmlMessage(+int), EnchantResult(+level+options), ShortBuffStatusUpdate(sublevel), EtcStatusUpdate(7 полей + mask), AcquireSkillInfo(long spCost, type id), AcquireSkillList(140-шейп), AskJoinAlly/Pledge, ExAskJoinMPCC/PartyRoom, ExHeroList, ExGetPremiumItemList, ExShowCastleInfo, ObservationMode, ExChooseInventoryAttributeItem(count+stone list), ExCubeGameEnd, ExEnchantSkillList, ExListPartyMatchingWaitingRoom, ExUserInfoCubic(cubic ids), SendMacroList
+- CM (19 файлов read-side): RequestAutoSoulShot(3), RequestDispel(short level), RequestExEnchantItemAttribute(+long count), RequestExEnchantSkill*/Info/InfoDetail(short levels), RequestExPledgeCrestLarge/RequestPledgeCrest(+clanId), RequestShortcutReg(short subLevel), RequestTutorialLinkHtml/QuestionMark, MultiSellChoose(ensoul tail), RequestListPartyMatchingWaitingRoom(class list+query), RequestMakeMacro(icon int), RequestPrivateStoreSell(visual/augment/ensoul хвосты), RequestRecipeItemMakeSelf/RequestRecipeShopMakeItem(offerings), SetPrivateStoreListBuy(полный 140-лейаут)
+- ShortcutInit: augment option1/option2 split (augId>>16, &0xFFFF)
+
+Не портировано (нет данных в H5-модели, отложено): GMViewCharacterInfo/GMViewSkillInfo/GMViewPledgeInfo/GmViewQuestInfo/GMHennaInfo (GM-просмотр), FakePlayerInfo (fake players), SiegeDefenderList, ExOlympiadMatchResult, ExOlympiadUserInfo, PrivateStoreManageListBuy/Sell/PrivateStoreListBuy/Sell (частично актуально), BuyListSeed, ExBeautyItemList/ExResponseBeautyList (beauty shop), MPCC room пакеты, pledge recruit пакеты
+Компиляция 1922 файлов exit 0.
+
+Ожидаемый тест v1.8: (1) чёрный город после телепорта должен уйти (ExTeleportToLocationActivate); (2) инвентарь/трейд/склад/мультиселл/почта корректные списки; (3) бафы-иконки с таймерами; (4) скиллы к изучению у NPC; (5) макросы; (6) петы видны/с именами; (7) system-сообщения корректного формата (критично: id short + byte типы)

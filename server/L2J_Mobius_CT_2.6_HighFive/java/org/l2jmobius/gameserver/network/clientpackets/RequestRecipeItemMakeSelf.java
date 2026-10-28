@@ -30,6 +30,18 @@ public class RequestRecipeItemMakeSelf extends ClientPacket
 	@Override
 	protected void readImpl()
 	{
+		if (getClient() != null && getClient().isSalvationMode())
+		{
+			_id = readInt();
+			final int offeringsCount = readInt();
+			for (int i = 0; i < offeringsCount; i++)
+			{
+				readInt(); // Object id
+				readLong(); // Count
+			}
+			return;
+		}
+
 		_id = readInt();
 	}
 	

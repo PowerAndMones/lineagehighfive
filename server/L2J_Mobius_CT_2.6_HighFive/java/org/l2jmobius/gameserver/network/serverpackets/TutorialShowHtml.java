@@ -41,6 +41,13 @@ public class TutorialShowHtml extends AbstractHtmlPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.TUTORIAL_SHOW_HTML.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+                 buffer.writeInt(1); // Type (Salvation protocol 140)
+                        buffer.writeString(getHtml());
+			return;
+		}
+
 		buffer.writeString(getHtml());
 	}
 	

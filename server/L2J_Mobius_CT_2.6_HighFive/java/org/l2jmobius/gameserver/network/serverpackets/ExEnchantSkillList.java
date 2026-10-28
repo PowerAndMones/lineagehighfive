@@ -48,6 +48,19 @@ public class ExEnchantSkillList extends ServerPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.EX_ENCHANT_SKILL_LIST.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+			buffer.writeInt(_type != null ? _type.ordinal() : 0);
+			buffer.writeInt(_skills.size());
+			for (Skill skill : _skills)
+			{
+				buffer.writeInt(skill.getId());
+				buffer.writeShort(skill.getLevel());
+				buffer.writeShort(0); // Skill sub level
+			}
+			return;
+		}
+
 		buffer.writeInt(_type.ordinal());
 		buffer.writeInt(_skills.size());
 		for (Skill skill : _skills)

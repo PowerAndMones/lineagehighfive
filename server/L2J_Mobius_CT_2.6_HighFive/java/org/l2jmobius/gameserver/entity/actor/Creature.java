@@ -152,6 +152,7 @@ import org.l2jmobius.gameserver.network.GameClient;
 import org.l2jmobius.gameserver.network.SystemMessageId;
 import org.l2jmobius.gameserver.network.serverpackets.AbstractNpcInfo;
 import org.l2jmobius.gameserver.network.serverpackets.ActionFailed;
+import org.l2jmobius.gameserver.network.serverpackets.ExTeleportToLocationActivate;
 import org.l2jmobius.gameserver.network.serverpackets.Attack;
 import org.l2jmobius.gameserver.network.serverpackets.ChangeMoveType;
 import org.l2jmobius.gameserver.network.serverpackets.ChangeWaitType;
@@ -582,6 +583,9 @@ public abstract class Creature extends WorldObject
 		
 		spawnMe(getX(), getY(), getZ());
 		setTeleporting(false);
+		
+		// Salvation (protocol 140): tell the client the teleport transition is over.
+		sendPacket(new ExTeleportToLocationActivate(this));
 		
 		if (EventDispatcher.getInstance().hasListener(EventType.ON_CREATURE_TELEPORTED, this))
 		{

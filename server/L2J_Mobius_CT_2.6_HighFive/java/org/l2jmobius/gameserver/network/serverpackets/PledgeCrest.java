@@ -48,6 +48,22 @@ public class PledgeCrest extends ServerPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.PLEDGE_CREST.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+			buffer.writeInt(1); // Server id (Salvation protocol 140)
+			buffer.writeInt(_crestId);
+			if (_data != null)
+			{
+				buffer.writeInt(_data.length);
+				buffer.writeBytes(_data);
+			}
+			else
+			{
+				buffer.writeInt(0);
+			}
+			return;
+		}
+
 		buffer.writeInt(_crestId);
 		if (_data != null)
 		{

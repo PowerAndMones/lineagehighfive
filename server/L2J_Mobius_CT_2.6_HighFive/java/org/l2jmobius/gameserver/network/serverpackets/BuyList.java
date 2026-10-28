@@ -29,7 +29,7 @@ import org.l2jmobius.gameserver.mechanics.buylist.Product;
 import org.l2jmobius.gameserver.network.GameClient;
 import org.l2jmobius.gameserver.network.ServerPackets;
 
-public class BuyList extends ServerPacket
+public class BuyList extends AbstractItemPacket
 {
 	private final int _listId;
 	private final Collection<Product> _list;
@@ -48,6 +48,24 @@ public class BuyList extends ServerPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.EX_BUY_SELL_LIST.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+			buffer.writeInt(0); // Type BUY
+			buffer.writeLong(_money);
+			buffer.writeInt(_listId);
+			buffer.writeInt(100); // Inventory slots (Salvation protocol 140)
+			buffer.writeShort(_list.size());
+			for (org.l2jmobius.gameserver.mechanics.buylist.Product product : _list)
+			{
+				if ((product.getCount() > 0) || !product.hasLimitedStock())
+				{
+					writeItem140Product(product, buffer);
+					buffer.writeLong(product.getPrice());
+				}
+			}
+			return;
+		}
+
 		buffer.writeInt(0);
 		buffer.writeLong(_money); // current money
 		buffer.writeInt(_listId);

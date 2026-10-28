@@ -24,7 +24,7 @@ import org.l2jmobius.gameserver.network.ServerPackets;
 /**
  * @author KenM
  */
-public class ExRpItemLink extends ServerPacket
+public class ExRpItemLink extends AbstractItemPacket
 {
 	private final Item _item;
 	
@@ -37,6 +37,12 @@ public class ExRpItemLink extends ServerPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.EX_RP_ITEM_LINK.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+			writeItem140(_item, buffer);
+			return;
+		}
+
 		buffer.writeInt(_item.getObjectId());
 		buffer.writeInt(_item.getDisplayId());
 		buffer.writeInt(_item.getLocationSlot());

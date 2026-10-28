@@ -33,6 +33,14 @@ public class RequestAllyCrest extends ClientPacket
 	@Override
 	protected void readImpl()
 	{
+		if (getClient() != null && getClient().isSalvationMode())
+		{
+			_crestId = readInt();
+			readInt(); // Ally ID
+			readInt(); // Server ID
+			return;
+		}
+
 		_crestId = readInt();
 	}
 	

@@ -35,6 +35,15 @@ public class RequestDispel extends ClientPacket
 	@Override
 	protected void readImpl()
 	{
+		if (getClient() != null && getClient().isSalvationMode())
+		{
+			_objectId = readInt();
+			_skillId = readInt();
+			_skillLevel = readShort();
+			readShort(); // Skill sub level
+			return;
+		}
+
 		_objectId = readInt();
 		_skillId = readInt();
 		_skillLevel = readInt();

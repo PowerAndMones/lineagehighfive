@@ -40,6 +40,13 @@ public class ExAskJoinMPCC extends ServerPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.EX_ASK_JOIN_MPCC.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+                      buffer.writeString(_requestorName);
+                        buffer.writeInt(0); // Salvation (protocol 140)
+			return;
+		}
+
 		buffer.writeString(_requestorName); // name of CCLeader
 	}
 }

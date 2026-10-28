@@ -46,6 +46,50 @@ public class RequestPrivateStoreSell extends ClientPacket
 	@Override
 	protected void readImpl()
 	{
+		if (getClient() != null && getClient().isSalvationMode())
+		{
+			_storePlayerId = readInt();
+			final int itemsCount = readInt();
+			if ((itemsCount <= 0) || (itemsCount > PlayerConfig.MAX_ITEM_IN_PACKET))
+			{
+				return;
+			}
+
+			_items = new RequestTrade[itemsCount];
+			for (int i = 0; i < itemsCount; i++)
+			{
+				final int slot = readInt();
+				final int itemId = readInt();
+				readShort(); // Unknown
+				readShort(); // Unknown
+				final long cnt = readLong();
+				final long price = readLong();
+				readInt(); // Visual id
+				readInt(); // Augment option 1
+				readInt(); // Augment option 2
+				final int soulCrystals = readByte();
+				for (int s = 0; s < soulCrystals; s++)
+				{
+					readInt(); // Soul crystal option
+				}
+
+				final int soulCrystals2 = readByte();
+				for (int s = 0; s < soulCrystals2; s++)
+				{
+					readInt(); // Soul crystal special option
+				}
+
+				if ((itemId < 1) || (cnt < 1) || (price < 0))
+				{
+					_items = null;
+					return;
+				}
+
+				_items[i] = new RequestTrade(slot, itemId, cnt, price);
+			}
+			return;
+		}
+
 		_storePlayerId = readInt();
 		final int count = readInt();
 		if ((count <= 0) || (count > PlayerConfig.MAX_ITEM_IN_PACKET) || ((count * BATCH_LENGTH) != remaining()))

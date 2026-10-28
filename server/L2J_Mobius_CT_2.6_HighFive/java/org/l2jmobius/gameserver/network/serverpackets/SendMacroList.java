@@ -43,6 +43,33 @@ public class SendMacroList extends ServerPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.MACRO_LIST.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+			buffer.writeByte(_rev); // Update type
+			buffer.writeInt(_rev > 0 ? (_macro != null ? _macro.getId() : 0) : 0);
+			buffer.writeByte(_count);
+			buffer.writeByte(_macro != null);
+			if (_macro != null)
+			{
+				buffer.writeInt(_macro.getId());
+				buffer.writeString(_macro.getName());
+				buffer.writeString(_macro.getDescr());
+				buffer.writeString(_macro.getAcronym());
+				buffer.writeInt(_macro.getIcon());
+				buffer.writeByte(_macro.getCommands().size());
+				int i = 1;
+				for (MacroCmd cmd : _macro.getCommands())
+				{
+					buffer.writeByte(i++);
+					buffer.writeByte(cmd.getType().ordinal());
+					buffer.writeInt(cmd.getD1());
+					buffer.writeByte(cmd.getD2());
+					buffer.writeString(cmd.getCmd());
+				}
+			}
+			return;
+		}
+
 		buffer.writeInt(_rev); // macro change revision (changes after each macro edition)
 		buffer.writeByte(0); // unknown
 		buffer.writeByte(_count); // count of Macros

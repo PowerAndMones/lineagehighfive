@@ -43,6 +43,17 @@ public class AskJoinPledge extends ServerPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.ASK_JOIN_PLEDGE.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+			buffer.writeInt(_requestorObjId);
+			buffer.writeString(_pledgeName);
+			if (_pledgeType != 0)
+			{
+				buffer.writeInt(_pledgeType);
+			}
+			return;
+		}
+
 		buffer.writeInt(_requestorObjId);
 		if (_subPledgeName != null)
 		{

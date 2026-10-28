@@ -43,6 +43,15 @@ public class AskJoinAlly extends ServerPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.ASK_JOIN_ALLIANCE.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+			buffer.writeInt(_requestorObjId);
+			buffer.writeString(""); // Ally name (Salvation protocol 140)
+			buffer.writeString(""); // Unk (Salvation protocol 140)
+			buffer.writeString(_requestorName);
+			return;
+		}
+
 		buffer.writeInt(_requestorObjId);
 		buffer.writeString(_requestorName);
 	}

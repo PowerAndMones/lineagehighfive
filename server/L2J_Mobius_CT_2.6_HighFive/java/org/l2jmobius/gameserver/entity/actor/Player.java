@@ -298,6 +298,7 @@ import org.l2jmobius.gameserver.network.holders.RequestPartner;
 import org.l2jmobius.gameserver.network.holders.TradeList;
 import org.l2jmobius.gameserver.network.serverpackets.AbstractHtmlPacket;
 import org.l2jmobius.gameserver.network.serverpackets.ActionFailed;
+import org.l2jmobius.gameserver.network.serverpackets.ExTeleportToLocationActivate;
 import org.l2jmobius.gameserver.network.serverpackets.ChangeWaitType;
 import org.l2jmobius.gameserver.network.serverpackets.CharInfo;
 import org.l2jmobius.gameserver.network.serverpackets.ConfirmDlg;
@@ -6194,6 +6195,14 @@ public class Player extends Playable
 		final SystemMessage msg = new SystemMessage(SystemMessageId.YOU_BEGIN_TRADING_WITH_C1);
 		msg.addPcName(partner);
 		sendPacket(msg);
+		if ((getClient() != null) && getClient().isSalvationMode())
+		{
+			// Salvation (protocol 140): partner info + item list packets.
+			sendPacket(new TradeStart(1, this));
+			sendPacket(new TradeStart(2, this));
+			return;
+		}
+
 		sendPacket(new TradeStart(this));
 	}
 	
@@ -11368,6 +11377,9 @@ public class Player extends Playable
 	public synchronized void onTeleported()
 	{
 		super.onTeleported();
+		
+		// Salvation (protocol 140): teleport transition finished.
+		sendPacket(new ExTeleportToLocationActivate(this));
 		
 		if (isInAirShip())
 		{

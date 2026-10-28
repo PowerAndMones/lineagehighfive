@@ -96,7 +96,7 @@ public abstract class AbstractItemPacket extends ServerPacket
 		writeItem140(new ItemInfo(item), buffer);
 	}
 	
-	protected void writeItem140(ItemInfo itemInfo, WriteBuffer buffer)
+	private void writeItem140Internal(ItemInfo itemInfo, long countOverride, WriteBuffer buffer)
 	{
 		int mask = 0;
 		if (itemInfo.getAugmentationBonus() != 0)
@@ -123,7 +123,7 @@ public abstract class AbstractItemPacket extends ServerPacket
 		buffer.writeInt(itemInfo.getObjectId()); // ObjectId
 		buffer.writeInt(itemInfo.getItem().getDisplayId()); // ItemId
 		buffer.writeByte(itemInfo.getItem().isQuestItem() || (itemInfo.getEquipped() == 1) ? 0xFF : itemInfo.getLocation()); // T1
-		buffer.writeLong(itemInfo.getCount()); // Quantity
+		buffer.writeLong(countOverride); // Quantity
 		buffer.writeByte(itemInfo.getItem().getType2()); // Item Type 2 : 00-weapon, 01-shield/armor, 02-ring/earring/necklace, 03-questitem, 04-adena, 05-item
 		buffer.writeByte(itemInfo.getCustomType1()); // Filler (always 0)
 		buffer.writeShort(itemInfo.getEquipped()); // Equipped : 00-No, 01-yes
@@ -158,6 +158,39 @@ public abstract class AbstractItemPacket extends ServerPacket
 				buffer.writeInt(op);
 			}
 		}
+	}
+	
+	protected void writeItem140(ItemInfo itemInfo, WriteBuffer buffer)
+	{
+		writeItem140Internal(itemInfo, itemInfo.getCount(), buffer);
+	}
+	
+	protected void writeItem140(ItemInfo itemInfo, long countOverride, WriteBuffer buffer)
+	{
+		writeItem140Internal(itemInfo, countOverride, buffer);
+	}
+	
+	/**
+	 * Salvation (protocol 140) item block for shop products (no objectId/augment/elemental data).
+	 */
+	protected void writeItem140Product(org.l2jmobius.gameserver.mechanics.buylist.Product product, WriteBuffer buffer)
+	{
+		buffer.writeByte(0); // mask: no optional blocks
+		buffer.writeInt(0); // ObjectId
+		buffer.writeInt(product.getItem().getDisplayId()); // ItemId
+		buffer.writeByte(0); // T1
+		buffer.writeLong(product.getCount()); // Quantity
+		buffer.writeByte(product.getItem().getType2()); // Item Type 2
+		buffer.writeByte(0); // Custom type 1
+		buffer.writeShort(0); // Equipped
+		buffer.writeLong(product.getItem().getBodyPart().getMask()); // Slot
+		buffer.writeByte(0); // Enchant level
+		buffer.writeByte(0); // Custom type 2
+		buffer.writeInt(0); // Mana
+		buffer.writeInt(0); // Time
+		buffer.writeByte(1); // GOD item enabled
+		buffer.writeByte(0);
+		buffer.writeByte(0);
 	}
 	
 	protected void writeInventoryBlock(PlayerInventory inventory, WriteBuffer buffer)

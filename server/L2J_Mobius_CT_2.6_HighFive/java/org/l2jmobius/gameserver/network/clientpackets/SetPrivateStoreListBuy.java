@@ -47,6 +47,55 @@ public class SetPrivateStoreListBuy extends ClientPacket
 	@Override
 	protected void readImpl()
 	{
+		if (getClient() != null && getClient().isSalvationMode())
+		{
+			final int count = readInt();
+			if ((count < 1) || (count > PlayerConfig.MAX_ITEM_IN_PACKET))
+			{
+				return;
+			}
+
+			_items = new Item[count];
+			for (int i = 0; i < count; i++)
+			{
+				final int itemId = readInt();
+				final int enchantLevel = readShort();
+				readShort(); // Price per unit
+				final long cnt = readLong();
+				final long price = readLong();
+				if ((itemId < 1) || (cnt < 1) || (price < 0))
+				{
+					_items = null;
+					return;
+				}
+
+				readInt(); // Augment option 1
+				readInt(); // Augment option 2
+				readShort(); // Attack attribute id
+				readShort(); // Attack attribute value
+				for (byte k = 0; k < 6; k++)
+				{
+					readShort(); // Elemental defence
+				}
+
+				readInt(); // Visual id
+				final int soulCrystals = readByte();
+				for (int s = 0; s < soulCrystals; s++)
+				{
+					readInt(); // Soul crystal option
+				}
+
+				final int soulCrystals2 = readByte();
+				for (int s = 0; s < soulCrystals2; s++)
+				{
+					readInt(); // Soul crystal special option
+				}
+
+				_items[i] = new Item(itemId, cnt, price);
+			}
+			return;
+		}
+
 		final int count = readInt();
 		if ((count < 1) || (count > PlayerConfig.MAX_ITEM_IN_PACKET) || ((count * BATCH_LENGTH) != remaining()))
 		{

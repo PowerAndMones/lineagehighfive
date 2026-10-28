@@ -42,6 +42,16 @@ public class MyTargetSelected extends ServerPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.MY_TARGET_SELECTED.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+                 // Salvation (protocol 140): Grand Crusade marker first.
+                        buffer.writeInt(1);
+                        buffer.writeInt(_objectId);
+                        buffer.writeShort(_color);
+                        buffer.writeInt(0);
+			return;
+		}
+
 		buffer.writeInt(_objectId);
 		buffer.writeShort(_color);
 		buffer.writeInt(0);

@@ -64,6 +64,20 @@ public class MagicSkillLaunched extends ServerPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.MAGIC_SKILL_LAUNCHED.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+                     buffer.writeInt(0); // Casting bar type (Salvation protocol 140)
+                        buffer.writeInt(_objectId);
+                        buffer.writeInt(_skillId);
+                        buffer.writeInt(_skillLevel);
+                        buffer.writeInt(_targets.size());
+                        for (WorldObject target : _targets)
+                        {
+                                buffer.writeInt(target.getObjectId());
+                        }
+			return;
+		}
+
 		buffer.writeInt(_objectId);
 		buffer.writeInt(_skillId);
 		buffer.writeInt(_skillLevel);

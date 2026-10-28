@@ -60,6 +60,18 @@ public class GMViewItemList extends AbstractItemPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.GM_VIEW_ITEM_LIST.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+			buffer.writeByte(2);
+			buffer.writeInt(_items.size());
+			buffer.writeInt(_items.size());
+			for (Item item : _items)
+			{
+				writeItem140(item, buffer);
+			}
+			return;
+		}
+
 		buffer.writeString(_playerName);
 		buffer.writeInt(_limit); // inventory limit
 		buffer.writeShort(1); // show window ??

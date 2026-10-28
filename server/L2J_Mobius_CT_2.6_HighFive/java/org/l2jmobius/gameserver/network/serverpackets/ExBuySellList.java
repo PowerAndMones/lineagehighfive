@@ -49,6 +49,44 @@ public class ExBuySellList extends AbstractItemPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.EX_BUY_SELL_LIST.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+			buffer.writeInt(1); // Type SELL
+			buffer.writeInt(100); // Inventory slots (Salvation protocol 140)
+			if (_sellList != null)
+			{
+				buffer.writeShort(_sellList.size());
+				for (Item item : _sellList)
+				{
+					writeItem140(item, buffer);
+					buffer.writeLong(item.getTemplate().getReferencePrice() / 2);
+				}
+			}
+			else
+			{
+				buffer.writeShort(0);
+			}
+
+			if ((_refundList != null) && !_refundList.isEmpty())
+			{
+				buffer.writeShort(_refundList.size());
+				int i = 0;
+				for (Item item : _refundList)
+				{
+					writeItem140(item, buffer);
+					buffer.writeInt(i++);
+					buffer.writeLong((item.getTemplate().getReferencePrice() / 2) * item.getCount());
+				}
+			}
+			else
+			{
+				buffer.writeShort(0);
+			}
+
+			buffer.writeByte(_done);
+			return;
+		}
+
 		buffer.writeInt(1);
 		if (_sellList != null)
 		{

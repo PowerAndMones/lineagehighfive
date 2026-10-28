@@ -77,6 +77,35 @@ public class MultiSellChoose extends ClientPacket
 	@Override
 	protected void readImpl()
 	{
+		if (getClient() != null && getClient().isSalvationMode())
+		{
+			_listId = readInt();
+			_entryId = readInt();
+			_amount = readLong();
+			_unk1 = readShort(); // Enchant level
+			_unk2 = readInt(); // Augment option 1
+			_unk3 = readInt(); // Augment option 2
+			_unk4 = readShort(); // Attack attribute
+			_unk5 = readShort(); // Attack attribute power
+			_unk6 = readShort(); // Fire defence
+			_unk7 = readShort(); // Water defence
+			_unk8 = readShort(); // Wind defence
+			_unk9 = readShort(); // Earth defence
+			_unk10 = readShort(); // Holy defence
+			_unk11 = readShort(); // Dark defence
+			final int ensoulCount = readByte();
+			for (int i = 0; i < ensoulCount; i++)
+			{
+				readInt(); // Ensoul option id
+			}
+			final int ensoulSpecialCount = readByte();
+			for (int i = 0; i < ensoulSpecialCount; i++)
+			{
+				readInt(); // Special ensoul option id
+			}
+			return;
+		}
+
 		_listId = readInt();
 		_entryId = readInt();
 		_amount = readLong();

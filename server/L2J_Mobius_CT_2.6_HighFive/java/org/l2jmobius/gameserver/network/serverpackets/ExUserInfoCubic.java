@@ -42,6 +42,18 @@ public class ExUserInfoCubic extends ServerPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.EX_USER_INFO_CUBIC.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+			buffer.writeInt(_player.getObjectId());
+			buffer.writeShort(_player.getCubics().size());
+			for (int cubicId : _player.getCubics().keySet())
+			{
+				buffer.writeShort(cubicId);
+			}
+			buffer.writeInt(0); // Agathion id (Salvation protocol 140)
+			return;
+		}
+
 		buffer.writeInt(_player.getObjectId());
 		buffer.writeShort(_player.getCubics().size());
 		for (int cubicId : _player.getCubics().keySet())

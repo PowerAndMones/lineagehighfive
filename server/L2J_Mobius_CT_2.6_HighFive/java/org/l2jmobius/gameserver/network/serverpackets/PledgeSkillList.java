@@ -56,6 +56,27 @@ public class PledgeSkillList extends ServerPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.PLEDGE_SKILL_LIST.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+			buffer.writeInt(_skills.size());
+			buffer.writeInt(_subSkills.size());
+			for (Skill sk : _skills)
+			{
+				buffer.writeInt(sk.getDisplayId());
+				buffer.writeShort(sk.getDisplayLevel());
+				buffer.writeShort(0); // Skill sub level
+			}
+
+			for (SubPledgeSkill sk : _subSkills)
+			{
+				buffer.writeInt(sk._subType);
+				buffer.writeInt(sk._skillId);
+				buffer.writeShort(sk._skillLevel);
+				buffer.writeShort(0); // Skill sub level
+			}
+			return;
+		}
+
 		buffer.writeInt(_skills.size());
 		buffer.writeInt(_subSkills.size()); // Squad skill length
 		for (Skill sk : _skills)

@@ -30,6 +30,8 @@ public class ExChooseInventoryAttributeItem extends ServerPacket
 	private final int _itemId;
 	private final byte _atribute;
 	private final int _level;
+	private final int _stoneId;
+	private final long _stoneCount;
 	
 	public ExChooseInventoryAttributeItem(Item item)
 	{
@@ -41,12 +43,30 @@ public class ExChooseInventoryAttributeItem extends ServerPacket
 		}
 		
 		_level = Elementals.getMaxElementLevel(_itemId);
+		_stoneId = item.getId();
+		_stoneCount = item.getCount();
 	}
 	
 	@Override
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.EX_CHOOSE_INVENTORY_ATTRIBUTE_ITEM.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+			buffer.writeInt(_itemId);
+			buffer.writeLong(_stoneCount);
+			buffer.writeInt(_atribute == Elementals.FIRE); // Fire
+			buffer.writeInt(_atribute == Elementals.WATER); // Water
+			buffer.writeInt(_atribute == Elementals.WIND); // Wind
+			buffer.writeInt(_atribute == Elementals.EARTH); // Earth
+			buffer.writeInt(_atribute == Elementals.HOLY); // Holy
+			buffer.writeInt(_atribute == Elementals.DARK); // Dark
+			buffer.writeInt(_level); // Item max attribute level
+			buffer.writeInt(1); // Stone list size
+			buffer.writeInt(_stoneId); // Stone item id
+			return;
+		}
+
 		buffer.writeInt(_itemId);
 		
 		// Structure for now

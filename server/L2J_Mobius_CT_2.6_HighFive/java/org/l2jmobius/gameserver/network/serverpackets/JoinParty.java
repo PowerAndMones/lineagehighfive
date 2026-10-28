@@ -37,6 +37,13 @@ public class JoinParty extends ServerPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.JOIN_PARTY.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+                        buffer.writeInt(_response);
+                        buffer.writeInt(0); // Salvation (protocol 140)
+			return;
+		}
+
 		buffer.writeInt(_response);
 	}
 }

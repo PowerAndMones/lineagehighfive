@@ -38,6 +38,16 @@ public class ObservationMode extends ServerPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.OBSERVER_START.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+			buffer.writeInt(_loc.getX());
+			buffer.writeInt(_loc.getY());
+			buffer.writeInt(_loc.getZ());
+			buffer.writeInt(0);
+			buffer.writeInt(0xc0);
+			return;
+		}
+
 		buffer.writeInt(_loc.getX());
 		buffer.writeInt(_loc.getY());
 		buffer.writeInt(_loc.getZ());

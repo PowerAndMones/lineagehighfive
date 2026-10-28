@@ -39,6 +39,14 @@ public class ExAutoSoulShot extends ServerPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.EX_AUTO_SOULSHOT.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+                     buffer.writeInt(_itemId);
+                        buffer.writeInt(_type);
+                        buffer.writeInt(0); // Shot type (Salvation protocol 140)
+			return;
+		}
+
 		buffer.writeInt(_itemId);
 		buffer.writeInt(_type);
 	}

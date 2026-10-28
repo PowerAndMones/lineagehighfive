@@ -53,6 +53,19 @@ public class GMViewWarehouseWithdrawList extends AbstractItemPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.GM_VIEW_WAREHOUSE_WITHDRAW_LIST.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+			buffer.writeByte(2);
+			buffer.writeInt(_items.size());
+			buffer.writeInt(_items.size());
+			for (Item item : _items)
+			{
+				writeItem140(item, buffer);
+				buffer.writeInt(item.getObjectId());
+			}
+			return;
+		}
+
 		buffer.writeString(_playerName);
 		buffer.writeLong(_money);
 		buffer.writeShort(_items.size());

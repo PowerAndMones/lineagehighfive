@@ -41,6 +41,15 @@ public class StopRotation extends ServerPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.FINISH_ROTATING.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+                        buffer.writeInt(_objectId);
+                        buffer.writeInt(_degree);
+                        buffer.writeInt(_speed);
+                        buffer.writeInt(0); // Salvation (protocol 140): was writeByte on H5
+			return;
+		}
+
 		buffer.writeInt(_objectId);
 		buffer.writeInt(_degree);
 		buffer.writeInt(_speed);

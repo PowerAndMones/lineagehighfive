@@ -43,6 +43,15 @@ public class ShortBuffStatusUpdate extends ServerPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.SHORT_BUFF_STATUS_UPDATE.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+                      buffer.writeInt(_skillId);
+                        buffer.writeShort(_skillLevel);
+                        buffer.writeShort(0); // Skill sub level (Salvation protocol 140)
+                        buffer.writeInt(_duration);
+			return;
+		}
+
 		buffer.writeInt(_skillId);
 		buffer.writeInt(_skillLevel);
 		buffer.writeInt(_duration);

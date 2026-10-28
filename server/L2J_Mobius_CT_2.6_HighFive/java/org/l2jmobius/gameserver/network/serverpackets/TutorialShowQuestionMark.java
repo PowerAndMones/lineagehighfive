@@ -37,6 +37,13 @@ public class TutorialShowQuestionMark extends ServerPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.SHOW_TUTORIAL_MARK.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+                 buffer.writeByte(1); // Mark type (Salvation protocol 140)
+                        buffer.writeInt(_markId);
+			return;
+		}
+
 		buffer.writeInt(_markId);
 	}
 }

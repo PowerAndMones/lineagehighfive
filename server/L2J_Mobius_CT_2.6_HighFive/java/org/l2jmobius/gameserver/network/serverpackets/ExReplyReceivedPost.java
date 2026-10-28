@@ -55,6 +55,35 @@ public class ExReplyReceivedPost extends AbstractItemPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.EX_REPLY_RECEIVED_POST.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+			buffer.writeInt(0); // Mail type (Salvation protocol 140)
+			buffer.writeInt(_msg.getId());
+			buffer.writeInt(_msg.isLocked());
+			buffer.writeInt(0); // Unknown
+			buffer.writeString(_msg.getSenderName());
+			buffer.writeString(_msg.getSubject());
+			buffer.writeString(_msg.getContent());
+			if ((_items != null) && !_items.isEmpty())
+			{
+				buffer.writeInt(_items.size());
+				for (Item item : _items)
+				{
+					writeItem140(item, buffer);
+					buffer.writeInt(item.getObjectId());
+				}
+			}
+			else
+			{
+				buffer.writeInt(0);
+			}
+
+			buffer.writeLong(_msg.getReqAdena());
+			buffer.writeInt(_msg.hasAttachments());
+			buffer.writeInt(_msg.isReturned());
+			return;
+		}
+
 		buffer.writeInt(_msg.getId());
 		buffer.writeInt(_msg.isLocked());
 		buffer.writeInt(0); // Unknown

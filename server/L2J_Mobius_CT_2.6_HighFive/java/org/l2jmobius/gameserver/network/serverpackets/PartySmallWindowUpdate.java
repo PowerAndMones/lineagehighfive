@@ -38,6 +38,25 @@ public class PartySmallWindowUpdate extends ServerPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.PARTY_SMALL_WINDOW_UPDATE.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+			// Salvation (protocol 140): mask-based update. Always send all fields.
+			final int flags = 1 | 2 | 4 | 8 | 16 | 32 | 64 | 128 | 256 | 512;
+			buffer.writeInt(_member.getObjectId());
+			buffer.writeShort(flags);
+			buffer.writeInt((int) _member.getCurrentCp());
+			buffer.writeInt(_member.getMaxCp());
+			buffer.writeInt((int) _member.getCurrentHp());
+			buffer.writeInt(_member.getMaxHp());
+			buffer.writeInt((int) _member.getCurrentMp());
+			buffer.writeInt(_member.getMaxMp());
+			buffer.writeByte(_member.getLevel());
+			buffer.writeShort(_member.getPlayerClass().getId());
+			buffer.writeByte(0); // Party substitute
+			buffer.writeInt(_member.getVitalityPoints());
+			return;
+		}
+
 		buffer.writeInt(_member.getObjectId());
 		buffer.writeString(_member.getName());
 		buffer.writeInt((int) _member.getCurrentCp()); // c4

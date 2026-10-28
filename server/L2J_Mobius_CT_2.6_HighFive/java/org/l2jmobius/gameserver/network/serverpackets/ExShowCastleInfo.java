@@ -21,6 +21,7 @@ import java.util.Collection;
 import org.l2jmobius.commons.network.buffer.WriteBuffer;
 import org.l2jmobius.gameserver.data.sql.ClanTable;
 import org.l2jmobius.gameserver.managers.CastleManager;
+import org.l2jmobius.gameserver.entity.clan.Clan;
 import org.l2jmobius.gameserver.mechanics.siege.Castle;
 import org.l2jmobius.gameserver.network.GameClient;
 import org.l2jmobius.gameserver.network.PacketLogger;
@@ -42,6 +43,22 @@ public class ExShowCastleInfo extends ServerPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.EX_SHOW_CASTLE_INFO.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+			buffer.writeInt(_castles.size());
+			for (Castle castle : _castles)
+			{
+				buffer.writeInt(castle.getResidenceId());
+				final Clan ownerClan = castle.getOwnerId() > 0 ? ClanTable.getInstance().getClan(castle.getOwnerId()) : null;
+				buffer.writeString(ownerClan != null ? ownerClan.getName() : "");
+				buffer.writeInt(castle.getTaxPercent());
+				buffer.writeInt((int) (castle.getSiegeDate().getTimeInMillis() / 1000));
+				buffer.writeByte(castle.getSiege().isInProgress());
+				buffer.writeByte(0); // Castle side (Salvation protocol 140)
+			}
+			return;
+		}
+
 		buffer.writeInt(_castles.size());
 		for (Castle castle : _castles)
 		{

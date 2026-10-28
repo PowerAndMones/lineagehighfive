@@ -40,6 +40,14 @@ public class ExCubeGameEnd extends ServerPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.EX_BLOCK_UP_SET_STATE.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+			buffer.writeInt(1);
+			buffer.writeInt(_isRedTeamWin ? 1 : 0);
+			buffer.writeInt(0); // Salvation (protocol 140)
+			return;
+		}
+
 		buffer.writeInt(1);
 		buffer.writeInt(_isRedTeamWin);
 	}

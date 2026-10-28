@@ -78,6 +78,15 @@ public class NpcHtmlMessage extends AbstractHtmlPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.NPC_HTML_MESSAGE.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+                     buffer.writeInt(getNpcObjId());
+                        buffer.writeString(getHtml());
+                        buffer.writeInt(_itemId);
+                        buffer.writeInt(0); // Salvation (protocol 140)
+			return;
+		}
+
 		buffer.writeInt(getNpcObjId());
 		buffer.writeString(getHtml());
 		buffer.writeInt(_itemId);

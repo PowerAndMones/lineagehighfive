@@ -38,6 +38,29 @@ public class PledgeShowInfoUpdate extends ServerPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.PLEDGE_SHOW_INFO_UPDATE.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+			buffer.writeInt(_clan.getId());
+			buffer.writeInt(1); // Server id (Salvation protocol 140)
+			buffer.writeInt(_clan.getCrestId());
+			buffer.writeInt(_clan.getLevel());
+			buffer.writeInt(_clan.getCastleId());
+			buffer.writeInt(0); // Castle state
+			buffer.writeInt(_clan.getHideoutId());
+			buffer.writeInt(_clan.getFortId());
+			buffer.writeInt(_clan.getRank());
+			buffer.writeInt(_clan.getReputationScore());
+			buffer.writeInt(0);
+			buffer.writeInt(0);
+			buffer.writeInt(_clan.getAllyId());
+			buffer.writeString(_clan.getAllyName());
+			buffer.writeInt(_clan.getAllyCrestId());
+			buffer.writeInt(_clan.isAtWar());
+			buffer.writeInt(0);
+			buffer.writeInt(0);
+			return;
+		}
+
 		
 		// sending empty data so client will ask all the info in response ;)
 		buffer.writeInt(_clan.getId());

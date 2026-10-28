@@ -83,6 +83,20 @@ public class PledgeShowMemberListUpdate extends ServerPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.PLEDGE_SHOW_MEMBER_LIST_UPDATE.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+			buffer.writeString(_name);
+			buffer.writeInt(_level);
+			buffer.writeInt(_classId);
+			buffer.writeInt(0); // Sex
+			buffer.writeInt(0); // Race
+			buffer.writeInt(_objectId);
+			buffer.writeInt(_pledgeType);
+			buffer.writeInt(_hasSponsor); // Has sponsor
+			buffer.writeByte(0);
+			return;
+		}
+
 		buffer.writeString(_name);
 		buffer.writeInt(_level);
 		buffer.writeInt(_classId);

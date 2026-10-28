@@ -41,6 +41,47 @@ public class PartySmallWindowAll extends ServerPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.PARTY_SMALL_WINDOW_ALL.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+			buffer.writeInt(_party.getLeaderObjectId());
+			buffer.writeByte(_party.getDistributionType().getId());
+			buffer.writeByte(_party.getMemberCount() - 1);
+			for (Player member : _party.getMembers())
+			{
+				if ((member != null) && (member != _exclude))
+				{
+					buffer.writeInt(member.getObjectId());
+					buffer.writeString(member.getName());
+					buffer.writeInt((int) member.getCurrentCp());
+					buffer.writeInt(member.getMaxCp());
+					buffer.writeInt((int) member.getCurrentHp());
+					buffer.writeInt(member.getMaxHp());
+					buffer.writeInt((int) member.getCurrentMp());
+					buffer.writeInt(member.getMaxMp());
+					buffer.writeInt(member.getVitalityPoints());
+					buffer.writeByte(member.getLevel());
+					buffer.writeShort(member.getPlayerClass().getId());
+					buffer.writeByte(1); // Unk
+					buffer.writeShort(member.getRace() != null ? member.getRace().ordinal() : 0);
+					buffer.writeInt(member.getSummon() != null ? 1 : 0);
+					if (member.getSummon() != null)
+					{
+						final org.l2jmobius.gameserver.entity.actor.Summon pet = member.getSummon();
+						buffer.writeInt(pet.getObjectId());
+						buffer.writeInt(pet.getId() + 1000000);
+						buffer.writeByte(pet.getSummonType());
+						buffer.writeString(pet.getName());
+						buffer.writeInt((int) pet.getCurrentHp());
+						buffer.writeInt(pet.getMaxHp());
+						buffer.writeInt((int) pet.getCurrentMp());
+						buffer.writeInt(pet.getMaxMp());
+						buffer.writeByte(pet.getLevel());
+					}
+				}
+			}
+			return;
+		}
+
 		buffer.writeInt(_party.getLeaderObjectId());
 		buffer.writeInt(_party.getDistributionType().getId());
 		buffer.writeInt(_party.getMemberCount() - 1);

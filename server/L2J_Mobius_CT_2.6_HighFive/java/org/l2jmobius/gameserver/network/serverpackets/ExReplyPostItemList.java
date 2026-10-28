@@ -42,6 +42,18 @@ public class ExReplyPostItemList extends AbstractItemPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.EX_REPLY_POST_ITEM_LIST.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+			buffer.writeByte(2);
+			buffer.writeInt(_itemList.size());
+			buffer.writeInt(_itemList.size());
+			for (Item item : _itemList)
+			{
+				writeItem140(item, buffer);
+			}
+			return;
+		}
+
 		buffer.writeInt(_itemList.size());
 		for (Item item : _itemList)
 		{

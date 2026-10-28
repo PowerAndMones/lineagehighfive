@@ -41,6 +41,26 @@ public class PartySmallWindowAdd extends ServerPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.PARTY_SMALL_WINDOW_ADD.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+			buffer.writeInt(_party.getLeaderObjectId());
+			buffer.writeInt(_party.getDistributionType().getId());
+			buffer.writeInt(_member.getObjectId());
+			buffer.writeString(_member.getName());
+			buffer.writeInt((int) _member.getCurrentCp());
+			buffer.writeInt(_member.getMaxCp());
+			buffer.writeInt((int) _member.getCurrentHp());
+			buffer.writeInt(_member.getMaxHp());
+			buffer.writeInt((int) _member.getCurrentMp());
+			buffer.writeInt(_member.getMaxMp());
+			buffer.writeInt(_member.getVitalityPoints());
+			buffer.writeByte(_member.getLevel());
+			buffer.writeShort(_member.getPlayerClass().getId());
+			buffer.writeByte(0);
+			buffer.writeShort(_member.getRace() != null ? _member.getRace().ordinal() : 0);
+			return;
+		}
+
 		buffer.writeInt(_party.getLeaderObjectId()); // c3
 		buffer.writeInt(_party.getDistributionType().getId()); // buffer.writeInt(4); ?? //c3
 		buffer.writeInt(_member.getObjectId());

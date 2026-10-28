@@ -68,6 +68,81 @@ public class ConfirmDlg extends ServerPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.CONFIRM_DLG.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+			// SALVATION_140_LAYOUT: byte-sized parameter types with short castle/system ids.
+			final SMParam[] salvationParams = _systemMessage.getParams();
+			buffer.writeInt(_systemMessage.getId());
+			buffer.writeInt(salvationParams.length);
+			for (SMParam param : salvationParams)
+			{
+				if (param == null)
+				{
+					continue;
+				}
+
+				buffer.writeByte(param.getType());
+				switch (param.getType())
+				{
+					case SystemMessage.TYPE_ELEMENT_NAME:
+					case SystemMessage.TYPE_BYTE:
+					case SystemMessage.TYPE_FACTION_NAME:
+					{
+						buffer.writeByte(param.getIntValue());
+						break;
+					}
+					case SystemMessage.TYPE_CASTLE_NAME:
+					case SystemMessage.TYPE_SYSTEM_STRING:
+					case SystemMessage.TYPE_INSTANCE_NAME:
+					case SystemMessage.TYPE_CLASS_ID:
+					{
+						buffer.writeShort(param.getIntValue());
+						break;
+					}
+					case SystemMessage.TYPE_ITEM_NAME:
+					case SystemMessage.TYPE_INT_NUMBER:
+					case SystemMessage.TYPE_NPC_NAME:
+					case SystemMessage.TYPE_DOOR_NAME:
+					{
+						buffer.writeInt(param.getIntValue());
+						break;
+					}
+					case SystemMessage.TYPE_LONG_NUMBER:
+					{
+						buffer.writeLong(param.getLongValue());
+						break;
+					}
+					case SystemMessage.TYPE_TEXT:
+					case SystemMessage.TYPE_PLAYER_NAME:
+					{
+						buffer.writeString(param.getStringValue());
+						break;
+					}
+					case SystemMessage.TYPE_SKILL_NAME:
+					{
+						final int[] array = param.getIntArrayValue();
+						buffer.writeInt(array[0]); // skill id
+						buffer.writeShort(array[1]); // skill level
+						buffer.writeShort(array.length > 2 ? array[2] : 0); // skill sub level
+						break;
+					}
+					case SystemMessage.TYPE_POPUP_ID:
+					case SystemMessage.TYPE_ZONE_NAME:
+					{
+						final int[] array = param.getIntArrayValue();
+						buffer.writeInt(array[0]); // x
+						buffer.writeInt(array[1]); // y
+						buffer.writeInt(array[2]); // z
+						break;
+					}
+				}
+			}
+
+			buffer.writeInt(_time);
+			buffer.writeInt(_requesterId);
+			return;
+		}
+
 		final SMParam[] params = _systemMessage.getParams();
 		buffer.writeInt(_systemMessage.getId());
 		buffer.writeInt(params.length);

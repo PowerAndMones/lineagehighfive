@@ -50,6 +50,26 @@ public class HennaEquipList extends ServerPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.HENNA_EQUIP_LIST.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+			buffer.writeLong(_player.getAdena());
+			buffer.writeInt(3);
+			buffer.writeInt(_hennaEquipList.size());
+			for (Henna henna : _hennaEquipList)
+			{
+				if ((_player.getInventory().getItemByItemId(henna.getDyeItemId())) != null)
+				{
+					buffer.writeInt(henna.getDyeId());
+					buffer.writeInt(henna.getDyeItemId());
+					buffer.writeLong(henna.getWearCount());
+					buffer.writeLong(henna.getWearFee());
+					buffer.writeInt(henna.isAllowedClass(_player.getPlayerClass()));
+					buffer.writeInt(0); // Duration
+				}
+			}
+			return;
+		}
+
 		buffer.writeLong(_player.getAdena()); // activeChar current amount of Adena
 		buffer.writeInt(3); // available equip slot
 		buffer.writeInt(_hennaEquipList.size());

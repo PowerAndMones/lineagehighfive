@@ -37,6 +37,14 @@ public class ExPartyPetWindowDelete extends ServerPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.EX_PARTY_PET_WINDOW_DELETE.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+                   buffer.writeInt(_summon.getObjectId());
+                        buffer.writeByte(_summon.getSummonType());
+                        buffer.writeInt(_summon.getOwner().getObjectId());
+			return;
+		}
+
 		buffer.writeInt(_summon.getObjectId());
 		buffer.writeInt(_summon.getOwner().getObjectId());
 		buffer.writeString(_summon.getName());

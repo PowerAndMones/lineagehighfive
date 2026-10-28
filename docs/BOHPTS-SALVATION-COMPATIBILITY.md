@@ -228,3 +228,26 @@ Test of v1.6: mobs and NPCs render and can be attacked, but show **no names**; t
 - `NpcInfo`: the NAME component is always included for salvation clients.
 
 Expected next test (v1.7): NPC/mob names visible, teleport lands clean, equipment occupies correct paperdoll cells, the skill window lists skills, other players render correctly.
+
+## Mass wire-format port: 100+ packets aligned with the reference (phase 6)
+
+The user asked for a full sweep: port everything that differs instead of fixing features one by one. Three audit scripts (`scripts/audit_wire_diff3.py`, `audit_triage.py`, `audit_branches.py`) diffed every packet class against the Salvation 5.0 reference by wire-call sequences: 129 packets with real format differences + 57 reference-only packets. Existing branches (UserInfo, CharInfo, NpcInfo mask layout, ItemList, RelationChanged, KeyPacket) were re-verified byte-exact.
+
+### Black city after teleport - root cause found
+The reference sends `ExTeleportToLocationActivate` (0xFE 0x14A) when a teleport finishes; our build never did. The client stayed in the fading state: black terrain, no self-render. The packet is now ported and sent from `Creature.onTeleported` / `Player.onTeleported`.
+
+### Ports (102 files, +2635 lines)
+- **SystemMessage / ConfirmDlg**: the 140 serialization (short id, byte parameter count, byte parameter types, short castle/system/instance/class ids). This affects literally every server message.
+- **Buff icons**: `AbnormalType.getClientId()` (549-id map ported from the reference), AbnormalStatusUpdate/PartySpelled/ExOlympiadSpelledInfo with sub-level, abnormal type and compressed time blocks.
+- **Party windows**: Add/All with byte/short fields, vitality, race; Update switched to the reference mask-based layout.
+- **Pets/summons**: SummonInfo now uses the SUMMON_INFO (0x8B) mask layout; PetInfo ports the full PetSummonInfo layout (stats, feed, exp, shots, AVEs); ExPartyPetWindowAdd/Update/Delete, PetStatusShow/Update.
+- **Trade/shops/warehouse**: TradeStart send-type quartet (partner info + item list, like ItemList), TradeOwnAdd/OtherAdd/Update on writeItem140, BuyList/ExBuySellList/Product items, full MultiSellList 140 layout (entry header + augment/elemental/ensoul blocks), ShopPreviewList, WareHouseDepositList/WithdrawalList send-type 2, PackageSendableList.
+- **Mail**: ExReplyPostItemList, ExReplyReceivedPost, ExReplySentPost, ExShowReceivedPostList, ExShowSentPostList.
+- **Clan**: PledgeCrest, AllyCrest, PledgeInfo, PledgeShowInfoUpdate, PledgeShowMemberListUpdate, PledgeStatusChanged, PledgeSkillList.
+- **Henna**: HennaEquipList (HennaInfo was already aligned).
+- **Misc server packets**: MyTargetSelected (Grand Crusade marker), ActionFailed (casting type), JoinParty/SocialAction tails, StopRotation, MagicSkillLaunched (casting type), FlyToLocation (+3 ints), DropItem (byte stackable + enchant/augment tail), FriendAddRequest, ExAutoSoulShot (3 ints), ExShowQuestMark, TutorialShowHtml/QuestionMark, NpcHtmlMessage, EnchantResult, ShortBuffStatusUpdate, EtcStatusUpdate (7 fields + mask), AcquireSkillInfo (long SP cost), AcquireSkillList (140 shape), AskJoinAlly/Pledge, ExAskJoinMPCC/PartyRoom, ExHeroList, ExGetPremiumItemList, ExShowCastleInfo, ObservationMode, ExChooseInventoryAttributeItem, ExCubeGameEnd, ExEnchantSkillList, ExListPartyMatchingWaitingRoom, ExUserInfoCubic (cubic ids), SendMacroList.
+- **Client packets (19)**: read-side 140 layouts for RequestAutoSoulShot, RequestDispel, RequestExEnchantItemAttribute, RequestExEnchantSkill/Info/InfoDetail, RequestExPledgeCrestLarge, RequestPledgeCrest, RequestShortcutReg (short sub-level), RequestTutorialLinkHtml/QuestionMark, MultiSellChoose (ensoul tail), RequestListPartyMatchingWaitingRoom, RequestMakeMacro, RequestPrivateStoreSell, RequestRecipeItemMakeSelf, RequestRecipeShopMakeItem, SetPrivateStoreListBuy.
+- **ShortcutInit**: augment option1/option2 split.
+
+### Deferred (no High Five data model for it)
+GMView* admin viewers, FakePlayerInfo, SiegeDefenderList, ExOlympiadMatchResult, private-store manage list rewrites, beauty shop, MPCC rooms, pledge recruit board. These either target GM tools or features the 140 client only opens through content we do not run yet.

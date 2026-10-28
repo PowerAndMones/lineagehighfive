@@ -33,6 +33,13 @@ public class RequestTutorialQuestionMark extends ClientPacket
 	@Override
 	protected void readImpl()
 	{
+		if (getClient() != null && getClient().isSalvationMode())
+		{
+			readByte(); // Index
+			_number = readInt();
+			return;
+		}
+
 		_number = readInt();
 	}
 	

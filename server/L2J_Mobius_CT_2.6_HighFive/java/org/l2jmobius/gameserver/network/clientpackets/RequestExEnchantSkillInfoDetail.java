@@ -34,6 +34,15 @@ public class RequestExEnchantSkillInfoDetail extends ClientPacket
 	@Override
 	protected void readImpl()
 	{
+		if (getClient() != null && getClient().isSalvationMode())
+		{
+			_type = readInt();
+			_skillId = readInt();
+			_skillLevel = readShort();
+			readShort(); // Skill sub level
+			return;
+		}
+
 		_type = readInt();
 		_skillId = readInt();
 		_skillLevel = readInt();

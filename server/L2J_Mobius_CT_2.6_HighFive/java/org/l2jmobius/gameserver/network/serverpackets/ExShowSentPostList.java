@@ -40,6 +40,32 @@ public class ExShowSentPostList extends ServerPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.EX_SHOW_SENT_POST_LIST.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+			buffer.writeInt((int) (System.currentTimeMillis() / 1000));
+			if ((_outbox != null) && !_outbox.isEmpty())
+			{
+				buffer.writeInt(_outbox.size());
+				for (MailMessage msg : _outbox)
+				{
+					buffer.writeInt(msg.getId());
+					buffer.writeString(msg.getSubject());
+					buffer.writeString(msg.getReceiverName());
+					buffer.writeInt(msg.isLocked());
+					buffer.writeInt(msg.getExpirationSeconds());
+					buffer.writeInt(msg.isUnread());
+					buffer.writeInt(1); // Regular mail
+					buffer.writeInt(msg.hasAttachments());
+					buffer.writeInt(0); // Returned (Salvation protocol 140)
+				}
+			}
+			else
+			{
+				buffer.writeInt(0);
+			}
+			return;
+		}
+
 		buffer.writeInt((int) (System.currentTimeMillis() / 1000));
 		if ((_outbox != null) && !_outbox.isEmpty())
 		{

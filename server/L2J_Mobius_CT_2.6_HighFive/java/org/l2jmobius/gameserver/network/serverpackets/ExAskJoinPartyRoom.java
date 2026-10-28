@@ -36,6 +36,13 @@ public class ExAskJoinPartyRoom extends ServerPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.EX_ASK_JOIN_PARTY_ROOM.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+			buffer.writeString(_charName);
+			buffer.writeString(""); // Room name (Salvation protocol 140)
+			return;
+		}
+
 		buffer.writeString(_charName);
 	}
 }

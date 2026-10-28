@@ -57,6 +57,28 @@ public class PetStatusUpdate extends ServerPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.PET_STATUS_UPDATE.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+                   buffer.writeInt(_summon.getSummonType());
+                        buffer.writeInt(_summon.getObjectId());
+                        buffer.writeInt(_summon.getX());
+                        buffer.writeInt(_summon.getY());
+                        buffer.writeInt(_summon.getZ());
+                        buffer.writeString(_summon.getTitle());
+                        buffer.writeInt(_curFed);
+                        buffer.writeInt(_maxFed);
+                        buffer.writeInt((int) _summon.getCurrentHp());
+                        buffer.writeInt(_summon.getMaxHp());
+                        buffer.writeInt((int) _summon.getCurrentMp());
+                        buffer.writeInt(_summon.getMaxMp());
+                        buffer.writeInt(_summon.getLevel());
+                        buffer.writeLong(_summon.getStat().getExp());
+                        buffer.writeLong(_summon.getExpForThisLevel()); // 0% absolute value
+                        buffer.writeLong(_summon.getExpForNextLevel()); // 100% absolute value
+                        buffer.writeInt(1); // Salvation (protocol 140)
+			return;
+		}
+
 		buffer.writeInt(_summon.getSummonType());
 		buffer.writeInt(_summon.getObjectId());
 		buffer.writeInt(_summon.getX());

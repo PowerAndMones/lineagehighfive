@@ -59,6 +59,18 @@ public class RecipeItemMakeInfo extends ServerPacket
 		}
 		
 		ServerPackets.RECIPE_ITEM_MAKE_INFO.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+			buffer.writeInt(_id);
+			buffer.writeInt(!recipe.isDwarvenRecipe());
+			buffer.writeInt((int) _player.getCurrentMp());
+			buffer.writeInt(_player.getMaxMp());
+			buffer.writeInt(_success ? 1 : 0);
+			buffer.writeByte(0); // Offering window (Salvation protocol 140)
+			buffer.writeLong(0); // Offering adena
+			return;
+		}
+
 		buffer.writeInt(_id);
 		buffer.writeInt(!recipe.isDwarvenRecipe()); // 0 = Dwarven - 1 = Common
 		buffer.writeInt((int) _player.getCurrentMp());

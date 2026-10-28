@@ -36,6 +36,13 @@ public class ActionFailed extends ServerPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.ACTION_FAIL.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+                    // Salvation (protocol 140): casting type of the cancelled action.
+                        buffer.writeInt(0);
+			return;
+		}
+
 	}
 	
 	// @Override

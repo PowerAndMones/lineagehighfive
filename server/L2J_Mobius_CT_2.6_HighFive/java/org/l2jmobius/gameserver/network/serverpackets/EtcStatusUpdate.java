@@ -38,6 +38,22 @@ public class EtcStatusUpdate extends ServerPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.ETC_STATUS_UPDATE.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+                   buffer.writeByte(_player.getCharges());
+                        buffer.writeInt(_player.getWeightPenalty());
+                        buffer.writeByte(_player.getExpertiseWeaponPenalty());
+                        buffer.writeByte(_player.getExpertiseArmorPenalty());
+                        buffer.writeByte(0); // Death penalty (unused on Salvation protocol 140)
+                        buffer.writeByte(_player.getChargedSouls());
+                        int salvationMask = 0;
+                        salvationMask |= (_player.getMessageRefusal() || _player.isChatBanned() || _player.isSilenceMode()) ? 1 : 0;
+                        salvationMask |= _player.isInsideZone(ZoneId.DANGER_AREA) ? 2 : 0;
+                        salvationMask |= _player.hasCharmOfCourage() ? 4 : 0;
+                        buffer.writeByte(salvationMask);
+			return;
+		}
+
 		buffer.writeInt(_player.getCharges()); // 1-7 increase force, level
 		buffer.writeInt(_player.getWeightPenalty()); // 1-4 weight penalty, level (1=50%, 2=66.6%, 3=80%, 4=100%)
 		buffer.writeInt(_player.getMessageRefusal() || _player.isChatBanned() || _player.isSilenceMode()); // 1 = block all chat

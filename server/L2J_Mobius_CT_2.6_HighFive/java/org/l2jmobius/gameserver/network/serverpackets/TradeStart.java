@@ -33,11 +33,23 @@ public class TradeStart extends AbstractItemPacket
 {
 	private final Player _player;
 	private final Collection<Item> _itemList;
+	private int _sendType;
 	
 	public TradeStart(Player player)
 	{
 		_player = player;
 		_itemList = _player.getInventory().getAvailableItems(true, (_player.isGM() && GeneralConfig.GM_TRADE_RESTRICTED_ITEMS), false);
+		_sendType = 0;
+	}
+	
+	/**
+	 * Salvation (protocol 140): send type 1 = partner info, 2 = item list.
+	 */
+	public TradeStart(int sendType, Player player)
+	{
+		_player = player;
+		_itemList = _player.getInventory().getAvailableItems(true, (_player.isGM() && GeneralConfig.GM_TRADE_RESTRICTED_ITEMS), false);
+		_sendType = sendType;
 	}
 	
 	@Override
@@ -49,6 +61,28 @@ public class TradeStart extends AbstractItemPacket
 		}
 		
 		ServerPackets.TRADE_START.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+			// Salvation (protocol 140): send type 1 = partner info, 2 = item list.
+			buffer.writeByte(_sendType);
+			if (_sendType == 2)
+			{
+				buffer.writeInt(_itemList.size());
+				buffer.writeInt(_itemList.size());
+				for (Item item : _itemList)
+				{
+					writeItem140(item, buffer);
+				}
+				return;
+			}
+
+			final Player partner = _player.getActiveTradeList() != null ? _player.getActiveTradeList().getPartner() : null;
+			buffer.writeInt(partner != null ? partner.getObjectId() : 0);
+			buffer.writeByte(0); // Trade mask
+			buffer.writeByte(partner != null ? partner.getLevel() : 0);
+			return;
+		}
+
 		buffer.writeInt(_player.getActiveTradeList().getPartner().getObjectId());
 		buffer.writeShort(_itemList.size());
 		for (Item item : _itemList)

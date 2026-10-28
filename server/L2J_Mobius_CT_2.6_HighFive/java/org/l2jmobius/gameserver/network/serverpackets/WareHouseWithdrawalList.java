@@ -65,6 +65,23 @@ public class WareHouseWithdrawalList extends AbstractItemPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.WAREHOUSE_WITHDRAW_LIST.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+			// Salvation (protocol 140): send type 2 layout (item list).
+			buffer.writeByte(2);
+			buffer.writeShort(0);
+			buffer.writeInt(_items.size());
+			buffer.writeInt(_items.size());
+			for (Item item : _items)
+			{
+				writeItem140(item, buffer);
+				buffer.writeInt(item.getObjectId());
+				buffer.writeInt(0);
+				buffer.writeInt(0);
+			}
+			return;
+		}
+
 		buffer.writeShort(_whType);
 		buffer.writeLong(_playerAdena);
 		buffer.writeShort(_items.size());

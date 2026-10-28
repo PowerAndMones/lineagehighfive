@@ -20,6 +20,8 @@
  */
 package org.l2jmobius.gameserver.network.serverpackets;
 
+import java.util.List;
+
 import org.l2jmobius.commons.network.buffer.WriteBuffer;
 import org.l2jmobius.gameserver.entity.actor.Summon;
 import org.l2jmobius.gameserver.entity.actor.instance.Pet;
@@ -89,6 +91,100 @@ public class PetInfo extends ServerPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.PET_INFO.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+			// SALVATION_140_PET_INFO: ported from the reference PetSummonInfo layout.
+			buffer.writeByte(_summon.getSummonType());
+			buffer.writeInt(_summon.getObjectId());
+			buffer.writeInt(_summon.getTemplate().getDisplayId() + 1000000);
+			buffer.writeInt(_x);
+			buffer.writeInt(_y);
+			buffer.writeInt(_z);
+			buffer.writeInt(_heading);
+			buffer.writeInt(_mAtkSpd);
+			buffer.writeInt(_pAtkSpd);
+			buffer.writeShort(_runSpd);
+			buffer.writeShort(_walkSpd);
+			buffer.writeShort(_swimRunSpd);
+			buffer.writeShort(_swimWalkSpd);
+			buffer.writeShort(0); // Fl run
+			buffer.writeShort(0); // Fl walk
+			buffer.writeShort(_flyRunSpd);
+			buffer.writeShort(_flyWalkSpd);
+			buffer.writeDouble(_moveMultiplier);
+			buffer.writeDouble(_summon.getAttackSpeedMultiplier());
+			buffer.writeDouble(_summon.getTemplate().getFCollisionRadius());
+			buffer.writeDouble(_summon.getTemplate().getFCollisionHeight());
+			buffer.writeInt(_summon.getWeapon()); // Right hand weapon
+			buffer.writeInt(_summon.getArmor()); // Body armor
+			buffer.writeInt(0); // Left hand weapon
+			buffer.writeByte(_isSummoned ? 2 : _value);
+			buffer.writeInt(-1); // NPCString ID
+			if (_summon.isPet())
+			{
+				buffer.writeString(_summon.getName());
+			}
+			else
+			{
+				buffer.writeString("");
+			}
+
+			buffer.writeInt(-1); // NPCString ID
+			buffer.writeString((_summon.getOwner() != null) && _summon.getOwner().isOnline() ? _summon.getOwner().getName() : "");
+			buffer.writeByte(_summon.getPvpFlag());
+			buffer.writeInt(_summon.getKarma());
+			buffer.writeInt(_curFed);
+			buffer.writeInt(_maxFed);
+			buffer.writeInt((int) _summon.getCurrentHp());
+			buffer.writeInt(_maxHp);
+			buffer.writeInt((int) _summon.getCurrentMp());
+			buffer.writeInt(_maxMp);
+			buffer.writeLong(_summon.getStat().getSp());
+			buffer.writeByte(_summon.getLevel());
+			buffer.writeLong(_summon.getStat().getExp());
+			if (_summon.getExpForThisLevel() > _summon.getStat().getExp())
+			{
+				buffer.writeLong(_summon.getStat().getExp());
+			}
+			else
+			{
+				buffer.writeLong(_summon.getExpForThisLevel());
+			}
+
+			buffer.writeLong(_summon.getExpForNextLevel());
+			buffer.writeInt(_summon.isPet() ? _summon.getInventory().getTotalWeight() : 0);
+			buffer.writeInt(_summon.getMaxLoad());
+			buffer.writeInt((int) _summon.getPAtk(null));
+			buffer.writeInt((int) _summon.getPDef(null));
+			buffer.writeInt(_summon.getAccuracy());
+			buffer.writeInt(_summon.getEvasionRate(null));
+			buffer.writeInt(_summon.getCriticalHit(null, null));
+			buffer.writeInt((int) _summon.getMAtk(null, null));
+			buffer.writeInt((int) _summon.getMDef(null, null));
+			buffer.writeInt(0); // Magic accuracy
+			buffer.writeInt(0); // Magic evasion
+			buffer.writeInt(_summon.getMCriticalHit(null, null));
+			buffer.writeInt((int) _summon.getStat().getMoveSpeed());
+			buffer.writeInt(_pAtkSpd);
+			buffer.writeInt(_mAtkSpd);
+			buffer.writeByte(0); // Ride status
+			buffer.writeByte(_summon.getTeam().getId());
+			buffer.writeByte(_summon.getSoulShotsPerHit());
+			buffer.writeByte(_summon.getSpiritShotsPerHit());
+			buffer.writeInt(0);
+			buffer.writeInt(0); // Transformation id
+			buffer.writeByte(0); // Summon points
+			buffer.writeByte(0); // Max summon points
+			final List<Short> petAves = SalvationAveMap.toClientIds(_summon.getAbnormalVisualEffects(), false);
+			buffer.writeShort(petAves.size());
+			for (short aveClientId : petAves)
+			{
+				buffer.writeShort(aveClientId);
+			}
+			buffer.writeByte(0); // Status mask
+			return;
+		}
+
 		buffer.writeInt(_summon.getSummonType());
 		buffer.writeInt(_summon.getObjectId());
 		buffer.writeInt(_summon.getTemplate().getDisplayId() + 1000000);

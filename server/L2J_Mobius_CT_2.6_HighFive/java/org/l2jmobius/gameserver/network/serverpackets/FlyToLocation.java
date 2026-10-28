@@ -62,6 +62,22 @@ public class FlyToLocation extends ServerPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.FLY_TO_LOCATION.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+                       buffer.writeInt(_chaObjId);
+                        buffer.writeInt(_destX);
+                        buffer.writeInt(_destY);
+                        buffer.writeInt(_destZ);
+                        buffer.writeInt(_orgX);
+                        buffer.writeInt(_orgY);
+                        buffer.writeInt(_orgZ);
+                        buffer.writeInt(_type.ordinal());
+                        buffer.writeInt(0); // Fly speed (Salvation protocol 140)
+                        buffer.writeInt(0); // Fly delay
+                        buffer.writeInt(0); // Animation speed
+			return;
+		}
+
 		buffer.writeInt(_chaObjId);
 		buffer.writeInt(_destX);
 		buffer.writeInt(_destY);

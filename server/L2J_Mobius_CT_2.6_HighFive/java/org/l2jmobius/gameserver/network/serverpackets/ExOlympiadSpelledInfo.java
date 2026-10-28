@@ -47,6 +47,34 @@ public class ExOlympiadSpelledInfo extends ServerPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.EX_OLYMPIAD_SPELLED_INFO.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+			buffer.writeInt(_playerId);
+			buffer.writeInt(_effects.size());
+			for (BuffInfo info : _effects)
+			{
+				if ((info != null) && info.isInUse())
+				{
+					buffer.writeInt(info.getSkill().getDisplayId());
+					buffer.writeShort(info.getSkill().getDisplayLevel());
+					buffer.writeShort(0); // skill sub level
+					buffer.writeInt(info.getSkill().getAbnormalType() != null ? info.getSkill().getAbnormalType().getClientId() : 0);
+					final int time = info.getSkill().isToggle() ? -1 : info.getTime();
+					if ((time >= 0) && (time < Short.MAX_VALUE))
+					{
+						buffer.writeByte(1);
+						buffer.writeShort(time);
+					}
+					else
+					{
+						buffer.writeByte(0);
+						buffer.writeInt(time);
+					}
+				}
+			}
+			return;
+		}
+
 		buffer.writeInt(_playerId);
 		buffer.writeInt(_effects.size());
 		for (BuffInfo info : _effects)

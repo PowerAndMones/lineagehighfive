@@ -45,6 +45,35 @@ public class AbnormalStatusUpdate extends ServerPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.ABNORMAL_STATUS_UPDATE.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+			// SALVATION_140_LAYOUT: sub level + abnormal type + optional time.
+			buffer.writeShort(_effects.size());
+			for (BuffInfo info : _effects)
+			{
+				if ((info != null) && info.isInUse())
+				{
+					final Skill skill = info.getSkill();
+					buffer.writeInt(skill.getDisplayId());
+					buffer.writeShort(skill.getDisplayLevel());
+					buffer.writeShort(0); // skill sub level
+					buffer.writeInt(skill.getAbnormalType() != null ? skill.getAbnormalType().getClientId() : 0);
+					final int salvationTime = skill.isToggle() ? -1 : info.getTime();
+					if ((salvationTime >= 0) && (salvationTime < Short.MAX_VALUE))
+					{
+						buffer.writeByte(1);
+						buffer.writeShort(salvationTime);
+					}
+					else
+					{
+						buffer.writeByte(0);
+						buffer.writeInt(salvationTime);
+					}
+				}
+			}
+			return;
+		}
+
 		buffer.writeShort(_effects.size());
 		for (BuffInfo info : _effects)
 		{
