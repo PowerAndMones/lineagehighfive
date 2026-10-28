@@ -51,6 +51,21 @@ public class ItemList extends AbstractItemPacket
 	@Override
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
+		if ((client != null) && client.isSalvationMode())
+		{
+			// Salvation (protocol 140) mask-based ItemList layout.
+			ServerPackets.ITEM_LIST.writeId(this, buffer);
+			buffer.writeByte(2); // send type
+			buffer.writeInt(_items.size());
+			buffer.writeInt(_items.size());
+			for (Item item : _items)
+			{
+				writeItem140(item, buffer);
+			}
+			writeInventoryBlock(_player.getInventory(), buffer);
+			return;
+		}
+		
 		ServerPackets.ITEM_LIST.writeId(this, buffer);
 		buffer.writeShort(_showWindow);
 		buffer.writeShort(_items.size());

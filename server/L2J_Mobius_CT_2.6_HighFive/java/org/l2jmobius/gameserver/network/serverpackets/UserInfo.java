@@ -35,8 +35,11 @@ import org.l2jmobius.gameserver.managers.TerritoryWarManager;
 import org.l2jmobius.gameserver.mechanics.skill.AbnormalVisualEffect;
 import org.l2jmobius.gameserver.network.GameClient;
 import org.l2jmobius.gameserver.network.ServerPackets;
+import org.l2jmobius.gameserver.entity.item.instance.Item;
+import org.l2jmobius.gameserver.entity.itemcontainer.Inventory;
+import org.l2jmobius.gameserver.network.enums.UserInfoType;
 
-public class UserInfo extends ServerPacket
+public class UserInfo extends AbstractMaskPacket<UserInfoType>
 {
 	private final Player _player;
 	private int _relation;
@@ -48,6 +51,13 @@ public class UserInfo extends ServerPacket
 	private final int _flyRunSpd;
 	private final int _flyWalkSpd;
 	private final double _moveMultiplier;
+	private final byte[] _masks =
+	{
+		(byte) 0x00,
+		(byte) 0x00,
+		(byte) 0x00
+	};
+	private int _initSize = 5;
 	
 	public UserInfo(Player player)
 	{
@@ -87,11 +97,57 @@ public class UserInfo extends ServerPacket
 		_swimWalkSpd = (int) Math.round(player.getSwimWalkSpeed() / _moveMultiplier);
 		_flyRunSpd = player.isFlying() ? _runSpd : 0;
 		_flyWalkSpd = player.isFlying() ? _walkSpd : 0;
+		
+		// Salvation (protocol 140): precompute mask-based UserInfo blocks.
+		final String visibleName = player.getAppearance().getVisibleName();
+		String visibleTitle = player.getTitle();
+		if (visibleTitle == null)
+		{
+			visibleTitle = "";
+		}
+		if (player.isGM() && player.isInvisible())
+		{
+			visibleTitle = "[Invisible]";
+		}
+		for (UserInfoType type : UserInfoType.values())
+		{
+			_masks[type.getMask() >> 3] |= DEFAULT_FLAG_ARRAY[type.getMask() & 7];
+			switch (type)
+			{
+				case BASIC_INFO:
+				{
+					_initSize += type.getBlockLength() + (visibleName.length() * 2);
+					break;
+				}
+				case CLAN:
+				{
+					_initSize += type.getBlockLength() + (visibleTitle.length() * 2);
+					break;
+				}
+				default:
+				{
+					_initSize += type.getBlockLength();
+					break;
+				}
+			}
+		}
+	}
+	
+	@Override
+	protected byte[] getMasks()
+	{
+		return _masks;
 	}
 	
 	@Override
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
+		if ((client != null) && client.isSalvationMode())
+		{
+			writeSalvation(buffer);
+			return;
+		}
+		
 		ServerPackets.USER_INFO.writeId(this, buffer);
 		buffer.writeInt(_player.getX());
 		buffer.writeInt(_player.getY());
@@ -249,5 +305,253 @@ public class UserInfo extends ServerPacket
 		// buffer.writeInt(_territoryId); // CT2.3
 		// buffer.writeInt((_isDisguised ? 1: 0)); // CT2.3
 		// buffer.writeInt(_territoryId); // CT2.3
+	}
+	
+	private void writeSalvation(WriteBuffer buffer)
+	{
+		ServerPackets.USER_INFO.writeId(this, buffer);
+		buffer.writeInt(_player.getObjectId());
+		buffer.writeInt(_initSize);
+		buffer.writeShort(24);
+		buffer.writeBytes(_masks);
+		
+		if (containsMask(UserInfoType.RELATION))
+		{
+			buffer.writeInt(_relation);
+		}
+		
+		if (containsMask(UserInfoType.BASIC_INFO))
+		{
+			buffer.writeShort(16 + (_player.getAppearance().getVisibleName().length() * 2));
+			buffer.writeSizedString(_player.getAppearance().getVisibleName());
+			buffer.writeByte(_player.isGM());
+			buffer.writeByte(_player.getRace().ordinal());
+			buffer.writeByte(_player.getAppearance().isFemale());
+			buffer.writeInt(_player.getBaseClass());
+			buffer.writeInt(_player.getPlayerClass().getId());
+			buffer.writeByte(_player.getLevel());
+		}
+		
+		if (containsMask(UserInfoType.BASE_STATS))
+		{
+			buffer.writeShort(18);
+			buffer.writeShort(_player.getSTR());
+			buffer.writeShort(_player.getDEX());
+			buffer.writeShort(_player.getCON());
+			buffer.writeShort(_player.getINT());
+			buffer.writeShort(_player.getWIT());
+			buffer.writeShort(_player.getMEN());
+			buffer.writeShort(0); // LUC - not present in High Five
+			buffer.writeShort(0); // CHA - not present in High Five
+		}
+		
+		if (containsMask(UserInfoType.MAX_HPCPMP))
+		{
+			buffer.writeShort(14);
+			buffer.writeInt(_player.getMaxHp());
+			buffer.writeInt(_player.getMaxMp());
+			buffer.writeInt(_player.getMaxCp());
+		}
+		
+		if (containsMask(UserInfoType.CURRENT_HPMPCP_EXP_SP))
+		{
+			buffer.writeShort(38);
+			buffer.writeInt((int) Math.round(_player.getCurrentHp()));
+			buffer.writeInt((int) Math.round(_player.getCurrentMp()));
+			buffer.writeInt((int) Math.round(_player.getCurrentCp()));
+			buffer.writeLong(_player.getSp());
+			buffer.writeLong(_player.getExp());
+			buffer.writeDouble((float) (_player.getExp() - ExperienceData.getInstance().getExpForLevel(_player.getLevel())) / (ExperienceData.getInstance().getExpForLevel(_player.getLevel() + 1) - ExperienceData.getInstance().getExpForLevel(_player.getLevel())));
+		}
+		
+		if (containsMask(UserInfoType.ENCHANTLEVEL))
+		{
+			final Item weaponItem = _player.getInventory().getPaperdollItem(Inventory.PAPERDOLL_RHAND);
+			buffer.writeShort(4);
+			buffer.writeByte(weaponItem != null ? weaponItem.getEnchantLevel() : 0);
+			buffer.writeByte(0); // armor enchant - not present in High Five
+		}
+		
+		if (containsMask(UserInfoType.APPAREANCE))
+		{
+			final PlayerAppearance appearance = _player.getAppearance();
+			buffer.writeShort(15);
+			buffer.writeInt(appearance.getHairStyle());
+			buffer.writeInt(appearance.getHairColor());
+			buffer.writeInt(appearance.getFace());
+			buffer.writeByte(false); // hair accessory - not present in High Five
+		}
+		
+		if (containsMask(UserInfoType.STATUS))
+		{
+			buffer.writeShort(6);
+			buffer.writeByte(_player.getMountType().ordinal());
+			buffer.writeByte(_player.getPrivateStoreType().getId());
+			buffer.writeByte(false); // crystallize grade - not present in High Five
+			buffer.writeByte(0); // ability points - not present in High Five
+		}
+		
+		if (containsMask(UserInfoType.STATS))
+		{
+			buffer.writeShort(56);
+			buffer.writeShort(_player.getActiveWeaponItem() != null ? 40 : 20);
+			buffer.writeInt((int) _player.getPAtk(null));
+			buffer.writeInt((int) _player.getPAtkSpd());
+			buffer.writeInt((int) _player.getPDef(null));
+			buffer.writeInt(_player.getEvasionRate(null));
+			buffer.writeInt(_player.getAccuracy());
+			buffer.writeInt(_player.getCriticalHit(null, null));
+			buffer.writeInt((int) _player.getMAtk(null, null));
+			buffer.writeInt(_player.getMAtkSpd());
+			buffer.writeInt((int) _player.getPAtkSpd()); // Seems like atk speed - 1
+			buffer.writeInt(0); // magic evasion - not present in High Five
+			buffer.writeInt((int) _player.getMDef(null, null));
+			buffer.writeInt(0); // magic accuracy - not present in High Five
+			buffer.writeInt(_player.getMCriticalHit(null, null));
+		}
+		
+		if (containsMask(UserInfoType.ELEMENTALS))
+		{
+			buffer.writeShort(14);
+			buffer.writeShort(_player.getDefenseElementValue(Elementals.FIRE));
+			buffer.writeShort(_player.getDefenseElementValue(Elementals.WATER));
+			buffer.writeShort(_player.getDefenseElementValue(Elementals.WIND));
+			buffer.writeShort(_player.getDefenseElementValue(Elementals.EARTH));
+			buffer.writeShort(_player.getDefenseElementValue(Elementals.HOLY));
+			buffer.writeShort(_player.getDefenseElementValue(Elementals.DARK));
+		}
+		
+		if (containsMask(UserInfoType.POSITION))
+		{
+			buffer.writeShort(18);
+			buffer.writeInt(_player.getX());
+			buffer.writeInt(_player.getY());
+			buffer.writeInt(_player.getZ());
+			buffer.writeInt(_player.getVehicle() != null ? _player.getVehicle().getObjectId() : 0);
+		}
+		
+		if (containsMask(UserInfoType.SPEED))
+		{
+			buffer.writeShort(18);
+			buffer.writeShort(_runSpd);
+			buffer.writeShort(_walkSpd);
+			buffer.writeShort(_swimRunSpd);
+			buffer.writeShort(_swimWalkSpd);
+			buffer.writeShort(0); // fl run
+			buffer.writeShort(0); // fl walk
+			buffer.writeShort(_flyRunSpd);
+			buffer.writeShort(_flyWalkSpd);
+		}
+		
+		if (containsMask(UserInfoType.MULTIPLIER))
+		{
+			buffer.writeShort(18);
+			buffer.writeDouble(_moveMultiplier);
+			buffer.writeDouble(_player.getAttackSpeedMultiplier());
+		}
+		
+		if (containsMask(UserInfoType.COL_RADIUS_HEIGHT))
+		{
+			buffer.writeShort(18);
+			buffer.writeDouble(_player.getCollisionRadius());
+			buffer.writeDouble(_player.getCollisionHeight());
+		}
+		
+		if (containsMask(UserInfoType.ATK_ELEMENTAL))
+		{
+			buffer.writeShort(5);
+			final byte attackAttribute = _player.getAttackElement();
+			buffer.writeByte(attackAttribute);
+			buffer.writeShort(_player.getAttackElementValue(attackAttribute));
+		}
+		
+		if (containsMask(UserInfoType.CLAN))
+		{
+			String title = _player.getTitle();
+			if (title == null)
+			{
+				title = "";
+			}
+			if (_player.isGM() && _player.isInvisible())
+			{
+				title = "[Invisible]";
+			}
+			buffer.writeShort(32 + (title.length() * 2));
+			buffer.writeSizedString(title);
+			buffer.writeShort(_player.getPledgeType());
+			buffer.writeInt(_player.getClanId());
+			buffer.writeInt(_player.getClanCrestLargeId());
+			buffer.writeInt(_player.getClanCrestId());
+			buffer.writeInt(_player.getClanPrivileges().getMask());
+			buffer.writeByte(_player.isClanLeader());
+			buffer.writeInt(_player.getAllyId());
+			buffer.writeInt(_player.getAllyCrestId());
+			buffer.writeByte(false); // matching room - not present in High Five
+		}
+		
+		if (containsMask(UserInfoType.SOCIAL))
+		{
+			buffer.writeShort(22);
+			buffer.writeByte(_player.getPvpFlag());
+			buffer.writeInt(_player.getKarma()); // reputation
+			buffer.writeByte(_player.isNoble());
+			buffer.writeByte(_player.isHero() || (_player.isGM() && GeneralConfig.GM_HERO_AURA));
+			buffer.writeByte(_player.getPledgeClass());
+			buffer.writeInt(_player.getPkKills());
+			buffer.writeInt(_player.getPvpKills());
+			buffer.writeShort(_player.getRecomLeft());
+			buffer.writeShort(_player.getRecomHave());
+		}
+		
+		if (containsMask(UserInfoType.VITA_FAME))
+		{
+			buffer.writeShort(15);
+			buffer.writeInt(_player.getVitalityPoints());
+			buffer.writeByte(0); // vitality bonus
+			buffer.writeInt(_player.getFame());
+			buffer.writeInt(0); // raidboss points - not present in High Five
+		}
+		
+		if (containsMask(UserInfoType.SLOTS))
+		{
+			buffer.writeShort(11); // 140
+			buffer.writeByte(_player.getInventory().getTalismanSlots());
+			buffer.writeByte(0); // brooch jewels - not present in High Five
+			buffer.writeByte(_player.getTeam().getId());
+			buffer.writeInt(0);
+			buffer.writeByte(0); // charm slots
+			buffer.writeByte(0);
+		}
+		
+		if (containsMask(UserInfoType.MOVEMENTS))
+		{
+			buffer.writeShort(4);
+			buffer.writeByte(_player.isInsideZone(ZoneId.WATER) ? 1 : _player.isFlyingMounted() ? 2 : 0);
+			buffer.writeByte(_player.isRunning());
+		}
+		
+		if (containsMask(UserInfoType.COLOR))
+		{
+			buffer.writeShort(10);
+			buffer.writeInt(_player.getAppearance().getNameColor());
+			buffer.writeInt(_player.getAppearance().getTitleColor());
+		}
+		
+		if (containsMask(UserInfoType.INVENTORY_LIMIT))
+		{
+			buffer.writeShort(9);
+			buffer.writeShort(0);
+			buffer.writeShort(0);
+			buffer.writeShort(_player.getInventoryLimit());
+			buffer.writeByte(_player.isCursedWeaponEquipped() ? CursedWeaponsManager.getInstance().getLevel(_player.getCursedWeaponEquippedId()) : 0);
+		}
+		
+		if (containsMask(UserInfoType.TRUE_HERO))
+		{
+			buffer.writeShort(9);
+			buffer.writeInt(0);
+			buffer.writeShort(0);
+			buffer.writeByte(0); // true hero - not present in High Five
+		}
 	}
 }

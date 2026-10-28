@@ -21,6 +21,7 @@ import org.l2jmobius.gameserver.entity.item.holders.ItemInfo;
 import org.l2jmobius.gameserver.entity.item.instance.Item;
 import org.l2jmobius.gameserver.entity.itemcontainer.PlayerInventory;
 import org.l2jmobius.gameserver.network.holders.TradeItem;
+import org.l2jmobius.gameserver.network.enums.ItemListType;
 
 /**
  * @author UnAfraid
@@ -83,6 +84,75 @@ public abstract class AbstractItemPacket extends ServerPacket
 		for (int op : item.getEnchantOptions())
 		{
 			buffer.writeShort(op);
+		}
+	}
+	
+    /**
+	 * Salvation (protocol 140) mask-based item layout: cddcQcchQccddc + optional blocks.
+	 * Ported byte-exact from the Mobius 5.0 Salvation reference.
+	 */
+	protected void writeItem140(Item item, WriteBuffer buffer)
+	{
+		final ItemInfo itemInfo = new ItemInfo(item);
+		int mask = 0;
+		if (itemInfo.getAugmentationBonus() != 0)
+		{
+			mask |= ItemListType.AUGMENT_BONUS.getMask();
+		}
+		if ((itemInfo.getAttackElementType() >= 0) || (itemInfo.getElementDefAttr((byte) 0) > 0) || (itemInfo.getElementDefAttr((byte) 1) > 0) || (itemInfo.getElementDefAttr((byte) 2) > 0) || (itemInfo.getElementDefAttr((byte) 3) > 0) || (itemInfo.getElementDefAttr((byte) 4) > 0) || (itemInfo.getElementDefAttr((byte) 5) > 0))
+		{
+			mask |= ItemListType.ELEMENTAL_ATTRIBUTE.getMask();
+		}
+		if (itemInfo.getEnchantOptions() != null)
+		{
+			for (int op : itemInfo.getEnchantOptions())
+			{
+				if (op > 0)
+				{
+					mask |= ItemListType.ENCHANT_EFFECT.getMask();
+					break;
+				}
+			}
+		}
+		
+		buffer.writeByte(mask);
+		buffer.writeInt(itemInfo.getObjectId()); // ObjectId
+		buffer.writeInt(itemInfo.getItem().getDisplayId()); // ItemId
+		buffer.writeByte(item.isQuestItem() || (itemInfo.getEquipped() == 1) ? 0xFF : itemInfo.getLocation()); // T1
+		buffer.writeLong(itemInfo.getCount()); // Quantity
+		buffer.writeByte(itemInfo.getItem().getType2()); // Item Type 2 : 00-weapon, 01-shield/armor, 02-ring/earring/necklace, 03-questitem, 04-adena, 05-item
+		buffer.writeByte(itemInfo.getCustomType1()); // Filler (always 0)
+		buffer.writeShort(itemInfo.getEquipped()); // Equipped : 00-No, 01-yes
+		buffer.writeLong(itemInfo.getItem().getBodyPart().getMask()); // Slot
+		buffer.writeByte(itemInfo.getEnchant()); // Enchant level (pet level shown in control item)
+		buffer.writeByte(itemInfo.getCustomType2()); // Pet name exists or not shown in control item
+		buffer.writeInt(itemInfo.getMana());
+		buffer.writeInt(itemInfo.getTime());
+		buffer.writeByte(1); // GOD Item enabled = 1 disabled (red) = 0
+		buffer.writeByte(0); // 140 protocol
+		buffer.writeByte(0); // 140 protocol
+		if ((mask & ItemListType.AUGMENT_BONUS.getMask()) != 0)
+		{
+			buffer.writeInt(itemInfo.getAugmentationBonus() & 0x0000FFFF);
+			buffer.writeInt(itemInfo.getAugmentationBonus() >> 16);
+		}
+		
+		if ((mask & ItemListType.ELEMENTAL_ATTRIBUTE.getMask()) != 0)
+		{
+			buffer.writeShort(itemInfo.getAttackElementType());
+			buffer.writeShort(itemInfo.getAttackElementPower());
+			for (byte i = 0; i < 6; i++)
+			{
+				buffer.writeShort(itemInfo.getElementDefAttr(i));
+			}
+		}
+		
+		if ((mask & ItemListType.ENCHANT_EFFECT.getMask()) != 0)
+		{
+			for (int op : itemInfo.getEnchantOptions())
+			{
+				buffer.writeInt(op);
+			}
 		}
 	}
 	
