@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../xsd/multisell.xsd">
+	<npcs>
+		<npc>-1</npc> <!-- Community Board: allowed from anywhere -->
+	</npcs>
+	<item>
+		<!-- Dark Crystal Breastplate -->
+		<ingredient count="6000000" id="57" />
+		<production count="1" id="11418" />
+	</item>
+	<item>
+		<!-- Majestic Plate Armor -->
+		<ingredient count="7000000" id="57" />
+		<production count="1" id="11457" />
+	</item>
+	<item>
+		<!-- Tallum Plate Armor -->
+		<ingredient count="7000000" id="57" />
+		<production count="1" id="11445" />
+	</item>
+	<item>
+		<!-- Armor of Nightmare -->
+		<ingredient count="8000000" id="57" />
+		<production count="1" id="11471" />
+	</item>
+	<item>
+		<!-- Dark Crystal Robe -->
+		<ingredient count="5000000" id="57" />
+		<production count="1" id="11412" />
+	</item>
+	<item>
+		<!-- Majestic Robe -->
+		<ingredient count="6000000" id="57" />
+		<production count="1" id="11452" />
+	</item>
+	<item>
+		<!-- Tallum Tunic -->
+		<ingredient count="6000000" id="57" />
+		<production count="1" id="11444" />
+	</item>
+</list>

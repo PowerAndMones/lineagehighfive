@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../xsd/multisell.xsd">
+	<npcs>
+		<npc>-1</npc> <!-- Community Board: allowed from anywhere -->
+	</npcs>
+	<item>
+		<!-- Lesser Healing Potion -->
+		<ingredient count="5000" id="57" />
+		<production count="1" id="1060" />
+	</item>
+	<item>
+		<!-- Greater Healing Potion -->
+		<ingredient count="50000" id="57" />
+		<production count="1" id="1061" />
+	</item>
+	<item>
+		<!-- Haste Potion -->
+		<ingredient count="20000" id="57" />
+		<production count="1" id="734" />
+	</item>
+	<item>
+		<!-- Alacrity Potion -->
+		<ingredient count="20000" id="57" />
+		<production count="1" id="735" />
+	</item>
+	<item>
+		<!-- Greater Haste Potion -->
+		<ingredient count="80000" id="57" />
+		<production count="1" id="1374" />
+	</item>
+	<item>
+		<!-- Greater Swift Attack Potion -->
+		<ingredient count="80000" id="57" />
+		<production count="1" id="1375" />
+	</item>
+	<item>
+		<!-- Greater Magic Haste Potion -->
+		<ingredient count="100000" id="57" />
+		<production count="1" id="6036" />
+	</item>
+	<item>
+		<!-- Scroll of Escape -->
+		<ingredient count="5000" id="57" />
+		<production count="1" id="736" />
+	</item>
+	<item>
+		<!-- Scroll of Resurrection -->
+		<ingredient count="10000" id="57" />
+		<production count="1" id="737" />
+	</item>
+	<item>
+		<!-- Blessed Scroll of Escape -->
+		<ingredient count="100000" id="57" />
+		<production count="1" id="1538" />
+	</item>
+	<item>
+		<!-- Blessed Scroll of Resurrection -->
+		<ingredient count="100000" id="57" />
+		<production count="1" id="3936" />
+	</item>
+	<item>
+		<!-- Wooden Arrow -->
+		<ingredient count="2" id="57" />
+		<production count="1" id="17" />
+	</item>
+	<item>
+		<!-- Bone Arrow -->
+		<ingredient count="4" id="57" />
+		<production count="1" id="1341" />
+	</item>
+	<item>
+		<!-- Steel Arrow -->
+		<ingredient count="8" id="57" />
+		<production count="1" id="1342" />
+	</item>
+	<item>
+		<!-- Silver Arrow -->
+		<ingredient count="15" id="57" />
+		<production count="1" id="1343" />
+	</item>
+	<item>
+		<!-- Mithril Arrow -->
+		<ingredient count="30" id="57" />
+		<production count="1" id="1344" />
+	</item>
+</list>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../xsd/multisell.xsd">
+	<npcs>
+		<npc>-1</npc> <!-- Community Board: allowed from anywhere -->
+	</npcs>
+	<item>
+		<!-- Scroll: Enchant Weapon (C) -->
+		<ingredient count="50000" id="57" />
+		<production count="1" id="951" />
+	</item>
+	<item>
+		<!-- Scroll: Enchant Armor (C) -->
+		<ingredient count="20000" id="57" />
+		<production count="1" id="952" />
+	</item>
+	<item>
+		<!-- Scroll: Enchant Weapon (B) -->
+		<ingredient count="100000" id="57" />
+		<production count="1" id="947" />
+	</item>
+	<item>
+		<!-- Scroll: Enchant Armor (B) -->
+		<ingredient count="40000" id="57" />
+		<production count="1" id="948" />
+	</item>
+	<item>
+		<!-- Scroll: Enchant Weapon (A) -->
+		<ingredient count="300000" id="57" />
+		<production count="1" id="729" />
+	</item>
+	<item>
+		<!-- Scroll: Enchant Armor (A) -->
+		<ingredient count="120000" id="57" />
+		<production count="1" id="730" />
+	</item>
+	<item>
+		<!-- Scroll: Enchant Weapon (S) -->
+		<ingredient count="1000000" id="57" />
+		<production count="1" id="959" />
+	</item>
+	<item>
+		<!-- Scroll: Enchant Armor (S) -->
+		<ingredient count="400000" id="57" />
+		<production count="1" id="960" />
+	</item>
+	<item>
+		<!-- Life Stone - Level 46 -->
+		<ingredient count="200000" id="57" />
+		<production count="1" id="8723" />
+	</item>
+	<item>
+		<!-- Mid-Grade Life Stone - Level 49 -->
+		<ingredient count="400000" id="57" />
+		<production count="1" id="8734" />
+	</item>
+	<item>
+		<!-- High-Grade Life Stone - Level 76 -->
+		<ingredient count="1500000" id="57" />
+		<production count="1" id="8752" />
+	</item>
+	<item>
+		<!-- Top-Grade Life Stone - Level 76 -->
+		<ingredient count="3000000" id="57" />
+		<production count="1" id="8762" />
+	</item>
+</list>

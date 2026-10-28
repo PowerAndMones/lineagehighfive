@@ -148,3 +148,30 @@ TrapInfo -> 140: у эталона НЕТ TrapInfo-класса, ловушки 
 Сборка: 1923 файла (+1 новый), exit 0. Коммит 4ff44040, chmod-контроль пройден, push, CI 40737980495.
 
 Следующее: Release v1.10 после CI. Тест-кандидаты: окно скиллов (0x38 теперь отвечает), бафы на NPC (иконки над мобами под дебаффами), ловушки (Decoy/Flash Trap) не ломают мир.
+
+## Task 26 - v2.0: современный Community Board (Alt+B) - бафер со схемами, магазин, класс-мастер, рейтинг
+
+Дата: 29/10/2026. Запрос: "С alt+b можно сделать современным? А то его вообще как будто нету у нас с функциями" + скриншоты BOHPTS OLDSCHOOL x7.
+
+Разведка:
+- Ядро CB в репо цело: ShowBoard/RequestShowBoard (0x5E совпадает с эталоном), CommunityBoardHandler, 9 ванильных бордов зарегистрированы в MasterHandler
+- HomeBoard = кастомная Mobius-версия (_bbsbuff/_bbsteleport/_bbsmultisell/_bbspremium/_bbsheal/_bbsdelevel), включается CustomCommunityBoard=True (в dist уже True)
+- В ЯДРЕ обнаружен SchemeBufferTable (data/SchemeBufferSkills.xml, категории Buffs/Dances/Songs/Chants/Resist/Special + пресеты FIGHTER_GROUP/MAGE_GROUP, 142 бафа; схема в БД buffer_schemes; init в GameServer, save в Shutdown) - потребителя в датапаке НЕ БЫЛО, потому бафер "не существовал"
+- Магазин CB был мёртв: HTML ссылался на несуществующие мультиселлы 600010/600014/600016
+
+Реализовано:
+1. HomeBoard.java (расширение): полноценный бафер на SchemeBufferTable: _bbsscheme (главная: пресеты Воин/Маг, отменить бафы, лечить, список схем [Наложить/Редактор/Удалить], сохранить текущие бафы в схему через edit var, категории) / cat / edit / add / rem / use / save / del / cancel / heal / cast / group; каст по максимальному уровню скилла (SkillData.getMaxLevel), порядок Dances->Songs->Chants->остальные, цена = сумма цен XML или BufferStaticCostPerBuff; лимит схем из конфига, валидация имени схемы (16 симв.)
+2. Класс-мастер на CB: _bbsclass / change;<classId> - Player.setPlayerClass (полный цикл: академия, хенны, rewardSkills), требования 20/40/76, цены CommunityClassPriceFirst/Second/Third
+3. RankBoard.java (новый, зарегистрирован в MasterHandler): _bbsrank pvp|pk|online|rich, топ-10 из characters (accesslevel=0) и items(адена SUM count), async через ThreadPool, табы
+4. HTML (RU, стиль BOHPTS): navigation.html (Главная/Бафер/Телепорт/Магазин/Премиум/Рейтинг/Профессия/Поиск дропа/Информация), home.html (%online%, %player_name%), gatekeeper/main.html (RU города + Arcan/Ertheia/Floran/Gainak в конфиге), merchant/main.html (9 категорий), premium/main.html (RU, 1д/7д/30д), info/main.html (новая)
+5. Мультиселлы 600010-600019 (9 файлов, <npc>-1</npc> для работы из CB - в этой ветке isNpcAllowed строже эталона): расходники/шоты/оружие S,A,B/броня A,S/бижутерия (эпики 6656-6660,8191)/энчант+ЛС. Все ID выверены по data/stats/items
+6. SchemeBufferSkills.xml: desc -> русские названия (142/142)
+7. CommunityBoardConfig.java: +CommunityEnableClassMaster, +CommunityClassPriceFirst/Second/Third (ядро, compile OK)
+8. dist/sql/buffer_schemes.sql (CREATE TABLE IF NOT EXISTS)
+9. CommunityBoard.ini: +4 города, CommunityPremiumSystem=True, цена/день 500000, +класс-мастер; PremiumSystem.ini: EnablePremiumSystem=True
+
+Багфиксы после ревизии: null-safe getPlayerSchemes (add), дедуп по skillId при касте схемы/пресета (дубли категорийных бафов 307/306/308/270/309/311), null-guard separateAndSend в legacy _bbsbuff/_bbsheal, try-catch PlayerClass.getPlayerClass, табы RankBoard активным текстом.
+
+Сборка: ядро 1923 файла exit 0; скрипты 1292 файла exit 0 (локальная валидация javac с класспасом ядра).
+
+ДЕПЛОЙ (для пользователя): 1) обновить files/dist; 2) ВЫПОЛНИТЬ dist/sql/buffer_schemes.sql на game DB; 3) проверить config/Custom/CommunityBoard.ini на живом сервере (CustomCommunityBoard=True обязательно); 4) рестарт GS. Alt+B: бафер/схемы/телепорт/магазин/премиум/рейтинг/профессии.

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../xsd/multisell.xsd">
+	<npcs>
+		<npc>-1</npc> <!-- Community Board: allowed from anywhere -->
+	</npcs>
+	<item>
+		<!-- Sword of Damascus -->
+		<ingredient count="2000000" id="57" />
+		<production count="1" id="79" />
+	</item>
+	<item>
+		<!-- Deadman's Glory -->
+		<ingredient count="2000000" id="57" />
+		<production count="1" id="171" />
+	</item>
+	<item>
+		<!-- Deadman's Staff -->
+		<ingredient count="2000000" id="57" />
+		<production count="1" id="204" />
+	</item>
+	<item>
+		<!-- Keshanberk*Damascus -->
+		<ingredient count="3000000" id="57" />
+		<production count="1" id="5705" />
+	</item>
+	<item>
+		<!-- Damascus*Damascus -->
+		<ingredient count="3500000" id="57" />
+		<production count="1" id="5706" />
+	</item>
+</list>

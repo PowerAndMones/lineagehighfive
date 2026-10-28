@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../xsd/multisell.xsd">
+	<npcs>
+		<npc>-1</npc> <!-- Community Board: allowed from anywhere -->
+	</npcs>
+	<item>
+		<!-- Soulshot: No Grade -->
+		<ingredient count="8" id="57" />
+		<production count="1" id="1835" />
+	</item>
+	<item>
+		<!-- Soulshot D -->
+		<ingredient count="15" id="57" />
+		<production count="1" id="1463" />
+	</item>
+	<item>
+		<!-- Soulshot C -->
+		<ingredient count="30" id="57" />
+		<production count="1" id="1464" />
+	</item>
+	<item>
+		<!-- Soulshot B -->
+		<ingredient count="60" id="57" />
+		<production count="1" id="1465" />
+	</item>
+	<item>
+		<!-- Soulshot A -->
+		<ingredient count="120" id="57" />
+		<production count="1" id="1466" />
+	</item>
+	<item>
+		<!-- Soulshot S -->
+		<ingredient count="240" id="57" />
+		<production count="1" id="1467" />
+	</item>
+	<item>
+		<!-- Spiritshot D -->
+		<ingredient count="20" id="57" />
+		<production count="1" id="2510" />
+	</item>
+	<item>
+		<!-- Spiritshot C -->
+		<ingredient count="40" id="57" />
+		<production count="1" id="2511" />
+	</item>
+	<item>
+		<!-- Spiritshot B -->
+		<ingredient count="80" id="57" />
+		<production count="1" id="2512" />
+	</item>
+	<item>
+		<!-- Spiritshot A -->
+		<ingredient count="160" id="57" />
+		<production count="1" id="2513" />
+	</item>
+	<item>
+		<!-- Spiritshot S -->
+		<ingredient count="320" id="57" />
+		<production count="1" id="2514" />
+	</item>
+	<item>
+		<!-- Blessed Spiritshot D -->
+		<ingredient count="60" id="57" />
+		<production count="1" id="3948" />
+	</item>
+	<item>
+		<!-- Blessed Spiritshot C -->
+		<ingredient count="120" id="57" />
+		<production count="1" id="3949" />
+	</item>
+	<item>
+		<!-- Blessed Spiritshot B -->
+		<ingredient count="240" id="57" />
+		<production count="1" id="3950" />
+	</item>
+	<item>
+		<!-- Blessed Spiritshot A -->
+		<ingredient count="480" id="57" />
+		<production count="1" id="3951" />
+	</item>
+	<item>
+		<!-- Blessed Spiritshot S -->
+		<ingredient count="960" id="57" />
+		<production count="1" id="3952" />
+	</item>
+</list>

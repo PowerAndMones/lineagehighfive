@@ -58,6 +58,10 @@ public class CommunityBoardConfig
 	public static int COMMUNITY_PREMIUM_PRICE_PER_DAY;
 	public static Set<Integer> COMMUNITY_AVAILABLE_BUFFS;
 	public static Map<String, Location> COMMUNITY_AVAILABLE_TELEPORTS;
+	public static boolean COMMUNITYBOARD_ENABLE_CLASS_MASTER;
+	public static int COMMUNITYBOARD_CLASS_PRICE_FIRST;
+	public static int COMMUNITYBOARD_CLASS_PRICE_SECOND;
+	public static int COMMUNITYBOARD_CLASS_PRICE_THIRD;
 	
 	public static void load()
 	{
@@ -77,6 +81,10 @@ public class CommunityBoardConfig
 		COMMUNITYBOARD_COMBAT_DISABLED = config.getBoolean("CommunityCombatDisabled", true);
 		COMMUNITYBOARD_KARMA_DISABLED = config.getBoolean("CommunityKarmaDisabled", true);
 		COMMUNITYBOARD_CAST_ANIMATIONS = config.getBoolean("CommunityCastAnimations", false);
+		COMMUNITYBOARD_ENABLE_CLASS_MASTER = config.getBoolean("CommunityEnableClassMaster", true);
+		COMMUNITYBOARD_CLASS_PRICE_FIRST = config.getInt("CommunityClassPriceFirst", 0);
+		COMMUNITYBOARD_CLASS_PRICE_SECOND = config.getInt("CommunityClassPriceSecond", 1000000);
+		COMMUNITYBOARD_CLASS_PRICE_THIRD = config.getInt("CommunityClassPriceThird", 5000000);
 		COMMUNITY_PREMIUM_SYSTEM_ENABLED = config.getBoolean("CommunityPremiumSystem", false);
 		COMMUNITY_PREMIUM_COIN_ID = config.getInt("CommunityPremiumBuyCoinId", 57);
 		COMMUNITY_PREMIUM_PRICE_PER_DAY = config.getInt("CommunityPremiumPricePerDay", 1000000);

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../xsd/multisell.xsd">
+	<npcs>
+		<npc>-1</npc> <!-- Community Board: allowed from anywhere -->
+	</npcs>
+	<item>
+		<!-- Dark Legion's Edge -->
+		<ingredient count="10000000" id="57" />
+		<production count="1" id="2500" />
+	</item>
+	<item>
+		<!-- Meteor Shower -->
+		<ingredient count="10000000" id="57" />
+		<production count="1" id="2504" />
+	</item>
+	<item>
+		<!-- Blood Tornado -->
+		<ingredient count="10000000" id="57" />
+		<production count="1" id="269" />
+	</item>
+	<item>
+		<!-- Sword of Valhalla -->
+		<ingredient count="9000000" id="57" />
+		<production count="1" id="148" />
+	</item>
+	<item>
+		<!-- Dasparion's Staff -->
+		<ingredient count="9000000" id="57" />
+		<production count="1" id="212" />
+	</item>
+	<item>
+		<!-- Branch of the Mother Tree -->
+		<ingredient count="10000000" id="57" />
+		<production count="1" id="213" />
+	</item>
+	<item>
+		<!-- Carnage Bow -->
+		<ingredient count="10000000" id="57" />
+		<production count="1" id="288" />
+	</item>
+	<item>
+		<!-- Elemental Sword -->
+		<ingredient count="9000000" id="57" />
+		<production count="1" id="150" />
+	</item>
+	<item>
+		<!-- Elysian -->
+		<ingredient count="10000000" id="57" />
+		<production count="1" id="164" />
+	</item>
+	<item>
+		<!-- Tallum Blade -->
+		<ingredient count="8000000" id="57" />
+		<production count="1" id="80" />
+	</item>
+	<item>
+		<!-- Tallum Glaive -->
+		<ingredient count="9000000" id="57" />
+		<production count="1" id="305" />
+	</item>
+	<item>
+		<!-- Bloody Orchid -->
+		<ingredient count="8000000" id="57" />
+		<production count="1" id="235" />
+	</item>
+</list>

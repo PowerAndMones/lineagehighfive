@@ -271,3 +271,20 @@ Ported in this round:
 - **NpcInfo/SummonInfo constructors are null-attacker safe** (`(attacker != null) && attacker.isGM()`), required by the TrapInfo delegation.
 
 KeyPacket (S_VERSION_CHECK) re-verified against the reference: identical except the intentional non-zero obfuscation key; the "foreign system folder" crash remains a client-side DAT issue.
+
+## Community Board modernization (v2.0)
+
+Alt+B now provides a BOHPTS-style Russian community board:
+
+- **Scheme buffer** (backed by core `SchemeBufferTable`, DB table `buffer_schemes`, SQL at `dist/sql/buffer_schemes.sql`):
+  - Fighter/Mage preset groups from `data/SchemeBufferSkills.xml` (142 buffs, Russian labels, 6 categories)
+  - Player schemes: save currently applied buffs by name, apply, edit (add/remove per buff), delete; max schemes configurable (`BufferMaxSchemesPerChar`), currency `BufferItemId`, price per buff from XML or `BufferStaticCostPerBuff`
+  - Cancel buffs / heal services with configurable price
+  - Buffs are applied at the highest available skill level; dances -> songs -> chants first
+- **Class master** (`CommunityEnableClassMaster`): profession change at levels 20/40/76 via `Player.setPlayerClass`, prices `CommunityClassPriceFirst/Second/Third`
+- **Ranking** (`RankBoard.java`): top-10 PvP, PK, online time, richest (async DB)
+- **Shop**: multisells 600010-600019 (consumables, shots, weapons S/A/B, armors A/S, epic jewels, enchant scrolls + life stones); all lists use `<npc>-1</npc>` so they can be opened from the board
+- **Premium purchase** from the board (requires `EnablePremiumSystem = True`)
+- **Teleport** page with RU town labels; coordinates in `CommunityTeleportList` (added Arcan/Ertheia/Floran/Gainak)
+
+Deployment notes: run `dist/sql/buffer_schemes.sql` on the game DB; ensure `config/Custom/CommunityBoard.ini` has `CustomCommunityBoard = True` on the live server.
