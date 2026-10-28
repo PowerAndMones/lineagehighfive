@@ -78,8 +78,16 @@ public class GamePacketHandler implements PacketHandler<GameClient>
 				exPacketId = SalvationProtocol.translateIncomingExId(exPacketId);
 				if (exPacketId < 0)
 				{
-					// Salvation-only packet without a local counterpart.
-					LOGGER.info("SALVATION: dropped client Ex packet without local counterpart (salvationExId=" + salvationExId + ")");
+					// Known Salvation-only packet: name it in the log, otherwise generic drop.
+					final String salvationOnlyName = SalvationProtocol.getSalvationOnlyExName(salvationExId);
+					if (salvationOnlyName != null)
+					{
+						LOGGER.info("SALVATION: ignored " + salvationOnlyName + " (salvationExId=" + salvationExId + ") - Salvation-only packet, no server action required");
+					}
+					else
+					{
+						LOGGER.info("SALVATION: dropped client Ex packet without local counterpart (salvationExId=" + salvationExId + ")");
+					}
 					return null;
 				}
 			}

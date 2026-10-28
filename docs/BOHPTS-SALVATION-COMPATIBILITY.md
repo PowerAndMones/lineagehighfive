@@ -136,3 +136,17 @@ The complete Mobius 5.0 Salvation server source (`L2J_Mobius_05.0_Salvation`, 23
 
 ### Fixed: EnterWorld read order
 The Salvation client sends `EnterWorld` fields in a different order than High Five: tracert block (5x4 bytes) FIRST, then 4 unknown ints, a 64-byte array and 1 int (High Five: 32-byte array, 4 ints, 32-byte array, 1 int, tracert last). Total length is the same (104 bytes), so the packet parsed without errors before, but `_tracert` captured misaligned garbage. `EnterWorld.readImpl()` now branches on protocol 140 and reads the Salvation layout, so client IP tracert logging works correctly for Salvation clients.
+
+## Live smoke test: character selection reached (2026-10-28)
+
+The Salvation 140 client completed the full login chain against the patched build: login server auth -> server list (Sieghardt) -> gameserver `PlayerAuthRequest`/session key check -> `auth ok` -> `CharSelectionInfo` delivered (0 characters). The client now reaches the character selection screen; the earlier `Insufficient Memory` crash is gone.
+
+### Dropped Ex packet identified: 0x104 = EX_SEND_CLIENT_INI
+Right after `CharSelectionInfo`, the client sent `0xD0 0x0104` twice. In the Mobius 5.0 Salvation reference this is `EX_SEND_CLIENT_INI(0x104, null, ConnectionState.AUTHENTICATED)` - the client uploading its INI settings. The reference server registers it with a **null handler** (the packet is deliberately ignored even by the real Salvation server), so dropping it here is correct behavior and nothing is blocked.
+
+Improvements shipped with this finding:
+- `SalvationProtocol.java` now embeds `EX_CM_SALVATION_ONLY_NAMES` - the enum names of all 210 Salvation-only client Ex ids (generated from the reference `ExClientPackets` enum by `scripts/gen_salvation_only_names.py`), so drop logs name the packet instead of a bare id.
+- `GamePacketHandler.java` logs known Salvation-only packets as `SALVATION: ignored <NAME> (salvationExId=...) - Salvation-only packet, no server action required`; truly unknown ids keep the generic drop message.
+
+### CharacterCreate verified
+`CharacterCreate` read layout is byte-identical between High Five and Salvation (`cSdddddddddddd`: name, race, sex, classId, 6 stat ints, hairStyle, hairColor, face), and `NewCharacter`/`NewCharacterSuccess` was verified earlier. Character creation is expected to work without adapter changes.
