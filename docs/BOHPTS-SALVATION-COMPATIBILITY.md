@@ -259,3 +259,15 @@ User report: quests "worked but did not display properly". Audit of every quest-
 - **QuestList** (opcode 0x86, layout unchanged in 140): our build sent a 128-byte tail of **zeros** where the reference sends the **one-time completed quest bitmask** (`index = (questId % 10000) / 8`, `bit = questId % 8`, applied only to completed quests with `questId <= 255` or `10256 <= questId <= 11023`). Without the mask the 140 client never marks completed one-time quests in the quest journal. The mask is now built in the constructor from `Player.getAllQuestStates()` (new accessor over the internal quest map). Harmless for High Five clients - same packet layout, honest mask.
 - Everything else checks out: active quests populate via `getAllActiveQuests()` (started, ids 1..19999); cond/status encoding follows the documented client semantics; `ExQuestNpcLogList` is wire-compatible; `ExShowQuestInfo`/`NpcQuestHtmlMessage` are byte-identical to the reference; quest items already ride the phase-4 `ExQuestItemList` quartet; quest marks/tutorial packets carry phase-6 branches.
 - Quest **names** are taken from the client's own DAT tables (Essence content layer); server cannot send them - mismatched ids there are a content-layer matter, not a protocol one.
+
+## Compatibility top-up (v1.10)
+
+Static "dead wiring" audit of all 146 Salvation opcode overrides (scripts/audit_dead_wiring.py): no real missing send-sites. Every flag resolved as (a) static-instance/holder-class false positives, (b) packets dead in the reference too, (c) justified data-model absence (quest kill counters update via QuestList re-sends in this fork's aCis-style quest system), or (d) opcodes already identical (restart). The `Ex 0x63 REQUEST_SEED_PHASE` open question is closed: the reference ignores it as well.
+
+Ported in this round:
+- **CM 0x38 RequestMagicSkillList** - was registered with a null handler; the reference replies with `sendSkillList()`. New client packet class wired into `ClientPackets`, so opening the skill window refreshes the list on the 140 client.
+- **NpcInfo ABNORMALS block** (deferred since the phase 5 NpcInfo port): abnormal visual effects now serialize as 140 `short` client ids via `SalvationAveMap`, appended after VISUAL_STATE in the reference's block order, with mask bit and block size accounting. Mirrors the already-shipped SummonInfo pattern.
+- **TrapInfo -> mask NpcInfo for salvation clients**: the reference has no TrapInfo packet at all and renders traps through the mask-based NpcInfo; sending our H5 fixed-layout TrapInfo to a 140 client would desync the stream when a trap spawns. The salvation branch of `TrapInfo.writeImpl` now delegates to `new NpcInfo(_trap, null)`.
+- **NpcInfo/SummonInfo constructors are null-attacker safe** (`(attacker != null) && attacker.isGM()`), required by the TrapInfo delegation.
+
+KeyPacket (S_VERSION_CHECK) re-verified against the reference: identical except the intentional non-zero obfuscation key; the "foreign system folder" crash remains a client-side DAT issue.

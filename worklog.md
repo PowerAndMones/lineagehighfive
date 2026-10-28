@@ -119,3 +119,32 @@ Stage Summary:
 Коммит 11007073 (2 файла, +21/-1), chmod-контроль пройден, push 83930ea5..11007073 SUCCESS, CI 40734386801.
 
 Следующее: Release v1.9 после CI; пользователь тестирует квест-журнал (выполненные one-time квесты должны получить отметки).
+
+## Task 25 - v1.10: аудит "мёртвой проводки" + добивка совместимости (пока пользователь не тестировал)
+
+Дата: 29/10/2026. Запрос: "Еще что можно делать пока я не проверил".
+
+Аудит scripts/audit_dead_wiring.py (146 salvation-ремапов):
+- 46 констант без writeId-сайта (классов нет вовсе) - шаттлы/MPCC/доминион/клифты и пр., фичи не запускаются, безвредно
+- 32 пакета "класс есть, никто не шлёт" - ПОСЛЕ ручной проверки почти все ложные срабатывания: static-инстансы (ExNoticePostArrived - MailManager шлёт STATIC_PACKET), холдеры (дуэли шлются из Duel.java, энчант-скиллы из RequestExEnchantSkill*), мёртвые и в эталоне (ExShowVariationMakeWindow, ExHeroList, ExPrivateMarketList, ExTutorialList - ref-constructs=0)
+- ExQuestNpcLogList никем не шлётся - ОБОСНОВАНО: в нашей aCis-стилистике квестов счётчики убийств обновляются повторной отправкой QuestList (3 send-сайта в QuestState); NpcLogList-модели данных в форке нет
+- ExInitializeSeed/REQUEST_SEED_PHASE: эталон тоже НЕ отвечает на seed phase CM - открытый вопрос закрыт, поведение идентично эталону
+- ВЕРДИКТ: реальных мёртвых проводок НЕТ, v1.8 чистая
+
+VersionCheck (KeyPacket): writeImpl совпадает с эталоном КРОМЕ obfuscation key (у нас не-ноль - осознанное решение адаптера, у эталона 0). isClassic-байт на месте. Краш на "чужой" system - клиентский DAT 2018, вопрос закрыт окончательно.
+
+CM 0x38 RequestMagicSkillList: у нас был null-хендлер, эталон отвечает sendSkillList(). Порт:
+- новый network/clientpackets/RequestMagicSkillList.java (по эталону: readInt objectId, проверка, sendSkillList)
+- ClientPackets: (0x38, null, ...) -> (0x38, RequestMagicSkillList::new, ...)
+
+NpcInfo ABNORMALS (визуалы бафов на NPC, фаза 5 откладывала):
+- масочная фаза: SalvationAveMap.toClientIds(getAbnormalVisualEffects()|getAbnormalVisualEffectSpecial(), isInvisible()); addNpcInfoMask(ABNORMALS) + blockSize += 2*count
+- write-фаза: short count + short clientId на эффект (паттерн скопирован с работающего SummonInfo фазы 6)
+- блок последний, после VISUAL_STATE - порядок записи эталона (порядок enum не совпадает с порядком записи - проверено, enum идентичен)
+
+TrapInfo -> 140: у эталона НЕТ TrapInfo-класса, ловушки шлются масочным NpcInfo (Trap.java: broadcastPacket(new NpcInfo(this))). Наш TrapInfo (H5-фикс) для 140-клиента = рассинхрон стрима при спавне ловушки. Fix: TrapInfo.writeImpl salvation-ветка делегирует new NpcInfo(_trap, null).writeImpl(client, buffer).
+- Для этого NpcInfo/SummonInfo конструкторы сделаны null-safe: super(cha, (attacker != null) && attacker.isGM()) (был NPE на null)
+
+Сборка: 1923 файла (+1 новый), exit 0. Коммит 4ff44040, chmod-контроль пройден, push, CI 40737980495.
+
+Следующее: Release v1.10 после CI. Тест-кандидаты: окно скиллов (0x38 теперь отвечает), бафы на NPC (иконки над мобами под дебаффами), ловушки (Decoy/Flash Trap) не ломают мир.
