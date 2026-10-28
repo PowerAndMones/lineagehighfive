@@ -111,7 +111,7 @@ public abstract class AbstractNpcInfo extends ServerPacket
 		
 		public NpcInfo(Npc cha, Creature attacker)
 		{
-			super(cha, attacker.isGM());
+			super(cha, (attacker != null) && attacker.isGM());
 			_npc = cha;
 			_displayId = cha.getTemplate().getDisplayId(); // On every subclass
 			_rhand = cha.getRightHandItem(); // On every subclass
@@ -382,6 +382,14 @@ public abstract class AbstractNpcInfo extends ServerPacket
 					blockSize += NpcInfoType.VISUAL_STATE.getBlockLength();
 				}
 				
+				// Salvation (protocol 140): abnormal visual effects as short client ids (see SummonInfo / reference NpcInfo).
+				final List<Short> abnormalClientIds = SalvationAveMap.toClientIds(_npc.getAbnormalVisualEffects() | _npc.getAbnormalVisualEffectSpecial(), _npc.isInvisible());
+				if (!abnormalClientIds.isEmpty())
+				{
+					addNpcInfoMask(masks, NpcInfoType.ABNORMALS);
+					blockSize += NpcInfoType.ABNORMALS.getBlockLength() + (abnormalClientIds.size() * 2);
+				}
+				
 				ServerPackets.NPC_INFO.writeId(this, buffer);
 				buffer.writeInt(_npc.getObjectId());
 				buffer.writeByte(_isSummoned ? 2 : 0); // 0=teleported 1=default 2=summoned
@@ -497,6 +505,15 @@ public abstract class AbstractNpcInfo extends ServerPacket
 				if (statusMask != 0x00)
 				{
 					buffer.writeByte(statusMask);
+				}
+				
+				if (!abnormalClientIds.isEmpty())
+				{
+					buffer.writeShort(abnormalClientIds.size());
+					for (short aveClientId : abnormalClientIds)
+					{
+						buffer.writeShort(aveClientId);
+					}
 				}
 				return;
 			}
@@ -647,6 +664,13 @@ public abstract class AbstractNpcInfo extends ServerPacket
 		@Override
 		public void writeImpl(GameClient client, WriteBuffer buffer)
 		{
+			if ((client != null) && client.isSalvationMode())
+			{
+				// Salvation (protocol 140) has no TrapInfo opcode: the reference renders traps via the mask-based NpcInfo layout.
+				new NpcInfo(_trap, null).writeImpl(client, buffer);
+				return;
+			}
+			
 			ServerPackets.NPC_INFO.writeId(this, buffer);
 			buffer.writeInt(_trap.getObjectId());
 			buffer.writeInt(_displayId + 1000000); // npctype id
@@ -715,7 +739,7 @@ public abstract class AbstractNpcInfo extends ServerPacket
 		
 		public SummonInfo(Summon cha, Creature attacker, int value)
 		{
-			super(cha, attacker.isGM());
+			super(cha, (attacker != null) && attacker.isGM());
 			_summon = cha;
 			_value = value;
 			_form = cha.getFormId();

@@ -78,7 +78,7 @@ public enum ClientPackets
 	CHANGE_MOVE_TYPE(0x35, null, ConnectionState.IN_GAME),
 	CHANGE_WAIT_TYPE(0x36, null, ConnectionState.IN_GAME),
 	REQUEST_SELL_ITEM(0x37, RequestSellItem::new, ConnectionState.IN_GAME),
-	REQUEST_MAGIC_SKILL_LIST(0x38, null, ConnectionState.IN_GAME),
+	REQUEST_MAGIC_SKILL_LIST(0x38, RequestMagicSkillList::new, ConnectionState.IN_GAME),
 	REQUEST_MAGIC_SKILL_USE(0x39, RequestMagicSkillUse::new, ConnectionState.IN_GAME),
 	APPEARING(0x3A, Appearing::new, ConnectionState.IN_GAME),
 	SEND_WARE_HOUSE_DEPOSIT_LIST(0x3B, SendWareHouseDepositList::new, ConnectionState.IN_GAME),
