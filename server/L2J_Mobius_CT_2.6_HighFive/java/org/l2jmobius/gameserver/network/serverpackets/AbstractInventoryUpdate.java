@@ -24,6 +24,7 @@ import java.util.Map;
 import org.l2jmobius.commons.network.buffer.WriteBuffer;
 import org.l2jmobius.gameserver.entity.item.holders.ItemInfo;
 import org.l2jmobius.gameserver.entity.item.instance.Item;
+import org.l2jmobius.gameserver.network.GameClient;
 
 /**
  * @author UnAfraid
@@ -113,15 +114,30 @@ public abstract class AbstractInventoryUpdate extends AbstractItemPacket
 		return _items.values();
 	}
 	
-	protected void writeItems(WriteBuffer buffer)
+	protected void writeItems(WriteBuffer buffer, GameClient client)
 	{
 		synchronized (_items)
 		{
-			buffer.writeShort(_items.size());
-			for (ItemInfo item : _items.values())
+			if ((client != null) && client.isSalvationMode())
 			{
-				buffer.writeShort(item.getChange()); // Update type : 01-add, 02-modify, 03-remove
-				writeItem(item, buffer);
+				// Salvation (protocol 140) layout: extra header prefix + mask-based items.
+				buffer.writeByte(0); // 140 protocol
+				buffer.writeInt(0); // 140 protocol
+				buffer.writeInt(_items.size());
+				for (ItemInfo item : _items.values())
+				{
+					buffer.writeShort(item.getChange()); // Update type : 01-add, 02-modify, 03-remove
+					writeItem140(item, buffer);
+				}
+			}
+			else
+			{
+				buffer.writeShort(_items.size());
+				for (ItemInfo item : _items.values())
+				{
+					buffer.writeShort(item.getChange()); // Update type : 01-add, 02-modify, 03-remove
+					writeItem(item, buffer);
+				}
 			}
 			
 			_items.clear();

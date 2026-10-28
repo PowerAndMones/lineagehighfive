@@ -163,3 +163,37 @@ The reference `LoginServerThread` (PlayerAuthResponse ok branch) sends `LoginFai
 - `LoginServerThread.java`: on successful auth, salvation clients now receive `LoginFail.LOGIN_SUCCESS` right before `CharSelectionInfo`, with a `SALVATION: sent LoginFail.LOGIN_SUCCESS marker` trace line.
 
 Expected next test: the client activates the character selection screen; clicking a character and pressing Start sends `CM 0x12 CHARACTER_SELECT` (visible in the SALVATION trace), followed by `CharSelected` and the already-fixed `EnterWorld` (protocol-140 layout).
+
+## First entry to the world; UserInfo struct graft (phase 3)
+
+With the LOGIN_SUCCESS marker shipped (v1.3) the full selection chain works: the client activated the character selection screen, sent `CM 0x12 CHARACTER_SELECT`, received `CharSelected`, sent `CM 0x11 ENTER_WORLD` and the server switched the client to `IN_GAME` state. The client then crashed with `CachingUserInfoData::decodeStream <- UIPacket <- S_USER_INFO` - the first in-game packet with a drifted struct.
+
+### Root cause
+The Essence (Salvation) client expects the **modern mask-based `UserInfo`** (block header = data length + 2, blocks keyed by the `UserInfoType` mask), while the High Five build writes the legacy fixed-layout `UserInfo`. The same drift class affects `ItemList` and `ExQuestItemList`: the Essence client parses the per-item mask layout (`cddcQcchQccddc` + optional augment / elemental / enchant effect blocks).
+
+### Grafted from the reference (byte-exact structs, local API values)
+- New mask infrastructure: `AbstractMaskPacket`, `IUpdateTypeComponent`, `UserInfoType`, `ItemListType`.
+- `UserInfo`: salvation branch writes all 23 mask blocks; values are mapped to the local Player API. Fields absent in High Five are written as zero: LUC/CHA stats, ability points, magic evasion/accuracy, brooch jewels and agathion charm slots, raidboss points, hair accessory, true hero. Reputation uses karma. `getMCriticalHit` and elemental blocks use the local Creature stats.
+- `AbstractItemPacket.writeItem140`: protocol 140 item struct with a per-item mask; the packed High Five augmentation id is split into option1 (`id & 0xFFFF`) and option2 (`id >> 16`) ints, matching the local `AugmentationStatBonus` packing order.
+- `ItemList` / `ExQuestItemList`: salvation branches use send type 2 with the new item layout.
+
+Note: the dropped `CM 0xa6` in ENTERING state is correct behavior - in the reference `0xA6` is `REQUEST_SKILL_COOL_TIME` registered for IN_GAME only, and the reference server drops it in ENTERING as well.
+
+## Inventory duplication fix; protocol 140 item/status pipeline (phase 4)
+
+Test of v1.4: the player enters the world, moves and opens the inventory, but every inventory open **accumulates duplicated entries** and the status row shows an inconsistent HP value. Three protocol-140 drifts remained after the phase 3 graft.
+
+### Root causes (all verified against the reference)
+1. **ItemList orchestration.** The reference client-server pair never sends a standalone `ItemList` type 2. `Player.sendItemList()` (and `EnterWorld`) send the quartet `ItemList(1)` + `ItemList(2)` + `ExQuestItemList(1)` + `ExQuestItemList(2)`, where send type 1 is a header-only *display/reset window* command (`byte 1, int 0, int size, block`) and send type 2 carries the mask-based item data. Our build sent only the type-2 data packet, so the client kept layering entries on every `REQUEST_ITEM_LIST`.
+2. **InventoryUpdate layout.** Protocol 140 prefixes the update list with `byte 0, int 0` and a `writeInt` count, and writes each entry as `short change + mask-based item` (`writeItem140`). Our build wrote the legacy `short count + fixed-struct item` list, garbling the client item cache on every add/modify/remove.
+3. **StatusUpdate layout.** Protocol 140 writes `int objectId, int casterId, byte isVisible, byte count` and per attribute `byte id, int value`; legacy writes `int objectId, int count` with `int id, int value` pairs. This mismatch produced the corrupt HP row.
+
+### Changes (grafted byte-exact, local API values)
+- `ItemList`: `sendType` 1/2 support (`ItemList(int, Player)` constructor), salvation branch writes the reference layouts; H5 branch untouched. `runImpl` no longer auto-sends `ExQuestItemList` for salvation clients (the explicit pair replaces it).
+- `ExQuestItemList`: `sendType` 1/2 support per the reference (both types carry the full mask-based item list).
+- `Player.sendItemList(boolean)` / `EnterWorld`: salvation clients receive the reference quartet.
+- `AbstractItemPacket.writeItem140(ItemInfo)`: new core overload reused by the inventory update path; the `Item` overload delegates to it.
+- `AbstractInventoryUpdate.writeItems(client)`: salvation branch with the 140 header prefix and mask items; `InventoryUpdate` and `PetInventoryUpdate` pass the client through.
+- `StatusUpdate`: salvation branch writes the 140 layout; `isVisible` is set when a playable gets a `CUR_HP`/`CUR_MP`/`CUR_CP` attribute (caster id falls back to the object id, matching the no-`addCaster` default of the reference).
+
+Expected next test (v1.5): inventory opens clean on every re-open, no duplicate entries, HP/CP/MP rows consistent; item pickup/equip/drop update correctly (InventoryUpdate path).

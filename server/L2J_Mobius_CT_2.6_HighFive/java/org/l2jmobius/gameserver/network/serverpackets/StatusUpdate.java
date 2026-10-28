@@ -60,6 +60,7 @@ public class StatusUpdate extends ServerPacket
 	public static final int MAX_CP = 0x22;
 	
 	private final int _objectId;
+	private final boolean _isPlayable;
 	private final List<Attribute> _attributes = new ArrayList<>();
 	
 	private static class Attribute
@@ -84,6 +85,7 @@ public class StatusUpdate extends ServerPacket
 	public StatusUpdate(int objectId)
 	{
 		_objectId = objectId;
+		_isPlayable = false;
 	}
 	
 	/**
@@ -93,6 +95,7 @@ public class StatusUpdate extends ServerPacket
 	public StatusUpdate(WorldObject object)
 	{
 		_objectId = object.getObjectId();
+		_isPlayable = object.isPlayable();
 	}
 	
 	public void addAttribute(int id, int level)
@@ -109,6 +112,29 @@ public class StatusUpdate extends ServerPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.STATUS_UPDATE.writeId(this, buffer);
+		if ((client != null) && client.isSalvationMode())
+		{
+			// Salvation (protocol 140) StatusUpdate layout.
+			boolean visible = _isPlayable;
+			for (Attribute temp : _attributes)
+			{
+				if ((temp.id == CUR_HP) || (temp.id == CUR_MP) || (temp.id == CUR_CP))
+				{
+					visible = true;
+					break;
+				}
+			}
+			buffer.writeInt(_objectId);
+			buffer.writeInt(visible ? _objectId : 0);
+			buffer.writeByte(visible ? 1 : 0);
+			buffer.writeByte(_attributes.size());
+			for (Attribute temp : _attributes)
+			{
+				buffer.writeByte(temp.id);
+				buffer.writeInt(temp.value);
+			}
+			return;
+		}
 		buffer.writeInt(_objectId);
 		buffer.writeInt(_attributes.size());
 		for (Attribute temp : _attributes)

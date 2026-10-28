@@ -321,6 +321,7 @@ import org.l2jmobius.gameserver.network.serverpackets.FriendStatusPacket;
 import org.l2jmobius.gameserver.network.serverpackets.GetOnVehicle;
 import org.l2jmobius.gameserver.network.serverpackets.HennaInfo;
 import org.l2jmobius.gameserver.network.serverpackets.InventoryUpdate;
+import org.l2jmobius.gameserver.network.serverpackets.ExQuestItemList;
 import org.l2jmobius.gameserver.network.serverpackets.ItemList;
 import org.l2jmobius.gameserver.network.serverpackets.LeaveWorld;
 import org.l2jmobius.gameserver.network.serverpackets.MagicSkillUse;
@@ -15222,7 +15223,19 @@ public class Player extends Playable
 		
 		_itemListTask = ThreadPool.schedule(() ->
 		{
-			sendPacket(new ItemList(this, open));
+			final GameClient client = getClient();
+			if ((client != null) && client.isSalvationMode())
+			{
+				// Salvation (protocol 140): display + data packets for normal and quest items.
+				sendPacket(new ItemList(1, this));
+				sendPacket(new ItemList(2, this));
+				sendPacket(new ExQuestItemList(1, this));
+				sendPacket(new ExQuestItemList(2, this));
+			}
+			else
+			{
+				sendPacket(new ItemList(this, open));
+			}
 		}, 250);
 	}
 	

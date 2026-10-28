@@ -93,7 +93,11 @@ public abstract class AbstractItemPacket extends ServerPacket
 	 */
 	protected void writeItem140(Item item, WriteBuffer buffer)
 	{
-		final ItemInfo itemInfo = new ItemInfo(item);
+		writeItem140(new ItemInfo(item), buffer);
+	}
+	
+	protected void writeItem140(ItemInfo itemInfo, WriteBuffer buffer)
+	{
 		int mask = 0;
 		if (itemInfo.getAugmentationBonus() != 0)
 		{
@@ -118,7 +122,7 @@ public abstract class AbstractItemPacket extends ServerPacket
 		buffer.writeByte(mask);
 		buffer.writeInt(itemInfo.getObjectId()); // ObjectId
 		buffer.writeInt(itemInfo.getItem().getDisplayId()); // ItemId
-		buffer.writeByte(item.isQuestItem() || (itemInfo.getEquipped() == 1) ? 0xFF : itemInfo.getLocation()); // T1
+		buffer.writeByte(itemInfo.getItem().isQuestItem() || (itemInfo.getEquipped() == 1) ? 0xFF : itemInfo.getLocation()); // T1
 		buffer.writeLong(itemInfo.getCount()); // Quantity
 		buffer.writeByte(itemInfo.getItem().getType2()); // Item Type 2 : 00-weapon, 01-shield/armor, 02-ring/earring/necklace, 03-questitem, 04-adena, 05-item
 		buffer.writeByte(itemInfo.getCustomType1()); // Filler (always 0)

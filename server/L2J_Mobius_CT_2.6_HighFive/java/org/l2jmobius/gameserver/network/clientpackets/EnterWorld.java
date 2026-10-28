@@ -107,6 +107,7 @@ import org.l2jmobius.gameserver.network.serverpackets.ExStorageMaxCount;
 import org.l2jmobius.gameserver.network.serverpackets.ExVoteSystemInfo;
 import org.l2jmobius.gameserver.network.serverpackets.FriendList;
 import org.l2jmobius.gameserver.network.serverpackets.HennaInfo;
+import org.l2jmobius.gameserver.network.serverpackets.ExQuestItemList;
 import org.l2jmobius.gameserver.network.serverpackets.ItemList;
 import org.l2jmobius.gameserver.network.serverpackets.LeaveWorld;
 import org.l2jmobius.gameserver.network.serverpackets.NpcHtmlMessage;
@@ -430,7 +431,18 @@ public class EnterWorld extends ClientPacket
 		player.getMacros().sendUpdate();
 		
 		// Send Item List
-		player.sendPacket(new ItemList(player, false));
+		if (client.isSalvationMode())
+		{
+			// Salvation (protocol 140): display + data packets for normal and quest items.
+			player.sendPacket(new ItemList(1, player));
+			player.sendPacket(new ItemList(2, player));
+			player.sendPacket(new ExQuestItemList(1, player));
+			player.sendPacket(new ExQuestItemList(2, player));
+		}
+		else
+		{
+			player.sendPacket(new ItemList(player, false));
+		}
 		
 		// Send Teleport Bookmark List.
 		player.sendPacket(new ExGetBookMarkInfoPacket(player));

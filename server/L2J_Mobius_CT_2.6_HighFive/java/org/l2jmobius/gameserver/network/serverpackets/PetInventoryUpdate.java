@@ -47,6 +47,6 @@ public class PetInventoryUpdate extends AbstractInventoryUpdate
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.PET_INVENTORY_UPDATE.writeId(this, buffer);
-		writeItems(buffer);
+		writeItems(buffer, client);
 	}
 }
