@@ -30,6 +30,7 @@ import org.l2jmobius.gameserver.entity.actor.Creature;
 import org.l2jmobius.gameserver.entity.actor.Npc;
 import org.l2jmobius.gameserver.entity.actor.Player;
 import org.l2jmobius.gameserver.entity.actor.Summon;
+import org.l2jmobius.gameserver.entity.actor.enums.creature.Team;
 import org.l2jmobius.gameserver.entity.actor.instance.Monster;
 import org.l2jmobius.gameserver.entity.actor.instance.Trap;
 import org.l2jmobius.gameserver.entity.clan.Clan;
@@ -39,6 +40,7 @@ import org.l2jmobius.gameserver.managers.TownManager;
 import org.l2jmobius.gameserver.mechanics.skill.AbnormalVisualEffect;
 import org.l2jmobius.gameserver.network.GameClient;
 import org.l2jmobius.gameserver.network.ServerPackets;
+import org.l2jmobius.gameserver.network.enums.NpcInfoType;
 
 public abstract class AbstractNpcInfo extends ServerPacket
 {
@@ -67,6 +69,12 @@ public abstract class AbstractNpcInfo extends ServerPacket
 	protected String _name = "";
 	protected String _title = "";
 	protected final boolean _gmSeeInvis;
+	
+	private static void addNpcInfoMask(byte[] masks, NpcInfoType type)
+	{
+		final int mask = type.getMask();
+		masks[mask >> 3] |= AbstractMaskPacket.DEFAULT_FLAG_ARRAY[mask & 7];
+	}
 	
 	public AbstractNpcInfo(Creature creature, boolean gmSeeInvis)
 	{
@@ -158,6 +166,337 @@ public abstract class AbstractNpcInfo extends ServerPacket
 						}
 					}
 				}
+			}
+			
+			if ((client != null) && client.isSalvationMode())
+			{
+				// Salvation (protocol 140) mask-based NpcInfo layout (ported from the reference).
+				final boolean hasName = (localisation != null) || _npc.getTemplate().isUsingServerSideName();
+				final String name = (localisation != null) ? localisation[0] : _npc.getName();
+				
+				String title;
+				boolean hasTitle;
+				if (_npc.isInvisible())
+				{
+					title = "Invisible";
+					hasTitle = true;
+				}
+				else if (localisation != null)
+				{
+					title = localisation[1];
+					hasTitle = true;
+				}
+				else
+				{
+					title = _npc.getTemplate().isUsingServerSideTitle() ? _npc.getTemplate().getTitle() : _npc.getTitle();
+					hasTitle = _npc.getTemplate().isUsingServerSideTitle();
+				}
+				
+				if (_npc.isMonster() && (NpcConfig.SHOW_NPC_LEVEL || NpcConfig.SHOW_NPC_AGGRESSION))
+				{
+					String t1 = "";
+					if (NpcConfig.SHOW_NPC_LEVEL)
+					{
+						t1 += "Lv " + _npc.getLevel();
+					}
+					
+					String t2 = "";
+					if (NpcConfig.SHOW_NPC_AGGRESSION)
+					{
+						if (!t1.isEmpty())
+						{
+							t2 += " ";
+						}
+						
+						final Monster monster = _npc.asMonster();
+						if (monster.isAggressive())
+						{
+							t2 += "[A]"; // Aggressive.
+						}
+						
+						if ((monster.getTemplate().getClans() != null) && (monster.getTemplate().getClanHelpRange() > 0))
+						{
+							t2 += "[G]"; // Group.
+						}
+					}
+					
+					t1 += t2;
+					if (!title.isEmpty())
+					{
+						t1 += " " + title;
+					}
+					
+					title = _npc.isChampion() ? ChampionMonstersConfig.CHAMP_TITLE + " " + t1 : t1;
+					hasTitle = true;
+				}
+				else if (_npc.isChampion())
+				{
+					title = ChampionMonstersConfig.CHAMPION_ENABLE ? ChampionMonstersConfig.CHAMP_TITLE : title;
+					hasTitle = true;
+				}
+				
+				final byte[] masks = new byte[5];
+				int initSize = 0;
+				int blockSize = 0;
+				int statusMask = 0x00;
+				
+				// Block 1 components.
+				addNpcInfoMask(masks, NpcInfoType.ATTACKABLE);
+				initSize += NpcInfoType.ATTACKABLE.getBlockLength();
+				addNpcInfoMask(masks, NpcInfoType.RELATIONS);
+				initSize += NpcInfoType.RELATIONS.getBlockLength();
+				if (hasTitle)
+				{
+					addNpcInfoMask(masks, NpcInfoType.TITLE);
+					initSize += NpcInfoType.TITLE.getBlockLength() + (title.length() * 2);
+				}
+				
+				// Block 2 components.
+				addNpcInfoMask(masks, NpcInfoType.ID);
+				blockSize += NpcInfoType.ID.getBlockLength();
+				addNpcInfoMask(masks, NpcInfoType.POSITION);
+				blockSize += NpcInfoType.POSITION.getBlockLength();
+				if (_heading > 0)
+				{
+					addNpcInfoMask(masks, NpcInfoType.HEADING);
+					blockSize += NpcInfoType.HEADING.getBlockLength();
+				}
+				
+				if ((_pAtkSpd > 0) || (_mAtkSpd > 0))
+				{
+					addNpcInfoMask(masks, NpcInfoType.ATK_CAST_SPEED);
+					blockSize += NpcInfoType.ATK_CAST_SPEED.getBlockLength();
+				}
+				
+				if (_npc.getRunSpeed() > 0)
+				{
+					addNpcInfoMask(masks, NpcInfoType.SPEED_MULTIPLIER);
+					blockSize += NpcInfoType.SPEED_MULTIPLIER.getBlockLength();
+				}
+				
+				if ((_rhand > 0) || (_lhand > 0))
+				{
+					addNpcInfoMask(masks, NpcInfoType.EQUIPPED);
+					blockSize += NpcInfoType.EQUIPPED.getBlockLength();
+				}
+				
+				addNpcInfoMask(masks, NpcInfoType.STOP_MODE);
+				blockSize += NpcInfoType.STOP_MODE.getBlockLength();
+				addNpcInfoMask(masks, NpcInfoType.MOVE_MODE);
+				blockSize += NpcInfoType.MOVE_MODE.getBlockLength();
+				if (_npc.isInsideZone(ZoneId.WATER) || _npc.isFlying())
+				{
+					addNpcInfoMask(masks, NpcInfoType.SWIM_OR_FLY);
+					blockSize += NpcInfoType.SWIM_OR_FLY.getBlockLength();
+				}
+				
+				if (_npc.getTeam() != Team.NONE)
+				{
+					addNpcInfoMask(masks, NpcInfoType.TEAM);
+					blockSize += NpcInfoType.TEAM.getBlockLength();
+				}
+				
+				if (_enchantEffect > 0)
+				{
+					addNpcInfoMask(masks, NpcInfoType.ENCHANT);
+					blockSize += NpcInfoType.ENCHANT.getBlockLength();
+				}
+				
+				if (_npc.isFlying())
+				{
+					addNpcInfoMask(masks, NpcInfoType.FLYING);
+					blockSize += NpcInfoType.FLYING.getBlockLength();
+				}
+				
+				addNpcInfoMask(masks, NpcInfoType.PET_EVOLUTION_ID);
+				blockSize += NpcInfoType.PET_EVOLUTION_ID.getBlockLength();
+				if (_displayEffect > 0)
+				{
+					addNpcInfoMask(masks, NpcInfoType.DISPLAY_EFFECT);
+					blockSize += NpcInfoType.DISPLAY_EFFECT.getBlockLength();
+				}
+				
+				if (_npc.getCurrentHp() <= _npc.getMaxHp())
+				{
+					addNpcInfoMask(masks, NpcInfoType.CURRENT_HP);
+					blockSize += NpcInfoType.CURRENT_HP.getBlockLength();
+				}
+				
+				if (_npc.getCurrentMp() <= _npc.getMaxMp())
+				{
+					addNpcInfoMask(masks, NpcInfoType.CURRENT_MP);
+					blockSize += NpcInfoType.CURRENT_MP.getBlockLength();
+				}
+				
+				if (_npc.getMaxHp() > 0)
+				{
+					addNpcInfoMask(masks, NpcInfoType.MAX_HP);
+					blockSize += NpcInfoType.MAX_HP.getBlockLength();
+				}
+				
+				if (_npc.getMaxMp() > 0)
+				{
+					addNpcInfoMask(masks, NpcInfoType.MAX_MP);
+					blockSize += NpcInfoType.MAX_MP.getBlockLength();
+				}
+				
+				if (_isSummoned)
+				{
+					addNpcInfoMask(masks, NpcInfoType.SUMMONED);
+					blockSize += NpcInfoType.SUMMONED.getBlockLength();
+				}
+				
+				if (hasName)
+				{
+					addNpcInfoMask(masks, NpcInfoType.NAME);
+					blockSize += NpcInfoType.NAME.getBlockLength() + (name.length() * 2);
+				}
+				
+				if (_clanId > 0)
+				{
+					addNpcInfoMask(masks, NpcInfoType.CLAN);
+					blockSize += NpcInfoType.CLAN.getBlockLength();
+				}
+				
+				if (_npc.isInCombat())
+				{
+					statusMask |= 0x01;
+				}
+				if (_npc.isDead())
+				{
+					statusMask |= 0x02;
+				}
+				if (_npc.isTargetable())
+				{
+					statusMask |= 0x04;
+				}
+				if (_npc.isShowName())
+				{
+					statusMask |= 0x08;
+				}
+				if (statusMask != 0x00)
+				{
+					addNpcInfoMask(masks, NpcInfoType.VISUAL_STATE);
+					blockSize += NpcInfoType.VISUAL_STATE.getBlockLength();
+				}
+				
+				ServerPackets.NPC_INFO.writeId(this, buffer);
+				buffer.writeInt(_npc.getObjectId());
+				buffer.writeByte(_isSummoned ? 2 : 0); // 0=teleported 1=default 2=summoned
+				buffer.writeShort(37); // mask_bits_37
+				buffer.writeBytes(masks);
+				
+				// Block 1
+				buffer.writeByte(initSize);
+				buffer.writeByte(_isAttackable);
+				buffer.writeInt(0); // relations
+				if (hasTitle)
+				{
+					buffer.writeString(title);
+				}
+				
+				// Block 2
+				buffer.writeShort(blockSize);
+				buffer.writeInt(_displayId + 1000000); // npctype id
+				buffer.writeInt(_x);
+				buffer.writeInt(_y);
+				buffer.writeInt(_z);
+				if (_heading > 0)
+				{
+					buffer.writeInt(_heading);
+				}
+				
+				if ((_pAtkSpd > 0) || (_mAtkSpd > 0))
+				{
+					buffer.writeInt(_pAtkSpd);
+					buffer.writeInt(_mAtkSpd);
+				}
+				
+				if (_npc.getRunSpeed() > 0)
+				{
+					buffer.writeFloat((float) _moveMultiplier);
+					buffer.writeFloat((float) _npc.getAttackSpeedMultiplier());
+				}
+				
+				if ((_rhand > 0) || (_lhand > 0))
+				{
+					buffer.writeInt(_rhand);
+					buffer.writeInt(0); // armor id
+					buffer.writeInt(_lhand);
+				}
+				
+				buffer.writeByte(!_npc.isDead()); // stop mode
+				buffer.writeByte(_npc.isRunning()); // move mode
+				if (_npc.isInsideZone(ZoneId.WATER) || _npc.isFlying())
+				{
+					buffer.writeByte(_npc.isInsideZone(ZoneId.WATER) ? 1 : _npc.isFlying() ? 2 : 0);
+				}
+				
+				if (_npc.getTeam() != Team.NONE)
+				{
+					buffer.writeByte(_npc.getTeam().getId());
+				}
+				
+				if (_enchantEffect > 0)
+				{
+					buffer.writeInt(_enchantEffect);
+				}
+				
+				if (_npc.isFlying())
+				{
+					buffer.writeInt(_npc.isFlying());
+				}
+				
+				buffer.writeInt(0); // pet evolution id
+				if (_displayEffect > 0)
+				{
+					buffer.writeInt(_displayEffect);
+				}
+				
+				if (_npc.getCurrentHp() <= _npc.getMaxHp())
+				{
+					buffer.writeInt((int) _npc.getCurrentHp());
+				}
+				
+				if (_npc.getCurrentMp() <= _npc.getMaxMp())
+				{
+					buffer.writeInt((int) _npc.getCurrentMp());
+				}
+				
+				if (_npc.getMaxHp() > 0)
+				{
+					buffer.writeInt(_npc.getMaxHp());
+				}
+				
+				if (_npc.getMaxMp() > 0)
+				{
+					buffer.writeInt(_npc.getMaxMp());
+				}
+				
+				if (_isSummoned)
+				{
+					buffer.writeByte(0); // 2 - do some animation on spawn
+				}
+				
+				if (hasName)
+				{
+					buffer.writeString(name);
+				}
+				
+				if (_clanId > 0)
+				{
+					buffer.writeInt(_clanId);
+					buffer.writeInt(_clanCrest);
+					buffer.writeInt(0); // large crest
+					buffer.writeInt(_allyId);
+					buffer.writeInt(_allyCrest);
+				}
+				
+				if (statusMask != 0x00)
+				{
+					buffer.writeByte(statusMask);
+				}
+				return;
 			}
 			
 			ServerPackets.NPC_INFO.writeId(this, buffer);

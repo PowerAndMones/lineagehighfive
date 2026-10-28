@@ -197,3 +197,15 @@ Test of v1.4: the player enters the world, moves and opens the inventory, but ev
 - `StatusUpdate`: salvation branch writes the 140 layout; `isVisible` is set when a playable gets a `CUR_HP`/`CUR_MP`/`CUR_CP` attribute (caster id falls back to the object id, matching the no-`addCaster` default of the reference).
 
 Expected next test (v1.5): inventory opens clean on every re-open, no duplicate entries, HP/CP/MP rows consistent; item pickup/equip/drop update correctly (InventoryUpdate path).
+
+## Mask-based NpcInfo; mobs and NPCs now render (phase 5)
+
+Test of v1.5: inventory duplication is gone and status bars are correct, but **no mobs or NPCs are visible** in the world. The Essence client parses `NpcInfo` (0x16) with the modern 37-bit mask layout (`NpcInfoType` components, init block + data block), while the High Five build writes the legacy fixed CT2.6 layout - the client silently drops every NPC packet.
+
+### Grafted from the reference
+- New `network/enums/NpcInfoType.java` (37 components with mask ids and block lengths), matching our `IUpdateTypeComponent`.
+- `AbstractNpcInfo.NpcInfo.writeImpl`: salvation branch builds the reference mask set at write time (ATTACKABLE, RELATIONS, TITLE, ID, POSITION, HEADING, ATK_CAST_SPEED, SPEED_MULTIPLIER, EQUIPPED, STOP_MODE, MOVE_MODE, SWIM_OR_FLY, TEAM, ENCHANT, FLYING, PET_EVOLUTION_ID, DISPLAY_EFFECT, HP/MP blocks, SUMMONED, NAME, CLAN, VISUAL_STATE) and writes the exact reference block order. Local specifics kept: level/aggression champion titles, castle clan crests, server-side name/title flags.
+- Not ported (no local data): ABNORMALS visual effect list (H5 `AbnormalVisualEffect` is a bitmask without client ids), NPCString name/title ids, clone/transformation/follow blocks. Summons and traps still use the legacy layout (`SummonInfo`/`TrapInfo`) - they will be ported if they ever apply to salvation clients.
+
+### Client crash with a third-party system folder
+A test with a different `system` folder crashed the client after server select inside `FL2OneDayRewardSystem::Serialize <- LoadAlternateGameData <- OnChangeServerType` (client build dated 2018). This is a client-side DAT mismatch (old/incompatible `OneDayRewardSetting.dat` in that repack), not a server issue: our `KeyPacket` layout matches the reference (result, key, encryption, server id, obfuscation key, isClassic byte). Use the system folder that matches the working client build.
