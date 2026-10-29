@@ -33,6 +33,7 @@ import java.util.function.Predicate;
 import org.l2jmobius.commons.database.DatabaseFactory;
 import org.l2jmobius.commons.threads.ThreadPool;
 import org.l2jmobius.gameserver.cache.HtmCache;
+import org.l2jmobius.gameserver.config.ServerConfig;
 import org.l2jmobius.gameserver.config.custom.CommunityBoardConfig;
 import org.l2jmobius.gameserver.config.custom.PremiumSystemConfig;
 import org.l2jmobius.gameserver.config.custom.SchemeBufferConfig;
@@ -175,7 +176,16 @@ public class HomeBoard implements IParseBoardHandler
 			else if (returnHtml != null)
 			{
 				returnHtml = returnHtml.replace("%online%", Integer.toString(World.getPlayers().size()));
+				returnHtml = returnHtml.replace("%slots%", Integer.toString(ServerConfig.MAXIMUM_ONLINE_USERS));
 				returnHtml = returnHtml.replace("%player_name%", player.getName());
+				returnHtml = returnHtml.replace("%player_level%", Integer.toString(player.getLevel()));
+				returnHtml = returnHtml.replace("%player_class%", ClassListData.getInstance().getClass(player.getPlayerClass()).getClassName());
+				returnHtml = returnHtml.replace("%player_clan%", (player.getClan() != null) ? player.getClan().getName() : "нет");
+				returnHtml = returnHtml.replace("%player_pvp%", Integer.toString(player.getPvpKills()));
+				returnHtml = returnHtml.replace("%player_pk%", Integer.toString(player.getPkKills()));
+				returnHtml = returnHtml.replace("%player_uptime%", formatUptime(player.getUptime()));
+				final long premiumExpiration = PremiumManager.getInstance().getPremiumExpiration(PremiumSystemConfig.ACCOUNT_WIDE_PREMIUM ? player.getAccountName() : player.getName());
+				returnHtml = returnHtml.replace("%player_premium%", premiumExpiration > System.currentTimeMillis() ? PREMIUM_FORMAT.format(Instant.ofEpochMilli(premiumExpiration).atZone(java.time.ZoneId.systemDefault())) : "не активен");
 			}
 		}
 		else if (command.equals("_bbstop;buffer/main.html") && CommunityBoardConfig.COMMUNITYBOARD_ENABLE_BUFFS)
@@ -1156,6 +1166,19 @@ public class HomeBoard implements IParseBoardHandler
 		return "<button value=\"" + value + "\" action=\"bypass " + action + "\" width=" + width + " height=27 back=\"L2UI_CT1.Button_DF_Down\" fore=\"L2UI_CT1.Button_DF\">";
 	}
 
+	/**
+	 * Formats the player uptime into a short human-readable string.
+	 * @param milliseconds the uptime in milliseconds
+	 * @return formatted string, for example "37ч 12м"
+	 */
+	private static String formatUptime(long milliseconds)
+	{
+		final long totalMinutes = TimeUnit.MILLISECONDS.toMinutes(milliseconds);
+		final long hours = totalMinutes / 60;
+		final long minutes = totalMinutes % 60;
+		return hours + "ч " + minutes + "м";
+	}
+	
 	/**
 	 * Gets the Favorite links for the given player.
 	 * @param player the player

@@ -175,3 +175,10 @@ TrapInfo -> 140: у эталона НЕТ TrapInfo-класса, ловушки 
 Сборка: ядро 1923 файла exit 0; скрипты 1292 файла exit 0 (локальная валидация javac с класспасом ядра).
 
 ДЕПЛОЙ (для пользователя): 1) обновить files/dist; 2) ВЫПОЛНИТЬ dist/sql/buffer_schemes.sql на game DB; 3) проверить config/Custom/CommunityBoard.ini на живом сервере (CustomCommunityBoard=True обязательно); 4) рестарт GS. Alt+B: бафер/схемы/телепорт/магазин/премиум/рейтинг/профессии.
+
+---
+Task 25b - v2.1: карточка персонажа на главной борда (top-up v2.0)
+1. HomeBoard.java: +ServerConfig import; в custom-ветку _bbshome добавлены %slots% (MaximumOnlineUsers), %player_level%, %player_class% (ClassListData), %player_clan%, %player_pvp%, %player_pk%, %player_uptime% (formatUptime ч/м), %player_premium% (PremiumManager.getPremiumExpiration, ключ ACCOUNT_WIDE_PREMIUM ? account : name)
+2. home.html: современный дизайн (панели L2UI_CT1.Windows_DF_TooltipBG 690px, шапка Онлайн X/Y, 9 вкладок, карточка ПЕРСОНАЖ, БЫСТРЫЕ ДЕЙСТВИЯ, новости); все bypass ведут на реальные хендлеры v2.0 (включая _bbsclass)
+3. Валидация: ядро 1923 exit 0, скрипты 1292 exit 0
+4. Примечание: локальная сессия независимо сделала то же направление (backup-v1.10-altb) - взята база v2.0, поверх неё добавлены плейсхолдеры и новая главная

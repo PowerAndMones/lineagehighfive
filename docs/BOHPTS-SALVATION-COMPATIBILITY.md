@@ -288,3 +288,6 @@ Alt+B now provides a BOHPTS-style Russian community board:
 - **Teleport** page with RU town labels; coordinates in `CommunityTeleportList` (added Arcan/Ertheia/Floran/Gainak)
 
 Deployment notes: run `dist/sql/buffer_schemes.sql` on the game DB; ensure `config/Custom/CommunityBoard.ini` has `CustomCommunityBoard = True` on the live server.
+
+### v2.1 top-up: character card on the home page
+On top of v2.0 the home page placeholder branch was extended with `%slots%` (MaximumOnlineUsers), `%player_level%`, `%player_class%`, `%player_clan%`, `%player_pvp%`, `%player_pk%`, `%player_uptime%` (formatted `37ч 12м`) and `%player_premium%` (via `PremiumManager.getPremiumExpiration`, respecting `ACCOUNT_WIDE_PREMIUM`). `Custom/home.html` was redesigned (dark panels, 9 tabs including the now-working `_bbsclass`, character card, quick actions, admin-editable news) while keeping every bypass pointed at real v2.0 handlers.
