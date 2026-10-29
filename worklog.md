@@ -251,3 +251,41 @@ Task 25b - v2.1: карточка персонажа на главной бор�
 - CM 0xa6 RequestSkillCoolTime пущен в ENTERING (клиент шлёт его при инициализации UI мира)
 
 Сборка: ядро 1923 файла exit 0. Деплой: заменить файлы, рестарт GS. SQL не нужен.
+
+## Task 28 - v2.4: порт Essence-систем (ежедневки, Beauty Shop, соло-инстанс) + аудит v2.2/v2.3
+
+Дата: 29/10/2026. Запрос: «Ежедневки, соло инсты бюти шоп тоже можно. И досконально проверь предыдущие изменения».
+
+Аудит предыдущих изменений (снапшот откатил репо к v2.1; восстановлено до v2.3 через fetch+reset, CRLF-шум 27691 файлов отброшен):
+- Подтверждены на месте все фиксы v2.2/v2.3: Ex2ndPasswordCheck(PASSWORD_OK) в 3 точках (CharacterSelect:231, EnterWorld:471-474); ExTeleportToLocationActivate в Creature.onTeleported:879; AbnormalStatusUpdate 140-layout (sublevel+abnormalType+optional-int); RequestSkillCoolTime в ENTERING (ClientPackets:166); navigation.html без двойного </tr>, home/nav на Button_DF
+- НАЙДЕН latent-баг: ExSendUIEvent шёл (0xFE 0x8E) без Salvation-override; у клиента 140 0x8E = ExNpcQuestHtmlMessage -> таймеры интерфейса (инстансы/события) клиент интерпретировал мусором. Fix: ServerPacketsSalvation +EX_SEND_UI_EVENT -> (0xFE, 0x8F)
+
+Ресёрч (3 параллельных агента): Daily Missions = 11 ядерных классов + CM 0x142/0x143 + SM 0x1E0/0x1E1, XML 24 level-миссии, БД character_daily_rewards; Beauty Shop = 13 файлов, SM 0x134-0x137/0x179, CM 0xCA/CB/CD/E1, хранение в character_variables; соло-инстансы = полное ядро SAL (3.4k строк) нецелесообразно, минимальный путь - порт готового инстанса на HF-движке
+
+Фаза A - Daily Missions (10 новых Java + скрипты, 9 правок):
+- Ядро: DailyMissionData (XML-парсер + авто-создание таблицы), DailyMissionHandler (реестр фабрик, executeScript), AbstractDailyMissionHandler (SQL + выдача; спец-награды -200 репутация клана/-300 фама без SpecialItemType), DailyMissionDataHolder/PlayerEntry/Status (без dual-class)
+- Пакеты: ExPledgeMissionInfo/ExPledgeMissionRewardCount (в enum сразу в Salvation-пространстве 0x1E0/0x1E1), RequestExPledgeMissionInfo/Reward (локальные id 0x98/0x99, SalvationProtocol CM-мапа [322]=152,[323]=153, ONLY_NAMES очищены)
+- Интеграция: PlayerVariables.DAILY_MISSION_*, PlayerStat (пуш счётчика на левел-апе), Clan.addClanMember (пуш 2 пакетов), DailyResetManager.resetDailyMissionRewards (среда), GameServer init, ScriptEngine.ONE_DAY_REWARD_MASTER_HANDLER_FILE
+- Скрипты: DailyMissionMasterHandler + LevelDailyMissionHandler (runtime-компиляция, exit 0)
+- Датапак: DailyMission.xml (8 миссий 20/40/52/61/76/80/84/85 под max level 85; награды адена x50 + репутация + фама; Essence-предметы 45811+ в HF отсутствуют - заменены), XSD, character_daily_rewards.sql
+- Инцидент: patch-скрипт применился 3 раза из-за неверной идемпотентности (insert-after-anchor) - дубликонстанты в ServerPackets/ExClientPackets вычищены; генератор таблиц SalvationProtocol ломал хвост (151;};) - исправлено; урок: идемпотентность по «new in text», таблицы править программно
+
+Фаза B - Beauty Shop (12 новых Java + скрипт+HTML, 16 правок):
+- Данные: BeautyShopData (isFemale->Sex вместо getSexType), BeautyData/BeautyItem (entity/beautyshop)
+- Пакеты: 5 SM (ExBeautyItemList/ExResponseBeautyList/ExResponseBeautyRegistReset/ExResponseResetList/ExShowBeautyMenu - WriteBuffer вместо WritableBuffer), 4 CM (RequestShowBeautyList/RequestRegistBeauty/RequestShowResetShopList/NotifyExitBeautyShop - локальные 0x9A-0x9D, CM-мапа 202->154/203->155/205->156/225->157)
+- Player: getBeautyTickets/reduceBeautyTickets (через getItemByItemId, без кэша инвентаря), visual-аксессоры visualHairId/visualHairColorId/visualFaceId (character_variables, fallback на базовый облик)
+- UserInfo/CharInfo: APPAREANCE-блок и 2 ветки CharInfo пишут visual-значения; EnterWorld шлёт ExBeautyItemList; RequestActionUse case 89 (кнопка клиента) -> social 30 + broadcastUserInfo
+- Датапак: BeautyShop.xml (6 рас, ERTHEIA вырезана - нет в HF Race), item 36308 (custom), NPC 33825+33854-33857 (custom, санитизация mpReward/skill-параметров), спавны 5 городов, LaVieEnRose.java (plain-строки вместо отсутствующих NpcStringId, sendMessage вместо SystemMessageId) + 5 HTML
+
+Фаза C - соло-инстанс Nursery (id 171) на HF-движке (полный порт ядра SAL 3.4k строк отклонён):
+- Выбор: Nursery - единственный XML-истинно-соло инстанс эталона (GroupMax=1, 85+); Kartia solo 2767 строк + 30 хелперов - следующий кандидат
+- Instance XML HF-формата: activityTime 60, spawnPoints (вход под Морем Спор), exitPoint, reenter ON_FINISH time=43200000 (ВАЖНО: в HF time в МИЛЛИСЕКУНДАХ - CrystalCaverns 86400000; исходные 720 минут были бы 0.7 сек), 50 фиксированных точек спавна (конверсия территорий SAL: кольцо r=700-1800 вокруг центра)
+- Скрипт: kill-for-points (3-8 за моба, 6% -> +40), CLOCK_TIMER 25 мин с ExSendUIEvent(ELAPSED_TIME), награда Tissue Energy Crystal (17602) по таблице + 40000*points exp, finishInstance(0); Essence-механики заменены: Maguen-мини-игра и energy-баффы (скиллы 14228-14235 отсутствуют) выпилены, SIXTH_* категории классов убраны
+- Вход: зоны 23601/23602 (ScriptZone в custom_script.xml) + outdoor Tie x2 у коридоров; checkConditions: 85+, соло, reenter
+- NPC 33152/23033-23037 из SAL (санитизация), items 17602/17610 (custom)
+
+Сборка: ядро 1945 файлов exit 0; скрипты DailyMission/LaVieEnRose/Nursery - runtime-компиляция проверена javac отдельно (exit 0). CI 40849006089 success; артефакт 12886865088 верифицирован (2 jar + installer + новые файлы).
+Релиз v2.4 опубликован (id 427663280): https://github.com/PowerAndMones/lineagehighfive/releases/download/v2.4/L2J_Mobius_CT_2.6_HighFive_x50_Salvation140_v2_4.zip; анонимная проверка HTTP 200 (28.850.599 байт).
+
+Ожидаемый тест v2.4: (1) клан-окно Missions: список 8 миссий, статус по уровню, получение награды (адена/репутация/фама); (2) Beauty Shop: NPC в городах/кнопка клиента, покупка причёски за адену, облик виден другим; (3) Nursery: вход у Моря Спор (соло, 85+), таймер на экране, очки за мобов, награда у Tie; (4) таймеры интерфейса (0x8F) на экране.
+Следующие кандидаты: Kartia solo 85 (полный порт), VIP Attendance (ежедневный вход), оставшиеся пробелы протокола (GMView*, FakePlayerInfo, SiegeDefenderList, олимпиадные, MPCC, pledge recruit).
