@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list enabled="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/spawns.xsd">
+	<spawn name="Stronghold2">
+		<group>
+			<npc id="33986" x="-95330" y="52190" z="-2024" heading="59676" respawnDelay="60" /> <!-- Tauresia -->
+		</group>
+	</spawn>
+</list>

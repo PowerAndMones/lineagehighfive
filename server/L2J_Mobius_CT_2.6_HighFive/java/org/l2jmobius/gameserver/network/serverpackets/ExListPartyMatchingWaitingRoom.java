@@ -1,16 +1,16 @@
 /*
  * This file is part of the L2J Mobius project.
- * 
+ *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
  * General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
@@ -18,10 +18,14 @@ package org.l2jmobius.gameserver.network.serverpackets;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.concurrent.TimeUnit;
 
 import org.l2jmobius.commons.network.buffer.WriteBuffer;
 import org.l2jmobius.gameserver.entity.actor.Player;
 import org.l2jmobius.gameserver.entity.groups.matching.PartyMatchWaitingList;
+import org.l2jmobius.gameserver.managers.InstanceManager;
 import org.l2jmobius.gameserver.network.GameClient;
 import org.l2jmobius.gameserver.network.ServerPackets;
 
@@ -36,7 +40,7 @@ public class ExListPartyMatchingWaitingRoom extends ServerPacket
 	private final int _maxLevel;
 	private final int _mode;
 	private final List<Player> _members;
-	
+
 	public ExListPartyMatchingWaitingRoom(Player player, int page, int minLevel, int maxLevel, int mode)
 	{
 		_player = player;
@@ -46,23 +50,55 @@ public class ExListPartyMatchingWaitingRoom extends ServerPacket
 		_mode = mode;
 		_members = new ArrayList<>();
 	}
-	
+
+	private void collectMembers()
+	{
+		for (Player cha : PartyMatchWaitingList.getInstance().getPlayers())
+		{
+			if ((cha == null) || (cha == _player))
+			{
+				continue;
+			}
+
+			if (!cha.isPartyWaiting())
+			{
+				PartyMatchWaitingList.getInstance().removePlayer(cha);
+				continue;
+			}
+			else if ((cha.getLevel() < _minLevel) || (cha.getLevel() > _maxLevel))
+			{
+				continue;
+			}
+
+			_members.add(cha);
+		}
+	}
+
 	@Override
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.EX_LIST_PARTY_MATCHING_WAITING_ROOM.writeId(this, buffer);
 		if ((client != null) && client.isSalvationMode())
 		{
+			// Salvation (protocol 140) layout (ref): total size, page size, then per player
+			// name, class id, level, current instance id, instance reentry timers.
+			collectMembers();
 			buffer.writeInt(_members.size());
-			buffer.writeInt(0); // Page
+			buffer.writeInt(_members.size());
 			for (Player member : _members)
 			{
 				buffer.writeString(member.getName());
-				buffer.writeInt(member.getObjectId());
-				buffer.writeInt(member.getLevel());
 				buffer.writeInt(member.getPlayerClass().getId());
-				buffer.writeInt(1); // Party room open
-				buffer.writeInt(0); // Party substitute
+				buffer.writeInt(member.getLevel());
+				buffer.writeInt(member.isInInstance() ? member.getInstanceId() : -1);
+				final Map<Integer, Long> instanceTimes = InstanceManager.getInstance().getAllInstanceTimes(member.getObjectId());
+				buffer.writeInt(instanceTimes.size());
+				for (Entry<Integer, Long> entry : instanceTimes.entrySet())
+				{
+					final long instanceTime = TimeUnit.MILLISECONDS.toSeconds(entry.getValue() - System.currentTimeMillis());
+					buffer.writeInt(entry.getKey());
+					buffer.writeInt((int) instanceTime);
+				}
 			}
 			return;
 		}
@@ -73,27 +109,9 @@ public class ExListPartyMatchingWaitingRoom extends ServerPacket
 			buffer.writeInt(0);
 			return;
 		}
-		
-		for (Player cha : PartyMatchWaitingList.getInstance().getPlayers())
-		{
-			if ((cha == null) || (cha == _player))
-			{
-				continue;
-			}
-			
-			if (!cha.isPartyWaiting())
-			{
-				PartyMatchWaitingList.getInstance().removePlayer(cha);
-				continue;
-			}
-			else if ((cha.getLevel() < _minLevel) || (cha.getLevel() > _maxLevel))
-			{
-				continue;
-			}
-			
-			_members.add(cha);
-		}
-		
+
+		collectMembers();
+
 		buffer.writeInt(1); // Page?
 		buffer.writeInt(_members.size());
 		for (Player member : _members)

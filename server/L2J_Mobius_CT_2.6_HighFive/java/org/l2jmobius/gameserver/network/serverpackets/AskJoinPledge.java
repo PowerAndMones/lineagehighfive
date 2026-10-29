@@ -30,10 +30,20 @@ public class AskJoinPledge extends ServerPacket
 	private final String _subPledgeName;
 	private final int _pledgeType;
 	private final String _pledgeName;
+	private String _requestorName = "";
 	
 	public AskJoinPledge(int requestorObjId, String subPledgeName, int pledgeType, String pledgeName)
 	{
 		_requestorObjId = requestorObjId;
+		_subPledgeName = subPledgeName;
+		_pledgeType = pledgeType;
+		_pledgeName = pledgeName;
+	}
+	
+	public AskJoinPledge(int requestorObjId, String requestorName, String subPledgeName, int pledgeType, String pledgeName)
+	{
+		_requestorObjId = requestorObjId;
+		_requestorName = requestorName != null ? requestorName : "";
 		_subPledgeName = subPledgeName;
 		_pledgeType = pledgeType;
 		_pledgeName = pledgeName;
@@ -45,7 +55,9 @@ public class AskJoinPledge extends ServerPacket
 		ServerPackets.ASK_JOIN_PLEDGE.writeId(this, buffer);
 		if ((client != null) && client.isSalvationMode())
 		{
+			// Ref layout: requestor id, requestor name, pledge name, optional pledge type.
 			buffer.writeInt(_requestorObjId);
+			buffer.writeString(_requestorName);
 			buffer.writeString(_pledgeName);
 			if (_pledgeType != 0)
 			{

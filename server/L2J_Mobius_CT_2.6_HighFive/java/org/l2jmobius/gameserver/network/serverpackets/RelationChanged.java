@@ -98,12 +98,12 @@ public class RelationChanged extends ServerPacket
 		{
 			if (_multi == null)
 			{
-				buffer.writeByte(0x01); // SEND_ONE
+				buffer.writeByte(0x02); // SEND_ONE (ref value)
 				writeRelation140(_singled, buffer);
 			}
 			else
 			{
-				buffer.writeByte(0x02); // SEND_MULTI
+				buffer.writeByte(0x04); // SEND_MULTI (ref value)
 				buffer.writeShort(_multi.size());
 				for (Relation relation : _multi)
 				{

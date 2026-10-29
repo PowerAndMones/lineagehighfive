@@ -1,398 +1,463 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <list enabled="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/spawns.xsd">
-	<spawn zone="aden26_2517_01">
-		<territory minZ="-3756" maxZ="-2756">
-			<node x="176140" y="-24540" />
-			<node x="178952" y="-24176" />
-			<node x="180216" y="-22556" />
-			<node x="179172" y="-21132" />
-			<node x="176132" y="-21396" />
-			<node x="175116" y="-22760" />
-		</territory>
-		<npc id="21009" count="7" respawnDelay="75" /> <!-- Doom Trooper -->
-		<npc id="21010" count="10" respawnDelay="75" /> <!-- Doom Warrior -->
-		<npc id="20674" count="10" respawnDelay="75" /> <!-- Doom Knight -->
-	</spawn>
-	<spawn zone="aden26_2517_02">
-		<territory minZ="-3260" maxZ="-2160">
-			<node x="180408" y="-22436" />
-			<node x="183144" y="-22036" />
-			<node x="181252" y="-19936" />
-			<node x="179116" y="-20680" />
-		</territory>
-		<npc id="21004" count="5" respawnDelay="75" /> <!-- Dismal Pole -->
-		<npc id="21005" count="3" respawnDelay="75" /> <!-- Grave Predator -->
-		<npc id="21006" count="4" respawnDelay="75" /> <!-- Doom Servant -->
-	</spawn>
-	<spawn zone="aden26_2517_03">
-		<territory minZ="-3076" maxZ="-2276">
-			<node x="179912" y="-23408" />
-			<node x="182984" y="-25660" />
-			<node x="185464" y="-23036" />
-			<node x="183304" y="-22152" />
-			<node x="180656" y="-22564" />
-		</territory>
-		<npc id="21009" count="7" respawnDelay="75" /> <!-- Doom Trooper -->
-		<npc id="21010" count="10" respawnDelay="75" /> <!-- Doom Warrior -->
-		<npc id="20674" count="8" respawnDelay="75" /> <!-- Doom Knight -->
-	</spawn>
-	<spawn zone="aden26_2517_05">
-		<territory minZ="-2384" maxZ="-1284">
-			<node x="185752" y="-23052" />
-			<node x="186992" y="-25240" />
-			<node x="189148" y="-23424" />
-			<node x="187032" y="-21480" />
-		</territory>
-		<npc id="21007" count="5" respawnDelay="75" /> <!-- Doom Guard -->
-		<npc id="21008" count="4" respawnDelay="75" /> <!-- Doom Archer -->
-		<npc id="21009" count="6" respawnDelay="75" /> <!-- Doom Trooper -->
-	</spawn>
-	<spawn zone="aden26_2517_06">
-		<territory minZ="-1916" maxZ="-1016">
-			<node x="186972" y="-21176" />
-			<node x="189232" y="-23220" />
-			<node x="189824" y="-20776" />
-			<node x="189224" y="-18800" />
-			<node x="187200" y="-19360" />
-		</territory>
-		<npc id="21007" count="7" respawnDelay="75" /> <!-- Doom Guard -->
-		<npc id="21008" count="4" respawnDelay="75" /> <!-- Doom Archer -->
-		<npc id="21009" count="6" respawnDelay="75" /> <!-- Doom Trooper -->
-	</spawn>
-	<spawn zone="aden26_2517_07">
-		<territory minZ="-2868" maxZ="-1968">
-			<node x="183360" y="-21944" />
-			<node x="185420" y="-22504" />
-			<node x="186232" y="-18980" />
-			<node x="184084" y="-18076" />
-			<node x="182364" y="-20832" />
-		</territory>
-		<npc id="21004" count="7" respawnDelay="75" /> <!-- Dismal Pole -->
-		<npc id="21005" count="10" respawnDelay="75" /> <!-- Grave Predator -->
-		<npc id="21006" count="7" respawnDelay="75" /> <!-- Doom Servant -->
-	</spawn>
-	<spawn zone="aden26_2517_08">
-		<territory minZ="-2932" maxZ="-2332">
-			<node x="180908" y="-18880" />
-			<node x="181848" y="-20488" />
-			<node x="184040" y="-17980" />
-			<node x="183428" y="-16904" />
-			<node x="181340" y="-17600" />
-		</territory>
-		<npc id="21004" count="5" respawnDelay="75" /> <!-- Dismal Pole -->
-		<npc id="21005" count="3" respawnDelay="75" /> <!-- Grave Predator -->
-		<npc id="21006" count="5" respawnDelay="75" /> <!-- Doom Servant -->
-	</spawn>
-	<spawn zone="aden26_2517_09">
-		<territory minZ="-1488" maxZ="-888">
-			<node x="187212" y="-17564" />
-			<node x="189024" y="-16960" />
-			<node x="190196" y="-14860" />
-			<node x="189636" y="-12848" />
-			<node x="185708" y="-15252" />
-			<node x="185748" y="-16392" />
-		</territory>
-		<npc id="21007" count="10" respawnDelay="75" /> <!-- Doom Guard -->
-		<npc id="21008" count="4" respawnDelay="75" /> <!-- Doom Archer -->
-		<npc id="21009" count="10" respawnDelay="75" /> <!-- Doom Trooper -->
-	</spawn>
-	<spawn zone="aden26_2517_10">
-		<territory minZ="-2160" maxZ="-1560">
-			<node x="186688" y="-13504" />
-			<node x="188636" y="-12524" />
-			<node x="188544" y="-10264" />
-			<node x="187364" y="-9284" />
-			<node x="185960" y="-11000" />
-			<node x="185940" y="-12556" />
-		</territory>
-		<npc id="21009" count="7" respawnDelay="75" /> <!-- Doom Trooper -->
-		<npc id="21010" count="5" respawnDelay="75" /> <!-- Doom Warrior -->
-		<npc id="20674" count="7" respawnDelay="75" /> <!-- Doom Knight -->
-	</spawn>
-	<spawn zone="aden26_2517_11">
-		<territory minZ="-3000" maxZ="-2000">
-			<node x="183796" y="-8752" />
-			<node x="185328" y="-9728" />
-			<node x="186848" y="-8744" />
-			<node x="185596" y="-6740" />
-			<node x="183340" y="-5000" />
-			<node x="183132" y="-5708" />
-		</territory>
-		<npc id="21009" count="7" respawnDelay="75" /> <!-- Doom Trooper -->
-		<npc id="21010" count="5" respawnDelay="75" /> <!-- Doom Warrior -->
-		<npc id="20674" count="7" respawnDelay="75" /> <!-- Doom Knight -->
-	</spawn>
-	<spawn zone="aden26_2517_12">
-		<territory minZ="-3340" maxZ="-2740">
-			<node x="182948" y="-14360" />
-			<node x="184052" y="-13696" />
-			<node x="184052" y="-12344" />
-			<node x="182964" y="-11240" />
-			<node x="181804" y="-12076" />
-			<node x="182032" y="-13992" />
-		</territory>
-		<npc id="21001" count="3" respawnDelay="75" /> <!-- Wretched Archer -->
-		<npc id="21002" count="3" respawnDelay="75" /> <!-- Doom Scout -->
-		<npc id="21003" count="5" respawnDelay="75" /> <!-- Grave Lich -->
-	</spawn>
-	<spawn zone="aden26_2517_13">
-		<territory minZ="-3500" maxZ="-3200">
-			<node x="181744" y="-12004" />
-			<node x="182928" y="-11124" />
-			<node x="181892" y="-8792" />
-			<node x="180740" y="-8804" />
-			<node x="180720" y="-10704" />
-		</territory>
-		<npc id="21001" count="3" respawnDelay="75" /> <!-- Wretched Archer -->
-		<npc id="21002" count="3" respawnDelay="75" /> <!-- Doom Scout -->
-		<npc id="21003" count="5" respawnDelay="75" /> <!-- Grave Lich -->
-	</spawn>
-	<spawn zone="aden26_2517_14">
-		<territory minZ="-3648" maxZ="-3048">
-			<node x="177084" y="-11056" />
-			<node x="180512" y="-11292" />
-			<node x="180492" y="-8720" />
-			<node x="179084" y="-8020" />
-			<node x="177848" y="-8664" />
-		</territory>
-		<npc id="21001" count="5" respawnDelay="75" /> <!-- Wretched Archer -->
-		<npc id="21002" count="3" respawnDelay="75" /> <!-- Doom Scout -->
-		<npc id="21003" count="5" respawnDelay="75" /> <!-- Grave Lich -->
-	</spawn>
-	<spawn zone="aden26_2517_15">
-		<territory minZ="-3464" maxZ="-2664">
-			<node x="170704" y="-9476" />
-			<node x="173916" y="-11524" />
-			<node x="176060" y="-9952" />
-			<node x="175700" y="-8136" />
-			<node x="173676" y="-6452" />
-			<node x="171924" y="-7276" />
-		</territory>
-		<npc id="21004" count="9" respawnDelay="75" /> <!-- Dismal Pole -->
-		<npc id="21005" count="12" respawnDelay="75" /> <!-- Grave Predator -->
-		<npc id="21006" count="9" respawnDelay="75" /> <!-- Doom Servant -->
-	</spawn>
-	<spawn zone="aden26_2517_16">
-		<territory minZ="-3104" maxZ="-2504">
-			<node x="167196" y="-7096" />
-			<node x="170076" y="-7148" />
-			<node x="170052" y="-5484" />
-			<node x="166708" y="-4364" />
-		</territory>
-		<npc id="21001" count="5" respawnDelay="75" /> <!-- Wretched Archer -->
-		<npc id="21002" count="3" respawnDelay="75" /> <!-- Doom Scout -->
-		<npc id="21003" count="5" respawnDelay="75" /> <!-- Grave Lich -->
-	</spawn>
-	<spawn zone="aden26_2517_17">
-		<territory minZ="-3204" maxZ="-2604">
-			<node x="164028" y="-9148" />
-			<node x="167116" y="-7088" />
-			<node x="166608" y="-4216" />
-			<node x="165408" y="-4000" />
-			<node x="164020" y="-5196" />
-		</territory>
-		<npc id="21001" count="6" respawnDelay="75" /> <!-- Wretched Archer -->
-		<npc id="21002" count="4" respawnDelay="75" /> <!-- Doom Scout -->
-		<npc id="21003" count="7" respawnDelay="75" /> <!-- Grave Lich -->
-	</spawn>
-	<spawn zone="aden26_2517_18">
-		<territory minZ="-3124" maxZ="-2524">
-			<node x="166864" y="-10088" />
-			<node x="170448" y="-9524" />
-			<node x="170696" y="-7400" />
-			<node x="167252" y="-7320" />
-			<node x="165200" y="-8848" />
-		</territory>
-		<npc id="21001" count="6" respawnDelay="75" /> <!-- Wretched Archer -->
-		<npc id="21002" count="4" respawnDelay="75" /> <!-- Doom Scout -->
-		<npc id="21003" count="7" respawnDelay="75" /> <!-- Grave Lich -->
-	</spawn>
-	<spawn zone="aden26_2517_19">
-		<territory minZ="-3588" maxZ="-2588">
-			<node x="164224" y="-11732" />
-			<node x="166192" y="-12124" />
-			<node x="167468" y="-11164" />
-			<node x="164248" y="-10012" />
-		</territory>
-		<npc id="21001" count="3" respawnDelay="75" /> <!-- Wretched Archer -->
-		<npc id="21002" count="2" respawnDelay="75" /> <!-- Doom Scout -->
-		<npc id="21003" count="4" respawnDelay="75" /> <!-- Grave Lich -->
-	</spawn>
-	<spawn zone="aden26_2517_20">
-		<territory minZ="-3300" maxZ="-2500">
-			<node x="167336" y="-12540" />
-			<node x="173980" y="-13676" />
-			<node x="173980" y="-12100" />
-			<node x="170128" y="-9824" />
-			<node x="167692" y="-10548" />
-		</territory>
-		<npc id="21004" count="9" respawnDelay="75" /> <!-- Dismal Pole -->
-		<npc id="21005" count="10" respawnDelay="75" /> <!-- Grave Predator -->
-		<npc id="21006" count="9" respawnDelay="75" /> <!-- Doom Servant -->
-	</spawn>
-	<spawn zone="aden26_2517_21">
-		<territory minZ="-3528" maxZ="-2528">
-			<node x="171400" y="-15744" />
-			<node x="174172" y="-17104" />
-			<node x="174528" y="-14016" />
-			<node x="171424" y="-13380" />
-		</territory>
-		<npc id="21004" count="5" respawnDelay="75" /> <!-- Dismal Pole -->
-		<npc id="21005" count="5" respawnDelay="75" /> <!-- Grave Predator -->
-		<npc id="21006" count="5" respawnDelay="75" /> <!-- Doom Servant -->
-	</spawn>
-	<spawn zone="aden26_2517_22">
-		<territory minZ="-1584" maxZ="-984">
-			<node x="187600" y="-19220" />
-			<node x="189240" y="-18760" />
-			<node x="189120" y="-17076" />
-			<node x="187124" y="-17788" />
-		</territory>
-		<npc id="21007" count="6" respawnDelay="75" /> <!-- Doom Guard -->
-		<npc id="21008" count="3" respawnDelay="75" /> <!-- Doom Archer -->
-		<npc id="21009" count="6" respawnDelay="75" /> <!-- Doom Trooper -->
-	</spawn>
-	<spawn zone="aden26_2517_23">
-		<territory minZ="-3232" maxZ="-2232">
-			<node x="167948" y="-15808" />
-			<node x="171300" y="-15840" />
-			<node x="171368" y="-13324" />
-			<node x="167292" y="-12560" />
-		</territory>
-		<npc id="21004" count="5" respawnDelay="75" /> <!-- Dismal Pole -->
-		<npc id="21005" count="7" respawnDelay="75" /> <!-- Grave Predator -->
-		<npc id="21006" count="5" respawnDelay="75" /> <!-- Doom Servant -->
-	</spawn>
-	<spawn zone="aden26_2517_24">
-		<territory minZ="-3484" maxZ="-2484">
-			<node x="172512" y="-19420" />
-			<node x="174388" y="-19504" />
-			<node x="174136" y="-17184" />
-			<node x="171224" y="-15860" />
-			<node x="170112" y="-15940" />
-			<node x="170312" y="-18464" />
-		</territory>
-		<npc id="21004" count="5" respawnDelay="75" /> <!-- Dismal Pole -->
-		<npc id="21005" count="7" respawnDelay="75" /> <!-- Grave Predator -->
-		<npc id="21006" count="7" respawnDelay="75" /> <!-- Doom Servant -->
-	</spawn>
-	<spawn zone="aden26_2517_25">
-		<territory minZ="-3772" maxZ="-2772">
-			<node x="171832" y="-20380" />
-			<node x="174764" y="-21996" />
-			<node x="175484" y="-21204" />
-			<node x="174432" y="-20324" />
-			<node x="173076" y="-19956" />
-		</territory>
-		<npc id="21004" count="3" respawnDelay="75" /> <!-- Dismal Pole -->
-		<npc id="21005" count="3" respawnDelay="75" /> <!-- Grave Predator -->
-		<npc id="21006" count="5" respawnDelay="75" /> <!-- Doom Servant -->
-	</spawn>
-	<spawn zone="aden26_2517_26">
-		<territory minZ="-3744" maxZ="-2744">
-			<node x="171896" y="-24488" />
-			<node x="173676" y="-25624" />
-			<node x="174996" y="-23084" />
-			<node x="172540" y="-21956" />
-		</territory>
-		<npc id="21009" count="5" respawnDelay="75" /> <!-- Doom Trooper -->
-		<npc id="21010" count="3" respawnDelay="75" /> <!-- Doom Warrior -->
-		<npc id="20674" count="5" respawnDelay="75" /> <!-- Doom Knight -->
-	</spawn>
-	<spawn zone="aden26_2517_27">
-		<territory minZ="-3404" maxZ="-2404">
-			<node x="168780" y="-22064" />
-			<node x="172012" y="-23360" />
-			<node x="172444" y="-21660" />
-			<node x="171332" y="-20760" />
-			<node x="170220" y="-20752" />
-		</territory>
-		<npc id="21009" count="5" respawnDelay="75" /> <!-- Doom Trooper -->
-		<npc id="21010" count="3" respawnDelay="75" /> <!-- Doom Warrior -->
-		<npc id="20674" count="5" respawnDelay="75" /> <!-- Doom Knight -->
-	</spawn>
-	<spawn zone="aden26_2517_p01">
-		<territory minZ="-3756" maxZ="-2756">
-			<node x="176140" y="-24540" />
-			<node x="178952" y="-24176" />
-			<node x="180216" y="-22556" />
-			<node x="179172" y="-21132" />
-			<node x="176132" y="-21396" />
-			<node x="175116" y="-22760" />
-		</territory>
-		<npc id="20974" count="2" respawnDelay="110" respawnRandom="50" /> <!-- Spiteful Soul Leader -->
-	</spawn>
-	<spawn zone="aden26_2517_p03">
-		<territory minZ="-3076" maxZ="-2276">
-			<node x="179912" y="-23408" />
-			<node x="182984" y="-25660" />
-			<node x="185464" y="-23036" />
-			<node x="183304" y="-22152" />
-			<node x="180656" y="-22564" />
-		</territory>
-		<npc id="20974" count="2" respawnDelay="110" respawnRandom="50" /> <!-- Spiteful Soul Leader -->
-	</spawn>
-	<spawn zone="aden26_2517_p04">
-		<territory minZ="-2700" maxZ="-2000">
-			<node x="183016" y="-25796" />
-			<node x="185672" y="-27000" />
-			<node x="186312" y="-26104" />
-			<node x="185488" y="-23136" />
-		</territory>
-		<npc id="20974" count="1" respawnDelay="110" respawnRandom="50" /> <!-- Spiteful Soul Leader -->
-	</spawn>
-	<spawn zone="aden26_2517_p07">
-		<territory minZ="-2868" maxZ="-1968">
-			<node x="183360" y="-21944" />
-			<node x="185420" y="-22504" />
-			<node x="186232" y="-18980" />
-			<node x="184084" y="-18076" />
-			<node x="182364" y="-20832" />
-		</territory>
-		<npc id="20974" count="2" respawnDelay="110" respawnRandom="50" /> <!-- Spiteful Soul Leader -->
-	</spawn>
-	<spawn zone="aden26_2517_p09">
-		<territory minZ="-1488" maxZ="-888">
-			<node x="187212" y="-17564" />
-			<node x="189024" y="-16960" />
-			<node x="190196" y="-14860" />
-			<node x="189636" y="-12848" />
-			<node x="185708" y="-15252" />
-			<node x="185748" y="-16392" />
-		</territory>
-		<npc id="20974" count="2" respawnDelay="110" respawnRandom="50" /> <!-- Spiteful Soul Leader -->
-	</spawn>
-	<spawn zone="aden26_2517_p10">
-		<territory minZ="-2160" maxZ="-1560">
-			<node x="186688" y="-13504" />
-			<node x="188636" y="-12524" />
-			<node x="188544" y="-10264" />
-			<node x="187364" y="-9284" />
-			<node x="185960" y="-11000" />
-			<node x="185940" y="-12556" />
-		</territory>
-		<npc id="20974" count="1" respawnDelay="110" respawnRandom="50" /> <!-- Spiteful Soul Leader -->
-	</spawn>
-	<spawn zone="aden26_2517_p11">
-		<territory minZ="-3000" maxZ="-2000">
-			<node x="183796" y="-8752" />
-			<node x="185328" y="-9728" />
-			<node x="186848" y="-8744" />
-			<node x="185596" y="-6740" />
-			<node x="183340" y="-5000" />
-			<node x="183132" y="-5708" />
-		</territory>
-		<npc id="20974" count="1" respawnDelay="110" respawnRandom="50" /> <!-- Spiteful Soul Leader -->
-	</spawn>
-	<spawn zone="aden26_2517_p15">
-		<territory minZ="-3464" maxZ="-2664">
-			<node x="170704" y="-9476" />
-			<node x="173916" y="-11524" />
-			<node x="176060" y="-9952" />
-			<node x="175700" y="-8136" />
-			<node x="173676" y="-6452" />
-			<node x="171924" y="-7276" />
-		</territory>
-		<npc id="20974" count="2" respawnDelay="110" respawnRandom="50" /> <!-- Spiteful Soul Leader -->
+	<spawn name="FieldsOfMassacre">
+		<group>
+			<npc id="19470" x="180577" y="-16455" z="-2232" heading="60379" respawnDelay="60" /> <!-- Kartia's Flower -->
+			<npc id="19470" x="180505" y="-17029" z="-2232" heading="14818" respawnDelay="60" /> <!-- Kartia's Flower -->
+			<npc id="19470" x="180685" y="-16865" z="-2232" heading="19029" respawnDelay="60" /> <!-- Kartia's Flower -->
+			<npc id="19470" x="180361" y="-16455" z="-2232" heading="4180" respawnDelay="60" /> <!-- Kartia's Flower -->
+			<npc id="19470" x="180318" y="-18316" z="-2264" heading="20988" respawnDelay="60" /> <!-- Kartia's Flower -->
+			<npc id="19470" x="180289" y="-16127" z="-2232" heading="2234" respawnDelay="60" /> <!-- Kartia's Flower -->
+			<npc id="19470" x="180109" y="-17357" z="-2232" heading="34986" respawnDelay="60" /> <!-- Kartia's Flower -->
+			<npc id="19470" x="180037" y="-17029" z="-2232" heading="29542" respawnDelay="60" /> <!-- Kartia's Flower -->
+			<npc id="19470" x="180109" y="-17029" z="-2232" heading="20883" respawnDelay="60" /> <!-- Kartia's Flower -->
+			<npc id="19470" x="180037" y="-17193" z="-2232" heading="8798" respawnDelay="60" /> <!-- Kartia's Flower -->
+			<npc id="19470" x="180066" y="-18162" z="-2256" heading="46072" respawnDelay="60" /> <!-- Kartia's Flower -->
+			<npc id="19470" x="180217" y="-16127" z="-2232" heading="16905" respawnDelay="60" /> <!-- Kartia's Flower -->
+			<npc id="19470" x="180150" y="-18701" z="-2256" heading="62224" respawnDelay="60" /> <!-- Kartia's Flower -->
+			<npc id="19470" x="180038" y="-18547" z="-2256" heading="41541" respawnDelay="60" /> <!-- Kartia's Flower -->
+			<npc id="19470" x="180150" y="-18932" z="-2256" heading="45559" respawnDelay="60" /> <!-- Kartia's Flower -->
+			<npc id="19470" x="180066" y="-19086" z="-2256" heading="5779" respawnDelay="60" /> <!-- Kartia's Flower -->
+			<npc id="19470" x="180206" y="-19009" z="-2256" heading="3444" respawnDelay="60" /> <!-- Kartia's Flower -->
+			<npc id="19470" x="180094" y="-18855" z="-2256" heading="33394" respawnDelay="60" /> <!-- Kartia's Flower -->
+			<npc id="19470" x="180066" y="-19240" z="-2256" heading="59955" respawnDelay="60" /> <!-- Kartia's Flower -->
+			<npc id="19543" x="183543" y="-14974" z="-2776" respawnDelay="60" /> <!-- Invisible Kekropus NPC -->
+			<npc id="20674" x="183968" y="-6548" z="-2824" heading="61213" respawnDelay="60" /> <!-- Doom Knight -->
+			<npc id="20674" x="184099" y="-7171" z="-2816" heading="45298" respawnDelay="60" /> <!-- Doom Knight -->
+			<npc id="20674" x="175881" y="-22160" z="-3640" heading="39434" respawnDelay="60" /> <!-- Doom Knight -->
+			<npc id="20674" x="176111" y="-22078" z="-3632" heading="47163" respawnDelay="60" /> <!-- Doom Knight -->
+			<npc id="20674" x="177411" y="-24200" z="-3392" heading="38802" respawnDelay="60" /> <!-- Doom Knight -->
+			<npc id="20674" x="177141" y="-22474" z="-3512" heading="39724" respawnDelay="60" /> <!-- Doom Knight -->
+			<npc id="20674" x="177043" y="-24082" z="-3448" heading="30465" respawnDelay="60" /> <!-- Doom Knight -->
+			<npc id="20674" x="177187" y="-23700" z="-3512" heading="65014" respawnDelay="60" /> <!-- Doom Knight -->
+			<npc id="20674" x="176691" y="-22012" z="-3592" heading="50312" respawnDelay="60" /> <!-- Doom Knight -->
+			<npc id="20674" x="178726" y="-23959" z="-3144" heading="62366" respawnDelay="60" /> <!-- Doom Knight -->
+			<npc id="20674" x="179329" y="-23253" z="-3064" heading="43102" respawnDelay="60" /> <!-- Doom Knight -->
+			<npc id="20674" x="178686" y="-23350" z="-3160" heading="52914" respawnDelay="60" /> <!-- Doom Knight -->
+			<npc id="20674" x="182048" y="-22707" z="-2704" heading="45945" respawnDelay="60" /> <!-- Doom Knight -->
+			<npc id="20674" x="182959" y="-25135" z="-2720" heading="10249" respawnDelay="60" /> <!-- Doom Knight -->
+			<npc id="20674" x="182415" y="-25099" z="-2712" heading="8391" respawnDelay="60" /> <!-- Doom Knight -->
+			<npc id="20674" x="182045" y="-24418" z="-2712" heading="31539" respawnDelay="60" /> <!-- Doom Knight -->
+			<npc id="20674" x="182848" y="-25055" z="-2728" heading="19869" respawnDelay="60" /> <!-- Doom Knight -->
+			<npc id="20674" x="183790" y="-24121" z="-2608" heading="37413" respawnDelay="60" /> <!-- Doom Knight -->
+			<npc id="20674" x="184621" y="-23035" z="-2440" heading="13868" respawnDelay="60" /> <!-- Doom Knight -->
+			<npc id="20674" x="182128" y="-22860" z="-2696" heading="15537" respawnDelay="60" /> <!-- Doom Knight -->
+			<npc id="20674" x="187830" y="-12563" z="-1760" heading="40891" respawnDelay="60" /> <!-- Doom Knight -->
+			<npc id="20674" x="186607" y="-12671" z="-1888" heading="60650" respawnDelay="60" /> <!-- Doom Knight -->
+			<npc id="20674" x="188169" y="-12520" z="-1720" heading="6831" respawnDelay="60" /> <!-- Doom Knight -->
+			<npc id="20674" x="186265" y="-11047" z="-2032" heading="27232" respawnDelay="60" /> <!-- Doom Knight -->
+			<npc id="20674" x="186455" y="-11289" z="-1984" heading="47580" respawnDelay="60" /> <!-- Doom Knight -->
+			<npc id="20674" x="188545" y="-11363" z="-1848" heading="3355" respawnDelay="60" /> <!-- Doom Knight -->
+			<npc id="20674" x="188417" y="-10548" z="-1936" heading="653" respawnDelay="60" /> <!-- Doom Knight -->
+			<npc id="20674" x="185292" y="-8510" z="-2624" heading="64836" respawnDelay="60" /> <!-- Doom Knight -->
+			<npc id="20674" x="184797" y="-9256" z="-2600" heading="13116" respawnDelay="60" /> <!-- Doom Knight -->
+			<npc id="20674" x="184982" y="-9020" z="-2608" heading="60017" respawnDelay="60" /> <!-- Doom Knight -->
+			<npc id="20674" x="184597" y="-6356" z="-2824" heading="46940" respawnDelay="60" /> <!-- Doom Knight -->
+			<npc id="20674" x="185167" y="-6424" z="-2704" heading="20791" respawnDelay="60" /> <!-- Doom Knight -->
+			<npc id="20674" x="186462" y="-8548" z="-2360" heading="48490" respawnDelay="60" /> <!-- Doom Knight -->
+			<npc id="20674" x="184156" y="-6006" z="-2824" heading="49749" respawnDelay="60" /> <!-- Doom Knight -->
+			<npc id="20674" x="184325" y="-7525" z="-2768" heading="55598" respawnDelay="60" /> <!-- Doom Knight -->
+			<npc id="20674" x="183791" y="-5709" z="-2840" heading="47148" respawnDelay="60" /> <!-- Doom Knight -->
+			<npc id="20674" x="183390" y="-5883" z="-2864" heading="23653" respawnDelay="60" /> <!-- Doom Knight -->
+			<npc id="20674" x="183631" y="-5771" z="-2848" heading="497" respawnDelay="60" /> <!-- Doom Knight -->
+			<npc id="20674" x="185722" y="-9020" z="-2504" heading="44397" respawnDelay="60" /> <!-- Doom Knight -->
+			<npc id="20974" x="170880" y="-21066" z="-3128" heading="57109" respawnDelay="60" /> <!-- Spiteful Soul Leader -->
+			<npc id="20974" x="173288" y="-21180" z="-3688" heading="3632" respawnDelay="60" /> <!-- Spiteful Soul Leader -->
+			<npc id="20974" x="174130" y="-20737" z="-3608" heading="46605" respawnDelay="60" /> <!-- Spiteful Soul Leader -->
+			<npc id="20974" x="175881" y="-21990" z="-3656" heading="44285" respawnDelay="60" /> <!-- Spiteful Soul Leader -->
+			<npc id="20974" x="171161" y="-22970" z="-3200" heading="54398" respawnDelay="60" /> <!-- Spiteful Soul Leader -->
+			<npc id="20974" x="173601" y="-23245" z="-3528" heading="42704" respawnDelay="60" /> <!-- Spiteful Soul Leader -->
+			<npc id="20974" x="173601" y="-25441" z="-3528" heading="38039" respawnDelay="60" /> <!-- Spiteful Soul Leader -->
+			<npc id="20974" x="177411" y="-21310" z="-3536" heading="25402" respawnDelay="60" /> <!-- Spiteful Soul Leader -->
+			<npc id="20974" x="182453" y="-24545" z="-2728" heading="31494" respawnDelay="60" /> <!-- Spiteful Soul Leader -->
+			<npc id="20974" x="184070" y="-25692" z="-2480" heading="65311" respawnDelay="60" /> <!-- Spiteful Soul Leader -->
+			<npc id="20974" x="183832" y="-22538" z="-2560" heading="45573" respawnDelay="60" /> <!-- Spiteful Soul Leader -->
+			<npc id="20974" x="185186" y="-20652" z="-2336" heading="60263" respawnDelay="60" /> <!-- Spiteful Soul Leader -->
+			<npc id="20974" x="187928" y="-22884" z="-1688" heading="61141" respawnDelay="60" /> <!-- Spiteful Soul Leader -->
+			<npc id="20974" x="188794" y="-23548" z="-1704" heading="63244" respawnDelay="60" /> <!-- Spiteful Soul Leader -->
+			<npc id="20974" x="188818" y="-21010" z="-1272" heading="22728" respawnDelay="60" /> <!-- Spiteful Soul Leader -->
+			<npc id="20974" x="185452" y="-18968" z="-2376" heading="3016" respawnDelay="60" /> <!-- Spiteful Soul Leader -->
+			<npc id="20974" x="189102" y="-19021" z="-1120" heading="46676" respawnDelay="60" /> <!-- Spiteful Soul Leader -->
+			<npc id="20974" x="188909" y="-18685" z="-1096" heading="24182" respawnDelay="60" /> <!-- Spiteful Soul Leader -->
+			<npc id="20974" x="188804" y="-17294" z="-1224" heading="50302" respawnDelay="60" /> <!-- Spiteful Soul Leader -->
+			<npc id="20974" x="187236" y="-15154" z="-1424" heading="63342" respawnDelay="60" /> <!-- Spiteful Soul Leader -->
+			<npc id="20974" x="189292" y="-15684" z="-1296" heading="11040" respawnDelay="60" /> <!-- Spiteful Soul Leader -->
+			<npc id="21001" x="182169" y="-12246" z="-3176" heading="7362" respawnDelay="60" /> <!-- Archer of Destruction -->
+			<npc id="21001" x="182591" y="-13444" z="-3040" heading="24270" respawnDelay="60" /> <!-- Archer of Destruction -->
+			<npc id="21001" x="182703" y="-12400" z="-3120" heading="5964" respawnDelay="60" /> <!-- Archer of Destruction -->
+			<npc id="21001" x="181694" y="-11893" z="-3296" heading="52073" respawnDelay="60" /> <!-- Archer of Destruction -->
+			<npc id="21001" x="182211" y="-10659" z="-3352" heading="24345" respawnDelay="60" /> <!-- Archer of Destruction -->
+			<npc id="21001" x="179138" y="-10636" z="-3496" heading="19473" respawnDelay="60" /> <!-- Archer of Destruction -->
+			<npc id="21001" x="178369" y="-10454" z="-3592" heading="39229" respawnDelay="60" /> <!-- Archer of Destruction -->
+			<npc id="21001" x="178217" y="-9032" z="-3568" heading="21246" respawnDelay="60" /> <!-- Archer of Destruction -->
+			<npc id="21001" x="180198" y="-9516" z="-3424" heading="40160" respawnDelay="60" /> <!-- Archer of Destruction -->
+			<npc id="21001" x="181968" y="-10407" z="-3376" heading="64187" respawnDelay="60" /> <!-- Archer of Destruction -->
+			<npc id="21001" x="178050" y="-8711" z="-3584" heading="29390" respawnDelay="60" /> <!-- Archer of Destruction -->
+			<npc id="21001" x="170428" y="-8561" z="-2680" heading="55164" respawnDelay="60" /> <!-- Archer of Destruction -->
+			<npc id="21001" x="167823" y="-9190" z="-2904" heading="23563" respawnDelay="60" /> <!-- Archer of Destruction -->
+			<npc id="21001" x="166654" y="-11494" z="-3096" heading="4666" respawnDelay="60" /> <!-- Archer of Destruction -->
+			<npc id="21001" x="166320" y="-11933" z="-3288" heading="62696" respawnDelay="60" /> <!-- Archer of Destruction -->
+			<npc id="21001" x="166935" y="-8873" z="-3000" heading="51199" respawnDelay="60" /> <!-- Archer of Destruction -->
+			<npc id="21001" x="167633" y="-9163" z="-2928" heading="15862" respawnDelay="60" /> <!-- Archer of Destruction -->
+			<npc id="21001" x="167412" y="-9775" z="-2752" heading="46835" respawnDelay="60" /> <!-- Archer of Destruction -->
+			<npc id="21001" x="166823" y="-9429" z="-2928" heading="12306" respawnDelay="60" /> <!-- Archer of Destruction -->
+			<npc id="21001" x="164631" y="-8162" z="-2736" heading="34777" respawnDelay="60" /> <!-- Archer of Destruction -->
+			<npc id="21001" x="164596" y="-7895" z="-2736" heading="56048" respawnDelay="60" /> <!-- Archer of Destruction -->
+			<npc id="21001" x="165590" y="-5098" z="-2984" heading="14490" respawnDelay="60" /> <!-- Archer of Destruction -->
+			<npc id="21001" x="164229" y="-5487" z="-2920" heading="40951" respawnDelay="60" /> <!-- Archer of Destruction -->
+			<npc id="21001" x="165872" y="-5782" z="-2912" heading="9960" respawnDelay="60" /> <!-- Archer of Destruction -->
+			<npc id="21001" x="164359" y="-5571" z="-2920" heading="37197" respawnDelay="60" /> <!-- Archer of Destruction -->
+			<npc id="21001" x="167516" y="-4712" z="-2736" heading="17034" respawnDelay="60" /> <!-- Archer of Destruction -->
+			<npc id="21001" x="167270" y="-4838" z="-2768" heading="53284" respawnDelay="60" /> <!-- Archer of Destruction -->
+			<npc id="21001" x="167699" y="-5668" z="-2712" heading="60221" respawnDelay="60" /> <!-- Archer of Destruction -->
+			<npc id="21001" x="167101" y="-5458" z="-2824" heading="17034" respawnDelay="60" /> <!-- Archer of Destruction -->
+			<npc id="21001" x="169197" y="-5613" z="-2696" heading="51005" respawnDelay="60" /> <!-- Archer of Destruction -->
+			<npc id="21001" x="165392" y="-11114" z="-3400" heading="48625" respawnDelay="60" /> <!-- Archer of Destruction -->
+			<npc id="21002" x="182903" y="-12331" z="-3104" heading="1879" respawnDelay="60" /> <!-- Doom Scout -->
+			<npc id="21002" x="182183" y="-13025" z="-3136" heading="39038" respawnDelay="60" /> <!-- Doom Scout -->
+			<npc id="21002" x="183703" y="-13024" z="-2904" heading="59440" respawnDelay="60" /> <!-- Doom Scout -->
+			<npc id="21002" x="181400" y="-10552" z="-3376" heading="47350" respawnDelay="60" /> <!-- Doom Scout -->
+			<npc id="21002" x="181746" y="-11833" z="-3296" heading="41145" respawnDelay="60" /> <!-- Doom Scout -->
+			<npc id="21002" x="181144" y="-11079" z="-3376" heading="24897" respawnDelay="60" /> <!-- Doom Scout -->
+			<npc id="21002" x="179652" y="-11148" z="-3432" heading="36817" respawnDelay="60" /> <!-- Doom Scout -->
+			<npc id="21002" x="177597" y="-9662" z="-3568" heading="30886" respawnDelay="60" /> <!-- Doom Scout -->
+			<npc id="21002" x="177939" y="-8847" z="-3576" heading="36402" respawnDelay="60" /> <!-- Doom Scout -->
+			<npc id="21002" x="167893" y="-8330" z="-2968" heading="42115" respawnDelay="60" /> <!-- Doom Scout -->
+			<npc id="21002" x="167692" y="-8814" z="-2968" heading="40876" respawnDelay="60" /> <!-- Doom Scout -->
+			<npc id="21002" x="166790" y="-11067" z="-2864" heading="56150" respawnDelay="60" /> <!-- Doom Scout -->
+			<npc id="21002" x="165822" y="-8751" z="-2960" heading="24207" respawnDelay="60" /> <!-- Doom Scout -->
+			<npc id="21002" x="167426" y="-7488" z="-3024" heading="47169" respawnDelay="60" /> <!-- Doom Scout -->
+			<npc id="21002" x="164253" y="-8477" z="-2760" heading="31462" respawnDelay="60" /> <!-- Doom Scout -->
+			<npc id="21002" x="164371" y="-6629" z="-2792" heading="8468" respawnDelay="60" /> <!-- Doom Scout -->
+			<npc id="21002" x="165735" y="-4118" z="-3000" heading="14516" respawnDelay="60" /> <!-- Doom Scout -->
+			<npc id="21002" x="166120" y="-5026" z="-2888" heading="6241" respawnDelay="60" /> <!-- Doom Scout -->
+			<npc id="21002" x="167339" y="-5349" z="-2736" heading="62987" respawnDelay="60" /> <!-- Doom Scout -->
+			<npc id="21002" x="168158" y="-5671" z="-2712" heading="1507" respawnDelay="60" /> <!-- Doom Scout -->
+			<npc id="21002" x="168198" y="-5851" z="-2744" heading="49938" respawnDelay="60" /> <!-- Doom Scout -->
+			<npc id="21002" x="164600" y="-11661" z="-3520" heading="18511" respawnDelay="60" /> <!-- Doom Scout -->
+			<npc id="21003" x="182448" y="-12267" z="-3168" heading="22265" respawnDelay="60" /> <!-- Graveyard Lich -->
+			<npc id="21003" x="182334" y="-14071" z="-3072" heading="30836" respawnDelay="60" /> <!-- Graveyard Lich -->
+			<npc id="21003" x="183276" y="-12164" z="-3104" heading="33333" respawnDelay="60" /> <!-- Graveyard Lich -->
+			<npc id="21003" x="182029" y="-11935" z="-3272" heading="16579" respawnDelay="60" /> <!-- Graveyard Lich -->
+			<npc id="21003" x="181261" y="-10719" z="-3384" heading="46519" respawnDelay="60" /> <!-- Graveyard Lich -->
+			<npc id="21003" x="182587" y="-12190" z="-3184" heading="61870" respawnDelay="60" /> <!-- Graveyard Lich -->
+			<npc id="21003" x="182202" y="-11214" z="-3344" heading="40776" respawnDelay="60" /> <!-- Graveyard Lich -->
+			<npc id="21003" x="178536" y="-11079" z="-3552" heading="48367" respawnDelay="60" /> <!-- Graveyard Lich -->
+			<npc id="21003" x="178647" y="-9151" z="-3536" heading="8271" respawnDelay="60" /> <!-- Graveyard Lich -->
+			<npc id="21003" x="179318" y="-8243" z="-3528" heading="60017" respawnDelay="60" /> <!-- Graveyard Lich -->
+			<npc id="21003" x="178299" y="-8798" z="-3560" heading="12160" respawnDelay="60" /> <!-- Graveyard Lich -->
+			<npc id="21003" x="181587" y="-9597" z="-3352" heading="22903" respawnDelay="60" /> <!-- Graveyard Lich -->
+			<npc id="21003" x="181270" y="-9349" z="-3312" heading="59825" respawnDelay="60" /> <!-- Graveyard Lich -->
+			<npc id="21003" x="180804" y="-9282" z="-3320" heading="20987" respawnDelay="60" /> <!-- Graveyard Lich -->
+			<npc id="21003" x="177847" y="-9387" z="-3576" heading="25188" respawnDelay="60" /> <!-- Graveyard Lich -->
+			<npc id="21003" x="168679" y="-8837" z="-2960" heading="41977" respawnDelay="60" /> <!-- Graveyard Lich -->
+			<npc id="21003" x="167952" y="-8437" z="-2952" heading="33679" respawnDelay="60" /> <!-- Graveyard Lich -->
+			<npc id="21003" x="169275" y="-8623" z="-2840" heading="50201" respawnDelay="60" /> <!-- Graveyard Lich -->
+			<npc id="21003" x="167699" y="-8009" z="-3016" heading="39155" respawnDelay="60" /> <!-- Graveyard Lich -->
+			<npc id="21003" x="166022" y="-8984" z="-2984" heading="62684" respawnDelay="60" /> <!-- Graveyard Lich -->
+			<npc id="21003" x="167731" y="-8075" z="-3008" heading="45118" respawnDelay="60" /> <!-- Graveyard Lich -->
+			<npc id="21003" x="167687" y="-8515" z="-2992" heading="1507" respawnDelay="60" /> <!-- Graveyard Lich -->
+			<npc id="21003" x="167899" y="-6716" z="-3016" heading="28582" respawnDelay="60" /> <!-- Graveyard Lich -->
+			<npc id="21003" x="167446" y="-6750" z="-2976" heading="6986" respawnDelay="60" /> <!-- Graveyard Lich -->
+			<npc id="21003" x="164320" y="-6625" z="-2792" heading="27320" respawnDelay="60" /> <!-- Graveyard Lich -->
+			<npc id="21003" x="164765" y="-8179" z="-2736" heading="61227" respawnDelay="60" /> <!-- Graveyard Lich -->
+			<npc id="21003" x="164799" y="-7350" z="-2752" heading="57221" respawnDelay="60" /> <!-- Graveyard Lich -->
+			<npc id="21003" x="165422" y="-7694" z="-2896" heading="57691" respawnDelay="60" /> <!-- Graveyard Lich -->
+			<npc id="21003" x="164676" y="-7762" z="-2728" heading="9580" respawnDelay="60" /> <!-- Graveyard Lich -->
+			<npc id="21003" x="164866" y="-7039" z="-2800" heading="16839" respawnDelay="60" /> <!-- Graveyard Lich -->
+			<npc id="21003" x="164092" y="-5846" z="-2872" heading="33985" respawnDelay="60" /> <!-- Graveyard Lich -->
+			<npc id="21003" x="167033" y="-5663" z="-2888" heading="22372" respawnDelay="60" /> <!-- Graveyard Lich -->
+			<npc id="21003" x="167013" y="-4821" z="-2800" heading="49351" respawnDelay="60" /> <!-- Graveyard Lich -->
+			<npc id="21003" x="166980" y="-4943" z="-2784" heading="23368" respawnDelay="60" /> <!-- Graveyard Lich -->
+			<npc id="21003" x="165182" y="-10899" z="-3392" heading="24766" respawnDelay="60" /> <!-- Graveyard Lich -->
+			<npc id="21003" x="164860" y="-11584" z="-3512" heading="62315" respawnDelay="60" /> <!-- Graveyard Lich -->
+			<npc id="21003" x="164769" y="-11458" z="-3520" heading="48167" respawnDelay="60" /> <!-- Graveyard Lich -->
+			<npc id="21003" x="165844" y="-10864" z="-3080" heading="11254" respawnDelay="60" /> <!-- Graveyard Lich -->
+			<npc id="21004" x="181990" y="-17912" z="-2800" heading="44829" respawnDelay="60" /> <!-- Dismal Pole -->
+			<npc id="21004" x="175510" y="-8488" z="-3312" heading="28909" respawnDelay="60" /> <!-- Dismal Pole -->
+			<npc id="21004" x="174596" y="-9836" z="-2960" heading="2739" respawnDelay="60" /> <!-- Dismal Pole -->
+			<npc id="21004" x="174757" y="-8658" z="-3144" heading="3986" respawnDelay="60" /> <!-- Dismal Pole -->
+			<npc id="21004" x="173905" y="-12487" z="-3160" heading="51892" respawnDelay="60" /> <!-- Dismal Pole -->
+			<npc id="21004" x="172589" y="-12391" z="-3168" heading="45872" respawnDelay="60" /> <!-- Dismal Pole -->
+			<npc id="21004" x="172528" y="-12467" z="-3160" heading="45484" respawnDelay="60" /> <!-- Dismal Pole -->
+			<npc id="21004" x="172064" y="-10039" z="-2872" heading="32010" respawnDelay="60" /> <!-- Dismal Pole -->
+			<npc id="21004" x="173204" y="-8739" z="-3104" heading="6115" respawnDelay="60" /> <!-- Dismal Pole -->
+			<npc id="21004" x="172679" y="-7674" z="-3136" heading="5856" respawnDelay="60" /> <!-- Dismal Pole -->
+			<npc id="21004" x="173641" y="-7532" z="-3160" heading="36245" respawnDelay="60" /> <!-- Dismal Pole -->
+			<npc id="21004" x="170853" y="-10316" z="-2904" heading="17997" respawnDelay="60" /> <!-- Dismal Pole -->
+			<npc id="21004" x="170272" y="-11752" z="-2776" heading="6575" respawnDelay="60" /> <!-- Dismal Pole -->
+			<npc id="21004" x="171895" y="-7979" z="-2936" heading="52147" respawnDelay="60" /> <!-- Dismal Pole -->
+			<npc id="21004" x="169028" y="-12281" z="-2656" heading="46982" respawnDelay="60" /> <!-- Dismal Pole -->
+			<npc id="21004" x="168648" y="-13926" z="-3040" heading="428" respawnDelay="60" /> <!-- Dismal Pole -->
+			<npc id="21004" x="171149" y="-13380" z="-2624" heading="58144" respawnDelay="60" /> <!-- Dismal Pole -->
+			<npc id="21004" x="172124" y="-14128" z="-2896" heading="3475" respawnDelay="60" /> <!-- Dismal Pole -->
+			<npc id="21004" x="170053" y="-13472" z="-2752" heading="38797" respawnDelay="60" /> <!-- Dismal Pole -->
+			<npc id="21004" x="173644" y="-12524" z="-3184" heading="22174" respawnDelay="60" /> <!-- Dismal Pole -->
+			<npc id="21004" x="173644" y="-13484" z="-3192" heading="3294" respawnDelay="60" /> <!-- Dismal Pole -->
+			<npc id="21004" x="173644" y="-13292" z="-3192" heading="16713" respawnDelay="60" /> <!-- Dismal Pole -->
+			<npc id="21004" x="173930" y="-14054" z="-3264" heading="65108" respawnDelay="60" /> <!-- Dismal Pole -->
+			<npc id="21004" x="173942" y="-14156" z="-3280" heading="10530" respawnDelay="60" /> <!-- Dismal Pole -->
+			<npc id="21004" x="173641" y="-10006" z="-2888" heading="37332" respawnDelay="60" /> <!-- Dismal Pole -->
+			<npc id="21004" x="171593" y="-14765" z="-2960" heading="57277" respawnDelay="60" /> <!-- Dismal Pole -->
+			<npc id="21004" x="170974" y="-15000" z="-3072" heading="17610" respawnDelay="60" /> <!-- Dismal Pole -->
+			<npc id="21004" x="172750" y="-15316" z="-3080" heading="18479" respawnDelay="60" /> <!-- Dismal Pole -->
+			<npc id="21004" x="172168" y="-17600" z="-3072" heading="46243" respawnDelay="60" /> <!-- Dismal Pole -->
+			<npc id="21004" x="171758" y="-17864" z="-3024" heading="5685" respawnDelay="60" /> <!-- Dismal Pole -->
+			<npc id="21004" x="171396" y="-16801" z="-3128" heading="3686" respawnDelay="60" /> <!-- Dismal Pole -->
+			<npc id="21004" x="172804" y="-16628" z="-3080" heading="17539" respawnDelay="60" /> <!-- Dismal Pole -->
+			<npc id="21004" x="168030" y="-15027" z="-3080" heading="18880" respawnDelay="60" /> <!-- Dismal Pole -->
+			<npc id="21004" x="172629" y="-19148" z="-3016" heading="5196" respawnDelay="60" /> <!-- Dismal Pole -->
+			<npc id="21004" x="180523" y="-20936" z="-2920" heading="10399" respawnDelay="60" /> <!-- Dismal Pole -->
+			<npc id="21004" x="180825" y="-21909" z="-2912" heading="9583" respawnDelay="60" /> <!-- Dismal Pole -->
+			<npc id="21004" x="182026" y="-21896" z="-2624" heading="4920" respawnDelay="60" /> <!-- Dismal Pole -->
+			<npc id="21004" x="182240" y="-21379" z="-2624" heading="52448" respawnDelay="60" /> <!-- Dismal Pole -->
+			<npc id="21004" x="185838" y="-20515" z="-2160" heading="37617" respawnDelay="60" /> <!-- Dismal Pole -->
+			<npc id="21004" x="185322" y="-19728" z="-2312" heading="7027" respawnDelay="60" /> <!-- Dismal Pole -->
+			<npc id="21004" x="186440" y="-12694" z="-1912" heading="3176" respawnDelay="60" /> <!-- Dismal Pole -->
+			<npc id="21004" x="186413" y="-12945" z="-1864" heading="45872" respawnDelay="60" /> <!-- Dismal Pole -->
+			<npc id="21004" x="186613" y="-10973" z="-1992" heading="34160" respawnDelay="60" /> <!-- Dismal Pole -->
+			<npc id="21004" x="188443" y="-10950" z="-1928" heading="57884" respawnDelay="60" /> <!-- Dismal Pole -->
+			<npc id="21004" x="188432" y="-11733" z="-1800" heading="51385" respawnDelay="60" /> <!-- Dismal Pole -->
+			<npc id="21004" x="183078" y="-18446" z="-2792" heading="17766" respawnDelay="60" /> <!-- Dismal Pole -->
+			<npc id="21004" x="183161" y="-17290" z="-2752" heading="28357" respawnDelay="60" /> <!-- Dismal Pole -->
+			<npc id="21004" x="183404" y="-17445" z="-2800" heading="15007" respawnDelay="60" /> <!-- Dismal Pole -->
+			<npc id="21005" x="184101" y="-18305" z="-2688" heading="58382" respawnDelay="60" /> <!-- Graveyard Predator -->
+			<npc id="21005" x="174087" y="-10140" z="-2888" heading="14283" respawnDelay="60" /> <!-- Graveyard Predator -->
+			<npc id="21005" x="172609" y="-11932" z="-3040" heading="55402" respawnDelay="60" /> <!-- Graveyard Predator -->
+			<npc id="21005" x="172590" y="-12099" z="-3104" heading="15966" respawnDelay="60" /> <!-- Graveyard Predator -->
+			<npc id="21005" x="173039" y="-10755" z="-2872" heading="5959" respawnDelay="60" /> <!-- Graveyard Predator -->
+			<npc id="21005" x="173641" y="-8994" z="-3080" heading="5784" respawnDelay="60" /> <!-- Graveyard Predator -->
+			<npc id="21005" x="172023" y="-8404" z="-2944" heading="22213" respawnDelay="60" /> <!-- Graveyard Predator -->
+			<npc id="21005" x="172796" y="-8952" z="-3064" heading="5959" respawnDelay="60" /> <!-- Graveyard Predator -->
+			<npc id="21005" x="172298" y="-9688" z="-2880" heading="13878" respawnDelay="60" /> <!-- Graveyard Predator -->
+			<npc id="21005" x="172122" y="-7423" z="-2952" heading="34424" respawnDelay="60" /> <!-- Graveyard Predator -->
+			<npc id="21005" x="172825" y="-7658" z="-3144" heading="33912" respawnDelay="60" /> <!-- Graveyard Predator -->
+			<npc id="21005" x="172294" y="-7818" z="-3064" heading="45003" respawnDelay="60" /> <!-- Graveyard Predator -->
+			<npc id="21005" x="171970" y="-7434" z="-2904" heading="27095" respawnDelay="60" /> <!-- Graveyard Predator -->
+			<npc id="21005" x="171118" y="-10920" z="-2832" heading="8585" respawnDelay="60" /> <!-- Graveyard Predator -->
+			<npc id="21005" x="171635" y="-11341" z="-2880" heading="10711" respawnDelay="60" /> <!-- Graveyard Predator -->
+			<npc id="21005" x="172071" y="-12105" z="-3032" heading="6517" respawnDelay="60" /> <!-- Graveyard Predator -->
+			<npc id="21005" x="174976" y="-8488" z="-3200" heading="16313" respawnDelay="60" /> <!-- Graveyard Predator -->
+			<npc id="21005" x="168217" y="-11892" z="-2760" heading="22804" respawnDelay="60" /> <!-- Graveyard Predator -->
+			<npc id="21005" x="168339" y="-10753" z="-2688" heading="25016" respawnDelay="60" /> <!-- Graveyard Predator -->
+			<npc id="21005" x="167704" y="-13488" z="-3112" heading="31521" respawnDelay="60" /> <!-- Graveyard Predator -->
+			<npc id="21005" x="170537" y="-14079" z="-2912" heading="10001" respawnDelay="60" /> <!-- Graveyard Predator -->
+			<npc id="21005" x="170479" y="-13292" z="-2624" heading="19039" respawnDelay="60" /> <!-- Graveyard Predator -->
+			<npc id="21005" x="170134" y="-14043" z="-2936" heading="7300" respawnDelay="60" /> <!-- Graveyard Predator -->
+			<npc id="21005" x="171206" y="-13439" z="-2624" heading="57345" respawnDelay="60" /> <!-- Graveyard Predator -->
+			<npc id="21005" x="173644" y="-12716" z="-3176" heading="41509" respawnDelay="60" /> <!-- Graveyard Predator -->
+			<npc id="21005" x="172316" y="-12716" z="-3080" heading="12688" respawnDelay="60" /> <!-- Graveyard Predator -->
+			<npc id="21005" x="173312" y="-12908" z="-3160" heading="12154" respawnDelay="60" /> <!-- Graveyard Predator -->
+			<npc id="21005" x="172140" y="-14292" z="-2888" heading="55634" respawnDelay="60" /> <!-- Graveyard Predator -->
+			<npc id="21005" x="173374" y="-11018" z="-2872" heading="21019" respawnDelay="60" /> <!-- Graveyard Predator -->
+			<npc id="21005" x="175777" y="-9247" z="-3168" heading="807" respawnDelay="60" /> <!-- Graveyard Predator -->
+			<npc id="21005" x="171603" y="-16046" z="-3136" heading="18844" respawnDelay="60" /> <!-- Graveyard Predator -->
+			<npc id="21005" x="171104" y="-16393" z="-3152" heading="27249" respawnDelay="60" /> <!-- Graveyard Predator -->
+			<npc id="21005" x="170335" y="-14833" z="-3056" heading="1123" respawnDelay="60" /> <!-- Graveyard Predator -->
+			<npc id="21005" x="173291" y="-15349" z="-3224" heading="47339" respawnDelay="60" /> <!-- Graveyard Predator -->
+			<npc id="21005" x="172919" y="-16073" z="-3080" heading="15138" respawnDelay="60" /> <!-- Graveyard Predator -->
+			<npc id="21005" x="173350" y="-16224" z="-3224" heading="35173" respawnDelay="60" /> <!-- Graveyard Predator -->
+			<npc id="21005" x="174038" y="-16260" z="-3272" heading="54915" respawnDelay="60" /> <!-- Graveyard Predator -->
+			<npc id="21005" x="173868" y="-17725" z="-3256" heading="53792" respawnDelay="60" /> <!-- Graveyard Predator -->
+			<npc id="21005" x="172797" y="-17778" z="-3072" heading="140" respawnDelay="60" /> <!-- Graveyard Predator -->
+			<npc id="21005" x="174103" y="-17260" z="-3272" heading="60227" respawnDelay="60" /> <!-- Graveyard Predator -->
+			<npc id="21005" x="173935" y="-17603" z="-3256" heading="2555" respawnDelay="60" /> <!-- Graveyard Predator -->
+			<npc id="21005" x="168244" y="-14645" z="-3112" heading="51503" respawnDelay="60" /> <!-- Graveyard Predator -->
+			<npc id="21005" x="174130" y="-18730" z="-3232" heading="49889" respawnDelay="60" /> <!-- Graveyard Predator -->
+			<npc id="21005" x="180544" y="-21872" z="-2976" heading="5350" respawnDelay="60" /> <!-- Graveyard Predator -->
+			<npc id="21005" x="184101" y="-22062" z="-2496" heading="52882" respawnDelay="60" /> <!-- Graveyard Predator -->
+			<npc id="21005" x="183309" y="-21422" z="-2608" heading="44036" respawnDelay="60" /> <!-- Graveyard Predator -->
+			<npc id="21005" x="182578" y="-21680" z="-2600" heading="25600" respawnDelay="60" /> <!-- Graveyard Predator -->
+			<npc id="21005" x="181528" y="-21061" z="-2720" heading="29302" respawnDelay="60" /> <!-- Graveyard Predator -->
+			<npc id="21005" x="183908" y="-20515" z="-2624" heading="26380" respawnDelay="60" /> <!-- Graveyard Predator -->
+			<npc id="21005" x="184893" y="-21881" z="-2448" heading="47392" respawnDelay="60" /> <!-- Graveyard Predator -->
+			<npc id="21005" x="187548" y="-12449" z="-1808" heading="23374" respawnDelay="60" /> <!-- Graveyard Predator -->
+			<npc id="21005" x="188191" y="-12569" z="-1704" heading="47430" respawnDelay="60" /> <!-- Graveyard Predator -->
+			<npc id="21005" x="188288" y="-12491" z="-1704" heading="17732" respawnDelay="60" /> <!-- Graveyard Predator -->
+			<npc id="21005" x="188430" y="-11464" z="-1848" heading="1465" respawnDelay="60" /> <!-- Graveyard Predator -->
+			<npc id="21005" x="186883" y="-12316" z="-1920" heading="50633" respawnDelay="60" /> <!-- Graveyard Predator -->
+			<npc id="21005" x="182313" y="-18102" z="-2784" heading="37667" respawnDelay="60" /> <!-- Graveyard Predator -->
+			<npc id="21006" x="183004" y="-17567" z="-2760" heading="54465" respawnDelay="60" /> <!-- Doom Servant -->
+			<npc id="21006" x="184335" y="-18426" z="-2648" heading="34492" respawnDelay="60" /> <!-- Doom Servant -->
+			<npc id="21006" x="174709" y="-8994" z="-3120" heading="3830" respawnDelay="60" /> <!-- Doom Servant -->
+			<npc id="21006" x="174932" y="-9468" z="-3080" heading="43277" respawnDelay="60" /> <!-- Doom Servant -->
+			<npc id="21006" x="174143" y="-11042" z="-2872" heading="61174" respawnDelay="60" /> <!-- Doom Servant -->
+			<npc id="21006" x="173262" y="-11028" z="-2872" heading="25872" respawnDelay="60" /> <!-- Doom Servant -->
+			<npc id="21006" x="172856" y="-10213" z="-2848" heading="7695" respawnDelay="60" /> <!-- Doom Servant -->
+			<npc id="21006" x="173135" y="-10959" z="-2872" heading="50333" respawnDelay="60" /> <!-- Doom Servant -->
+			<npc id="21006" x="171456" y="-10818" z="-2872" heading="37503" respawnDelay="60" /> <!-- Doom Servant -->
+			<npc id="21006" x="169726" y="-12017" z="-2728" heading="42486" respawnDelay="60" /> <!-- Doom Servant -->
+			<npc id="21006" x="169944" y="-12120" z="-2712" heading="44110" respawnDelay="60" /> <!-- Doom Servant -->
+			<npc id="21006" x="169185" y="-11427" z="-2784" heading="41951" respawnDelay="60" /> <!-- Doom Servant -->
+			<npc id="21006" x="167663" y="-12302" z="-3040" heading="64131" respawnDelay="60" /> <!-- Doom Servant -->
+			<npc id="21006" x="172150" y="-12794" z="-3032" heading="11199" respawnDelay="60" /> <!-- Doom Servant -->
+			<npc id="21006" x="172032" y="-12556" z="-3064" heading="57841" respawnDelay="60" /> <!-- Doom Servant -->
+			<npc id="21006" x="170788" y="-12887" z="-2640" heading="24090" respawnDelay="60" /> <!-- Doom Servant -->
+			<npc id="21006" x="170162" y="-13373" z="-2672" heading="35239" respawnDelay="60" /> <!-- Doom Servant -->
+			<npc id="21006" x="170313" y="-14050" z="-2928" heading="50098" respawnDelay="60" /> <!-- Doom Servant -->
+			<npc id="21006" x="173693" y="-13161" z="-3184" heading="61656" respawnDelay="60" /> <!-- Doom Servant -->
+			<npc id="21006" x="172740" y="-14036" z="-3056" heading="14774" respawnDelay="60" /> <!-- Doom Servant -->
+			<npc id="21006" x="172983" y="-9893" z="-2880" heading="37449" respawnDelay="60" /> <!-- Doom Servant -->
+			<npc id="21006" x="172236" y="-9043" z="-2960" heading="5042" respawnDelay="60" /> <!-- Doom Servant -->
+			<npc id="21006" x="171086" y="-14569" z="-2920" heading="54789" respawnDelay="60" /> <!-- Doom Servant -->
+			<npc id="21006" x="170891" y="-14401" z="-2912" heading="57360" respawnDelay="60" /> <!-- Doom Servant -->
+			<npc id="21006" x="172672" y="-15789" z="-3064" heading="44838" respawnDelay="60" /> <!-- Doom Servant -->
+			<npc id="21006" x="173004" y="-16102" z="-3096" heading="10826" respawnDelay="60" /> <!-- Doom Servant -->
+			<npc id="21006" x="172866" y="-14146" z="-3096" heading="47723" respawnDelay="60" /> <!-- Doom Servant -->
+			<npc id="21006" x="171228" y="-16565" z="-3128" heading="65051" respawnDelay="60" /> <!-- Doom Servant -->
+			<npc id="21006" x="170779" y="-16835" z="-3120" heading="61405" respawnDelay="60" /> <!-- Doom Servant -->
+			<npc id="21006" x="173766" y="-16513" z="-3256" heading="5151" respawnDelay="60" /> <!-- Doom Servant -->
+			<npc id="21006" x="174141" y="-17806" z="-3288" heading="22642" respawnDelay="60" /> <!-- Doom Servant -->
+			<npc id="21006" x="168834" y="-15605" z="-3064" heading="48976" respawnDelay="60" /> <!-- Doom Servant -->
+			<npc id="21006" x="173248" y="-19329" z="-3200" heading="30436" respawnDelay="60" /> <!-- Doom Servant -->
+			<npc id="21006" x="171993" y="-18676" z="-2888" heading="26538" respawnDelay="60" /> <!-- Doom Servant -->
+			<npc id="21006" x="174233" y="-18945" z="-3232" heading="1405" respawnDelay="60" /> <!-- Doom Servant -->
+			<npc id="21006" x="173103" y="-19266" z="-3160" heading="45022" respawnDelay="60" /> <!-- Doom Servant -->
+			<npc id="21006" x="180344" y="-21519" z="-3016" heading="64479" respawnDelay="60" /> <!-- Doom Servant -->
+			<npc id="21006" x="181309" y="-22160" z="-2808" heading="60622" respawnDelay="60" /> <!-- Doom Servant -->
+			<npc id="21006" x="183050" y="-21247" z="-2640" heading="11161" respawnDelay="60" /> <!-- Doom Servant -->
+			<npc id="21006" x="184028" y="-20794" z="-2584" heading="33923" respawnDelay="60" /> <!-- Doom Servant -->
+			<npc id="21006" x="182268" y="-21481" z="-2616" heading="35530" respawnDelay="60" /> <!-- Doom Servant -->
+			<npc id="21006" x="184810" y="-22074" z="-2456" heading="12559" respawnDelay="60" /> <!-- Doom Servant -->
+			<npc id="21006" x="184487" y="-18305" z="-2648" heading="50672" respawnDelay="60" /> <!-- Doom Servant -->
+			<npc id="21006" x="186472" y="-12924" z="-1856" heading="36673" respawnDelay="60" /> <!-- Doom Servant -->
+			<npc id="21006" x="186820" y="-12618" z="-1864" heading="42441" respawnDelay="60" /> <!-- Doom Servant -->
+			<npc id="21006" x="186709" y="-12359" z="-1928" heading="16557" respawnDelay="60" /> <!-- Doom Servant -->
+			<npc id="21006" x="186473" y="-11248" z="-1984" heading="5875" respawnDelay="60" /> <!-- Doom Servant -->
+			<npc id="21006" x="186663" y="-11854" z="-1944" heading="20606" respawnDelay="60" /> <!-- Doom Servant -->
+			<npc id="21006" x="187520" y="-9710" z="-1992" heading="14519" respawnDelay="60" /> <!-- Doom Servant -->
+			<npc id="21006" x="183270" y="-17478" z="-2752" heading="30817" respawnDelay="60" /> <!-- Doom Servant -->
+			<npc id="21006" x="181532" y="-18161" z="-2800" heading="19861" respawnDelay="60" /> <!-- Doom Servant -->
+			<npc id="21007" x="174984" y="-10031" z="-2936" heading="36834" respawnDelay="60" /> <!-- Doom Guard -->
+			<npc id="21007" x="173176" y="-11010" z="-2872" heading="28161" respawnDelay="60" /> <!-- Doom Guard -->
+			<npc id="21007" x="173395" y="-9442" z="-2968" heading="18938" respawnDelay="60" /> <!-- Doom Guard -->
+			<npc id="21007" x="173617" y="-7072" z="-3216" heading="51024" respawnDelay="60" /> <!-- Doom Guard -->
+			<npc id="21007" x="171999" y="-9856" z="-2872" heading="53515" respawnDelay="60" /> <!-- Doom Guard -->
+			<npc id="21007" x="171676" y="-8134" z="-2888" heading="47507" respawnDelay="60" /> <!-- Doom Guard -->
+			<npc id="21007" x="171935" y="-7676" z="-2920" heading="41597" respawnDelay="60" /> <!-- Doom Guard -->
+			<npc id="21007" x="172573" y="-7223" z="-3032" heading="22525" respawnDelay="60" /> <!-- Doom Guard -->
+			<npc id="21007" x="188169" y="-16423" z="-1296" heading="20288" respawnDelay="60" /> <!-- Doom Guard -->
+			<npc id="21007" x="187897" y="-16365" z="-1304" heading="10445" respawnDelay="60" /> <!-- Doom Guard -->
+			<npc id="21007" x="187562" y="-15254" z="-1416" heading="56354" respawnDelay="60" /> <!-- Doom Guard -->
+			<npc id="21007" x="187078" y="-14690" z="-1456" heading="7540" respawnDelay="60" /> <!-- Doom Guard -->
+			<npc id="21007" x="186562" y="-14792" z="-1392" heading="54689" respawnDelay="60" /> <!-- Doom Guard -->
+			<npc id="21007" x="188534" y="-15155" z="-1328" heading="3904" respawnDelay="60" /> <!-- Doom Guard -->
+			<npc id="21007" x="189648" y="-15237" z="-1288" heading="23426" respawnDelay="60" /> <!-- Doom Guard -->
+			<npc id="21007" x="188923" y="-16488" z="-1296" heading="38376" respawnDelay="60" /> <!-- Doom Guard -->
+			<npc id="21007" x="189980" y="-14426" z="-1256" heading="14121" respawnDelay="60" /> <!-- Doom Guard -->
+			<npc id="21007" x="189174" y="-13351" z="-1352" heading="13129" respawnDelay="60" /> <!-- Doom Guard -->
+			<npc id="21007" x="174583" y="-10446" z="-2872" heading="28233" respawnDelay="60" /> <!-- Doom Guard -->
+			<npc id="21008" x="186256" y="-15424" z="-1304" heading="37597" respawnDelay="60" /> <!-- Doom Archer -->
+			<npc id="21008" x="173908" y="-9753" z="-2936" heading="12901" respawnDelay="60" /> <!-- Doom Archer -->
+			<npc id="21008" x="172256" y="-10165" z="-2872" heading="19411" respawnDelay="60" /> <!-- Doom Archer -->
+			<npc id="21008" x="173653" y="-6767" z="-3240" heading="46428" respawnDelay="60" /> <!-- Doom Archer -->
+			<npc id="21008" x="172207" y="-7940" z="-3024" heading="12479" respawnDelay="60" /> <!-- Doom Archer -->
+			<npc id="21008" x="173908" y="-11271" z="-2872" heading="46246" respawnDelay="60" /> <!-- Doom Archer -->
+			<npc id="21008" x="187065" y="-14450" z="-1496" heading="1616" respawnDelay="60" /> <!-- Doom Archer -->
+			<npc id="21008" x="187819" y="-15198" z="-1400" heading="3604" respawnDelay="60" /> <!-- Doom Archer -->
+			<npc id="21008" x="188467" y="-13891" z="-1328" heading="52509" respawnDelay="60" /> <!-- Doom Archer -->
+			<npc id="21009" x="186178" y="-15554" z="-1296" heading="10114" respawnDelay="60" /> <!-- Doom Trooper -->
+			<npc id="21009" x="186032" y="-16419" z="-1288" heading="53213" respawnDelay="60" /> <!-- Doom Trooper -->
+			<npc id="21009" x="184242" y="-6424" z="-2824" heading="1358" respawnDelay="60" /> <!-- Doom Trooper -->
+			<npc id="21009" x="183686" y="-7370" z="-2808" heading="5499" respawnDelay="60" /> <!-- Doom Trooper -->
+			<npc id="21009" x="175040" y="-9088" z="-3136" heading="39760" respawnDelay="60" /> <!-- Doom Trooper -->
+			<npc id="21009" x="172640" y="-10675" z="-2872" heading="47336" respawnDelay="60" /> <!-- Doom Trooper -->
+			<npc id="21009" x="174024" y="-10462" z="-2872" heading="12641" respawnDelay="60" /> <!-- Doom Trooper -->
+			<npc id="21009" x="173337" y="-10517" z="-2872" heading="492" respawnDelay="60" /> <!-- Doom Trooper -->
+			<npc id="21009" x="173960" y="-10977" z="-2872" heading="22321" respawnDelay="60" /> <!-- Doom Trooper -->
+			<npc id="21009" x="173731" y="-10620" z="-2872" heading="55012" respawnDelay="60" /> <!-- Doom Trooper -->
+			<npc id="21009" x="172479" y="-9622" z="-2896" heading="45758" respawnDelay="60" /> <!-- Doom Trooper -->
+			<npc id="21009" x="173797" y="-6680" z="-3248" heading="2456" respawnDelay="60" /> <!-- Doom Trooper -->
+			<npc id="21009" x="172573" y="-8994" z="-3024" heading="31992" respawnDelay="60" /> <!-- Doom Trooper -->
+			<npc id="21009" x="177962" y="-24137" z="-3320" heading="12434" respawnDelay="60" /> <!-- Doom Trooper -->
+			<npc id="21009" x="176599" y="-24216" z="-3456" heading="61967" respawnDelay="60" /> <!-- Doom Trooper -->
+			<npc id="21009" x="176974" y="-22210" z="-3536" heading="14782" respawnDelay="60" /> <!-- Doom Trooper -->
+			<npc id="21009" x="178122" y="-21763" z="-3392" heading="32767" respawnDelay="60" /> <!-- Doom Trooper -->
+			<npc id="21009" x="177100" y="-21433" z="-3584" heading="42441" respawnDelay="60" /> <!-- Doom Trooper -->
+			<npc id="21009" x="177382" y="-21643" z="-3520" heading="7230" respawnDelay="60" /> <!-- Doom Trooper -->
+			<npc id="21009" x="178731" y="-24017" z="-3128" heading="1247" respawnDelay="60" /> <!-- Doom Trooper -->
+			<npc id="21009" x="181574" y="-24435" z="-2680" heading="21329" respawnDelay="60" /> <!-- Doom Trooper -->
+			<npc id="21009" x="181856" y="-24193" z="-2720" heading="22145" respawnDelay="60" /> <!-- Doom Trooper -->
+			<npc id="21009" x="181696" y="-23529" z="-2752" heading="48546" respawnDelay="60" /> <!-- Doom Trooper -->
+			<npc id="21009" x="181282" y="-22919" z="-2832" heading="16292" respawnDelay="60" /> <!-- Doom Trooper -->
+			<npc id="21009" x="184621" y="-23735" z="-2520" heading="63207" respawnDelay="60" /> <!-- Doom Trooper -->
+			<npc id="21009" x="186777" y="-16160" z="-1328" heading="1415" respawnDelay="60" /> <!-- Doom Trooper -->
+			<npc id="21009" x="187406" y="-16129" z="-1312" heading="19339" respawnDelay="60" /> <!-- Doom Trooper -->
+			<npc id="21009" x="187683" y="-15007" z="-1416" heading="46756" respawnDelay="60" /> <!-- Doom Trooper -->
+			<npc id="21009" x="188031" y="-15486" z="-1352" heading="5594" respawnDelay="60" /> <!-- Doom Trooper -->
+			<npc id="21009" x="187077" y="-15519" z="-1384" heading="51147" respawnDelay="60" /> <!-- Doom Trooper -->
+			<npc id="21009" x="188676" y="-16120" z="-1328" heading="11219" respawnDelay="60" /> <!-- Doom Trooper -->
+			<npc id="21009" x="188741" y="-14347" z="-1328" heading="23972" respawnDelay="60" /> <!-- Doom Trooper -->
+			<npc id="21009" x="186569" y="-13242" z="-1760" heading="27109" respawnDelay="60" /> <!-- Doom Trooper -->
+			<npc id="21009" x="188090" y="-12627" z="-1704" heading="30924" respawnDelay="60" /> <!-- Doom Trooper -->
+			<npc id="21009" x="188149" y="-12519" z="-1728" heading="1601" respawnDelay="60" /> <!-- Doom Trooper -->
+			<npc id="21009" x="188586" y="-14005" z="-1320" heading="2112" respawnDelay="60" /> <!-- Doom Trooper -->
+			<npc id="21009" x="186471" y="-12213" z="-1944" heading="23953" respawnDelay="60" /> <!-- Doom Trooper -->
+			<npc id="21009" x="188093" y="-10451" z="-1936" heading="34240" respawnDelay="60" /> <!-- Doom Trooper -->
+			<npc id="21009" x="186219" y="-8838" z="-2384" heading="42555" respawnDelay="60" /> <!-- Doom Trooper -->
+			<npc id="21009" x="186246" y="-8735" z="-2392" heading="14756" respawnDelay="60" /> <!-- Doom Trooper -->
+			<npc id="21009" x="186647" y="-8548" z="-2320" heading="647" respawnDelay="60" /> <!-- Doom Trooper -->
+			<npc id="21009" x="187869" y="-10094" z="-1944" heading="4578" respawnDelay="60" /> <!-- Doom Trooper -->
+			<npc id="21009" x="187501" y="-9711" z="-1992" heading="64301" respawnDelay="60" /> <!-- Doom Trooper -->
+			<npc id="21009" x="186049" y="-7662" z="-2672" heading="28559" respawnDelay="60" /> <!-- Doom Trooper -->
+			<npc id="21009" x="186051" y="-7614" z="-2680" heading="13234" respawnDelay="60" /> <!-- Doom Trooper -->
+			<npc id="21009" x="185318" y="-6935" z="-2808" heading="1993" respawnDelay="60" /> <!-- Doom Trooper -->
+			<npc id="21009" x="185907" y="-7604" z="-2688" heading="582" respawnDelay="60" /> <!-- Doom Trooper -->
+			<npc id="21009" x="183721" y="-6716" z="-2824" heading="18968" respawnDelay="60" /> <!-- Doom Trooper -->
+			<npc id="21009" x="183423" y="-6001" z="-2848" heading="21821" respawnDelay="60" /> <!-- Doom Trooper -->
+			<npc id="21009" x="183317" y="-5952" z="-2864" heading="38918" respawnDelay="60" /> <!-- Doom Trooper -->
+			<npc id="21009" x="184242" y="-7132" z="-2816" heading="17751" respawnDelay="60" /> <!-- Doom Trooper -->
+			<npc id="21009" x="184982" y="-6660" z="-2824" heading="37430" respawnDelay="60" /> <!-- Doom Trooper -->
+			<npc id="21010" x="186284" y="-11396" z="-2016" heading="63156" respawnDelay="60" /> <!-- Doom Warrior -->
+			<npc id="21010" x="175856" y="-22855" z="-3640" heading="18875" respawnDelay="60" /> <!-- Doom Warrior -->
+			<npc id="21010" x="175530" y="-23295" z="-3672" heading="527" respawnDelay="60" /> <!-- Doom Warrior -->
+			<npc id="21010" x="175934" y="-24045" z="-3648" heading="56048" respawnDelay="60" /> <!-- Doom Warrior -->
+			<npc id="21010" x="176901" y="-23010" z="-3536" heading="36408" respawnDelay="60" /> <!-- Doom Warrior -->
+			<npc id="21010" x="176223" y="-23626" z="-3592" heading="33809" respawnDelay="60" /> <!-- Doom Warrior -->
+			<npc id="21010" x="176464" y="-23701" z="-3528" heading="28510" respawnDelay="60" /> <!-- Doom Warrior -->
+			<npc id="21010" x="176618" y="-21543" z="-3632" heading="29808" respawnDelay="60" /> <!-- Doom Warrior -->
+			<npc id="21010" x="177027" y="-21759" z="-3568" heading="65076" respawnDelay="60" /> <!-- Doom Warrior -->
+			<npc id="21010" x="178658" y="-23813" z="-3192" heading="33636" respawnDelay="60" /> <!-- Doom Warrior -->
+			<npc id="21010" x="178297" y="-21388" z="-3376" heading="18104" respawnDelay="60" /> <!-- Doom Warrior -->
+			<npc id="21010" x="181543" y="-23740" z="-2752" heading="14490" respawnDelay="60" /> <!-- Doom Warrior -->
+			<npc id="21010" x="182004" y="-23163" z="-2720" heading="46542" respawnDelay="60" /> <!-- Doom Warrior -->
+			<npc id="21010" x="181851" y="-22860" z="-2744" heading="9344" respawnDelay="60" /> <!-- Doom Warrior -->
+			<npc id="21010" x="182439" y="-24556" z="-2720" heading="5339" respawnDelay="60" /> <!-- Doom Warrior -->
+			<npc id="21010" x="183742" y="-24069" z="-2616" heading="42441" respawnDelay="60" /> <!-- Doom Warrior -->
+			<npc id="21010" x="183587" y="-23863" z="-2600" heading="32115" respawnDelay="60" /> <!-- Doom Warrior -->
+			<npc id="21010" x="182080" y="-24219" z="-2704" heading="23004" respawnDelay="60" /> <!-- Doom Warrior -->
+			<npc id="21010" x="184808" y="-23588" z="-2480" heading="8437" respawnDelay="60" /> <!-- Doom Warrior -->
+			<npc id="21010" x="188426" y="-11570" z="-1832" heading="60349" respawnDelay="60" /> <!-- Doom Warrior -->
+			<npc id="21010" x="186743" y="-11969" z="-1944" heading="65141" respawnDelay="60" /> <!-- Doom Warrior -->
+			<npc id="21010" x="186092" y="-9020" z="-2408" heading="1520" respawnDelay="60" /> <!-- Doom Warrior -->
+			<npc id="21010" x="184538" y="-8085" z="-2704" heading="29207" respawnDelay="60" /> <!-- Doom Warrior -->
+			<npc id="21010" x="186441" y="-8479" z="-2384" heading="19678" respawnDelay="60" /> <!-- Doom Warrior -->
+			<npc id="21010" x="187417" y="-10046" z="-1976" heading="20521" respawnDelay="60" /> <!-- Doom Warrior -->
+			<npc id="21010" x="187474" y="-9772" z="-1992" heading="10299" respawnDelay="60" /> <!-- Doom Warrior -->
+			<npc id="21010" x="183618" y="-7876" z="-2784" heading="38033" respawnDelay="60" /> <!-- Doom Warrior -->
+			<npc id="21010" x="183625" y="-6633" z="-2824" heading="4485" respawnDelay="60" /> <!-- Doom Warrior -->
+			<npc id="21010" x="183532" y="-5761" z="-2856" heading="18340" respawnDelay="60" /> <!-- Doom Warrior -->
+			<npc id="21010" x="184292" y="-5861" z="-2824" heading="22809" respawnDelay="60" /> <!-- Doom Warrior -->
+			<npc id="21010" x="184646" y="-6742" z="-2824" heading="5799" respawnDelay="60" /> <!-- Doom Warrior -->
+			<npc id="27540" x="180336" y="-13117" z="-2264" heading="33809" respawnDelay="60" /> <!-- Embryo Purifier -->
+			<npc id="27540" x="180402" y="-13201" z="-2264" heading="39921" respawnDelay="60" /> <!-- Embryo Purifier -->
+			<npc id="27540" x="179886" y="-13903" z="-2256" heading="10250" respawnDelay="60" /> <!-- Embryo Purifier -->
+			<npc id="27540" x="179695" y="-13097" z="-2264" heading="57957" respawnDelay="60" /> <!-- Embryo Purifier -->
+			<npc id="27540" x="179969" y="-13997" z="-2264" heading="9671" respawnDelay="60" /> <!-- Embryo Purifier -->
+			<npc id="27540" x="177876" y="-13533" z="-2256" heading="59900" respawnDelay="60" /> <!-- Embryo Purifier -->
+			<npc id="27540" x="177913" y="-13685" z="-2256" heading="5959" respawnDelay="60" /> <!-- Embryo Purifier -->
+			<npc id="27540" x="177124" y="-13011" z="-2312" heading="46376" respawnDelay="60" /> <!-- Embryo Purifier -->
+			<npc id="27540" x="177256" y="-12917" z="-2312" heading="58430" respawnDelay="60" /> <!-- Embryo Purifier -->
+			<npc id="27540" x="176599" y="-13719" z="-2264" heading="4117" respawnDelay="60" /> <!-- Embryo Purifier -->
+			<npc id="27540" x="176592" y="-13617" z="-2264" heading="2058" respawnDelay="60" /> <!-- Embryo Purifier -->
+			<npc id="33867" x="183529" y="-16020" z="-2712" heading="11151" respawnDelay="60" /> <!-- Shuvann -->
+			<npc id="33962" x="178075" y="-14588" z="-2464" respawnDelay="60" /> <!-- Life Energy Repository -->
+			<npc id="33994" x="180380" y="-13157" z="-2264" heading="31414" respawnDelay="60" /> <!-- Suspicious Box -->
+			<npc id="33994" x="179764" y="-13078" z="-2264" heading="24258" respawnDelay="60" /> <!-- Suspicious Box -->
+			<npc id="33994" x="179892" y="-13972" z="-2256" heading="21661" respawnDelay="60" /> <!-- Suspicious Box -->
+			<npc id="33994" x="177905" y="-13615" z="-2256" heading="52151" respawnDelay="60" /> <!-- Suspicious Box -->
+			<npc id="33994" x="177179" y="-12940" z="-2312" heading="55726" respawnDelay="60" /> <!-- Suspicious Box -->
+			<npc id="33994" x="176595" y="-13664" z="-2264" heading="17234" respawnDelay="60" /> <!-- Suspicious Box -->
+		</group>
 	</spawn>
 </list>

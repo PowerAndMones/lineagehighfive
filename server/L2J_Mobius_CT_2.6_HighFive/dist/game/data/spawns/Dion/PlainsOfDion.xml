@@ -1,307 +1,262 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <list enabled="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/spawns.xsd">
-	<spawn zone="dion15_2022_07">
-		<territory minZ="-3289" maxZ="-2489">
-			<node x="25435" y="135929" />
-			<node x="29046" y="134625" />
-			<node x="30512" y="136326" />
-			<node x="26279" y="136646" />
-		</territory>
-		<npc id="20205" count="4" respawnDelay="24" /> <!-- Dire Wolf -->
-	</spawn>
-	<spawn zone="dion15_2022_08">
-		<territory minZ="-3237" maxZ="-2537">
-			<node x="29087" y="134594" />
-			<node x="31029" y="133256" />
-			<node x="32066" y="133765" />
-			<node x="30590" y="136240" />
-		</territory>
-		<npc id="20205" count="3" respawnDelay="24" /> <!-- Dire Wolf -->
-	</spawn>
-	<spawn zone="dion15_2022_09">
-		<territory minZ="-3280" maxZ="-2680">
-			<node x="30475" y="137105" />
-			<node x="32576" y="134728" />
-			<node x="32484" y="139815" />
-			<node x="31555" y="139893" />
-		</territory>
-		<npc id="20205" count="4" respawnDelay="24" /> <!-- Dire Wolf -->
-	</spawn>
-	<spawn zone="dion15_2022_10">
-		<territory minZ="-3335" maxZ="-2835">
-			<node x="31537" y="139996" />
-			<node x="32502" y="139884" />
-			<node x="32520" y="143531" />
-			<node x="30580" y="143553" />
-		</territory>
-		<npc id="20205" count="2" respawnDelay="24" /> <!-- Dire Wolf -->
-		<npc id="20266" count="5" respawnDelay="24" /> <!-- Monster Eye Gazer -->
-	</spawn>
-	<spawn zone="dion15_2022_11">
-		<territory minZ="-3335" maxZ="-2535">
-			<node x="28269" y="141141" />
-			<node x="31458" y="139969" />
-			<node x="30500" y="143533" />
-			<node x="27985" y="144857" />
-		</territory>
-		<npc id="20205" count="4" respawnDelay="24" /> <!-- Dire Wolf -->
-	</spawn>
-	<spawn zone="dion15_2022_12">
-		<territory minZ="-3335" maxZ="-2635">
-			<node x="27233" y="137465" />
-			<node x="30407" y="137097" />
-			<node x="31479" y="139940" />
-			<node x="28216" y="141043" />
-		</territory>
-		<npc id="20205" count="4" respawnDelay="24" /> <!-- Dire Wolf -->
-	</spawn>
-	<spawn zone="dion15_2022_19">
-		<territory minZ="-3334" maxZ="-2534">
-			<node x="26574" y="155654" />
-			<node x="20812" y="149386" />
-			<node x="26556" y="149717" />
-			<node x="27751" y="151791" />
-		</territory>
-		<npc id="20205" count="7" respawnDelay="24" /> <!-- Dire Wolf -->
-	</spawn>
-	<spawn zone="dion15_2022_20">
-		<territory minZ="-3246" maxZ="-2446">
-			<node x="30750" y="157297" />
-			<node x="27076" y="154608" />
-			<node x="27873" y="151778" />
-			<node x="31918" y="152428" />
-		</territory>
-		<npc id="20205" count="6" respawnDelay="24" /> <!-- Dire Wolf -->
-		<npc id="20266" count="9" respawnDelay="24" /> <!-- Monster Eye Gazer -->
-	</spawn>
-	<spawn zone="dion15_2122_01">
-		<territory minZ="-3401" maxZ="-2401">
-			<node x="32971" y="135013" />
-			<node x="37333" y="134255" />
-			<node x="38373" y="136115" />
-			<node x="33005" y="143452" />
-		</territory>
-		<npc id="20205" count="5" respawnDelay="24" /> <!-- Dire Wolf -->
-		<npc id="20266" count="6" respawnDelay="24" /> <!-- Monster Eye Gazer -->
-	</spawn>
-	<spawn zone="dion15_2122_02">
-		<territory minZ="-3567" maxZ="-2667">
-			<node x="37534" y="134310" />
-			<node x="42190" y="133128" />
-			<node x="44103" y="134234" />
-			<node x="38581" y="136035" />
-		</territory>
-		<npc id="20205" count="2" respawnDelay="24" /> <!-- Dire Wolf -->
-		<npc id="20266" count="4" respawnDelay="24" /> <!-- Monster Eye Gazer -->
-	</spawn>
-	<spawn zone="dion15_2122_03s">
-		<territory minZ="-3341" maxZ="-2741">
-			<node x="33268" y="136204" />
-			<node x="35377" y="135291" />
-			<node x="35754" y="137587" />
-			<node x="33163" y="140018" />
-		</territory>
-		<npc id="20266" count="2" respawnDelay="24" /> <!-- Monster Eye Gazer -->
-	</spawn>
-	<spawn zone="dion17_2023_01">
-		<territory minZ="-3818" maxZ="-3018">
-			<node x="36" y="163888" />
-			<node x="2656" y="163911" />
-			<node x="3457" y="166490" />
-			<node x="2192" y="167759" />
-			<node x="40" y="167682" />
-		</territory>
-		<npc id="20205" count="5" respawnDelay="29" /> <!-- Dire Wolf -->
-		<npc id="20206" count="4" respawnDelay="29" /> <!-- Kadif Werewolf -->
-		<npc id="20068" count="2" respawnDelay="29" /> <!-- Monster Eye Destroyer -->
-	</spawn>
-	<spawn zone="dion17_2023_02">
-		<territory minZ="-3824" maxZ="-3224">
-			<node x="3282" y="164268" />
-			<node x="4442" y="163943" />
-			<node x="6486" y="167119" />
-			<node x="4342" y="166428" />
-		</territory>
-		<npc id="20068" count="3" respawnDelay="29" /> <!-- Monster Eye Destroyer -->
-		<npc id="20251" count="3" respawnDelay="29" /> <!-- Delu Lizardman -->
-	</spawn>
-	<spawn zone="dion17_2023_03">
-		<territory minZ="-3702" maxZ="-2702">
-			<node x="52" y="167760" />
-			<node x="2399" y="167885" />
-			<node x="2638" y="171293" />
-			<node x="103" y="172564" />
-		</territory>
-		<npc id="20205" count="6" respawnDelay="29" /> <!-- Dire Wolf -->
-		<npc id="20206" count="6" respawnDelay="29" /> <!-- Kadif Werewolf -->
-	</spawn>
-	<spawn zone="dion17_2023_04">
-		<territory minZ="-3824" maxZ="-3024">
-			<node x="4317" y="166544" />
-			<node x="7702" y="167699" />
-			<node x="8116" y="169491" />
-			<node x="5803" y="171192" />
-			<node x="4081" y="171111" />
-			<node x="3249" y="167840" />
-		</territory>
-		<npc id="20068" count="6" respawnDelay="29" /> <!-- Monster Eye Destroyer -->
-		<npc id="20251" count="6" respawnDelay="29" /> <!-- Delu Lizardman -->
-		<npc id="20250" count="6" respawnDelay="29" /> <!-- Glass Jaguar -->
-	</spawn>
-	<spawn zone="dion17_2023_05">
-		<territory minZ="-3833" maxZ="-2733">
-			<node x="129" y="173225" />
-			<node x="5864" y="171994" />
-			<node x="9993" y="176834" />
-			<node x="191" y="177689" />
-		</territory>
-		<npc id="20205" count="9" respawnDelay="29" /> <!-- Dire Wolf -->
-		<npc id="20206" count="9" respawnDelay="29" /> <!-- Kadif Werewolf -->
-		<npc id="20068" count="9" respawnDelay="29" /> <!-- Monster Eye Destroyer -->
-	</spawn>
-	<spawn zone="dion17_2023_06">
-		<territory minZ="-3821" maxZ="-2821">
-			<node x="156" y="177874" />
-			<node x="8775" y="177266" />
-			<node x="4840" y="183002" />
-			<node x="164" y="183726" />
-		</territory>
-		<npc id="20205" count="8" respawnDelay="29" /> <!-- Dire Wolf -->
-		<npc id="20206" count="8" respawnDelay="29" /> <!-- Kadif Werewolf -->
-		<npc id="20068" count="8" respawnDelay="29" /> <!-- Monster Eye Destroyer -->
-	</spawn>
-	<spawn zone="dion17_2023_07">
-		<territory minZ="-3821" maxZ="-2821">
-			<node x="253" y="183960" />
-			<node x="4011" y="183353" />
-			<node x="7287" y="189726" />
-			<node x="180" y="193207" />
-		</territory>
-		<npc id="20206" count="8" respawnDelay="29" /> <!-- Kadif Werewolf -->
-		<npc id="20068" count="8" respawnDelay="29" /> <!-- Monster Eye Destroyer -->
-		<npc id="20250" count="9" respawnDelay="29" /> <!-- Glass Jaguar -->
-	</spawn>
-	<spawn zone="dion17_2023_08">
-		<territory minZ="-3701" maxZ="-2701">
-			<node x="8593" y="178056" />
-			<node x="10708" y="177570" />
-			<node x="13101" y="180155" />
-			<node x="11312" y="181322" />
-		</territory>
-		<npc id="20252" count="5" respawnDelay="29" /> <!-- Delu Lizardman Scout -->
-		<npc id="20168" count="6" respawnDelay="29" /> <!-- Silenos -->
-	</spawn>
-	<spawn zone="dion17_2023_09">
-		<territory minZ="-3550" maxZ="-2550">
-			<node x="6668" y="181790" />
-			<node x="9664" y="179975" />
-			<node x="11012" y="181366" />
-			<node x="9969" y="182608" />
-		</territory>
-		<npc id="20254" count="2" respawnDelay="29" /> <!-- Skeleton Axeman -->
-		<npc id="20190" count="1" respawnDelay="29" /> <!-- Skeleton Marauder -->
-		<npc id="20168" count="4" respawnDelay="29" /> <!-- Silenos -->
-	</spawn>
-	<spawn zone="dion17_2023_10">
-		<territory minZ="-2994" maxZ="-1994">
-			<node x="5930" y="184576" />
-			<node x="6674" y="182033" />
-			<node x="9966" y="182723" />
-			<node x="10072" y="184235" />
-			<node x="7875" y="186586" />
-		</territory>
-		<npc id="20254" count="6" respawnDelay="29" /> <!-- Skeleton Axeman -->
-		<npc id="20190" count="3" respawnDelay="29" /> <!-- Skeleton Marauder -->
-		<npc id="20168" count="5" respawnDelay="29" /> <!-- Silenos -->
-	</spawn>
-	<spawn zone="dion17_2023_11">
-		<territory minZ="-3793" maxZ="-2593">
-			<node x="8852" y="186629" />
-			<node x="10288" y="184646" />
-			<node x="13457" y="185224" />
-			<node x="11704" y="187587" />
-		</territory>
-		<npc id="20252" count="4" respawnDelay="29" /> <!-- Delu Lizardman Scout -->
-		<npc id="20253" count="5" respawnDelay="29" /> <!-- Delu Lizardman Warrior -->
-	</spawn>
-	<spawn zone="dion17_2023_12">
-		<territory minZ="-3788" maxZ="-3088">
-			<node x="7397" y="189688" />
-			<node x="6662" y="187882" />
-			<node x="11486" y="187990" />
-			<node x="11997" y="189567" />
-		</territory>
-		<npc id="20190" count="2" respawnDelay="29" /> <!-- Skeleton Marauder -->
-		<npc id="20252" count="4" respawnDelay="29" /> <!-- Delu Lizardman Scout -->
-		<npc id="20253" count="4" respawnDelay="29" /> <!-- Delu Lizardman Warrior -->
-	</spawn>
-	<spawn zone="dion17_2023_13s">
-		<territory minZ="-3596" maxZ="-2896">
-			<node x="4193" y="169825" />
-			<node x="4016" y="167461" />
-			<node x="6003" y="167625" />
-			<node x="6194" y="169655" />
-		</territory>
-		<npc id="20250" count="2" respawnDelay="29" /> <!-- Glass Jaguar -->
-		<npc id="20251" count="2" respawnDelay="29" /> <!-- Delu Lizardman -->
-	</spawn>
-	<spawn zone="dion17_2023_14s">
-		<territory minZ="-3661" maxZ="-2661">
-			<node x="3880" y="174991" />
-			<node x="1859" y="173079" />
-			<node x="4768" y="172506" />
-			<node x="6769" y="173673" />
-		</territory>
-		<npc id="20206" count="2" respawnDelay="29" /> <!-- Kadif Werewolf -->
-		<npc id="20068" count="2" respawnDelay="29" /> <!-- Monster Eye Destroyer -->
-	</spawn>
-	<spawn zone="dion17_2023_15s">
-		<territory minZ="-3749" maxZ="-2749">
-			<node x="6879" y="179306" />
-			<node x="4246" y="176908" />
-			<node x="6561" y="174994" />
-			<node x="8955" y="176806" />
-		</territory>
-		<npc id="20206" count="2" respawnDelay="29" /> <!-- Kadif Werewolf -->
-		<npc id="20068" count="2" respawnDelay="29" /> <!-- Monster Eye Destroyer -->
-	</spawn>
-	<spawn zone="dion17_2023_16s">
-		<territory minZ="-3821" maxZ="-3121">
-			<node x="3591" y="182824" />
-			<node x="1058" y="180151" />
-			<node x="3031" y="178424" />
-			<node x="5139" y="180225" />
-		</territory>
-		<npc id="20068" count="2" respawnDelay="29" /> <!-- Monster Eye Destroyer -->
-		<npc id="20250" count="2" respawnDelay="29" /> <!-- Glass Jaguar -->
-	</spawn>
-	<spawn zone="dion17_2023_17s">
-		<territory minZ="-3821" maxZ="-3121">
-			<node x="578" y="187476" />
-			<node x="545" y="184462" />
-			<node x="3619" y="183704" />
-			<node x="4141" y="185186" />
-		</territory>
-		<npc id="20250" count="2" respawnDelay="29" /> <!-- Glass Jaguar -->
-		<npc id="20251" count="2" respawnDelay="29" /> <!-- Delu Lizardman -->
-	</spawn>
-	<spawn zone="dion17_2023_18s">
-		<territory minZ="-3849" maxZ="-3149">
-			<node x="913" y="190840" />
-			<node x="880" y="188365" />
-			<node x="3689" y="187123" />
-			<node x="4949" y="189200" />
-		</territory>
-		<npc id="20250" count="1" respawnDelay="29" /> <!-- Glass Jaguar -->
-		<npc id="20251" count="3" respawnDelay="29" /> <!-- Delu Lizardman -->
-	</spawn>
-	<spawn zone="dion17_2023_19s">
-		<territory minZ="-2816" maxZ="-2116">
-			<node x="7845" y="185057" />
-			<node x="7113" y="182874" />
-			<node x="8618" y="182744" />
-			<node x="9494" y="184378" />
-		</territory>
-		<npc id="20251" count="3" respawnDelay="29" /> <!-- Delu Lizardman -->
+	<spawn name="BeeHive">
+		<group>
+			<npc id="20068" x="4442" y="163943" z="-3720" respawnDelay="29" /> <!-- Monster Eye Destroyer -->
+			<npc id="20068" x="1630" y="164933" z="-3592" heading="35545" respawnDelay="29" /> <!-- Monster Eye Destroyer -->
+			<npc id="20068" x="4845" y="164655" z="-3656" respawnDelay="29" /> <!-- Monster Eye Destroyer -->
+			<npc id="20068" x="4319" y="166544" z="-3416" respawnDelay="29" /> <!-- Monster Eye Destroyer -->
+			<npc id="20068" x="3312" y="167256" z="-3464" respawnDelay="29" /> <!-- Monster Eye Destroyer -->
+			<npc id="20068" x="5023" y="166722" z="-3464" respawnDelay="29" /> <!-- Monster Eye Destroyer -->
+			<npc id="20068" x="3715" y="166900" z="-3464" respawnDelay="29" /> <!-- Monster Eye Destroyer -->
+			<npc id="20068" x="3311" y="167612" z="-3480" respawnDelay="29" /> <!-- Monster Eye Destroyer -->
+			<npc id="20068" x="4906" y="169094" z="-3448" heading="60870" respawnDelay="29" /> <!-- Monster Eye Destroyer -->
+			<npc id="20068" x="5769" y="172528" z="-3320" respawnDelay="29" /> <!-- Monster Eye Destroyer -->
+			<npc id="20068" x="5970" y="172884" z="-3336" respawnDelay="29" /> <!-- Monster Eye Destroyer -->
+			<npc id="20068" x="4057" y="173418" z="-3184" respawnDelay="29" /> <!-- Monster Eye Destroyer -->
+			<npc id="20068" x="2076" y="168808" z="-3528" heading="57828" respawnDelay="29" /> <!-- Monster Eye Destroyer -->
+			<npc id="20068" x="708" y="171710" z="-3120" heading="7179" respawnDelay="29" /> <!-- Monster Eye Destroyer -->
+			<npc id="20068" x="3755" y="174308" z="-3248" respawnDelay="29" /> <!-- Monster Eye Destroyer -->
+			<npc id="20068" x="4158" y="172172" z="-3200" respawnDelay="29" /> <!-- Monster Eye Destroyer -->
+			<npc id="20068" x="1000" y="176554" z="-3432" respawnDelay="29" /> <!-- Monster Eye Destroyer -->
+			<npc id="20068" x="296" y="177800" z="-3640" respawnDelay="29" /> <!-- Monster Eye Destroyer -->
+			<npc id="20068" x="900" y="178512" z="-3672" respawnDelay="29" /> <!-- Monster Eye Destroyer -->
+			<npc id="20068" x="2804" y="180600" z="-3688" heading="42753" respawnDelay="29" /> <!-- Monster Eye Destroyer -->
+			<npc id="20068" x="5873" y="179363" z="-3480" heading="38291" respawnDelay="29" /> <!-- Monster Eye Destroyer -->
+			<npc id="20068" x="3643" y="187852" z="-3672" heading="25186" respawnDelay="29" /> <!-- Monster Eye Destroyer -->
+			<npc id="20068" x="3329" y="184065" z="-3440" respawnDelay="29" /> <!-- Monster Eye Destroyer -->
+			<npc id="20068" x="2794" y="176806" z="-3464" heading="40073" respawnDelay="29" /> <!-- Monster Eye Destroyer -->
+			<npc id="20068" x="2062" y="179823" z="-3704" heading="29508" respawnDelay="29" /> <!-- Monster Eye Destroyer -->
+			<npc id="20068" x="3347" y="181418" z="-3672" heading="8913" respawnDelay="29" /> <!-- Monster Eye Destroyer -->
+			<npc id="20068" x="2904" y="172862" z="-3561" respawnDelay="29" /> <!-- Monster Eye Destroyer -->
+			<npc id="20068" x="7365" y="176003" z="-3624" heading="33339" respawnDelay="29" /> <!-- Monster Eye Destroyer -->
+			<npc id="20068" x="5688" y="175706" z="-3649" respawnDelay="29" /> <!-- Monster Eye Destroyer -->
+			<npc id="20068" x="2638" y="178424" z="-3656" respawnDelay="29" /> <!-- Monster Eye Destroyer -->
+			<npc id="20068" x="2537" y="178602" z="-3656" respawnDelay="29" /> <!-- Monster Eye Destroyer -->
+			<npc id="20168" x="11333" y="180044" z="-3368" heading="12696" respawnDelay="29" /> <!-- Silenos -->
+			<npc id="20168" x="8436" y="176277" z="-3528" heading="7288" respawnDelay="29" /> <!-- Silenos -->
+			<npc id="20168" x="9806" y="178460" z="-3601" respawnDelay="29" /> <!-- Silenos -->
+			<npc id="20168" x="9321" y="176423" z="-3544" heading="42194" respawnDelay="29" /> <!-- Silenos -->
+			<npc id="20168" x="14263" y="180660" z="-3656" heading="7787" respawnDelay="29" /> <!-- Silenos -->
+			<npc id="20168" x="11057" y="176259" z="-3544" heading="6212" respawnDelay="29" /> <!-- Silenos -->
+			<npc id="20168" x="10088" y="181856" z="-2984" heading="1863" respawnDelay="29" /> <!-- Silenos -->
+			<npc id="20168" x="7917" y="180153" z="-3450" respawnDelay="29" /> <!-- Silenos -->
+			<npc id="20168" x="7917" y="180865" z="-3000" respawnDelay="29" /> <!-- Silenos -->
+			<npc id="20168" x="8219" y="179975" z="-3450" respawnDelay="29" /> <!-- Silenos -->
+			<npc id="20168" x="9264" y="184102" z="-2616" heading="65047" respawnDelay="29" /> <!-- Silenos -->
+			<npc id="20168" x="6982" y="181855" z="-2904" respawnDelay="29" /> <!-- Silenos -->
+			<npc id="20168" x="12717" y="178830" z="-3544" heading="60561" respawnDelay="29" /> <!-- Silenos -->
+			<npc id="20168" x="6279" y="183101" z="-2894" respawnDelay="29" /> <!-- Silenos -->
+			<npc id="20168" x="9201" y="181452" z="-3016" heading="50906" respawnDelay="29" /> <!-- Silenos -->
+			<npc id="20190" x="8320" y="180153" z="-3450" respawnDelay="29" /> <!-- Skeleton Marauder -->
+			<npc id="20190" x="6579" y="182567" z="-2894" respawnDelay="29" /> <!-- Skeleton Marauder -->
+			<npc id="20190" x="7133" y="184526" z="-2488" heading="22816" respawnDelay="29" /> <!-- Skeleton Marauder -->
+			<npc id="20190" x="8990" y="183360" z="-2712" heading="39567" respawnDelay="29" /> <!-- Skeleton Marauder -->
+			<npc id="20190" x="6662" y="187882" z="-3672" respawnDelay="29" /> <!-- Skeleton Marauder -->
+			<npc id="20190" x="8507" y="188248" z="-3720" respawnDelay="29" /> <!-- Skeleton Marauder -->
+			<npc id="20204" x="4259" y="171994" z="-3208" respawnDelay="29" /> <!-- Bloody Bee -->
+			<npc id="20204" x="4964" y="173596" z="-3304" respawnDelay="29" /> <!-- Bloody Bee -->
+			<npc id="20204" x="5737" y="170685" z="-3480" heading="43104" respawnDelay="29" /> <!-- Bloody Bee -->
+			<npc id="20204" x="4057" y="174130" z="-3240" respawnDelay="29" /> <!-- Bloody Bee -->
+			<npc id="20204" x="4057" y="172350" z="-3144" respawnDelay="29" /> <!-- Bloody Bee -->
+			<npc id="20204" x="7097" y="172528" z="-3512" heading="53339" respawnDelay="29" /> <!-- Bloody Bee -->
+			<npc id="20205" x="2312" y="166107" z="-3496" heading="9562" respawnDelay="24" /> <!-- Dire Wolf -->
+			<npc id="20205" x="36" y="164600" z="-3176" respawnDelay="24" /> <!-- Dire Wolf -->
+			<npc id="20205" x="539" y="164066" z="-3288" respawnDelay="24" /> <!-- Dire Wolf -->
+			<npc id="20205" x="2790" y="168520" z="-3496" heading="12461" respawnDelay="24" /> <!-- Dire Wolf -->
+			<npc id="20205" x="1027" y="169006" z="-3576" respawnDelay="24" /> <!-- Dire Wolf -->
+			<npc id="20205" x="1329" y="168828" z="-3624" respawnDelay="24" /> <!-- Dire Wolf -->
+			<npc id="20205" x="4291" y="170201" z="-3496" heading="19830" respawnDelay="24" /> <!-- Dire Wolf -->
+			<npc id="20205" x="724" y="168116" z="-3624" respawnDelay="24" /> <!-- Dire Wolf -->
+			<npc id="20205" x="5669" y="173062" z="-3320" respawnDelay="24" /> <!-- Dire Wolf -->
+			<npc id="20205" x="4965" y="173952" z="-3336" respawnDelay="24" /> <!-- Dire Wolf -->
+			<npc id="20205" x="1914" y="172553" z="-3032" heading="6163" respawnDelay="24" /> <!-- Dire Wolf -->
+			<npc id="20205" x="7432" y="174448" z="-3624" heading="36870" respawnDelay="24" /> <!-- Dire Wolf -->
+			<npc id="20205" x="4963" y="173240" z="-3256" respawnDelay="24" /> <!-- Dire Wolf -->
+			<npc id="20205" x="4760" y="169590" z="-3448" heading="1808" respawnDelay="24" /> <!-- Dire Wolf -->
+			<npc id="20205" x="4561" y="173596" z="-3264" respawnDelay="24" /> <!-- Dire Wolf -->
+			<npc id="20205" x="698" y="177444" z="-3576" respawnDelay="24" /> <!-- Dire Wolf -->
+			<npc id="20205" x="1292" y="181258" z="-3624" heading="18665" respawnDelay="24" /> <!-- Dire Wolf -->
+			<npc id="20205" x="3978" y="176102" z="-3336" heading="62995" respawnDelay="24" /> <!-- Dire Wolf -->
+			<npc id="20205" x="1610" y="175887" z="-3200" heading="50692" respawnDelay="24" /> <!-- Dire Wolf -->
+			<npc id="20205" x="2107" y="176732" z="-3368" respawnDelay="24" /> <!-- Dire Wolf -->
+			<npc id="20205" x="1373" y="179866" z="-3704" heading="53381" respawnDelay="24" /> <!-- Dire Wolf -->
+			<npc id="20205" x="3673" y="177675" z="-3576" heading="4181" respawnDelay="24" /> <!-- Dire Wolf -->
+			<npc id="20206" x="422" y="168650" z="-3568" respawnDelay="29" /> <!-- Cardiff Werewolf -->
+			<npc id="20206" x="1127" y="168472" z="-3624" respawnDelay="29" /> <!-- Cardiff Werewolf -->
+			<npc id="20206" x="1428" y="167938" z="-3624" respawnDelay="29" /> <!-- Cardiff Werewolf -->
+			<npc id="20206" x="1551" y="166242" z="-3560" heading="55518" respawnDelay="29" /> <!-- Cardiff Werewolf -->
+			<npc id="20206" x="4057" y="173774" z="-3192" respawnDelay="29" /> <!-- Cardiff Werewolf -->
+			<npc id="20206" x="4661" y="172350" z="-3224" respawnDelay="29" /> <!-- Cardiff Werewolf -->
+			<npc id="20206" x="4158" y="173596" z="-3208" respawnDelay="29" /> <!-- Cardiff Werewolf -->
+			<npc id="20206" x="5467" y="173774" z="-3368" respawnDelay="29" /> <!-- Cardiff Werewolf -->
+			<npc id="20206" x="5567" y="172528" z="-3272" respawnDelay="29" /> <!-- Cardiff Werewolf -->
+			<npc id="20206" x="4762" y="173240" z="-3240" respawnDelay="29" /> <!-- Cardiff Werewolf -->
+			<npc id="20206" x="3454" y="172350" z="-3096" respawnDelay="29" /> <!-- Cardiff Werewolf -->
+			<npc id="20206" x="1106" y="174086" z="-2888" heading="27003" respawnDelay="29" /> <!-- Cardiff Werewolf -->
+			<npc id="20206" x="2207" y="177622" z="-3616" respawnDelay="29" /> <!-- Cardiff Werewolf -->
+			<npc id="20206" x="1001" y="177622" z="-3560" respawnDelay="29" /> <!-- Cardiff Werewolf -->
+			<npc id="20206" x="800" y="176554" z="-3448" respawnDelay="29" /> <!-- Cardiff Werewolf -->
+			<npc id="20206" x="623" y="173172" z="-2840" heading="47809" respawnDelay="29" /> <!-- Cardiff Werewolf -->
+			<npc id="20206" x="3530" y="183353" z="-3408" respawnDelay="29" /> <!-- Cardiff Werewolf -->
+			<npc id="20206" x="4816" y="185698" z="-3208" heading="16877" respawnDelay="29" /> <!-- Cardiff Werewolf -->
+			<npc id="20206" x="3064" y="182678" z="-3552" heading="56400" respawnDelay="29" /> <!-- Cardiff Werewolf -->
+			<npc id="20206" x="3650" y="179594" z="-3672" heading="25273" respawnDelay="29" /> <!-- Cardiff Werewolf -->
+			<npc id="20206" x="4155" y="176905" z="-3512" heading="16504" respawnDelay="29" /> <!-- Cardiff Werewolf -->
+			<npc id="20206" x="3630" y="185311" z="-3408" respawnDelay="29" /> <!-- Cardiff Werewolf -->
+			<npc id="20206" x="2183" y="179186" z="-3672" heading="43746" respawnDelay="29" /> <!-- Cardiff Werewolf -->
+			<npc id="20206" x="190" y="188508" z="-3704" heading="15225" respawnDelay="29" /> <!-- Cardiff Werewolf -->
+			<npc id="20206" x="1878" y="171418" z="-3240" heading="51592" respawnDelay="29" /> <!-- Cardiff Werewolf -->
+			<npc id="20206" x="2401" y="172328" z="-3561" respawnDelay="29" /> <!-- Cardiff Werewolf -->
+			<npc id="20206" x="5788" y="175172" z="-3649" respawnDelay="29" /> <!-- Cardiff Werewolf -->
+			<npc id="20250" x="5225" y="166722" z="-3464" respawnDelay="29" /> <!-- Glass Jaguar -->
+			<npc id="20250" x="3277" y="164474" z="-3720" heading="44720" respawnDelay="29" /> <!-- Glass Jaguar -->
+			<npc id="20250" x="3714" y="167968" z="-3448" respawnDelay="29" /> <!-- Glass Jaguar -->
+			<npc id="20250" x="4082" y="166010" z="-3504" heading="49635" respawnDelay="29" /> <!-- Glass Jaguar -->
+			<npc id="20250" x="4923" y="166900" z="-3448" respawnDelay="29" /> <!-- Glass Jaguar -->
+			<npc id="20250" x="5590" y="169296" z="-3448" heading="12633" respawnDelay="29" /> <!-- Glass Jaguar -->
+			<npc id="20250" x="3732" y="184065" z="-3312" respawnDelay="29" /> <!-- Glass Jaguar -->
+			<npc id="20250" x="3026" y="184955" z="-3544" respawnDelay="29" /> <!-- Glass Jaguar -->
+			<npc id="20250" x="3833" y="184599" z="-3304" respawnDelay="29" /> <!-- Glass Jaguar -->
+			<npc id="20250" x="4738" y="184065" z="-3208" respawnDelay="29" /> <!-- Glass Jaguar -->
+			<npc id="20250" x="4143" y="181529" z="-3496" heading="16325" respawnDelay="29" /> <!-- Glass Jaguar -->
+			<npc id="20250" x="4426" y="178357" z="-3544" heading="59348" respawnDelay="29" /> <!-- Glass Jaguar -->
+			<npc id="20250" x="2323" y="183709" z="-3608" respawnDelay="29" /> <!-- Glass Jaguar -->
+			<npc id="20250" x="4016" y="167461" z="-3496" respawnDelay="29" /> <!-- Glass Jaguar -->
+			<npc id="20250" x="5559" y="168079" z="-3448" heading="5292" respawnDelay="29" /> <!-- Glass Jaguar -->
+			<npc id="20250" x="2940" y="178602" z="-3672" respawnDelay="29" /> <!-- Glass Jaguar -->
+			<npc id="20250" x="2344" y="180165" z="-3672" heading="22110" respawnDelay="29" /> <!-- Glass Jaguar -->
+			<npc id="20250" x="1745" y="183704" z="-3672" respawnDelay="29" /> <!-- Glass Jaguar -->
+			<npc id="20251" x="4442" y="164655" z="-3640" respawnDelay="29" /> <!-- Delu Lizardman -->
+			<npc id="20251" x="5171" y="165513" z="-3560" respawnDelay="29" /> <!-- Delu Lizardman -->
+			<npc id="20251" x="3321" y="165306" z="-3640" heading="18199" respawnDelay="29" /> <!-- Delu Lizardman -->
+			<npc id="20251" x="3061" y="169409" z="-3416" heading="19348" respawnDelay="29" /> <!-- Delu Lizardman -->
+			<npc id="20251" x="4420" y="168146" z="-3448" respawnDelay="29" /> <!-- Delu Lizardman -->
+			<npc id="20251" x="4520" y="166900" z="-3432" respawnDelay="29" /> <!-- Delu Lizardman -->
+			<npc id="20251" x="6615" y="169127" z="-3496" heading="10859" respawnDelay="29" /> <!-- Delu Lizardman -->
+			<npc id="20251" x="5038" y="170809" z="-3432" heading="20725" respawnDelay="29" /> <!-- Delu Lizardman -->
+			<npc id="20251" x="5125" y="166188" z="-3496" respawnDelay="29" /> <!-- Delu Lizardman -->
+			<npc id="20251" x="6813" y="167977" z="-3448" heading="6629" respawnDelay="29" /> <!-- Delu Lizardman -->
+			<npc id="20251" x="4318" y="167283" z="-3496" respawnDelay="29" /> <!-- Delu Lizardman -->
+			<npc id="20251" x="1751" y="184412" z="-3672" heading="7421" respawnDelay="29" /> <!-- Delu Lizardman -->
+			<npc id="20251" x="969" y="181727" z="-3640" heading="56760" respawnDelay="29" /> <!-- Delu Lizardman -->
+			<npc id="20251" x="3993" y="189837" z="-3688" heading="64980" respawnDelay="29" /> <!-- Delu Lizardman -->
+			<npc id="20251" x="2572" y="187611" z="-3680" respawnDelay="29" /> <!-- Delu Lizardman -->
+			<npc id="20251" x="1148" y="190847" z="-3704" heading="59771" respawnDelay="29" /> <!-- Delu Lizardman -->
+			<npc id="20251" x="7253" y="182744" z="-2744" respawnDelay="29" /> <!-- Delu Lizardman -->
+			<npc id="20251" x="9336" y="180677" z="-2968" heading="63617" respawnDelay="29" /> <!-- Delu Lizardman -->
+			<npc id="20251" x="7354" y="183278" z="-2716" respawnDelay="29" /> <!-- Delu Lizardman -->
+			<npc id="20252" x="10284" y="175373" z="-3624" heading="49240" respawnDelay="29" /> <!-- Delu Lizardman Scout -->
+			<npc id="20252" x="11061" y="179113" z="-3304" heading="39914" respawnDelay="29" /> <!-- Delu Lizardman Scout -->
+			<npc id="20252" x="7420" y="177888" z="-3464" heading="33486" respawnDelay="29" /> <!-- Delu Lizardman Scout -->
+			<npc id="20252" x="10915" y="177926" z="-3601" respawnDelay="29" /> <!-- Delu Lizardman Scout -->
+			<npc id="20252" x="12704" y="177834" z="-3464" heading="42124" respawnDelay="29" /> <!-- Delu Lizardman Scout -->
+			<npc id="20252" x="10292" y="184646" z="-2840" respawnDelay="29" /> <!-- Delu Lizardman Scout -->
+			<npc id="20252" x="9989" y="185180" z="-2872" respawnDelay="29" /> <!-- Delu Lizardman Scout -->
+			<npc id="20252" x="10594" y="185180" z="-2848" respawnDelay="29" /> <!-- Delu Lizardman Scout -->
+			<npc id="20252" x="11299" y="185358" z="-2848" respawnDelay="29" /> <!-- Delu Lizardman Scout -->
+			<npc id="20252" x="9582" y="188284" z="-3720" respawnDelay="29" /> <!-- Delu Lizardman Scout -->
+			<npc id="20252" x="6964" y="187704" z="-3688" respawnDelay="29" /> <!-- Delu Lizardman Scout -->
+			<npc id="20252" x="6763" y="188416" z="-3704" respawnDelay="29" /> <!-- Delu Lizardman Scout -->
+			<npc id="20252" x="7065" y="187882" z="-3696" respawnDelay="29" /> <!-- Delu Lizardman Scout -->
+			<npc id="20253" x="10895" y="184646" z="-2848" respawnDelay="29" /> <!-- Delu Lizardman Warrior -->
+			<npc id="20253" x="11097" y="185358" z="-2848" respawnDelay="29" /> <!-- Delu Lizardman Warrior -->
+			<npc id="20253" x="10393" y="184824" z="-2936" respawnDelay="29" /> <!-- Delu Lizardman Warrior -->
+			<npc id="20253" x="10695" y="185002" z="-2848" respawnDelay="29" /> <!-- Delu Lizardman Warrior -->
+			<npc id="20253" x="10393" y="185180" z="-2952" respawnDelay="29" /> <!-- Delu Lizardman Warrior -->
+			<npc id="20253" x="6864" y="188594" z="-3704" respawnDelay="29" /> <!-- Delu Lizardman Warrior -->
+			<npc id="20253" x="6864" y="187526" z="-3688" respawnDelay="29" /> <!-- Delu Lizardman Warrior -->
+			<npc id="20253" x="7367" y="187704" z="-3688" respawnDelay="29" /> <!-- Delu Lizardman Warrior -->
+			<npc id="20253" x="7066" y="188594" z="-3720" respawnDelay="29" /> <!-- Delu Lizardman Warrior -->
+			<npc id="20254" x="8018" y="179975" z="-3472" respawnDelay="29" /> <!-- Skeleton Axeman -->
+			<npc id="20254" x="8723" y="180509" z="-3450" respawnDelay="29" /> <!-- Skeleton Axeman -->
+			<npc id="20254" x="8078" y="181579" z="-2920" heading="27501" respawnDelay="29" /> <!-- Skeleton Axeman -->
+			<npc id="20254" x="4950" y="182442" z="-3304" heading="31693" respawnDelay="29" /> <!-- Skeleton Axeman -->
+			<npc id="20254" x="6882" y="182745" z="-2894" respawnDelay="29" /> <!-- Skeleton Axeman -->
+			<npc id="20254" x="6379" y="183279" z="-2894" respawnDelay="29" /> <!-- Skeleton Axeman -->
+			<npc id="20254" x="8924" y="184841" z="-2584" heading="16103" respawnDelay="29" /> <!-- Skeleton Axeman -->
+			<npc id="20254" x="8010" y="182685" z="-2744" heading="33970" respawnDelay="29" /> <!-- Skeleton Axeman -->
+			<npc id="20781" x="9490" y="165669" z="-3704" heading="37933" respawnDelay="30" /> <!-- Delu Lizardman Shaman -->
+			<npc id="20781" x="7460" y="164143" z="-3576" respawnDelay="30" /> <!-- Delu Lizardman Shaman -->
+			<npc id="20781" x="10701" y="164480" z="-3704" heading="56988" respawnDelay="30" /> <!-- Delu Lizardman Shaman -->
+			<npc id="20781" x="13111" y="163982" z="-3624" respawnDelay="30" /> <!-- Delu Lizardman Shaman -->
+			<npc id="20781" x="13479" y="165624" z="-3656" heading="26330" respawnDelay="30" /> <!-- Delu Lizardman Shaman -->
+			<npc id="20781" x="14175" y="170766" z="-3560" respawnDelay="30" /> <!-- Delu Lizardman Shaman -->
+			<npc id="20781" x="13521" y="171142" z="-3560" respawnDelay="30" /> <!-- Delu Lizardman Shaman -->
+			<npc id="20781" x="13419" y="170608" z="-3542" respawnDelay="30" /> <!-- Delu Lizardman Shaman -->
+			<npc id="20781" x="19992" y="164834" z="-3384" respawnDelay="30" /> <!-- Delu Lizardman Shaman -->
+			<npc id="20781" x="19388" y="164478" z="-3416" respawnDelay="30" /> <!-- Delu Lizardman Shaman -->
+			<npc id="20781" x="24923" y="164532" z="-3336" respawnDelay="30" /> <!-- Delu Lizardman Shaman -->
+			<npc id="20781" x="25024" y="164354" z="-3336" respawnDelay="30" /> <!-- Delu Lizardman Shaman -->
+			<npc id="20781" x="22236" y="167496" z="-3336" respawnDelay="30" /> <!-- Delu Lizardman Shaman -->
+			<npc id="20781" x="24020" y="166650" z="-3288" heading="41781" respawnDelay="30" /> <!-- Delu Lizardman Shaman -->
+			<npc id="20781" x="25352" y="168281" z="-3240" heading="60048" respawnDelay="30" /> <!-- Delu Lizardman Shaman -->
+			<npc id="20781" x="25596" y="169983" z="-3352" heading="7684" respawnDelay="30" /> <!-- Delu Lizardman Shaman -->
+			<npc id="20781" x="20124" y="167308" z="-3368" heading="27324" respawnDelay="30" /> <!-- Delu Lizardman Shaman -->
+			<npc id="20781" x="27933" y="168501" z="-3240" respawnDelay="30" /> <!-- Delu Lizardman Shaman -->
+			<npc id="20781" x="27631" y="167611" z="-3272" respawnDelay="30" /> <!-- Delu Lizardman Shaman -->
+			<npc id="20781" x="21584" y="164628" z="-3400" heading="48534" respawnDelay="30" /> <!-- Delu Lizardman Shaman -->
+			<npc id="20781" x="28374" y="164559" z="-3608" respawnDelay="30" /> <!-- Delu Lizardman Shaman -->
+			<npc id="20781" x="31160" y="165346" z="-3624" heading="36287" respawnDelay="30" /> <!-- Delu Lizardman Shaman -->
+			<npc id="21103" x="8662" y="164157" z="-3608" heading="22570" respawnDelay="30" /> <!-- Roughly Hewn Rock Golem -->
+			<npc id="21103" x="19137" y="164992" z="-3416" heading="64612" respawnDelay="30" /> <!-- Roughly Hewn Rock Golem -->
+			<npc id="21104" x="8366" y="164677" z="-3608" respawnDelay="30" /> <!-- Delu Lizardman Supplier -->
+			<npc id="21104" x="7761" y="163965" z="-3576" respawnDelay="30" /> <!-- Delu Lizardman Supplier -->
+			<npc id="21105" x="12203" y="164516" z="-3704" respawnDelay="30" /> <!-- Delu Lizardman Special Agent -->
+			<npc id="21105" x="10664" y="166725" z="-3672" heading="25281" respawnDelay="30" /> <!-- Delu Lizardman Special Agent -->
+			<npc id="21105" x="19542" y="166059" z="-3424" heading="22540" respawnDelay="30" /> <!-- Delu Lizardman Special Agent -->
+			<npc id="21105" x="22401" y="166097" z="-3352" heading="64271" respawnDelay="30" /> <!-- Delu Lizardman Special Agent -->
+			<npc id="21105" x="18953" y="165943" z="-3508" respawnDelay="30" /> <!-- Delu Lizardman Special Agent -->
+			<npc id="21105" x="23203" y="168555" z="-3336" heading="53744" respawnDelay="30" /> <!-- Delu Lizardman Special Agent -->
+			<npc id="21105" x="22742" y="169716" z="-3400" heading="58654" respawnDelay="30" /> <!-- Delu Lizardman Special Agent -->
+			<npc id="21106" x="10864" y="165320" z="-3704" heading="6323" respawnDelay="30" /> <!-- Cursed Watchman -->
+			<npc id="21106" x="12808" y="164516" z="-3672" respawnDelay="30" /> <!-- Cursed Watchman -->
+			<npc id="21106" x="9518" y="166180" z="-3704" heading="32910" respawnDelay="30" /> <!-- Cursed Watchman -->
+			<npc id="21106" x="14675" y="164348" z="-3688" heading="385" respawnDelay="30" /> <!-- Cursed Watchman -->
+			<npc id="21106" x="14999" y="171717" z="-3480" respawnDelay="30" /> <!-- Cursed Watchman -->
+			<npc id="21106" x="13722" y="171498" z="-3504" respawnDelay="30" /> <!-- Cursed Watchman -->
+			<npc id="21106" x="13118" y="171142" z="-3576" respawnDelay="30" /> <!-- Cursed Watchman -->
+			<npc id="21106" x="17608" y="164547" z="-3640" heading="7669" respawnDelay="30" /> <!-- Cursed Watchman -->
+			<npc id="21106" x="15632" y="164081" z="-3656" heading="38081" respawnDelay="30" /> <!-- Cursed Watchman -->
+			<npc id="21106" x="19053" y="166833" z="-3508" respawnDelay="30" /> <!-- Cursed Watchman -->
+			<npc id="21106" x="19689" y="163944" z="-3416" respawnDelay="30" /> <!-- Cursed Watchman -->
+			<npc id="21106" x="17783" y="166439" z="-3560" heading="19825" respawnDelay="30" /> <!-- Cursed Watchman -->
+			<npc id="21106" x="19589" y="164478" z="-3400" respawnDelay="30" /> <!-- Cursed Watchman -->
+			<npc id="21106" x="25225" y="163998" z="-3336" respawnDelay="30" /> <!-- Cursed Watchman -->
+			<npc id="21106" x="25023" y="165066" z="-3392" respawnDelay="30" /> <!-- Cursed Watchman -->
+			<npc id="21106" x="25528" y="164532" z="-3368" respawnDelay="30" /> <!-- Cursed Watchman -->
+			<npc id="21106" x="21026" y="165098" z="-3400" heading="50111" respawnDelay="30" /> <!-- Cursed Watchman -->
+			<npc id="21106" x="23832" y="170103" z="-3384" heading="6545" respawnDelay="30" /> <!-- Cursed Watchman -->
+			<npc id="21106" x="22940" y="167318" z="-3304" respawnDelay="30" /> <!-- Cursed Watchman -->
+			<npc id="21106" x="23243" y="166428" z="-3288" respawnDelay="30" /> <!-- Cursed Watchman -->
+			<npc id="21106" x="28034" y="168679" z="-3272" respawnDelay="30" /> <!-- Cursed Watchman -->
+			<npc id="21106" x="23147" y="164321" z="-3288" heading="64019" respawnDelay="30" /> <!-- Cursed Watchman -->
+			<npc id="21106" x="26969" y="168813" z="-3192" heading="2908" respawnDelay="30" /> <!-- Cursed Watchman -->
+			<npc id="21106" x="24945" y="167554" z="-3365" respawnDelay="30" /> <!-- Cursed Watchman -->
+			<npc id="21106" x="22150" y="170143" z="-3432" heading="26220" respawnDelay="30" /> <!-- Cursed Watchman -->
+			<npc id="21107" x="13118" y="171498" z="-3552" respawnDelay="30" /> <!-- Delu Lizardman Commander -->
+			<npc id="21107" x="11549" y="172332" z="-3528" respawnDelay="30" /> <!-- Delu Lizardman Commander -->
+			<npc id="21107" x="13823" y="171676" z="-3464" respawnDelay="30" /> <!-- Delu Lizardman Commander -->
+			<npc id="21107" x="13542" y="172395" z="-3448" respawnDelay="30" /> <!-- Delu Lizardman Commander -->
+			<npc id="21107" x="12300" y="171614" z="-3600" respawnDelay="30" /> <!-- Delu Lizardman Commander -->
+			<npc id="21107" x="18302" y="163868" z="-3448" heading="8657" respawnDelay="30" /> <!-- Delu Lizardman Commander -->
+			<npc id="21107" x="25124" y="164176" z="-3336" respawnDelay="30" /> <!-- Delu Lizardman Commander -->
+			<npc id="21107" x="25326" y="164532" z="-3368" respawnDelay="30" /> <!-- Delu Lizardman Commander -->
+			<npc id="21107" x="25427" y="164354" z="-3368" respawnDelay="30" /> <!-- Delu Lizardman Commander -->
+			<npc id="21107" x="24320" y="167633" z="-3256" heading="61691" respawnDelay="30" /> <!-- Delu Lizardman Commander -->
+			<npc id="21107" x="21095" y="168519" z="-3368" heading="31635" respawnDelay="30" /> <!-- Delu Lizardman Commander -->
+			<npc id="21107" x="23118" y="165298" z="-3320" heading="42953" respawnDelay="30" /> <!-- Delu Lizardman Commander -->
+			<npc id="21107" x="22639" y="166784" z="-3320" respawnDelay="30" /> <!-- Delu Lizardman Commander -->
+			<npc id="21107" x="21251" y="166188" z="-3384" heading="29163" respawnDelay="30" /> <!-- Delu Lizardman Commander -->
+			<npc id="21107" x="29741" y="165025" z="-3608" heading="57601" respawnDelay="30" /> <!-- Delu Lizardman Commander -->
+			<npc id="21107" x="28648" y="167090" z="-3384" heading="21924" respawnDelay="30" /> <!-- Delu Lizardman Commander -->
+			<npc id="21107" x="24881" y="171207" z="-3368" heading="18301" respawnDelay="30" /> <!-- Delu Lizardman Commander -->
+			<npc id="27093" x="28448" y="174080" z="-3416" respawnDelay="60" /> <!-- Delu Chief Kalkis -->
+			<npc id="27103" x="23354" y="187991" z="-3616" respawnDelay="180" /> <!-- Racer the Unicorn -->
+			<npc id="27112" x="6317" y="184549" z="-3160" heading="25731" respawnDelay="180" /> <!-- Gorr -->
+			<npc id="27113" x="20898" y="184689" z="-3352" respawnDelay="180" /> <!-- Baraham -->
+			<npc id="30616" x="19509" y="192096" z="-3720" heading="20480" respawnDelay="60" /> <!-- Kepra -->
+			<npc id="30636" x="23471" y="188092" z="-3608" heading="16384" respawnDelay="60" /> <!-- Camoniell -->
+		</group>
 	</spawn>
 </list>

@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/npcs.xsd">
+	<npc id="1606" level="55" type="Monster" name="Valakas1">
+		<!-- AUTO GENERATED NPC TODO: FIX IT -->
+		<race>ANIMAL</race>
+		<sex>MALE</sex>
+		<stats str="88" int="79" dex="55" wit="78" con="82" men="78">
+			<vitals hp="1673" hpRegen="6.5" mp="889" mpRegen="2.4" />
+			<speed>
+				<walk ground="60" />
+				<run ground="180" />
+			</speed>
+			<attack physical="388.11142" magical="265.02979" critical="4" attackSpeed="253" range="40" type="FIST" distance="80" width="120" random="10" accuracy="5" />
+			<defence physical="223.6362" magical="163.64727" />
+			<attribute>
+				<defence fire="20" water="20" wind="20" earth="20" holy="20" dark="20" />
+			</attribute>
+			<abnormalResist physical="10" magical="10" />
+		</stats>
+		<status attackable="false" undying="false" />
+		<skillList>
+			<skill id="4416" level="4" /> <!-- Animals -->
+			<skill id="4121" level="1" /> <!-- Summoned Monster Magic Protection -->
+			<skill id="4415" level="1" /> <!-- Bare Hands -->
+		</skillList>
+		<shots soul="2" spirit="2" />
+		<collision>
+			<radius normal="5" />
+			<height normal="5" />
+		</collision>
+	</npc>
+	<npc id="1607" level="55" type="Monster" name="Valakas2">
+		<!-- AUTO GENERATED NPC TODO: FIX IT -->
+		<race>ANIMAL</race>
+		<sex>MALE</sex>
+		<stats str="88" int="79" dex="55" wit="78" con="82" men="78">
+			<vitals hp="1673" hpRegen="6.5" mp="889" mpRegen="2.4" />
+			<speed>
+				<walk ground="60" />
+				<run ground="180" />
+			</speed>
+			<attack physical="388.11142" magical="265.02979" critical="4" attackSpeed="253" range="40" type="FIST" distance="80" width="120" random="10" accuracy="5" />
+			<defence physical="223.6362" magical="163.64727" />
+			<attribute>
+				<defence fire="20" water="20" wind="20" earth="20" holy="20" dark="20" />
+			</attribute>
+			<abnormalResist physical="10" magical="10" />
+		</stats>
+		<status attackable="false" undying="false" />
+		<skillList>
+			<skill id="4416" level="4" /> <!-- Animals -->
+			<skill id="4121" level="1" /> <!-- Summoned Monster Magic Protection -->
+			<skill id="4415" level="1" /> <!-- Bare Hands -->
+		</skillList>
+		<shots soul="2" spirit="2" />
+		<collision>
+			<radius normal="4" />
+			<height normal="4" />
+		</collision>
+	</npc>
+	<npc id="1608" level="55" type="Monster" name="Valakas3">
+		<!-- AUTO GENERATED NPC TODO: FIX IT -->
+		<race>ANIMAL</race>
+		<sex>MALE</sex>
+		<stats str="88" int="79" dex="55" wit="78" con="82" men="78">
+			<vitals hp="1673" hpRegen="6.5" mp="889" mpRegen="2.4" />
+			<speed>
+				<walk ground="60" />
+				<run ground="180" />
+			</speed>
+			<attack physical="388.11142" magical="265.02979" critical="4" attackSpeed="253" range="40" type="FIST" distance="80" width="120" random="10" accuracy="5" />
+			<defence physical="223.6362" magical="163.64727" />
+			<attribute>
+				<defence fire="20" water="20" wind="20" earth="20" holy="20" dark="20" />
+			</attribute>
+			<abnormalResist physical="10" magical="10" />
+		</stats>
+		<status attackable="false" undying="false" />
+		<skillList>
+			<skill id="4416" level="4" /> <!-- Animals -->
+			<skill id="4121" level="1" /> <!-- Summoned Monster Magic Protection -->
+			<skill id="4415" level="1" /> <!-- Bare Hands -->
+		</skillList>
+		<shots soul="2" spirit="2" />
+		<collision>
+			<radius normal="5" />
+			<height normal="5" />
+		</collision>
+	</npc>
+	<npc id="1609" level="55" type="Monster" name="Valakas4">
+		<!-- AUTO GENERATED NPC TODO: FIX IT -->
+		<race>ANIMAL</race>
+		<sex>MALE</sex>
+		<stats str="88" int="79" dex="55" wit="78" con="82" men="78">
+			<vitals hp="1673" hpRegen="6.5" mp="889" mpRegen="2.4" />
+			<speed>
+				<walk ground="60" />
+				<run ground="180" />
+			</speed>
+			<attack physical="388.11142" magical="265.02979" critical="4" attackSpeed="253" range="40" type="FIST" distance="80" width="120" random="10" accuracy="5" />
+			<defence physical="223.6362" magical="163.64727" />
+			<attribute>
+				<defence fire="20" water="20" wind="20" earth="20" holy="20" dark="20" />
+			</attribute>
+			<abnormalResist physical="10" magical="10" />
+		</stats>
+		<status attackable="false" undying="false" />
+		<skillList>
+			<skill id="4416" level="4" /> <!-- Animals -->
+			<skill id="4121" level="1" /> <!-- Summoned Monster Magic Protection -->
+			<skill id="4415" level="1" /> <!-- Bare Hands -->
+		</skillList>
+		<shots soul="2" spirit="2" />
+		<collision>
+			<radius normal="5" />
+			<height normal="5" />
+		</collision>
+	</npc>
+	<npc id="1610" level="55" type="Monster" name="Valakas5">
+		<!-- AUTO GENERATED NPC TODO: FIX IT -->
+		<race>ANIMAL</race>
+		<sex>MALE</sex>
+		<stats str="88" int="79" dex="55" wit="78" con="82" men="78">
+			<vitals hp="1673" hpRegen="6.5" mp="889" mpRegen="2.4" />
+			<speed>
+				<walk ground="60" />
+				<run ground="180" />
+			</speed>
+			<attack physical="388.11142" magical="265.02979" critical="4" attackSpeed="253" range="40" type="FIST" distance="80" width="120" random="10" accuracy="5" />
+			<defence physical="223.6362" magical="163.64727" />
+			<attribute>
+				<defence fire="20" water="20" wind="20" earth="20" holy="20" dark="20" />
+			</attribute>
+			<abnormalResist physical="10" magical="10" />
+		</stats>
+		<status attackable="false" undying="false" />
+		<skillList>
+			<skill id="4416" level="4" /> <!-- Animals -->
+			<skill id="4121" level="1" /> <!-- Summoned Monster Magic Protection -->
+			<skill id="4415" level="1" /> <!-- Bare Hands -->
+		</skillList>
+		<shots soul="2" spirit="2" />
+		<collision>
+			<radius normal="6" />
+			<height normal="6" />
+		</collision>
+	</npc>
+	<npc id="1611" level="55" type="Monster" name="Valakas6">
+		<!-- AUTO GENERATED NPC TODO: FIX IT -->
+		<race>ANIMAL</race>
+		<sex>MALE</sex>
+		<stats str="88" int="79" dex="55" wit="78" con="82" men="78">
+			<vitals hp="1673" hpRegen="6.5" mp="889" mpRegen="2.4" />
+			<speed>
+				<walk ground="60" />
+				<run ground="180" />
+			</speed>
+			<attack physical="388.11142" magical="265.02979" critical="4" attackSpeed="253" range="40" type="FIST" distance="80" width="120" random="10" accuracy="5" />
+			<defence physical="223.6362" magical="163.64727" />
+			<attribute>
+				<defence fire="20" water="20" wind="20" earth="20" holy="20" dark="20" />
+			</attribute>
+			<abnormalResist physical="10" magical="10" />
+		</stats>
+		<status attackable="false" undying="false" />
+		<skillList>
+			<skill id="4416" level="4" /> <!-- Animals -->
+			<skill id="4121" level="1" /> <!-- Summoned Monster Magic Protection -->
+			<skill id="4415" level="1" /> <!-- Bare Hands -->
+		</skillList>
+		<shots soul="2" spirit="2" />
+		<collision>
+			<radius normal="7" />
+			<height normal="7" />
+		</collision>
+	</npc>
+	<npc id="1612" level="55" type="Monster" name="Valakas7">
+		<!-- AUTO GENERATED NPC TODO: FIX IT -->
+		<race>ANIMAL</race>
+		<sex>MALE</sex>
+		<stats str="88" int="79" dex="55" wit="78" con="82" men="78">
+			<vitals hp="1673" hpRegen="6.5" mp="889" mpRegen="2.4" />
+			<speed>
+				<walk ground="60" />
+				<run ground="180" />
+			</speed>
+			<attack physical="388.11142" magical="265.02979" critical="4" attackSpeed="253" range="40" type="FIST" distance="80" width="120" random="10" accuracy="5" />
+			<defence physical="223.6362" magical="163.64727" />
+			<attribute>
+				<defence fire="20" water="20" wind="20" earth="20" holy="20" dark="20" />
+			</attribute>
+			<abnormalResist physical="10" magical="10" />
+		</stats>
+		<status attackable="false" undying="false" />
+		<skillList>
+			<skill id="4416" level="4" /> <!-- Animals -->
+			<skill id="4121" level="1" /> <!-- Summoned Monster Magic Protection -->
+			<skill id="4415" level="1" /> <!-- Bare Hands -->
+		</skillList>
+		<shots soul="2" spirit="2" />
+		<collision>
+			<radius normal="7" />
+			<height normal="7" />
+		</collision>
+	</npc>
+</list>

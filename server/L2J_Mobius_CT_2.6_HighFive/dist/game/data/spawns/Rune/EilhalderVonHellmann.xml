@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list enabled="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/spawns.xsd">
+	<spawn name="rune10_mb2116_01m1">
+		<parameters>
+			<param name="chaseRange" value="8000" />
+		</parameters>
+		<group>
+			<npc id="25328" x="59331" y="-42403" z="-3003" respawnDelay="10800" respawnRandom="3600" /> <!-- Eilhalder von Hellmann -->
+		</group>
+	</spawn>
+</list>

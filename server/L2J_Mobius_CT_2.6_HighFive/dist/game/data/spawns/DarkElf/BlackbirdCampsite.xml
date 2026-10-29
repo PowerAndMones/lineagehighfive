@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list enabled="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/spawns.xsd">
+	<spawn name="BlackbirdCampsite">
+		<group>
+			<npc id="34054" x="-47988" y="69597" z="-3080" heading="35672" respawnDelay="60" /> <!-- Ferin -->
+			<npc id="34055" x="-48004" y="69674" z="-3080" heading="39238" respawnDelay="60" /> <!-- Cyphona -->
+			<npc id="34056" x="-47982" y="69518" z="-3080" heading="21019" respawnDelay="60" /> <!-- Belas -->
+			<npc id="34057" x="-48422" y="69238" z="-3080" heading="62025" respawnDelay="60" /> <!-- Elikia -->
+			<npc id="34058" x="-48629" y="69713" z="-3080" heading="62181" respawnDelay="60" /> <!-- Adolph -->
+			<npc id="34078" x="-48262" y="68919" z="-3080" heading="49847" respawnDelay="60" /> <!-- Training Soldier -->
+			<npc id="34078" x="-48068" y="68926" z="-3080" heading="49209" respawnDelay="60" /> <!-- Training Soldier -->
+			<npc id="34078" x="-48641" y="69648" z="-3080" heading="63372" respawnDelay="60" /> <!-- Training Soldier -->
+			<npc id="34078" x="-48269" y="70104" z="-3080" heading="14301" respawnDelay="60" /> <!-- Training Soldier -->
+			<npc id="34078" x="-48649" y="69781" z="-3080" heading="64807" respawnDelay="60" /> <!-- Training Soldier -->
+			<npc id="34078" x="-48447" y="70043" z="-3080" heading="21505" respawnDelay="60" /> <!-- Training Soldier -->
+			<npc id="34235" x="-48457" y="69422" z="-3080" heading="61714" respawnDelay="60" /> <!-- Logart Van Dyke -->
+			<npc id="34236" x="-48484" y="69467" z="-3080" heading="63573" respawnDelay="60" /> <!-- Dinford -->
+			<npc id="34242" x="-48739" y="69154" z="-3080" heading="61174" respawnDelay="60" /> <!-- Kingdom's Royal Guard Teleport Device -->
+		</group>
+	</spawn>
+</list>

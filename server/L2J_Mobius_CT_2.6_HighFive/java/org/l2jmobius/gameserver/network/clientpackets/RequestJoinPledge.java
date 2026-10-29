@@ -75,7 +75,7 @@ public class RequestJoinPledge extends ClientPacket
 		
 		final String pledgeName = player.getClan().getName();
 		final String subPledgeName = (player.getClan().getSubPledge(_pledgeType) != null ? player.getClan().getSubPledge(_pledgeType).getName() : null);
-		target.sendPacket(new AskJoinPledge(player.getObjectId(), subPledgeName, _pledgeType, pledgeName));
+		target.sendPacket(new AskJoinPledge(player.getObjectId(), player.getName(), subPledgeName, _pledgeType, pledgeName));
 	}
 	
 	public int getPledgeType()

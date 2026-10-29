@@ -2696,4 +2696,1207 @@
 			<height normal="35" />
 		</collision>
 	</npc>
+	<npc id="18972" level="90" type="Monster" name="Treekin Defender" title="Scout">
+		<parameters>
+			<param name="IsAggressive" value="1" />
+			<skill name="Skill01_ID" id="14053" level="2" />
+			<skill name="Skill02_ID" id="14054" level="2" />
+			<skill name="Skill03_ID" id="14101" level="2" />
+			<param name="Attack_BoostValue" value="135" />
+		</parameters>
+		<race>PLANT</race>
+		<sex>MALE</sex>
+		<acquire exp="4748949" sp="4779" />
+		<mpReward value="74" type="DIFF" ticks="10" affects="SOLO" />
+		<stats str="88" int="79" dex="55" wit="78" con="82" men="78">
+			<vitals hp="13886.1271676301" hpRegen="8.5" mp="2023.10231023102" mpRegen="3" />
+			<speed>
+				<walk ground="30" />
+				<run ground="180" />
+			</speed>
+			<attack physical="6063.25397252672" magical="662.055324652957" critical="4" attackSpeed="253" range="40" type="SWORD" distance="80" width="120" random="10" accuracy="5" />
+			<defence physical="440.223463687151" magical="244.113796854546" />
+			<attribute>
+				<attack type="EARTH" value="180" />
+				<defence fire="100" water="100" wind="50" earth="100" holy="100" dark="100" />
+			</attribute>
+			<abnormalResist physical="10" magical="10" />
+		</stats>
+		<status attackable="false" undying="false" />
+		<skillList>
+			<skill id="4408" level="10" /> <!-- HP Increase (2x) -->
+			<skill id="4415" level="3" /> <!-- One-handed Sword -->
+			<skill id="4416" level="5" /> <!-- Plants -->
+			<skill id="5465" level="1" /> <!-- Earth Attack -->
+			<skill id="14053" level="2" /> <!-- Mace Downward Strike -->
+			<skill id="14054" level="2" /> <!-- Wood Upward Strike -->
+			<skill id="14101" level="2" /> <!-- Wood Downward Strike -->
+			<skill id="14765" level="2" /> <!-- Blood Siphon Resistance -->
+		</skillList>
+		<ai clanHelpRange="300" aggroRange="300">
+			<clanList>
+				<clan>M_FAIRY</clan>
+			</clanList>
+		</ai>
+		<collision>
+			<radius normal="36" />
+			<height normal="50" />
+		</collision>
+	</npc>
+	<npc id="18973" level="90" type="Monster" name="Treekin Defender" title="Experienced Scout">
+		<parameters>
+			<param name="IsAggressive" value="1" />
+			<skill name="Skill01_ID" id="14053" level="3" />
+			<skill name="Skill02_ID" id="14054" level="3" />
+			<skill name="Skill03_ID" id="14101" level="3" />
+			<param name="Attack_BoostValue" value="139" />
+		</parameters>
+		<race>PLANT</race>
+		<sex>MALE</sex>
+		<acquire exp="4748949" sp="4779" />
+		<mpReward value="74" type="DIFF" ticks="10" affects="SOLO" />
+		<stats str="88" int="79" dex="55" wit="78" con="82" men="78">
+			<vitals hp="13904.0273938175" hpRegen="8.5" mp="2050.79638398622" mpRegen="3" />
+			<speed>
+				<walk ground="30" />
+				<run ground="180" />
+			</speed>
+			<attack physical="6521.76584037392" magical="707.802691423409" critical="4" attackSpeed="253" range="40" type="SWORD" distance="80" width="120" random="10" accuracy="5" />
+			<defence physical="448.05428777324" magical="251.151706571089" />
+			<attribute>
+				<attack type="EARTH" value="180" />
+				<defence fire="100" water="100" wind="50" earth="100" holy="100" dark="100" />
+			</attribute>
+			<abnormalResist physical="10" magical="10" />
+		</stats>
+		<status attackable="false" undying="false" />
+		<skillList>
+			<skill id="4408" level="12" /> <!-- HP Increase (4x) -->
+			<skill id="4415" level="3" /> <!-- One-handed Sword -->
+			<skill id="4416" level="5" /> <!-- Plants -->
+			<skill id="5465" level="1" /> <!-- Earth Attack -->
+			<skill id="14053" level="2" /> <!-- Mace Downward Strike -->
+			<skill id="14054" level="2" /> <!-- Wood Upward Strike -->
+			<skill id="14101" level="2" /> <!-- Wood Downward Strike -->
+			<skill id="14765" level="3" /> <!-- Blood Siphon Resistance -->
+		</skillList>
+		<ai clanHelpRange="300" aggroRange="300">
+			<clanList>
+				<clan>M_FAIRY</clan>
+			</clanList>
+		</ai>
+		<collision>
+			<radius normal="36" />
+			<height normal="50" />
+		</collision>
+		<dropLists>
+			<drop>
+				<!-- Also drops herbs. -->
+				<item id="8600" min="1" max="1" chance="10" /> <!-- Herb of Life -->
+				<item id="8601" min="1" max="1" chance="8" /> <!-- Major Herb of Life -->
+				<item id="8602" min="1" max="1" chance="2" /> <!-- Superior Herb of Life -->
+				<item id="8603" min="1" max="1" chance="19.8" /> <!-- Herb of Mana -->
+				<item id="8604" min="1" max="1" chance="9.9" /> <!-- Major Herb of Mana -->
+				<item id="8605" min="1" max="1" chance="3.3" /> <!-- Superior Herb of Mana -->
+				<item id="34849" min="1" max="1" chance="0.7" /> <!-- Mysterious Herb of Power -->
+				<item id="34850" min="1" max="1" chance="0.7" /> <!-- Mysterious Herb of Magic -->
+				<item id="13028" min="1" max="1" chance="0.1" /> <!-- Vitality Replenishing Herb -->
+			</drop>
+		</dropLists>
+	</npc>
+	<npc id="18974" level="90" type="Monster" name="Centaur Archer" title="Scout">
+		<parameters>
+			<param name="IsAggressive" value="1" />
+			<skill name="Skill01_ID" id="14055" level="2" />
+			<skill name="Skill02_ID" id="14056" level="2" />
+			<param name="Attack_BoostValue" value="135" />
+		</parameters>
+		<race>FAIRY</race>
+		<sex>FEMALE</sex>
+		<acquire exp="4748949" sp="4779" />
+		<equipment rhand="15302" /> <!-- Transparent Bow (NPC) -->
+		<mpReward value="74" type="DIFF" ticks="10" affects="SOLO" />
+		<stats str="88" int="79" dex="55" wit="78" con="82" men="78">
+			<vitals hp="13886.1271676301" hpRegen="8.5" mp="2023.10231023102" mpRegen="3" />
+			<speed>
+				<walk ground="20" />
+				<run ground="190" />
+			</speed>
+			<attack physical="4947.52862532016" magical="662.055324652957" critical="8" attackSpeed="253" range="1100" type="BOW" distance="10" width="0" random="5" accuracy="0" />
+			<defence physical="440.223463687151" magical="244.113796854546" />
+			<attribute>
+				<attack type="WIND" value="180" />
+				<defence fire="100" water="100" wind="100" earth="50" holy="100" dark="100" />
+			</attribute>
+			<abnormalResist physical="10" magical="10" />
+		</stats>
+		<status attackable="false" undying="false" />
+		<skillList>
+			<skill id="4408" level="10" /> <!-- HP Increase (2x) -->
+			<skill id="4415" level="9" /> <!-- Bow -->
+			<skill id="4416" level="13" /> <!-- Fairies -->
+			<skill id="5464" level="1" /> <!-- Wind Attack -->
+			<skill id="14055" level="2" /> <!-- Power Shot -->
+			<skill id="14056" level="2" /> <!-- Power Arrow -->
+			<skill id="14765" level="2" /> <!-- Blood Siphon Resistance -->
+		</skillList>
+		<ai clanHelpRange="300" aggroRange="300">
+			<clanList>
+				<clan>M_FAIRY</clan>
+			</clanList>
+		</ai>
+		<collision>
+			<radius normal="14" />
+			<height normal="24" />
+		</collision>
+	</npc>
+	<npc id="18975" level="90" type="Monster" name="Centaur Archer" title="Experienced Scout">
+		<parameters>
+			<param name="IsAggressive" value="1" />
+			<skill name="Skill01_ID" id="14055" level="3" />
+			<skill name="Skill02_ID" id="14056" level="3" />
+			<param name="Attack_BoostValue" value="139" />
+		</parameters>
+		<race>FAIRY</race>
+		<sex>FEMALE</sex>
+		<acquire exp="4748949" sp="4779" />
+		<equipment rhand="15302" /> <!-- Transparent Bow (NPC) -->
+		<mpReward value="74" type="DIFF" ticks="10" affects="SOLO" />
+		<stats str="88" int="79" dex="55" wit="78" con="82" men="78">
+			<vitals hp="13904.0273938175" hpRegen="8.5" mp="2050.79638398622" mpRegen="3" />
+			<speed>
+				<walk ground="20" />
+				<run ground="190" />
+			</speed>
+			<attack physical="5321.95537410208" magical="707.802691423409" critical="8" attackSpeed="253" range="1100" type="BOW" distance="10" width="0" random="5" accuracy="0" />
+			<defence physical="448.05428777324" magical="251.151706571089" />
+			<attribute>
+				<attack type="WIND" value="180" />
+				<defence fire="100" water="100" wind="100" earth="50" holy="100" dark="100" />
+			</attribute>
+			<abnormalResist physical="10" magical="10" />
+		</stats>
+		<status attackable="false" undying="false" />
+		<skillList>
+			<skill id="4408" level="12" /> <!-- HP Increase (4x) -->
+			<skill id="4415" level="9" /> <!-- Bow -->
+			<skill id="4416" level="13" /> <!-- Fairies -->
+			<skill id="5464" level="1" /> <!-- Wind Attack -->
+			<skill id="14055" level="2" /> <!-- Power Shot -->
+			<skill id="14056" level="2" /> <!-- Power Arrow -->
+			<skill id="14765" level="3" /> <!-- Blood Siphon Resistance -->
+		</skillList>
+		<ai clanHelpRange="300" aggroRange="300">
+			<clanList>
+				<clan>M_FAIRY</clan>
+			</clanList>
+		</ai>
+		<collision>
+			<radius normal="14" />
+			<height normal="24" />
+		</collision>
+		<dropLists>
+			<drop>
+				<!-- Also drops herbs. -->
+				<item id="8600" min="1" max="1" chance="10" /> <!-- Herb of Life -->
+				<item id="8601" min="1" max="1" chance="8" /> <!-- Major Herb of Life -->
+				<item id="8602" min="1" max="1" chance="2" /> <!-- Superior Herb of Life -->
+				<item id="8603" min="1" max="1" chance="19.8" /> <!-- Herb of Mana -->
+				<item id="8604" min="1" max="1" chance="9.9" /> <!-- Major Herb of Mana -->
+				<item id="8605" min="1" max="1" chance="3.3" /> <!-- Superior Herb of Mana -->
+				<item id="34849" min="1" max="1" chance="0.7" /> <!-- Mysterious Herb of Power -->
+				<item id="34850" min="1" max="1" chance="0.7" /> <!-- Mysterious Herb of Magic -->
+				<item id="13028" min="1" max="1" chance="0.1" /> <!-- Vitality Replenishing Herb -->
+			</drop>
+		</dropLists>
+	</npc>
+	<npc id="18976" level="91" type="Monster" name="Beorning Berserker" title="Scout">
+		<parameters>
+			<param name="IsAggressive" value="1" />
+			<skill name="Skill01_ID" id="14050" level="1" />
+			<skill name="Skill02_ID" id="14051" level="1" />
+			<skill name="Skill03_ID" id="14052" level="1" />
+			<param name="Attack_BoostValue" value="137" />
+		</parameters>
+		<race>BEAST</race>
+		<sex>MALE</sex>
+		<acquire exp="4873368" sp="4885" />
+		<mpReward value="74" type="DIFF" ticks="10" affects="SOLO" />
+		<stats str="88" int="79" dex="55" wit="78" con="82" men="78">
+			<vitals hp="14136.1271676301" hpRegen="8.5" mp="2059.40594059406" mpRegen="3" />
+			<speed>
+				<walk ground="18" />
+				<run ground="190" />
+			</speed>
+			<attack physical="6357.79589819619" magical="692.147238562524" critical="4" attackSpeed="253" range="40" type="SWORD" distance="80" width="120" random="10" accuracy="5" />
+			<defence physical="448.888888888889" magical="250.45837917125" />
+			<attribute>
+				<attack type="FIRE" value="180" />
+				<defence fire="100" water="50" wind="100" earth="100" holy="100" dark="100" />
+			</attribute>
+			<abnormalResist physical="10" magical="10" />
+		</stats>
+		<status attackable="false" undying="false" />
+		<skillList>
+			<skill id="4408" level="10" /> <!-- HP Increase (2x) -->
+			<skill id="4415" level="3" /> <!-- One-handed Sword -->
+			<skill id="4416" level="3" /> <!-- Beast -->
+			<skill id="5462" level="1" /> <!-- Fire Attack -->
+			<skill id="14050" level="2" /> <!-- Power Strike -->
+			<skill id="14051" level="2" /> <!-- Decrease P. Def. -->
+			<skill id="14052" level="2" /> <!-- Rush -->
+			<skill id="14765" level="3" /> <!-- Blood Siphon Resistance -->
+		</skillList>
+		<ai clanHelpRange="300" aggroRange="300">
+			<clanList>
+				<clan>M_FAIRY</clan>
+			</clanList>
+		</ai>
+		<collision>
+			<radius normal="32" />
+			<height normal="26.8" />
+		</collision>
+	</npc>
+	<npc id="18977" level="91" type="Monster" name="Beorning Berserker" title="Experienced Scout">
+		<parameters>
+			<param name="IsAggressive" value="1" />
+			<skill name="Skill01_ID" id="14050" level="2" />
+			<skill name="Skill02_ID" id="14051" level="2" />
+			<skill name="Skill03_ID" id="14052" level="2" />
+			<param name="Attack_BoostValue" value="140" />
+		</parameters>
+		<race>BEAST</race>
+		<sex>MALE</sex>
+		<acquire exp="4873368" sp="4885" />
+		<mpReward value="74" type="DIFF" ticks="10" affects="SOLO" />
+		<stats str="88" int="79" dex="55" wit="78" con="82" men="78">
+			<vitals hp="14155.9326247747" hpRegen="8.5" mp="2086.16345505518" mpRegen="3" />
+			<speed>
+				<walk ground="18" />
+				<run ground="190" />
+			</speed>
+			<attack physical="6840.59080003507" magical="740.201959826648" critical="4" attackSpeed="253" range="40" type="SWORD" distance="80" width="120" random="10" accuracy="5" />
+			<defence physical="456.989247311828" magical="257.283792895419" />
+			<attribute>
+				<attack type="FIRE" value="330" />
+				<defence fire="250" water="200" wind="250" earth="250" holy="250" dark="250" />
+			</attribute>
+			<abnormalResist physical="10" magical="10" />
+		</stats>
+		<status attackable="false" undying="false" />
+		<skillList>
+			<skill id="4408" level="12" /> <!-- HP Increase (4x) -->
+			<skill id="4415" level="3" /> <!-- One-handed Sword -->
+			<skill id="4416" level="3" /> <!-- Beast -->
+			<skill id="5462" level="1" /> <!-- Fire Attack -->
+			<skill id="14050" level="2" /> <!-- Power Strike -->
+			<skill id="14051" level="2" /> <!-- Decrease P. Def. -->
+			<skill id="14052" level="2" /> <!-- Rush -->
+			<skill id="14765" level="3" /> <!-- Blood Siphon Resistance -->
+		</skillList>
+		<ai clanHelpRange="300" aggroRange="300">
+			<clanList>
+				<clan>M_FAIRY</clan>
+			</clanList>
+		</ai>
+		<collision>
+			<radius normal="32" />
+			<height normal="26.8" />
+		</collision>
+	</npc>
+	<npc id="18978" level="95" type="Monster" name="Orbis' Victim" title="Cursed">
+		<parameters>
+			<param name="IsAggressive" value="1" />
+			<skill name="Skill01_ID" id="14038" level="1" />
+			<skill name="Skill02_ID" id="14039" level="1" />
+			<skill name="Skill04_ID" id="14196" level="1" />
+			<skill name="EnterSkill" id="14277" level="1" />
+			<skill name="DespawnSkill" id="14278" level="1" />
+			<param name="Attack_BoostValue" value="146" />
+		</parameters>
+		<race>HUMANOID</race>
+		<sex>MALE</sex>
+		<acquire exp="8844680" sp="8934" />
+		<stats str="88" int="79" dex="55" wit="78" con="82" men="78">
+			<vitals hp="319153.781310212" hpRegen="8.5" mp="22194.753850385" mpRegen="30" />
+			<speed>
+				<walk ground="54" />
+				<run ground="180" />
+			</speed>
+			<attack physical="55879.7658392893" magical="5997.00163326061" critical="4" attackSpeed="253" range="40" type="SWORD" distance="80" width="120" random="10" accuracy="5" />
+			<defence physical="490.5237684493" magical="280.20700287395" />
+			<attribute>
+				<attack type="DARK" value="330" />
+				<defence fire="250" water="250" wind="250" earth="250" holy="200" dark="250" />
+			</attribute>
+			<abnormalResist physical="10" magical="10" />
+		</stats>
+		<status attackable="false" undying="false" />
+		<skillList>
+			<skill id="4408" level="8" /> <!-- HP Increase (1/4x) -->
+			<skill id="4410" level="19" /> <!-- Extremely Strong P. Atk. -->
+			<skill id="4411" level="18" /> <!-- Extremely Strong M. Atk. -->
+			<skill id="4412" level="3" /> <!-- Extremely Weak P. Def. -->
+			<skill id="4413" level="3" /> <!-- Extremely Weak M. Def. -->
+			<skill id="4415" level="3" /> <!-- One-handed Sword -->
+			<skill id="4416" level="6" /> <!-- Humanoids -->
+			<skill id="5467" level="1" /> <!-- Dark Attack -->
+			<skill id="14038" level="1" /> <!-- Power Strike -->
+			<skill id="14765" level="4" /> <!-- Blood Siphon Resistance -->
+		</skillList>
+		<ai clanHelpRange="300" aggroRange="300" />
+		<dropLists>
+			<drop>
+				<item id="57" min="5119" max="11940" chance="70" /> <!-- Adena -->
+				<item id="35297" min="1" max="1" chance="0.3" /> <!-- Specter Cutter Fragment -->
+				<item id="35315" min="1" max="1" chance="0.3" /> <!-- Seraph Leather Legging Ingredient -->
+				<item id="36553" min="1" max="1" chance="0.3" /> <!-- Armor Fragment (Mid-grade) -->
+				<item id="36554" min="1" max="1" chance="0.03" /> <!-- Armor Fragment (High-grade) -->
+				<item id="35421" min="1" max="1" chance="0.003" /> <!-- Recipe: Specter Cutter (60%) -->
+				<item id="35439" min="1" max="1" chance="0.003" /> <!-- Recipe: Seraph Leather Leggings (60%) -->
+			</drop>
+			<spoil>
+				<item id="36553" min="1" max="1" chance="0.75" /> <!-- Armor Fragment (Mid-grade) -->
+				<item id="19440" min="1" max="1" chance="0.3" /> <!-- Gemstone (R-grade) -->
+				<item id="36554" min="1" max="1" chance="0.075" /> <!-- Armor Fragment (High-grade) -->
+			</spoil>
+			<lucky>
+				<item id="39629" min="1" max="1" chance="100" /> <!-- Fortune Pocket - Stage 1 -->
+			</lucky>
+		</dropLists>
+		<collision>
+			<radius normal="18" />
+			<height normal="46" />
+		</collision>
+	</npc>
+	<npc id="18979" level="95" type="Monster" name="Orbis' Guard" title="Cursed">
+		<parameters>
+			<param name="IsAggressive" value="1" />
+			<skill name="Skill01_ID" id="14038" level="1" />
+			<skill name="Skill02_ID" id="14039" level="1" />
+			<skill name="Skill04_ID" id="14196" level="1" />
+			<skill name="EnterSkill" id="14277" level="1" />
+			<skill name="DespawnSkill" id="14278" level="1" />
+			<param name="Attack_BoostValue" value="146" />
+		</parameters>
+		<race>HUMANOID</race>
+		<sex>MALE</sex>
+		<acquire exp="8844680" sp="8934" />
+		<stats str="88" int="79" dex="55" wit="78" con="82" men="78">
+			<vitals hp="319153.781310212" hpRegen="8.5" mp="22194.753850385" mpRegen="30" />
+			<speed>
+				<walk ground="54" />
+				<run ground="180" />
+			</speed>
+			<attack physical="55879.7658392893" magical="5997.00163326061" critical="4" attackSpeed="253" range="40" type="SWORD" distance="80" width="120" random="10" accuracy="5" />
+			<defence physical="490.5237684493" magical="280.20700287395" />
+			<attribute>
+				<attack type="DARK" value="330" />
+				<defence fire="250" water="250" wind="250" earth="250" holy="200" dark="250" />
+			</attribute>
+			<abnormalResist physical="10" magical="10" />
+		</stats>
+		<status attackable="false" undying="false" />
+		<skillList>
+			<skill id="4408" level="8" /> <!-- HP Increase (1/4x) -->
+			<skill id="4410" level="19" /> <!-- Extremely Strong P. Atk. -->
+			<skill id="4411" level="18" /> <!-- Extremely Strong M. Atk. -->
+			<skill id="4412" level="3" /> <!-- Extremely Weak P. Def. -->
+			<skill id="4413" level="3" /> <!-- Extremely Weak M. Def. -->
+			<skill id="4415" level="3" /> <!-- One-handed Sword -->
+			<skill id="4416" level="6" /> <!-- Humanoids -->
+			<skill id="5467" level="1" /> <!-- Dark Attack -->
+			<skill id="14038" level="1" /> <!-- Power Strike -->
+			<skill id="14765" level="4" /> <!-- Blood Siphon Resistance -->
+		</skillList>
+		<ai clanHelpRange="300" aggroRange="300" />
+		<dropLists>
+			<drop>
+				<item id="17387" min="1" max="1" chance="0.0009" /> <!-- Specter Stormer -->
+				<item id="57" min="5119" max="11940" chance="70" /> <!-- Adena -->
+				<item id="35301" min="1" max="1" chance="0.075" /> <!-- Specter Stormer Fragment -->
+				<item id="35309" min="1" max="1" chance="0.075" /> <!-- Seraph Gaiter Ingredient -->
+				<item id="35425" min="1" max="1" chance="0.003" /> <!-- Recipe: Specter Stormer (60%) -->
+				<item id="35433" min="1" max="1" chance="0.003" /> <!-- Recipe: Seraph Gaiters (60%) -->
+			</drop>
+			<spoil>
+				<item id="36534" min="1" max="1" chance="0.75" /> <!-- Durable Braid -->
+				<item id="17526" min="1" max="1" chance="0.03" /> <!-- Scroll: Enchant Weapon (R-grade) -->
+			</spoil>
+			<lucky>
+				<item id="39629" min="1" max="1" chance="100" /> <!-- Fortune Pocket - Stage 1 -->
+			</lucky>
+		</dropLists>
+		<collision>
+			<radius normal="18" />
+			<height normal="46" />
+		</collision>
+	</npc>
+	<npc id="18980" level="95" type="Monster" name="Orbis' Thrower" title="Cursed">
+		<parameters>
+			<param name="IsAggressive" value="1" />
+			<skill name="Skill01_ID" id="14038" level="1" />
+			<skill name="Skill02_ID" id="14039" level="1" />
+			<skill name="Skill04_ID" id="14196" level="1" />
+			<skill name="EnterSkill" id="14277" level="1" />
+			<skill name="DespawnSkill" id="14278" level="1" />
+			<param name="Attack_BoostValue" value="146" />
+		</parameters>
+		<race>HUMANOID</race>
+		<sex>MALE</sex>
+		<acquire exp="2570410" sp="2617" />
+		<stats str="88" int="79" dex="55" wit="78" con="82" men="78">
+			<vitals hp="319153.781310212" hpRegen="8.5" mp="22194.753850385" mpRegen="30" />
+			<speed>
+				<walk ground="54" />
+				<run ground="180" />
+			</speed>
+			<attack physical="55879.7658392893" magical="5997.00163326061" critical="4" attackSpeed="253" range="40" type="SWORD" distance="80" width="120" random="10" accuracy="5" />
+			<defence physical="490.5237684493" magical="280.20700287395" />
+			<attribute>
+				<attack type="DARK" value="330" />
+				<defence fire="250" water="250" wind="250" earth="250" holy="200" dark="250" />
+			</attribute>
+			<abnormalResist physical="10" magical="10" />
+		</stats>
+		<status attackable="false" undying="false" />
+		<skillList>
+			<skill id="4408" level="8" /> <!-- HP Increase (1/4x) -->
+			<skill id="4410" level="19" /> <!-- Extremely Strong P. Atk. -->
+			<skill id="4411" level="18" /> <!-- Extremely Strong M. Atk. -->
+			<skill id="4412" level="3" /> <!-- Extremely Weak P. Def. -->
+			<skill id="4413" level="3" /> <!-- Extremely Weak M. Def. -->
+			<skill id="4415" level="3" /> <!-- One-handed Sword -->
+			<skill id="4416" level="6" /> <!-- Humanoids -->
+			<skill id="5467" level="1" /> <!-- Dark Attack -->
+			<skill id="14038" level="1" /> <!-- Power Strike -->
+			<skill id="14765" level="4" /> <!-- Blood Siphon Resistance -->
+		</skillList>
+		<ai clanHelpRange="300" aggroRange="300" />
+		<dropLists>
+			<drop>
+				<item id="17389" min="1" max="1" chance="0.0009" /> <!-- Specter Shooter -->
+				<item id="57" min="4095" max="9552" chance="70" /> <!-- Adena -->
+				<item id="36553" min="1" max="1" chance="0.3" /> <!-- Armor Fragment (Mid-grade) -->
+				<item id="35303" min="1" max="1" chance="0.075" /> <!-- Specter Shooter Fragment -->
+				<item id="35314" min="1" max="1" chance="0.03" /> <!-- Seraph Leather Armor Ingredient -->
+				<item id="36554" min="1" max="1" chance="0.03" /> <!-- Armor Fragment (High-grade) -->
+				<item id="35427" min="1" max="1" chance="0.003" /> <!-- Recipe: Specter Shooter (60%) -->
+				<item id="35438" min="1" max="1" chance="0.0009" /> <!-- Recipe: Seraph Leather Armor (60%) -->
+			</drop>
+			<spoil>
+				<item id="36553" min="1" max="1" chance="0.75" /> <!-- Armor Fragment (Mid-grade) -->
+				<item id="17527" min="1" max="1" chance="0.3" /> <!-- Scroll: Enchant Armor (R-grade) -->
+				<item id="36554" min="1" max="1" chance="0.075" /> <!-- Armor Fragment (High-grade) -->
+			</spoil>
+			<lucky>
+				<item id="39629" min="1" max="1" chance="100" /> <!-- Fortune Pocket - Stage 1 -->
+			</lucky>
+		</dropLists>
+		<collision>
+			<radius normal="18" />
+			<height normal="46" />
+		</collision>
+	</npc>
+	<npc id="18981" level="96" type="Monster" name="Orbis' Curator" title="Cursed">
+		<parameters>
+			<param name="IsAggressive" value="1" />
+			<skill name="Skill01_ID" id="14038" level="1" />
+			<skill name="Skill02_ID" id="14039" level="1" />
+			<skill name="Skill04_ID" id="14196" level="1" />
+			<skill name="EnterSkill" id="14277" level="1" />
+			<skill name="DespawnSkill" id="14278" level="1" />
+			<param name="Attack_BoostValue" value="146" />
+		</parameters>
+		<race>HUMANOID</race>
+		<sex>MALE</sex>
+		<acquire exp="671016" sp="737" />
+		<stats str="88" int="79" dex="55" wit="78" con="82" men="78">
+			<vitals hp="322513.294797688" hpRegen="8.5" mp="22428.3828382838" mpRegen="3" />
+			<speed>
+				<walk ground="54" />
+				<run ground="180" />
+			</speed>
+			<attack physical="56467.9739007555" magical="6060.1279662423" critical="4" attackSpeed="253" range="40" type="SWORD" distance="80" width="120" random="10" accuracy="5" />
+			<defence physical="495.68717653824" magical="283.156550272624" />
+			<attribute>
+				<attack type="WATER" value="330" />
+				<defence fire="200" water="250" wind="250" earth="250" holy="250" dark="250" />
+			</attribute>
+			<abnormalResist physical="10" magical="10" />
+		</stats>
+		<status attackable="false" undying="false" />
+		<skillList>
+			<skill id="4408" level="8" /> <!-- HP Increase (1/4x) -->
+			<skill id="4410" level="19" /> <!-- Extremely Strong P. Atk. -->
+			<skill id="4411" level="18" /> <!-- Extremely Strong M. Atk. -->
+			<skill id="4412" level="3" /> <!-- Extremely Weak P. Def. -->
+			<skill id="4413" level="3" /> <!-- Extremely Weak M. Def. -->
+			<skill id="4415" level="3" /> <!-- One-handed Sword -->
+			<skill id="4416" level="6" /> <!-- Humanoids -->
+			<skill id="5463" level="1" /> <!-- Water Attack -->
+			<skill id="14038" level="1" /> <!-- Power Strike -->
+			<skill id="14765" level="4" /> <!-- Blood Siphon Resistance -->
+		</skillList>
+		<ai clanHelpRange="300" aggroRange="300" />
+		<dropLists>
+			<drop>
+				<item id="17397" min="1" max="1" chance="0.003" /> <!-- Seraph Breastplate - Heavy Armor -->
+				<item id="17404" min="1" max="1" chance="0.003" /> <!-- Seraph Leather Leggings - Light Armor -->
+				<item id="17408" min="1" max="1" chance="0.003" /> <!-- Seraph Tunic - Robe -->
+				<item id="57" min="3237" max="7559" chance="70" /> <!-- Adena -->
+				<item id="9555" min="1" max="1" chance="0.075" /> <!-- Wind Crystal -->
+				<item id="35427" min="1" max="1" chance="0.003" /> <!-- Recipe: Specter Shooter (60%) -->
+			</drop>
+			<spoil>
+				<item id="36533" min="1" max="1" chance="3.66" /> <!-- Synthetic Braid -->
+				<item id="36534" min="1" max="1" chance="0.3" /> <!-- Durable Braid -->
+				<item id="36884" min="1" max="1" chance="0.03" /> <!-- Recipe: Synthetic Braid - Upgrade -->
+				<item id="36883" min="1" max="1" chance="0.003" /> <!-- Recipe: Synthetic Braid - Downgrade -->
+				<item id="36886" min="1" max="1" chance="0.003" /> <!-- Recipe: Durable Braid - Upgrade -->
+				<item id="36885" min="1" max="1" chance="9" /> <!-- Recipe: Durable Braid - Downgrade -->
+			</spoil>
+		</dropLists>
+		<collision>
+			<radius normal="18" />
+			<height normal="46" />
+		</collision>
+	</npc>
+	<npc id="18982" level="96" type="Monster" name="Orbis' Ancient Hero" title="Cursed">
+		<parameters>
+			<param name="IsAggressive" value="1" />
+			<skill name="Skill01_ID" id="14038" level="1" />
+			<skill name="Skill02_ID" id="14039" level="1" />
+			<skill name="Skill04_ID" id="14196" level="1" />
+			<skill name="EnterSkill" id="14277" level="1" />
+			<skill name="DespawnSkill" id="14278" level="1" />
+			<param name="Attack_BoostValue" value="146" />
+		</parameters>
+		<race>HUMANOID</race>
+		<sex>MALE</sex>
+		<acquire exp="671016" sp="737" />
+		<stats str="88" int="79" dex="55" wit="78" con="82" men="78">
+			<vitals hp="322513.294797688" hpRegen="8.5" mp="22428.3828382838" mpRegen="3" />
+			<speed>
+				<walk ground="54" />
+				<run ground="180" />
+			</speed>
+			<attack physical="56467.9739007555" magical="6060.1279662423" critical="4" attackSpeed="253" range="40" type="SWORD" distance="80" width="120" random="10" accuracy="5" />
+			<defence physical="495.68717653824" magical="283.156550272624" />
+			<attribute>
+				<attack type="DARK" value="330" />
+				<defence fire="250" water="250" wind="250" earth="250" holy="200" dark="250" />
+			</attribute>
+			<abnormalResist physical="10" magical="10" />
+		</stats>
+		<status attackable="false" undying="false" />
+		<skillList>
+			<skill id="4408" level="8" /> <!-- HP Increase (1/4x) -->
+			<skill id="4410" level="19" /> <!-- Extremely Strong P. Atk. -->
+			<skill id="4411" level="18" /> <!-- Extremely Strong M. Atk. -->
+			<skill id="4412" level="3" /> <!-- Extremely Weak P. Def. -->
+			<skill id="4413" level="3" /> <!-- Extremely Weak M. Def. -->
+			<skill id="4415" level="3" /> <!-- One-handed Sword -->
+			<skill id="4416" level="6" /> <!-- Humanoids -->
+			<skill id="5467" level="1" /> <!-- Dark Attack -->
+			<skill id="14038" level="1" /> <!-- Power Strike -->
+			<skill id="14765" level="4" /> <!-- Blood Siphon Resistance -->
+		</skillList>
+		<ai clanHelpRange="300" aggroRange="300" />
+		<dropLists>
+			<drop>
+				<item id="17398" min="1" max="1" chance="0.0009" /> <!-- Seraph Gaiters - Heavy Armor -->
+				<item id="17403" min="1" max="1" chance="0.0009" /> <!-- Seraph Leather Armor - Light Armor -->
+				<item id="17409" min="1" max="1" chance="0.0009" /> <!-- Seraph Stockings - Robe -->
+				<item id="57" min="4109" max="9597" chance="70" /> <!-- Adena -->
+				<item id="35326" min="1" max="1" chance="0.3" /> <!-- Seraph Ring Gem -->
+				<item id="30424" min="1" max="1" chance="0.03" /> <!-- Recipe: Spiritshot (R-grade) -->
+				<item id="17526" min="1" max="1" chance="0.003" /> <!-- Scroll: Enchant Weapon (R-grade) -->
+			</drop>
+			<spoil>
+				<item id="17412" min="1" max="1" chance="0.03" /> <!-- Seraph Sigil - Robe -->
+			</spoil>
+		</dropLists>
+		<collision>
+			<radius normal="18" />
+			<height normal="46" />
+		</collision>
+	</npc>
+	<npc id="18983" level="96" type="Monster" name="Orbis' Chief Curator" title="Cursed">
+		<parameters>
+			<param name="IsAggressive" value="1" />
+			<skill name="Skill01_ID" id="14038" level="1" />
+			<skill name="Skill02_ID" id="14039" level="1" />
+			<skill name="Skill04_ID" id="14196" level="1" />
+			<skill name="EnterSkill" id="14277" level="1" />
+			<skill name="DespawnSkill" id="14278" level="1" />
+			<param name="Attack_BoostValue" value="146" />
+		</parameters>
+		<race>HUMANOID</race>
+		<sex>MALE</sex>
+		<acquire exp="404259" sp="97" />
+		<stats str="88" int="79" dex="55" wit="78" con="82" men="78">
+			<vitals hp="322513.294797688" hpRegen="8.5" mp="22428.3828382838" mpRegen="30" />
+			<speed>
+				<walk ground="54" />
+				<run ground="180" />
+			</speed>
+			<attack physical="56467.9739007555" magical="6060.1279662423" critical="4" attackSpeed="253" range="40" type="SWORD" distance="80" width="120" random="10" accuracy="5" />
+			<defence physical="495.68717653824" magical="283.156550272624" />
+			<attribute>
+				<attack type="WATER" value="330" />
+				<defence fire="200" water="250" wind="250" earth="250" holy="250" dark="250" />
+			</attribute>
+			<abnormalResist physical="10" magical="10" />
+		</stats>
+		<status attackable="false" undying="false" />
+		<skillList>
+			<skill id="4408" level="8" /> <!-- HP Increase (1/4x) -->
+			<skill id="4410" level="19" /> <!-- Extremely Strong P. Atk. -->
+			<skill id="4411" level="18" /> <!-- Extremely Strong M. Atk. -->
+			<skill id="4412" level="3" /> <!-- Extremely Weak P. Def. -->
+			<skill id="4413" level="3" /> <!-- Extremely Weak M. Def. -->
+			<skill id="4415" level="3" /> <!-- One-handed Sword -->
+			<skill id="4416" level="6" /> <!-- Humanoids -->
+			<skill id="5463" level="1" /> <!-- Water Attack -->
+			<skill id="14038" level="1" /> <!-- Power Strike -->
+			<skill id="14765" level="4" /> <!-- Blood Siphon Resistance -->
+		</skillList>
+		<ai clanHelpRange="300" aggroRange="300" />
+		<dropLists>
+			<drop>
+				<item id="57" min="4109" max="9597" chance="70" /> <!-- Adena -->
+				<item id="17401" min="1" max="1" chance="0.00300000000000003" /> <!-- Seraph Shield - Heavy Armor -->
+				<item id="35301" min="1" max="1" chance="0.300000000000003" /> <!-- Specter Stormer Fragment -->
+				<item id="35304" min="1" max="1" chance="0.300000000000003" /> <!-- Specter Buster Fragment -->
+				<item id="17412" min="1" max="1" chance="0.003" /> <!-- Seraph Sigil - Robe -->
+				<item id="9557" min="1" max="1" chance="0.075" /> <!-- Holy Crystal -->
+			</drop>
+			<spoil>
+				<item id="17403" min="1" max="1" chance="0.0055" /> <!-- Seraph Leather Armor - Light Armor -->
+			</spoil>
+		</dropLists>
+		<collision>
+			<radius normal="18" />
+			<height normal="46" />
+		</collision>
+	</npc>
+	<npc id="18984" level="99" type="Folk" name="Octavis' Influence">
+		<!-- AUTO GENERATED NPC TODO: FIX IT -->
+		<parameters>
+			<skill name="boss_skill_01" id="14028" level="1" />
+			<skill name="boss_skill_02" id="14029" level="1" />
+			<skill name="boss_skill_03" id="14243" level="1" />
+		</parameters>
+		<race>CONSTRUCT</race>
+		<sex>MALE</sex>
+		<stats str="88" int="79" dex="55" wit="78" con="82" men="78">
+			<vitals hp="8446" hpRegen="8.5" mp="2355" mpRegen="3" />
+			<speed>
+				<walk ground="1" />
+				<run ground="1" />
+			</speed>
+			<attack physical="1949.95411856464" magical="1331.56588332443" critical="4" attackSpeed="253" range="40" type="SWORD" distance="80" width="120" random="10" accuracy="5" />
+			<defence physical="405.66735" magical="296.84976" />
+			<abnormalResist physical="10" magical="10" />
+		</stats>
+		<status attackable="false" showName="false" targetable="false" talkable="false" />
+		<skillList>
+			<skill id="14028" level="1" /> <!-- Hero's Influence -->
+			<skill id="4416" level="2" /> <!-- Magic Creatures -->
+			<skill id="4415" level="3" /> <!-- One-handed Sword -->
+			<skill id="14765" level="4" /> <!-- Blood Siphon Resistance -->
+		</skillList>
+		<ai clanHelpRange="300" aggroRange="300" />
+		<collision>
+			<radius normal="0.1" />
+			<height normal="0.1" />
+		</collision>
+	</npc>
+	<npc id="18985" level="90" type="Monster" name="Genesis Trap 1">
+		<!-- AUTO GENERATED NPC TODO: FIX IT -->
+		<parameters>
+			<skill name="Skill01_ID" id="14075" level="1" />
+		</parameters>
+		<race>CONSTRUCT</race>
+		<sex>MALE</sex>
+		<stats str="88" int="79" dex="55" wit="78" con="82" men="78">
+			<vitals hp="31832" hpRegen="103.891642836486" mp="2023" mpRegen="3" />
+			<speed>
+				<walk ground="1" />
+				<run ground="1" />
+			</speed>
+			<attack physical="5951.78807387916" magical="4064.29971055653" critical="4" attackSpeed="253" range="40" type="SWORD" distance="80" width="120" random="10" accuracy="5" />
+			<defence physical="607.972112" magical="667.3314" />
+			<abnormalResist physical="10" magical="10" />
+		</stats>
+		<status attackable="false" targetable="false" showName="false" canMove="false" undying="true" />
+		<skillList>
+			<skill id="14075" level="1" /> <!-- Harmful Trap -->
+			<skill id="4416" level="2" /> <!-- Magic Creatures -->
+			<skill id="4415" level="3" /> <!-- One-handed Sword -->
+			<skill id="14765" level="2" /> <!-- Blood Siphon Resistance -->
+		</skillList>
+		<ai clanHelpRange="300" aggroRange="300">
+			<clanList>
+				<clan>MGG_GC</clan>
+			</clanList>
+		</ai>
+		<collision>
+			<radius normal="0.1" />
+			<height normal="0.1" />
+		</collision>
+	</npc>
+	<npc id="18986" level="90" type="Monster" name="Genesis Trap 2">
+		<!-- AUTO GENERATED NPC TODO: FIX IT -->
+		<parameters>
+			<skill name="Skill01_ID" id="14076" level="1" />
+		</parameters>
+		<race>CONSTRUCT</race>
+		<sex>MALE</sex>
+		<stats str="88" int="79" dex="55" wit="78" con="82" men="78">
+			<vitals hp="31832" hpRegen="103.891642836486" mp="2023" mpRegen="3" />
+			<speed>
+				<walk ground="1" />
+				<run ground="1" />
+			</speed>
+			<attack physical="5951.78807387916" magical="4064.29971055653" critical="4" attackSpeed="253" range="40" type="SWORD" distance="80" width="120" random="10" accuracy="5" />
+			<defence physical="607.972112" magical="667.3314" />
+			<abnormalResist physical="10" magical="10" />
+		</stats>
+		<status attackable="false" targetable="false" showName="false" canMove="false" undying="true" />
+		<skillList>
+			<skill id="14076" level="1" /> <!-- Harmful Trap -->
+			<skill id="4416" level="2" /> <!-- Magic Creatures -->
+			<skill id="4415" level="3" /> <!-- One-handed Sword -->
+			<skill id="14765" level="2" /> <!-- Blood Siphon Resistance -->
+		</skillList>
+		<ai clanHelpRange="300" aggroRange="300" />
+		<collision>
+			<radius normal="0.1" />
+			<height normal="0.1" />
+		</collision>
+	</npc>
+	<npc id="18987" level="90" type="Monster" name="Vine">
+		<!-- AUTO GENERATED NPC TODO: FIX IT -->
+		<race>CONSTRUCT</race>
+		<sex>MALE</sex>
+		<stats str="88" int="79" dex="55" wit="78" con="82" men="78">
+			<vitals hp="5382" hpRegen="8.5" mp="2023" mpRegen="3" />
+			<speed>
+				<walk ground="1" />
+				<run ground="1" />
+			</speed>
+			<attack physical="1423.72742984904" magical="972.221273543337" critical="4" attackSpeed="253" range="40" type="SWORD" distance="80" width="120" random="10" accuracy="5" />
+			<defence physical="379.98257" magical="278.05475" />
+			<abnormalResist physical="10" magical="10" />
+		</stats>
+		<status attackable="false" targetable="false" talkable="false" canMove="false" />
+		<skillList>
+			<skill id="4416" level="2" /> <!-- Magic Creatures -->
+			<skill id="4415" level="3" /> <!-- One-handed Sword -->
+			<skill id="14765" level="2" /> <!-- Blood Siphon Resistance -->
+		</skillList>
+		<ai clanHelpRange="300" aggroRange="300" />
+		<collision>
+			<radius normal="59" />
+			<height normal="16" />
+		</collision>
+	</npc>
+	<npc id="18988" level="90" type="Monster" name="Rose Vine">
+		<!-- AUTO GENERATED NPC TODO: FIX IT -->
+		<race>CONSTRUCT</race>
+		<sex>MALE</sex>
+		<stats str="88" int="79" dex="55" wit="78" con="82" men="78">
+			<vitals hp="5382" hpRegen="8.5" mp="2023" mpRegen="3" />
+			<speed>
+				<walk ground="1" />
+				<run ground="1" />
+			</speed>
+			<attack physical="1423.72742984904" magical="972.221273543337" critical="4" attackSpeed="253" range="40" type="SWORD" distance="80" width="120" random="10" accuracy="5" />
+			<defence physical="379.98257" magical="278.05475" />
+			<abnormalResist physical="10" magical="10" />
+		</stats>
+		<status attackable="false" targetable="false" talkable="false" canMove="false" />
+		<skillList>
+			<skill id="4416" level="2" /> <!-- Magic Creatures -->
+			<skill id="4415" level="3" /> <!-- One-handed Sword -->
+			<skill id="14765" level="2" /> <!-- Blood Siphon Resistance -->
+		</skillList>
+		<ai clanHelpRange="300" aggroRange="300" />
+		<collision>
+			<radius normal="59" />
+			<height normal="16" />
+		</collision>
+	</npc>
+	<npc id="18989" level="90" type="Folk" name="Apherus Garden Gate">
+		<!-- AUTO GENERATED NPC TODO: FIX IT -->
+		<race>CONSTRUCT</race>
+		<sex>MALE</sex>
+		<stats str="88" int="79" dex="55" wit="78" con="82" men="78">
+			<vitals hp="5382" hpRegen="8.5" mp="2023" mpRegen="3" />
+			<speed>
+				<walk ground="1" />
+				<run ground="1" />
+			</speed>
+			<attack physical="1423.72742984904" magical="972.221273543337" critical="4" attackSpeed="253" range="40" type="SWORD" distance="80" width="120" random="10" accuracy="5" />
+			<defence physical="379.98257" magical="278.05475" />
+			<abnormalResist physical="10" magical="10" />
+		</stats>
+		<status attackable="false" targetable="false" showName="false" undying="false" />
+		<skillList>
+			<skill id="4416" level="2" /> <!-- Magic Creatures -->
+			<skill id="4415" level="3" /> <!-- One-handed Sword -->
+			<skill id="14765" level="2" /> <!-- Blood Siphon Resistance -->
+		</skillList>
+		<ai clanHelpRange="300" aggroRange="300" />
+		<collision>
+			<radius normal="0.1" />
+			<height normal="0.1" />
+		</collision>
+	</npc>
+	<npc id="18990" level="90" type="Folk" name="Apherus Garden Gate">
+		<!-- AUTO GENERATED NPC TODO: FIX IT -->
+		<race>CONSTRUCT</race>
+		<sex>MALE</sex>
+		<stats str="88" int="79" dex="55" wit="78" con="82" men="78">
+			<vitals hp="5382" hpRegen="8.5" mp="2023" mpRegen="3" />
+			<speed>
+				<walk ground="1" />
+				<run ground="1" />
+			</speed>
+			<attack physical="1423.72742984904" magical="972.221273543337" critical="4" attackSpeed="253" range="40" type="SWORD" distance="80" width="120" random="10" accuracy="5" />
+			<defence physical="379.98257" magical="278.05475" />
+			<abnormalResist physical="10" magical="10" />
+		</stats>
+		<status attackable="false" targetable="false" showName="false" undying="false" />
+		<skillList>
+			<skill id="4416" level="2" /> <!-- Magic Creatures -->
+			<skill id="4415" level="3" /> <!-- One-handed Sword -->
+			<skill id="14765" level="2" /> <!-- Blood Siphon Resistance -->
+		</skillList>
+		<ai clanHelpRange="300" aggroRange="300" />
+		<collision>
+			<radius normal="0.1" />
+			<height normal="0.1" />
+		</collision>
+	</npc>
+	<npc id="18991" level="90" type="Folk" name="Apherus Garden Gate">
+		<!-- AUTO GENERATED NPC TODO: FIX IT -->
+		<race>CONSTRUCT</race>
+		<sex>MALE</sex>
+		<stats str="88" int="79" dex="55" wit="78" con="82" men="78">
+			<vitals hp="5382" hpRegen="8.5" mp="2023" mpRegen="3" />
+			<speed>
+				<walk ground="1" />
+				<run ground="1" />
+			</speed>
+			<attack physical="1423.72742984904" magical="972.221273543337" critical="4" attackSpeed="253" range="40" type="SWORD" distance="80" width="120" random="10" accuracy="5" />
+			<defence physical="379.98257" magical="278.05475" />
+			<abnormalResist physical="10" magical="10" />
+		</stats>
+		<status attackable="false" targetable="false" showName="false" undying="false" />
+		<skillList>
+			<skill id="4416" level="2" /> <!-- Magic Creatures -->
+			<skill id="4415" level="3" /> <!-- One-handed Sword -->
+			<skill id="14765" level="2" /> <!-- Blood Siphon Resistance -->
+		</skillList>
+		<ai clanHelpRange="300" aggroRange="300" />
+		<collision>
+			<radius normal="0.1" />
+			<height normal="0.1" />
+		</collision>
+	</npc>
+	<npc id="18992" level="90" type="Folk" name="Apherus Garden Gate">
+		<!-- AUTO GENERATED NPC TODO: FIX IT -->
+		<race>CONSTRUCT</race>
+		<sex>MALE</sex>
+		<stats str="88" int="79" dex="55" wit="78" con="82" men="78">
+			<vitals hp="5382" hpRegen="8.5" mp="2023" mpRegen="3" />
+			<speed>
+				<walk ground="1" />
+				<run ground="1" />
+			</speed>
+			<attack physical="1423.72742984904" magical="972.221273543337" critical="4" attackSpeed="253" range="40" type="SWORD" distance="80" width="120" random="10" accuracy="5" />
+			<defence physical="379.98257" magical="278.05475" />
+			<abnormalResist physical="10" magical="10" />
+		</stats>
+		<status attackable="false" targetable="false" showName="false" undying="false" />
+		<skillList>
+			<skill id="4416" level="2" /> <!-- Magic Creatures -->
+			<skill id="4415" level="3" /> <!-- One-handed Sword -->
+			<skill id="14765" level="2" /> <!-- Blood Siphon Resistance -->
+		</skillList>
+		<ai clanHelpRange="300" aggroRange="300" />
+		<collision>
+			<radius normal="0.1" />
+			<height normal="0.1" />
+		</collision>
+	</npc>
+	<npc id="18993" level="88" type="Monster" name="Hatched Millipede">
+		<parameters>
+			<param name="IsAggressive" value="1" />
+			<skill name="Skill01_ID" id="14183" level="1" />
+			<skill name="BuffSkill01_ID" id="14117" level="1" />
+			<skill name="BuffSkill02_ID" id="14117" level="2" />
+			<skill name="BuffSkill03_ID" id="14117" level="3" />
+			<skill name="BuffSkill04_ID" id="14117" level="4" />
+			<skill name="BuffSkill05_ID" id="14117" level="5" />
+			<param name="Attack_BoostValue" value="131" />
+		</parameters>
+		<race>BUG</race>
+		<sex>MALE</sex>
+		<stats str="88" int="79" dex="55" wit="78" con="82" men="78">
+			<vitals hp="287430.057803468" hpRegen="8.5" mp="19524.0924092409" mpRegen="3" />
+			<speed>
+				<walk ground="40" />
+				<run ground="120" />
+			</speed>
+			<attack physical="38567.593488376" magical="4233.60503057884" critical="4" attackSpeed="253" range="40" type="SWORD" distance="80" width="120" random="10" accuracy="5" />
+			<defence physical="423.38846913076" magical="232.32831757752" />
+			<attribute>
+				<attack type="EARTH" value="180" />
+				<defence fire="100" water="100" wind="50" earth="100" holy="100" dark="100" />
+			</attribute>
+			<abnormalResist physical="10" magical="10" />
+		</stats>
+		<status attackable="false" undying="false" />
+		<skillList>
+			<skill id="4408" level="9" /> <!-- HP Increase (1/2x) -->
+			<skill id="4412" level="9" /> <!-- Slightly Weak P. Def. -->
+			<skill id="4415" level="3" /> <!-- One-handed Sword -->
+			<skill id="4416" level="12" /> <!-- Bugs -->
+			<skill id="5465" level="1" /> <!-- Earth Attack -->
+			<skill id="14117" level="5" /> <!-- Millipede P. Atk. Enhancement -->
+			<skill id="14183" level="1" /> <!-- Millipede Blow -->
+			<skill id="14765" level="2" /> <!-- Blood Siphon Resistance -->
+		</skillList>
+		<ai clanHelpRange="300" aggroRange="600">
+			<clanList>
+				<clan>TRAJAN</clan>
+			</clanList>
+		</ai>
+		<collision>
+			<radius normal="45" />
+			<height normal="8" />
+		</collision>
+	</npc>
+	<npc id="18994" level="88" type="Monster" name="Hatched Underbug">
+		<parameters>
+			<param name="IsAggressive" value="1" />
+			<skill name="Skill01_ID" id="14183" level="1" />
+			<skill name="BuffSkill01_ID" id="14118" level="1" />
+			<skill name="SuicideSkill01_ID" id="14119" level="1" />
+			<param name="Attack_BoostValue" value="131" />
+		</parameters>
+		<race>BUG</race>
+		<sex>MALE</sex>
+		<stats str="88" int="79" dex="55" wit="78" con="82" men="78">
+			<vitals hp="287430.057803468" hpRegen="8.5" mp="19524.0924092409" mpRegen="3" />
+			<speed>
+				<walk ground="25" />
+				<run ground="170" />
+			</speed>
+			<attack physical="38567.593488376" magical="4233.60503057884" critical="4" attackSpeed="253" range="40" type="SWORD" distance="80" width="120" random="10" accuracy="5" />
+			<defence physical="423.38846913076" magical="232.32831757752" />
+			<attribute>
+				<attack type="EARTH" value="180" />
+				<defence fire="100" water="100" wind="50" earth="100" holy="100" dark="100" />
+			</attribute>
+			<abnormalResist physical="10" magical="10" />
+		</stats>
+		<status attackable="false" undying="false" />
+		<skillList>
+			<skill id="4408" level="9" /> <!-- HP Increase (1/2x) -->
+			<skill id="4412" level="9" /> <!-- Slightly Weak P. Def. -->
+			<skill id="4415" level="3" /> <!-- One-handed Sword -->
+			<skill id="4416" level="12" /> <!-- Bugs -->
+			<skill id="5465" level="1" /> <!-- Earth Attack -->
+			<skill id="14118" level="1" /> <!-- Millipede P. Def. Enhancement -->
+			<skill id="14119" level="1" /> <!-- Underbug Self Blasting -->
+			<skill id="14183" level="1" /> <!-- Millipede Blow -->
+			<skill id="14765" level="2" /> <!-- Blood Siphon Resistance -->
+		</skillList>
+		<ai clanHelpRange="300" aggroRange="600">
+			<clanList>
+				<clan>TRAJAN</clan>
+			</clanList>
+		</ai>
+		<collision>
+			<radius normal="35" />
+			<height normal="35" />
+		</collision>
+	</npc>
+	<npc id="18995" level="88" type="Monster" name="Awakened Millipede">
+		<parameters>
+			<param name="IsAggressive" value="1" />
+			<skill name="Skill01_ID" id="14183" level="1" />
+			<param name="Attack_BoostValue" value="131" />
+		</parameters>
+		<race>BUG</race>
+		<sex>MALE</sex>
+		<stats str="88" int="79" dex="55" wit="78" con="82" men="78">
+			<vitals hp="287430.057803468" hpRegen="8.5" mp="19524.0924092409" mpRegen="3" />
+			<speed>
+				<walk ground="40" />
+				<run ground="120" />
+			</speed>
+			<attack physical="38567.593488376" magical="4233.60503057884" critical="4" attackSpeed="253" range="40" type="SWORD" distance="80" width="120" random="10" accuracy="5" />
+			<defence physical="423.38846913076" magical="232.32831757752" />
+			<attribute>
+				<attack type="EARTH" value="180" />
+				<defence fire="100" water="100" wind="50" earth="100" holy="100" dark="100" />
+			</attribute>
+			<abnormalResist physical="10" magical="10" />
+		</stats>
+		<status attackable="false" undying="false" />
+		<skillList>
+			<skill id="4408" level="9" /> <!-- HP Increase (1/2x) -->
+			<skill id="4412" level="9" /> <!-- Slightly Weak P. Def. -->
+			<skill id="4415" level="3" /> <!-- One-handed Sword -->
+			<skill id="4416" level="12" /> <!-- Bugs -->
+			<skill id="5465" level="1" /> <!-- Earth Attack -->
+			<skill id="14183" level="1" /> <!-- Millipede Blow -->
+			<skill id="14765" level="2" /> <!-- Blood Siphon Resistance -->
+		</skillList>
+		<ai clanHelpRange="300" aggroRange="600">
+			<clanList>
+				<clan>TRAJAN</clan>
+			</clanList>
+		</ai>
+		<collision>
+			<radius normal="45" />
+			<height normal="8" />
+		</collision>
+	</npc>
+	<npc id="18996" level="88" type="Monster" name="Egg">
+		<!-- AUTO GENERATED NPC TODO: FIX IT -->
+		<parameters>
+			<param name="Attack_BoostValue" value="131" />
+		</parameters>
+		<race>CONSTRUCT</race>
+		<sex>MALE</sex>
+		<stats str="88" int="79" dex="55" wit="78" con="82" men="78">
+			<vitals hp="55963" hpRegen="8.5" mp="19880" mpRegen="30" />
+			<speed>
+				<walk ground="1" />
+				<run ground="10" />
+			</speed>
+			<attack physical="14652.3021425476" magical="3637.95840869611" critical="4" attackSpeed="253" range="40" type="SWORD" distance="80" width="120" random="10" accuracy="5" />
+			<defence physical="1509.40085122579" magical="833.298436475719" />
+			<attribute>
+				<defence fire="100" water="100" wind="50" earth="100" holy="100" dark="100" />
+				<attack type="EARTH" value="180" />
+			</attribute>
+			<abnormalResist physical="10" magical="10" />
+		</stats>
+		<status attackable="false" undying="false" />
+		<ai aggroRange="600" isAggressive="true" clanHelpRange="300">
+			<clanList>
+				<clan>TRAJAN</clan>
+			</clanList>
+		</ai>
+		<skillList>
+			<skill id="5465" level="1" /> <!-- Earth Attack -->
+			<skill id="4416" level="2" /> <!-- Magic Creatures -->
+			<skill id="4415" level="3" /> <!-- One-handed Sword -->
+			<skill id="14765" level="2" /> <!-- Blood Siphon Resistance -->
+		</skillList>
+		<collision>
+			<radius normal="24" />
+			<height normal="27" />
+		</collision>
+	</npc>
+	<npc id="18997" level="88" type="Monster" name="Egg">
+		<!-- AUTO GENERATED NPC TODO: FIX IT -->
+		<parameters>
+			<param name="Attack_BoostValue" value="131" />
+		</parameters>
+		<race>CONSTRUCT</race>
+		<sex>MALE</sex>
+		<stats str="88" int="79" dex="55" wit="78" con="82" men="78">
+			<vitals hp="5000" hpRegen="8.5" mp="1988" mpRegen="3" />
+			<speed>
+				<walk ground="1" />
+				<run ground="10" />
+			</speed>
+			<attack physical="1374.9465290736" magical="938.910243286155" critical="4" attackSpeed="253" range="40" type="SWORD" distance="80" width="120" random="10" accuracy="5" />
+			<defence physical="376.54444" magical="275.53888" />
+			<attribute>
+				<defence fire="100" water="100" wind="50" earth="100" holy="100" dark="100" />
+				<attack type="EARTH" value="180" />
+			</attribute>
+			<abnormalResist physical="10" magical="10" />
+		</stats>
+		<status attackable="false" undying="false" canMove="false" />
+		<ai aggroRange="600" isAggressive="true" clanHelpRange="300">
+			<clanList>
+				<clan>TRAJAN</clan>
+			</clanList>
+		</ai>
+		<skillList>
+			<skill id="14113" level="1" /> <!-- Teredor Flu Infection -->
+			<skill id="5465" level="1" /> <!-- Earth Attack -->
+			<skill id="4416" level="2" /> <!-- Magic Creatures -->
+			<skill id="4415" level="3" /> <!-- One-handed Sword -->
+			<skill id="14765" level="2" /> <!-- Blood Siphon Resistance -->
+		</skillList>
+		<collision>
+			<radius normal="24" />
+			<height normal="27" />
+		</collision>
+	</npc>
+	<npc id="18998" level="90" type="Folk" name="Teredor Transparent 1">
+		<!-- AUTO GENERATED NPC TODO: FIX IT -->
+		<race>CONSTRUCT</race>
+		<sex>MALE</sex>
+		<stats str="88" int="79" dex="55" wit="78" con="82" men="78">
+			<vitals hp="5382" hpRegen="8.5" mp="2023" mpRegen="3" />
+			<speed>
+				<walk ground="1" />
+				<run ground="1" />
+			</speed>
+			<attack physical="1423.72742984904" magical="972.221273543337" critical="4" attackSpeed="253" range="40" type="SWORD" distance="80" width="120" random="10" accuracy="5" />
+			<defence physical="379.98257" magical="278.05475" />
+			<abnormalResist physical="10" magical="10" />
+		</stats>
+		<status attackable="false" targetable="false" showName="false" />
+		<skillList>
+			<skill id="14113" level="1" /> <!-- Teredor Flu Infection -->
+			<skill id="4416" level="2" /> <!-- Magic Creatures -->
+			<skill id="4415" level="3" /> <!-- One-handed Sword -->
+			<skill id="14765" level="2" /> <!-- Blood Siphon Resistance -->
+		</skillList>
+		<ai clanHelpRange="300" aggroRange="300" />
+		<collision>
+			<radius normal="10" />
+			<height normal="22.5" />
+		</collision>
+	</npc>
+	<npc id="18999" level="90" type="Folk" name="Teredor Transparent 2">
+		<!-- AUTO GENERATED NPC TODO: FIX IT -->
+		<race>CONSTRUCT</race>
+		<sex>MALE</sex>
+		<stats str="88" int="79" dex="55" wit="78" con="82" men="78">
+			<vitals hp="5382" hpRegen="8.5" mp="2023" mpRegen="3" />
+			<speed>
+				<walk ground="1" />
+				<run ground="1" />
+			</speed>
+			<attack physical="1423.72742984904" magical="972.221273543337" critical="4" attackSpeed="253" range="40" type="SWORD" distance="80" width="120" random="10" accuracy="5" />
+			<defence physical="379.98257" magical="278.05475" />
+			<abnormalResist physical="10" magical="10" />
+		</stats>
+		<status attackable="false" targetable="false" showName="false" />
+		<skillList>
+			<skill id="4416" level="2" /> <!-- Magic Creatures -->
+			<skill id="4415" level="3" /> <!-- One-handed Sword -->
+			<skill id="14765" level="2" /> <!-- Blood Siphon Resistance -->
+		</skillList>
+		<ai clanHelpRange="300" aggroRange="600" />
+		<collision>
+			<radius normal="0.1" />
+			<height normal="0.1" />
+		</collision>
+	</npc>
 </list>

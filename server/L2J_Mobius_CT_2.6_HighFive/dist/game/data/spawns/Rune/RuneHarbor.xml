@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list enabled="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/spawns.xsd">
+	<spawn name="RuneHarbor">
+		<group>
+			<npc id="31347" x="39776" y="-39872" z="-3608" heading="7500" respawnDelay="60" /> <!-- Burke -->
+			<npc id="31674" x="39984" y="-39408" z="-3600" heading="33000" respawnDelay="60" /> <!-- Patrol -->
+			<npc id="31696" x="37600" y="-37952" z="-3632" heading="49000" respawnDelay="60" /> <!-- Platis -->
+		</group>
+	</spawn>
+</list>

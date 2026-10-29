@@ -352,6 +352,8 @@ public enum ServerPackets
         EX_SET_MPCC_ROUTING(0xFE, 0x37),
         EX_SHOW_ADVENTURER_GUIDE_BOOK(0xFE, 0x38),
         EX_SHOW_SCREEN_MESSAGE(0xFE, 0x39),
+        // Salvation (protocol 140) target buff bar; ref build id 0xE6.
+        EX_ABNORMAL_STATUS_UPDATE_FROM_TARGET(0xFE, 0xE6),
         PLEDGE_SKILL_LIST(0xFE, 0x3A),
         PLEDGE_SKILL_LIST_ADD(0xFE, 0x3B),
         PLEDGE_POWER_GRADE_LIST(0xFE, 0x3C),
@@ -559,6 +561,7 @@ public enum ServerPackets
                 // GameClient.encrypt before encryption). Do NOT remap here as well:
                 // a second pass would shift already-remapped Ex ids again and corrupt
                 // every packet that leaves the server with a Salvation opcode.
+
                 if (DevelopmentConfig.DEBUG_SERVER_PACKETS)
                 {
                         final String name = packet.getClass().getSimpleName();

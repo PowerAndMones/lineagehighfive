@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/npcs.xsd">
+	<npc id="159" level="1" type="Folk" name="Tame Princess Ant">
+		<!-- AUTO GENERATED NPC TODO: FIX IT -->
+		<race>ANIMAL</race>
+		<sex>FEMALE</sex>
+		<stats str="88" int="79" dex="55" wit="78" con="82" men="78">
+			<vitals hp="39" hpRegen="2" mp="40" mpRegen="0.9" />
+			<speed>
+				<walk ground="41" />
+				<run ground="250" />
+			</speed>
+			<attack physical="8.47458" magical="5.78704" critical="4" attackSpeed="253" range="40" type="FIST" distance="80" width="120" random="10" accuracy="5" />
+			<defence physical="341.375" magical="249.80341" />
+			<attribute>
+				<defence fire="20" water="20" wind="20" earth="20" holy="20" dark="20" />
+			</attribute>
+			<abnormalResist physical="10" magical="10" />
+		</stats>
+		<status attackable="false" undying="false" />
+		<skillList>
+			<skill id="4415" level="5" /> <!-- Blunt Weapon -->
+			<skill id="4416" level="4" /> <!-- Animals -->
+			<skill id="4390" level="1" /> <!-- NPC Abnormal Immunity -->
+		</skillList>
+		<shots soul="2" spirit="2" />
+		<collision>
+			<radius normal="42" />
+			<height normal="40" />
+		</collision>
+	</npc>
+	<npc id="160" level="1" type="Folk" name="Black Bear">
+		<!-- AUTO GENERATED NPC TODO: FIX IT -->
+		<race>ANIMAL</race>
+		<sex>FEMALE</sex>
+		<stats str="88" int="79" dex="55" wit="78" con="82" men="78">
+			<vitals hp="39" hpRegen="2" mp="40" mpRegen="0.9" />
+			<speed>
+				<walk ground="41" />
+				<run ground="250" />
+			</speed>
+			<attack physical="8.47458" magical="5.78704" critical="4" attackSpeed="253" range="40" type="FIST" distance="80" width="120" random="10" accuracy="5" />
+			<defence physical="341.375" magical="249.80341" />
+			<attribute>
+				<defence fire="20" water="20" wind="20" earth="20" holy="20" dark="20" />
+			</attribute>
+			<abnormalResist physical="10" magical="10" />
+		</stats>
+		<status attackable="false" undying="false" />
+		<skillList>
+			<skill id="4415" level="5" /> <!-- Blunt Weapon -->
+			<skill id="4416" level="4" /> <!-- Animals -->
+			<skill id="4390" level="1" /> <!-- NPC Abnormal Immunity -->
+		</skillList>
+		<shots soul="2" spirit="2" />
+		<collision>
+			<radius normal="22" />
+			<height normal="20" />
+		</collision>
+	</npc>
+	<npc id="161" level="1" type="Folk" name="Halloween Witch's Broomstick">
+		<!-- AUTO GENERATED NPC TODO: FIX IT -->
+		<race>ANIMAL</race>
+		<sex>FEMALE</sex>
+		<stats str="88" int="79" dex="55" wit="78" con="82" men="78">
+			<vitals hp="39" hpRegen="2" mp="40" mpRegen="0.9" />
+			<speed>
+				<walk ground="41" />
+				<run ground="250" />
+			</speed>
+			<attack physical="8.47458" magical="5.78704" critical="4" attackSpeed="253" range="40" type="FIST" distance="80" width="120" random="10" accuracy="5" />
+			<defence physical="341.375" magical="249.80341" />
+			<attribute>
+				<defence fire="20" water="20" wind="20" earth="20" holy="20" dark="20" />
+			</attribute>
+			<abnormalResist physical="10" magical="10" />
+		</stats>
+		<status attackable="false" undying="false" />
+		<skillList>
+			<skill id="4415" level="5" /> <!-- Blunt Weapon -->
+			<skill id="4416" level="4" /> <!-- Animals -->
+			<skill id="4390" level="1" /> <!-- NPC Abnormal Immunity -->
+		</skillList>
+		<shots soul="2" spirit="2" />
+		<collision>
+			<radius normal="30" />
+			<height normal="13" />
+		</collision>
+	</npc>
+</list>

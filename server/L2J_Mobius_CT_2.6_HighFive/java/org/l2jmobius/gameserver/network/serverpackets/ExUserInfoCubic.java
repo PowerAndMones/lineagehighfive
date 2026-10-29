@@ -50,7 +50,7 @@ public class ExUserInfoCubic extends ServerPacket
 			{
 				buffer.writeShort(cubicId);
 			}
-			buffer.writeInt(0); // Agathion id (Salvation protocol 140)
+			buffer.writeInt(_player.getAgathionId()); // Agathion id (Salvation protocol 140, ref parity)
 			return;
 		}
 

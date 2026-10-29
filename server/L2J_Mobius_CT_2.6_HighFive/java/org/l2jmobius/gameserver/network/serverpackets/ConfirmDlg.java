@@ -81,7 +81,8 @@ public class ConfirmDlg extends ServerPacket
 					continue;
 				}
 
-				buffer.writeByte(param.getType());
+				// Ref build writes the parameter type tag as an int in ConfirmDlg (unlike SystemMessage).
+				buffer.writeInt(param.getType());
 				switch (param.getType())
 				{
 					case SystemMessage.TYPE_ELEMENT_NAME:

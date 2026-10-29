@@ -1,587 +1,694 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <list enabled="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/spawns.xsd">
-	<spawn zone="aden07_2519_01">
-		<territory minZ="-4384" maxZ="-4134">
-			<node x="173085" y="54423" />
-			<node x="175814" y="54454" />
-			<node x="175814" y="56345" />
-			<node x="173085" y="56314" />
-		</territory>
-		<npc id="22673" count="10" respawnDelay="20" respawnRandom="5" /> <!-- Hirokai -->
-		<npc id="22674" count="5" respawnDelay="20" respawnRandom="5" /> <!-- Imagro -->
-		<npc id="22675" count="10" respawnDelay="20" respawnRandom="5" /> <!-- Palit -->
-	</spawn>
-	<spawn zone="aden07_2519_02">
-		<territory minZ="-4400" maxZ="-4200">
-			<node x="173076" y="60534" />
-			<node x="176466" y="60534" />
-			<node x="176466" y="63146" />
-			<node x="173076" y="63146" />
-		</territory>
-		<npc id="22676" count="5" respawnDelay="20" respawnRandom="5" /> <!-- Hamlet -->
-		<npc id="22674" count="10" respawnDelay="20" respawnRandom="5" /> <!-- Imagro -->
-		<npc id="22675" count="10" respawnDelay="20" respawnRandom="5" /> <!-- Palit -->
-	</spawn>
-	<spawn zone="aden07_2519_03">
-		<territory minZ="-4464" maxZ="-4114">
-			<node x="177966" y="61529" />
-			<node x="179177" y="61529" />
-			<node x="179170" y="61851" />
-			<node x="177958" y="61851" />
-		</territory>
-		<npc id="22677" count="3" respawnDelay="20" respawnRandom="5" /> <!-- Klennot -->
-	</spawn>
-	<spawn zone="aden07_2519_04">
-		<territory minZ="-4316" maxZ="-3966">
-			<node x="179199" y="61529" />
-			<node x="180662" y="61529" />
-			<node x="180654" y="61851" />
-			<node x="179191" y="61851" />
-		</territory>
-		<npc id="22677" count="3" respawnDelay="20" respawnRandom="5" /> <!-- Klennot -->
-	</spawn>
-	<spawn zone="aden07_2519_05">
-		<territory minZ="-4000" maxZ="-3800">
-			<node x="181391" y="61094" />
-			<node x="182876" y="61094" />
-			<node x="182876" y="62824" />
-			<node x="181391" y="62824" />
-		</territory>
-		<npc id="22676" count="5" respawnDelay="20" respawnRandom="5" /> <!-- Hamlet -->
-		<npc id="22673" count="5" respawnDelay="20" respawnRandom="5" /> <!-- Hirokai -->
-		<npc id="22674" count="5" respawnDelay="20" respawnRandom="5" /> <!-- Imagro -->
-	</spawn>
-	<spawn zone="aden07_2519_06">
-		<territory minZ="-4000" maxZ="-3800">
-			<node x="178794" y="58523" />
-			<node x="182548" y="58523" />
-			<node x="182548" y="60512" />
-			<node x="178794" y="60512" />
-		</territory>
-		<npc id="22676" count="8" respawnDelay="20" respawnRandom="5" /> <!-- Hamlet -->
-		<npc id="22673" count="7" respawnDelay="20" respawnRandom="5" /> <!-- Hirokai -->
-		<npc id="22674" count="10" respawnDelay="20" respawnRandom="5" /> <!-- Imagro -->
-	</spawn>
-	<spawn zone="aden07_2519_07">
-		<territory minZ="-4000" maxZ="-3800">
-			<node x="177302" y="54231" />
-			<node x="179834" y="53277" />
-			<node x="180492" y="55004" />
-			<node x="177959" y="55916" />
-		</territory>
-		<npc id="22673" count="10" respawnDelay="20" respawnRandom="5" /> <!-- Hirokai -->
-		<npc id="22674" count="5" respawnDelay="20" respawnRandom="5" /> <!-- Imagro -->
-		<npc id="22675" count="10" respawnDelay="20" respawnRandom="5" /> <!-- Palit -->
-	</spawn>
-	<spawn zone="aden07_2519_09">
-		<territory minZ="-4384" maxZ="-4184">
-			<node x="185731" y="47231" />
-			<node x="187304" y="48123" />
-			<node x="185979" y="50443" />
-			<node x="184333" y="49479" />
-		</territory>
-		<npc id="22673" count="5" respawnDelay="20" respawnRandom="5" /> <!-- Hirokai -->
-		<npc id="22674" count="10" respawnDelay="20" respawnRandom="5" /> <!-- Imagro -->
-		<npc id="22675" count="10" respawnDelay="20" respawnRandom="5" /> <!-- Palit -->
-	</spawn>
-	<spawn zone="aden07_2519_10">
-		<territory minZ="-4384" maxZ="-4184">
-			<node x="190561" y="49157" />
-			<node x="192558" y="49157" />
-			<node x="192558" y="51114" />
-			<node x="190561" y="51114" />
-		</territory>
-		<npc id="22676" count="10" respawnDelay="20" respawnRandom="5" /> <!-- Hamlet -->
-		<npc id="22673" count="2" respawnDelay="20" respawnRandom="5" /> <!-- Hirokai -->
-		<npc id="22674" count="5" respawnDelay="20" respawnRandom="5" /> <!-- Imagro -->
-	</spawn>
-	<spawn zone="aden07_2519_11">
-		<territory minZ="-4384" maxZ="-4184">
-			<node x="189489" y="51585" />
-			<node x="191107" y="51585" />
-			<node x="191107" y="53322" />
-			<node x="189489" y="53322" />
-		</territory>
-		<npc id="22676" count="10" respawnDelay="20" respawnRandom="5" /> <!-- Hamlet -->
-		<npc id="22673" count="5" respawnDelay="20" respawnRandom="5" /> <!-- Hirokai -->
-		<npc id="22674" count="2" respawnDelay="20" respawnRandom="5" /> <!-- Imagro -->
-	</spawn>
-	<spawn zone="aden07_2519_12">
-		<territory minZ="-4384" maxZ="-4184">
-			<node x="189437" y="53572" />
-			<node x="190635" y="53572" />
-			<node x="190635" y="54591" />
-			<node x="189437" y="54591" />
-		</territory>
-		<npc id="22676" count="4" respawnDelay="20" respawnRandom="5" /> <!-- Hamlet -->
-		<npc id="22673" count="3" respawnDelay="20" respawnRandom="5" /> <!-- Hirokai -->
-		<npc id="22674" count="3" respawnDelay="20" respawnRandom="5" /> <!-- Imagro -->
-	</spawn>
-	<spawn zone="aden07_2519_13">
-		<territory minZ="-4384" maxZ="-4184">
-			<node x="191420" y="51325" />
-			<node x="192758" y="51325" />
-			<node x="192758" y="53122" />
-			<node x="191420" y="53102" />
-		</territory>
-		<npc id="22676" count="10" respawnDelay="20" respawnRandom="5" /> <!-- Hamlet -->
-		<npc id="22673" count="5" respawnDelay="20" respawnRandom="5" /> <!-- Hirokai -->
-	</spawn>
-	<spawn zone="aden07_2519_14">
-		<territory minZ="-4384" maxZ="-4184">
-			<node x="192982" y="51448" />
-			<node x="194490" y="51448" />
-			<node x="194480" y="53401" />
-			<node x="192982" y="53391" />
-		</territory>
-		<npc id="22676" count="10" respawnDelay="20" respawnRandom="5" /> <!-- Hamlet -->
-		<npc id="22673" count="10" respawnDelay="20" respawnRandom="5" /> <!-- Hirokai -->
-	</spawn>
-	<spawn zone="aden07_2519_16">
-		<territory minZ="-4678" maxZ="-4378">
-			<node x="191851" y="54921" />
-			<node x="192155" y="54921" />
-			<node x="192158" y="56271" />
-			<node x="191855" y="56271" />
-		</territory>
-		<npc id="22677" count="3" respawnDelay="20" respawnRandom="5" /> <!-- Klennot -->
-	</spawn>
-	<spawn zone="aden07_2519_17">
-		<territory minZ="-4812" maxZ="-4512">
-			<node x="191856" y="56313" />
-			<node x="192160" y="56313" />
-			<node x="192152" y="57418" />
-			<node x="191848" y="57418" />
-		</territory>
-		<npc id="22677" count="3" respawnDelay="20" respawnRandom="5" /> <!-- Klennot -->
-	</spawn>
-	<spawn zone="aden07_2519_18">
-		<territory minZ="-4816" maxZ="-4616">
-			<node x="191728" y="57997" />
-			<node x="192291" y="57997" />
-			<node x="192291" y="58480" />
-			<node x="191728" y="58480" />
-		</territory>
-		<npc id="22668" count="2" respawnDelay="20" respawnRandom="5" /> <!-- Gamlin - Scout -->
-	</spawn>
-	<spawn zone="aden07_2519_19">
-		<territory minZ="-4992" maxZ="-4792">
-			<node x="189974" y="60356" />
-			<node x="193914" y="60362" />
-			<node x="193917" y="62932" />
-			<node x="189918" y="62937" />
-		</territory>
-		<npc id="22668" count="3" respawnDelay="82" respawnRandom="20" /> <!-- Gamlin - Scout -->
-		<npc id="22661" count="5" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Soldier -->
-		<npc id="22663" count="5" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Scout -->
-	</spawn>
-	<spawn zone="aden07_2519_20">
-		<territory minZ="-4992" maxZ="-4792">
-			<node x="190005" y="58908" />
-			<node x="191192" y="58899" />
-			<node x="191187" y="59954" />
-			<node x="190036" y="59930" />
-		</territory>
-		<npc id="22668" count="2" respawnDelay="20" respawnRandom="5" /> <!-- Gamlin - Scout -->
-		<npc id="22661" count="1" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Soldier -->
-		<npc id="22663" count="2" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Scout -->
-	</spawn>
-	<spawn zone="aden07_2519_21">
-		<territory minZ="-4992" maxZ="-4792">
-			<node x="192881" y="58886" />
-			<node x="194017" y="58883" />
-			<node x="194010" y="59925" />
-			<node x="192881" y="59928" />
-		</territory>
-		<npc id="22668" count="2" respawnDelay="20" respawnRandom="5" /> <!-- Gamlin - Scout -->
-		<npc id="22661" count="2" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Soldier -->
-		<npc id="22663" count="2" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Scout -->
-	</spawn>
-	<spawn zone="aden07_2519_22">
-		<territory minZ="-5016" maxZ="-4816">
-			<node x="185517" y="62272" />
-			<node x="189701" y="62241" />
-			<node x="189694" y="62853" />
-			<node x="185510" y="62915" />
-		</territory>
-		<npc id="22668" count="2" respawnDelay="20" respawnRandom="5" /> <!-- Gamlin - Scout -->
-		<npc id="22661" x="186725" y="62759" z="-4944" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Soldier -->
-		<npc id="22663" x="186182" y="62352" z="-4944" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Scout -->
-		<npc id="22661" x="186776" y="62345" z="-4944" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Soldier -->
-		<npc id="22661" x="187908" y="62756" z="-4944" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Soldier -->
-		<npc id="22661" x="188527" y="62744" z="-4944" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Soldier -->
-	</spawn>
-	<spawn zone="aden07_2519_24">
-		<territory minZ="-6156" maxZ="-5956">
-			<node x="192121" y="60386" />
-			<node x="193883" y="60386" />
-			<node x="193883" y="62929" />
-			<node x="192121" y="62929" />
-		</territory>
-		<npc id="22669" count="1" respawnDelay="20" respawnRandom="5" /> <!-- Leogul - Scout -->
-		<npc id="22661" x="192660" y="60635" z="-6032" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Soldier -->
-		<npc id="22661" x="193413" y="60655" z="-6032" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Soldier -->
-		<npc id="22661" x="193399" y="61399" z="-6032" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Soldier -->
-		<npc id="22661" x="193381" y="61854" z="-6032" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Soldier -->
-		<npc id="22661" x="192236" y="61381" z="-6032" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Soldier -->
-		<npc id="22661" x="193392" y="62696" z="-6039" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Soldier -->
-		<npc id="22661" x="192242" y="61971" z="-6032" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Soldier -->
-		<npc id="22661" x="192622" y="62688" z="-6032" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Soldier -->
-		<npc id="22663" x="193052" y="62265" z="-6063" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Scout -->
-		<npc id="22663" x="193028" y="60952" z="-6063" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Scout -->
-	</spawn>
-	<spawn zone="aden07_2519_27">
-		<territory minZ="-7276" maxZ="-7076">
-			<node x="186850" y="59675" />
-			<node x="188172" y="59675" />
-			<node x="188172" y="63020" />
-			<node x="186850" y="63020" />
-		</territory>
-		<npc id="22669" count="1" respawnDelay="82" respawnRandom="20" /> <!-- Leogul - Scout -->
-		<npc id="22664" x="187490" y="62694" z="-7200" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Mage -->
-		<npc id="22665" x="187002" y="62694" z="-7200" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Elder -->
-		<npc id="22664" x="187010" y="62192" z="-7200" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Mage -->
-		<npc id="22665" x="187022" y="61696" z="-7200" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Elder -->
-		<npc id="22664" x="187006" y="61237" z="-7200" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Mage -->
-		<npc id="22665" x="187034" y="60756" z="-7200" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Elder -->
-		<npc id="22664" x="188007" y="62753" z="-7200" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Mage -->
-		<npc id="22665" x="188016" y="62112" z="-7200" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Elder -->
-		<npc id="22664" x="188069" y="61632" z="-7200" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Mage -->
-		<npc id="22665" x="187958" y="60466" z="-7200" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Elder -->
-		<npc id="22664" x="187936" y="59968" z="-7200" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Mage -->
-		<npc id="22665" x="187504" y="59961" z="-7200" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Elder -->
-	</spawn>
-	<spawn zone="aden07_2519_28">
-		<territory minZ="-7276" maxZ="-7076">
-			<node x="182322" y="59680" />
-			<node x="186515" y="59680" />
-			<node x="186515" y="60255" />
-			<node x="182322" y="60255" />
-		</territory>
-		<npc id="22669" count="1" respawnDelay="82" respawnRandom="20" /> <!-- Leogul - Scout -->
-		<npc id="22662" count="1" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Shooter -->
-		<npc id="22664" count="1" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Mage -->
-		<npc id="22665" count="1" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Elder -->
-	</spawn>
-	<spawn zone="aden07_2519_29">
-		<territory minZ="-7276" maxZ="-7076">
-			<node x="185115" y="58461" />
-			<node x="185978" y="58475" />
-			<node x="185978" y="59394" />
-			<node x="185115" y="59394" />
-		</territory>
-		<npc id="22662" count="2" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Shooter -->
-		<npc id="22664" count="1" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Mage -->
-		<npc id="22665" count="2" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Elder -->
-	</spawn>
-	<spawn zone="aden07_2519_30">
-		<territory minZ="-7276" maxZ="-7076">
-			<node x="183961" y="58463" />
-			<node x="184824" y="58477" />
-			<node x="184824" y="59396" />
-			<node x="183961" y="59396" />
-		</territory>
-		<npc id="22662" count="2" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Shooter -->
-		<npc id="22664" count="1" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Mage -->
-		<npc id="22665" count="2" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Elder -->
-	</spawn>
-	<spawn zone="aden07_2519_31">
-		<territory minZ="-7276" maxZ="-7076">
-			<node x="182822" y="58465" />
-			<node x="183684" y="58479" />
-			<node x="183684" y="59398" />
-			<node x="182822" y="59398" />
-		</territory>
-		<npc id="22662" count="2" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Shooter -->
-		<npc id="22664" count="1" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Mage -->
-		<npc id="22665" count="2" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Elder -->
-	</spawn>
-	<spawn zone="aden07_2519_32">
-		<territory minZ="-7276" maxZ="-7076">
-			<node x="182161" y="60538" />
-			<node x="183024" y="60552" />
-			<node x="183024" y="61471" />
-			<node x="182161" y="61471" />
-		</territory>
-		<npc id="22662" count="2" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Shooter -->
-		<npc id="22664" count="1" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Mage -->
-		<npc id="22665" count="2" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Elder -->
-	</spawn>
-	<spawn zone="aden07_2519_33">
-		<territory minZ="-7276" maxZ="-7076">
-			<node x="183474" y="60540" />
-			<node x="184336" y="60554" />
-			<node x="184336" y="61473" />
-			<node x="183474" y="61473" />
-		</territory>
-		<npc id="22662" count="1" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Shooter -->
-		<npc id="22664" count="2" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Mage -->
-		<npc id="22665" count="2" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Elder -->
-	</spawn>
-	<spawn zone="aden07_2519_34">
-		<territory minZ="-7276" maxZ="-7076">
-			<node x="184640" y="60542" />
-			<node x="185502" y="60556" />
-			<node x="185502" y="61475" />
-			<node x="184640" y="61475" />
-		</territory>
-		<npc id="22662" count="2" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Shooter -->
-		<npc id="22664" count="1" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Mage -->
-		<npc id="22665" count="2" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Elder -->
-	</spawn>
-	<spawn zone="aden07_2519_35">
-		<territory minZ="-7276" maxZ="-7076">
-			<node x="185763" y="60544" />
-			<node x="186625" y="60558" />
-			<node x="186625" y="61476" />
-			<node x="185763" y="61476" />
-		</territory>
-		<npc id="22662" count="2" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Shooter -->
-		<npc id="22664" count="1" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Mage -->
-		<npc id="22665" count="2" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Elder -->
-	</spawn>
-	<spawn zone="aden07_2519_36">
-		<territory minZ="-7280" maxZ="-7080">
-			<node x="189936" y="59136" />
-			<node x="194032" y="59204" />
-			<node x="194024" y="62400" />
-			<node x="189948" y="62408" />
-		</territory>
-		<npc id="22669" count="1" respawnDelay="82" respawnRandom="20" /> <!-- Leogul - Scout -->
-		<npc id="22665" x="193664" y="62041" z="-7200" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Elder -->
-		<npc id="22665" x="193760" y="61344" z="-7200" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Elder -->
-		<npc id="22665" x="193760" y="60768" z="-7200" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Elder -->
-		<npc id="22665" x="193776" y="60240" z="-7200" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Elder -->
-		<npc id="22665" x="193776" y="59488" z="-7200" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Elder -->
-		<npc id="22665" x="193222" y="59531" z="-7200" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Elder -->
-		<npc id="22665" x="192719" y="59499" z="-7200" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Elder -->
-		<npc id="22665" x="193165" y="61963" z="-7200" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Elder -->
-		<npc id="22665" x="192656" y="61975" z="-7200" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Elder -->
-		<npc id="22665" x="191940" y="61982" z="-7200" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Elder -->
-		<npc id="22665" x="191279" y="61971" z="-7200" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Elder -->
-		<npc id="22665" x="190496" y="61949" z="-7200" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Elder -->
-		<npc id="22662" x="191011" y="61005" z="-7199" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Shooter -->
-		<npc id="22662" x="192865" y="60996" z="-7200" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Shooter -->
-		<npc id="22664" x="192486" y="60549" z="-7200" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Mage -->
-		<npc id="22664" x="193280" y="60592" z="-7200" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Mage -->
-		<npc id="22664" x="193321" y="61433" z="-7200" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Mage -->
-		<npc id="22664" x="192435" y="61458" z="-7200" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Mage -->
-		<npc id="22664" x="191416" y="61431" z="-7200" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Mage -->
-		<npc id="22664" x="191420" y="60590" z="-7200" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Mage -->
-		<npc id="22664" x="190567" y="60580" z="-7212" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Mage -->
-		<npc id="22664" x="190629" y="61409" z="-7200" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Mage -->
-		<npc id="22665" x="190224" y="60178" z="-7200" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Elder -->
-		<npc id="22665" x="190287" y="59524" z="-7200" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Elder -->
-		<npc id="22665" x="191408" y="59501" z="-7200" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Elder -->
-		<npc id="22665" x="190809" y="59535" z="-7200" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Elder -->
-	</spawn>
-	<spawn zone="aden07_2519_38">
-		<territory minZ="-7271" maxZ="-7071">
-			<node x="185849" y="54574" />
-			<node x="188339" y="54519" />
-			<node x="188847" y="55458" />
-			<node x="188857" y="57304" />
-			<node x="188259" y="58020" />
-			<node x="185686" y="58048" />
-			<node x="185124" y="57580" />
-			<node x="185112" y="55208" />
-		</territory>
-		<npc id="22669" count="1" respawnDelay="82" respawnRandom="20" /> <!-- Leogul - Scout -->
-		<npc id="22665" x="188320" y="56128" z="-7200" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Elder -->
-		<npc id="22665" x="188347" y="56688" z="-7200" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Elder -->
-		<npc id="22665" x="188171" y="57322" z="-7200" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Elder -->
-		<npc id="22665" x="187657" y="57593" z="-7200" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Elder -->
-		<npc id="22665" x="187008" y="57712" z="-7200" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Elder -->
-		<npc id="22665" x="186384" y="57728" z="-7200" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Elder -->
-		<npc id="22665" x="185802" y="57614" z="-7200" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Elder -->
-		<npc id="22665" x="185408" y="56976" z="-7200" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Elder -->
-		<npc id="22665" x="185422" y="56332" z="-7200" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Elder -->
-		<npc id="22665" x="185461" y="55679" z="-7200" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Elder -->
-		<npc id="22665" x="185744" y="55168" z="-7200" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Elder -->
-		<npc id="22665" x="186416" y="54944" z="-7200" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Elder -->
-		<npc id="22665" x="187024" y="54880" z="-7200" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Elder -->
-		<npc id="22665" x="187664" y="54848" z="-7200" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Elder -->
-		<npc id="22665" x="188128" y="55216" z="-7200" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Elder -->
-		<npc id="22665" x="188355" y="55617" z="-7200" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Elder -->
-		<npc id="22664" x="187319" y="56736" z="-7199" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Mage -->
-		<npc id="22664" x="187336" y="55822" z="-7199" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Mage -->
-		<npc id="22664" x="186451" y="56732" z="-7199" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Mage -->
-		<npc id="22664" x="186450" y="55812" z="-7199" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Mage -->
-		<npc id="22662" x="186882" y="56272" z="-7199" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Shooter -->
-	</spawn>
-	<spawn zone="aden07_2519_39">
-		<territory minZ="-4602" maxZ="-4402">
-			<node x="185425" y="54721" />
-			<node x="188262" y="54655" />
-			<node x="188321" y="57871" />
-			<node x="185415" y="57861" />
-		</territory>
-		<npc id="22669" count="1" respawnDelay="82" respawnRandom="20" /> <!-- Leogul - Scout -->
-		<npc id="22661" x="185712" y="55137" z="-4528" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Soldier -->
-		<npc id="22661" x="186048" y="54930" z="-4528" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Soldier -->
-		<npc id="22661" x="186409" y="54916" z="-4528" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Soldier -->
-		<npc id="22661" x="186813" y="54888" z="-4528" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Soldier -->
-		<npc id="22661" x="187477" y="54859" z="-4528" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Soldier -->
-		<npc id="22661" x="187861" y="54869" z="-4528" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Soldier -->
-		<npc id="22661" x="188128" y="55056" z="-4528" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Soldier -->
-		<npc id="22661" x="188176" y="55456" z="-4528" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Soldier -->
-		<npc id="22661" x="188208" y="55840" z="-4528" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Soldier -->
-		<npc id="22661" x="188177" y="56261" z="-4528" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Soldier -->
-		<npc id="22661" x="188192" y="56608" z="-4528" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Soldier -->
-		<npc id="22661" x="188208" y="57024" z="-4528" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Soldier -->
-		<npc id="22661" x="188192" y="57408" z="-4528" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Soldier -->
-		<npc id="22661" x="187108" y="57703" z="-4528" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Soldier -->
-		<npc id="22661" x="187934" y="57662" z="-4528" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Soldier -->
-		<npc id="22661" x="185632" y="55536" z="-4528" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Soldier -->
-		<npc id="22661" x="185600" y="55936" z="-4528" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Soldier -->
-		<npc id="22661" x="185600" y="56592" z="-4528" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Soldier -->
-		<npc id="22661" x="185626" y="57008" z="-4528" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Soldier -->
-		<npc id="22661" x="185610" y="57412" z="-4528" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Soldier -->
-		<npc id="22661" x="186784" y="57674" z="-4528" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Soldier -->
-		<npc id="22663" x="186236" y="56907" z="-4544" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Scout -->
-		<npc id="22663" x="186256" y="55599" z="-4557" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Scout -->
-		<npc id="22663" x="187562" y="56978" z="-4557" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Scout -->
-		<npc id="22663" x="187540" y="55561" z="-4544" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Scout -->
-	</spawn>
-	<spawn zone="aden07_2519_41">
-		<territory minZ="-4026" maxZ="-3826">
-			<node x="183165" y="57680" />
-			<node x="184594" y="57663" />
-			<node x="184570" y="60104" />
-			<node x="183150" y="60163" />
-		</territory>
-		<npc id="22668" count="2" respawnDelay="20" respawnRandom="5" /> <!-- Gamlin - Scout -->
-		<npc id="22661" count="2" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Soldier -->
-		<npc id="22663" count="2" respawnDelay="82" respawnRandom="20" /> <!-- Lesser Giant Scout -->
-	</spawn>
-	<spawn zone="aden07_2519_p01">
-		<territory minZ="-4384" maxZ="-4134">
-			<node x="173085" y="54423" />
-			<node x="175814" y="54454" />
-			<node x="175814" y="56345" />
-			<node x="173085" y="56314" />
-		</territory>
-		<npc id="22670" count="1" respawnDelay="150" respawnRandom="50" /> <!-- Cursed Lord -->
-	</spawn>
-	<spawn zone="aden07_2519_p02">
-		<territory minZ="-4400" maxZ="-4200">
-			<node x="173076" y="60534" />
-			<node x="176466" y="60534" />
-			<node x="176466" y="63146" />
-			<node x="173076" y="63146" />
-		</territory>
-		<npc id="22670" count="1" respawnDelay="150" respawnRandom="50" /> <!-- Cursed Lord -->
-	</spawn>
-	<spawn zone="aden07_2519_p05">
-		<territory minZ="-4000" maxZ="-3800">
-			<node x="181391" y="61094" />
-			<node x="182876" y="61094" />
-			<node x="182876" y="62824" />
-			<node x="181391" y="62824" />
-		</territory>
-		<npc id="22670" count="1" respawnDelay="150" respawnRandom="50" /> <!-- Cursed Lord -->
-	</spawn>
-	<spawn zone="aden07_2519_p06">
-		<territory minZ="-4000" maxZ="-3800">
-			<node x="178794" y="58523" />
-			<node x="182548" y="58523" />
-			<node x="182548" y="60512" />
-			<node x="178794" y="60512" />
-		</territory>
-		<npc id="22670" count="1" respawnDelay="150" respawnRandom="50" /> <!-- Cursed Lord -->
-	</spawn>
-	<spawn zone="aden07_2519_p07">
-		<territory minZ="-4000" maxZ="-3800">
-			<node x="177302" y="54231" />
-			<node x="179834" y="53277" />
-			<node x="180492" y="55004" />
-			<node x="177959" y="55916" />
-		</territory>
-		<npc id="22670" count="1" respawnDelay="150" respawnRandom="50" /> <!-- Cursed Lord -->
-	</spawn>
-	<spawn zone="aden07_2519_p09">
-		<territory minZ="-4384" maxZ="-4184">
-			<node x="185731" y="47231" />
-			<node x="187304" y="48123" />
-			<node x="185979" y="50443" />
-			<node x="184333" y="49479" />
-		</territory>
-		<npc id="22670" count="1" respawnDelay="150" respawnRandom="50" /> <!-- Cursed Lord -->
-	</spawn>
-	<spawn zone="aden07_2519_p10">
-		<territory minZ="-4384" maxZ="-4184">
-			<node x="190561" y="49157" />
-			<node x="192558" y="49157" />
-			<node x="192558" y="51114" />
-			<node x="190561" y="51114" />
-		</territory>
-		<npc id="22670" count="1" respawnDelay="150" respawnRandom="50" /> <!-- Cursed Lord -->
-	</spawn>
-	<spawn zone="aden07_2519_p11">
-		<territory minZ="-4384" maxZ="-4184">
-			<node x="189489" y="51585" />
-			<node x="191107" y="51585" />
-			<node x="191107" y="53322" />
-			<node x="189489" y="53322" />
-		</territory>
-		<npc id="22670" count="1" respawnDelay="150" respawnRandom="50" /> <!-- Cursed Lord -->
-	</spawn>
-	<spawn zone="aden07_2519_p13">
-		<territory minZ="-4384" maxZ="-4184">
-			<node x="191420" y="51325" />
-			<node x="192758" y="51325" />
-			<node x="192758" y="53122" />
-			<node x="191420" y="53102" />
-		</territory>
-		<npc id="22670" count="1" respawnDelay="150" respawnRandom="50" /> <!-- Cursed Lord -->
-	</spawn>
-	<spawn zone="aden07_2519_p14">
-		<territory minZ="-4384" maxZ="-4184">
-			<node x="192982" y="51448" />
-			<node x="194490" y="51448" />
-			<node x="194480" y="53401" />
-			<node x="192982" y="53391" />
-		</territory>
-		<npc id="22670" count="1" respawnDelay="150" respawnRandom="50" /> <!-- Cursed Lord -->
-	</spawn>
-	<spawn zone="aden07_2519_p27">
-		<territory minZ="-7276" maxZ="-7076">
-			<node x="186850" y="59675" />
-			<node x="188172" y="59675" />
-			<node x="188172" y="63020" />
-			<node x="186850" y="63020" />
-		</territory>
-		<npc id="22666" count="1" respawnDelay="150" respawnRandom="50" /> <!-- Barif -->
-	</spawn>
-	<spawn zone="aden07_2519_p36">
-		<territory minZ="-7280" maxZ="-7080">
-			<node x="189936" y="59136" />
-			<node x="194032" y="59204" />
-			<node x="194024" y="62400" />
-			<node x="189948" y="62408" />
-		</territory>
-		<npc id="22666" count="3" respawnDelay="150" respawnRandom="50" /> <!-- Barif -->
-	</spawn>
-	<spawn zone="aden07_2519_p38">
-		<territory minZ="-7271" maxZ="-7071">
-			<node x="185849" y="54574" />
-			<node x="188339" y="54519" />
-			<node x="188847" y="55458" />
-			<node x="188857" y="57304" />
-			<node x="188259" y="58020" />
-			<node x="185686" y="58048" />
-			<node x="185124" y="57580" />
-			<node x="185112" y="55208" />
-		</territory>
-		<npc id="22666" count="3" respawnDelay="150" respawnRandom="50" /> <!-- Barif -->
-	</spawn>
-	<spawn zone="aden07_2519_p41">
-		<territory minZ="-4026" maxZ="-3826">
-			<node x="183165" y="57680" />
-			<node x="184594" y="57663" />
-			<node x="184570" y="60104" />
-			<node x="183150" y="60163" />
-		</territory>
-		<npc id="22666" count="1" respawnDelay="150" respawnRandom="50" /> <!-- Barif -->
+	<spawn name="GiantsCave">
+		<group>
+			<npc id="20965" x="175108" y="54037" z="-6016" heading="29474" respawnDelay="60" /> <!-- Chimera Piece -->
+			<npc id="20965" x="173437" y="54698" z="-5976" heading="62650" respawnDelay="60" /> <!-- Chimera Piece -->
+			<npc id="20965" x="176057" y="58071" z="-5840" heading="31504" respawnDelay="60" /> <!-- Chimera Piece -->
+			<npc id="20965" x="172594" y="54097" z="-5920" heading="11574" respawnDelay="60" /> <!-- Chimera Piece -->
+			<npc id="20965" x="174752" y="56141" z="-5968" heading="28369" respawnDelay="60" /> <!-- Chimera Piece -->
+			<npc id="20965" x="175046" y="57089" z="-5920" heading="17930" respawnDelay="60" /> <!-- Chimera Piece -->
+			<npc id="20965" x="174527" y="57833" z="-5872" heading="4995" respawnDelay="60" /> <!-- Chimera Piece -->
+			<npc id="20965" x="174107" y="57910" z="-5864" heading="20264" respawnDelay="60" /> <!-- Chimera Piece -->
+			<npc id="20965" x="174757" y="57744" z="-5896" heading="26513" respawnDelay="60" /> <!-- Chimera Piece -->
+			<npc id="20965" x="174432" y="54310" z="-6016" heading="31229" respawnDelay="60" /> <!-- Chimera Piece -->
+			<npc id="20965" x="179544" y="55144" z="-5944" heading="16433" respawnDelay="60" /> <!-- Chimera Piece -->
+			<npc id="20965" x="179767" y="52878" z="-5968" heading="25271" respawnDelay="60" /> <!-- Chimera Piece -->
+			<npc id="20965" x="175899" y="52892" z="-5904" heading="56255" respawnDelay="60" /> <!-- Chimera Piece -->
+			<npc id="20965" x="174177" y="59026" z="-5856" heading="56650" respawnDelay="60" /> <!-- Chimera Piece -->
+			<npc id="20965" x="176762" y="55494" z="-5968" heading="8863" respawnDelay="60" /> <!-- Chimera Piece -->
+			<npc id="20965" x="176037" y="57490" z="-5840" heading="7391" respawnDelay="60" /> <!-- Chimera Piece -->
+			<npc id="20965" x="175326" y="57353" z="-5912" heading="61480" respawnDelay="60" /> <!-- Chimera Piece -->
+			<npc id="20965" x="175346" y="53883" z="-6000" heading="21449" respawnDelay="60" /> <!-- Chimera Piece -->
+			<npc id="20965" x="175936" y="53973" z="-6016" heading="35741" respawnDelay="60" /> <!-- Chimera Piece -->
+			<npc id="20965" x="176997" y="55259" z="-5976" heading="40459" respawnDelay="60" /> <!-- Chimera Piece -->
+			<npc id="20965" x="176978" y="56050" z="-5944" heading="45535" respawnDelay="60" /> <!-- Chimera Piece -->
+			<npc id="20965" x="177236" y="55004" z="-5992" heading="49390" respawnDelay="60" /> <!-- Chimera Piece -->
+			<npc id="20965" x="176215" y="56255" z="-5928" heading="52527" respawnDelay="60" /> <!-- Chimera Piece -->
+			<npc id="20965" x="179058" y="55040" z="-5944" heading="9076" respawnDelay="60" /> <!-- Chimera Piece -->
+			<npc id="20966" x="175107" y="57314" z="-5920" heading="59371" respawnDelay="60" /> <!-- Mutated Creation -->
+			<npc id="20966" x="173124" y="54397" z="-5936" heading="52521" respawnDelay="60" /> <!-- Mutated Creation -->
+			<npc id="20966" x="173708" y="56202" z="-5936" heading="3959" respawnDelay="60" /> <!-- Mutated Creation -->
+			<npc id="20966" x="173436" y="57722" z="-5912" heading="17872" respawnDelay="60" /> <!-- Mutated Creation -->
+			<npc id="20966" x="175097" y="57663" z="-5912" heading="39252" respawnDelay="60" /> <!-- Mutated Creation -->
+			<npc id="20966" x="175482" y="53732" z="-5984" heading="43233" respawnDelay="60" /> <!-- Mutated Creation -->
+			<npc id="20966" x="175494" y="55450" z="-5984" heading="3797" respawnDelay="60" /> <!-- Mutated Creation -->
+			<npc id="20966" x="175789" y="55441" z="-5976" heading="24952" respawnDelay="60" /> <!-- Mutated Creation -->
+			<npc id="20966" x="181837" y="56088" z="-5840" heading="19645" respawnDelay="60" /> <!-- Mutated Creation -->
+			<npc id="20966" x="172766" y="54403" z="-5920" heading="22203" respawnDelay="60" /> <!-- Mutated Creation -->
+			<npc id="20966" x="176312" y="57764" z="-5848" heading="11574" respawnDelay="60" /> <!-- Mutated Creation -->
+			<npc id="20966" x="175273" y="58169" z="-5888" heading="15551" respawnDelay="60" /> <!-- Mutated Creation -->
+			<npc id="20966" x="177084" y="57546" z="-5848" heading="16829" respawnDelay="60" /> <!-- Mutated Creation -->
+			<npc id="20966" x="177101" y="54214" z="-6008" heading="16443" respawnDelay="60" /> <!-- Mutated Creation -->
+			<npc id="20966" x="177744" y="55655" z="-5936" heading="6462" respawnDelay="60" /> <!-- Mutated Creation -->
+			<npc id="20966" x="178330" y="53695" z="-5992" heading="53033" respawnDelay="60" /> <!-- Mutated Creation -->
+			<npc id="20966" x="176715" y="56797" z="-5896" heading="3318" respawnDelay="60" /> <!-- Mutated Creation -->
+			<npc id="20966" x="177808" y="56726" z="-5880" heading="9803" respawnDelay="60" /> <!-- Mutated Creation -->
+			<npc id="20966" x="178735" y="57145" z="-5752" heading="28037" respawnDelay="60" /> <!-- Mutated Creation -->
+			<npc id="20966" x="176564" y="55349" z="-5968" heading="57708" respawnDelay="60" /> <!-- Mutated Creation -->
+			<npc id="20966" x="174217" y="56466" z="-5936" heading="8528" respawnDelay="60" /> <!-- Mutated Creation -->
+			<npc id="20966" x="176870" y="57521" z="-5848" heading="11094" respawnDelay="60" /> <!-- Mutated Creation -->
+			<npc id="20967" x="179844" y="53004" z="-5976" heading="6842" respawnDelay="60" /> <!-- Creature of the Past -->
+			<npc id="20967" x="183296" y="53753" z="-5840" heading="35688" respawnDelay="60" /> <!-- Creature of the Past -->
+			<npc id="20967" x="182569" y="55119" z="-5864" heading="2029" respawnDelay="60" /> <!-- Creature of the Past -->
+			<npc id="20967" x="181691" y="53158" z="-5960" heading="59228" respawnDelay="60" /> <!-- Creature of the Past -->
+			<npc id="20967" x="181396" y="54317" z="-5920" heading="51057" respawnDelay="60" /> <!-- Creature of the Past -->
+			<npc id="20967" x="183094" y="52128" z="-5952" heading="62913" respawnDelay="60" /> <!-- Creature of the Past -->
+			<npc id="20967" x="182197" y="50216" z="-5920" heading="12669" respawnDelay="60" /> <!-- Creature of the Past -->
+			<npc id="20967" x="183323" y="50221" z="-6016" heading="53617" respawnDelay="60" /> <!-- Creature of the Past -->
+			<npc id="20967" x="182776" y="49195" z="-5936" heading="10067" respawnDelay="60" /> <!-- Creature of the Past -->
+			<npc id="20967" x="180885" y="51280" z="-5952" heading="62218" respawnDelay="60" /> <!-- Creature of the Past -->
+			<npc id="20967" x="180189" y="54025" z="-6008" heading="12370" respawnDelay="60" /> <!-- Creature of the Past -->
+			<npc id="20967" x="179867" y="53103" z="-5992" heading="41441" respawnDelay="60" /> <!-- Creature of the Past -->
+			<npc id="20967" x="185150" y="51001" z="-5920" heading="63594" respawnDelay="60" /> <!-- Creature of the Past -->
+			<npc id="20967" x="179370" y="56087" z="-5904" heading="61590" respawnDelay="60" /> <!-- Creature of the Past -->
+			<npc id="20967" x="176412" y="54018" z="-6008" heading="12620" respawnDelay="60" /> <!-- Creature of the Past -->
+			<npc id="20967" x="177490" y="56109" z="-5928" heading="28661" respawnDelay="60" /> <!-- Creature of the Past -->
+			<npc id="20967" x="179572" y="56462" z="-5872" heading="60807" respawnDelay="60" /> <!-- Creature of the Past -->
+			<npc id="20967" x="177776" y="53485" z="-5976" heading="8444" respawnDelay="60" /> <!-- Creature of the Past -->
+			<npc id="20967" x="178034" y="53767" z="-6016" heading="26150" respawnDelay="60" /> <!-- Creature of the Past -->
+			<npc id="20967" x="179841" y="56603" z="-5856" heading="24156" respawnDelay="60" /> <!-- Creature of the Past -->
+			<npc id="20967" x="184026" y="50369" z="-6008" heading="47345" respawnDelay="60" /> <!-- Creature of the Past -->
+			<npc id="20967" x="176429" y="54707" z="-6000" heading="11086" respawnDelay="60" /> <!-- Creature of the Past -->
+			<npc id="20968" x="184896" y="49884" z="-5984" heading="17975" respawnDelay="60" /> <!-- Forgotten Face -->
+			<npc id="20968" x="185898" y="47819" z="-5984" heading="15589" respawnDelay="60" /> <!-- Forgotten Face -->
+			<npc id="20968" x="185943" y="48556" z="-6000" respawnDelay="60" /> <!-- Forgotten Face -->
+			<npc id="20968" x="184621" y="47655" z="-5920" heading="35751" respawnDelay="60" /> <!-- Forgotten Face -->
+			<npc id="20968" x="186016" y="46781" z="-5920" heading="36002" respawnDelay="60" /> <!-- Forgotten Face -->
+			<npc id="20968" x="187377" y="48103" z="-5920" heading="33776" respawnDelay="60" /> <!-- Forgotten Face -->
+			<npc id="20968" x="187004" y="50430" z="-5880" heading="23165" respawnDelay="60" /> <!-- Forgotten Face -->
+			<npc id="20968" x="187611" y="50006" z="-5856" heading="13173" respawnDelay="60" /> <!-- Forgotten Face -->
+			<npc id="20968" x="180568" y="51489" z="-5936" heading="54771" respawnDelay="60" /> <!-- Forgotten Face -->
+			<npc id="20968" x="184306" y="47465" z="-5920" heading="40224" respawnDelay="60" /> <!-- Forgotten Face -->
+			<npc id="20968" x="185572" y="49192" z="-5984" heading="33290" respawnDelay="60" /> <!-- Forgotten Face -->
+			<npc id="20968" x="185366" y="50663" z="-5920" heading="60385" respawnDelay="60" /> <!-- Forgotten Face -->
+			<npc id="20968" x="184866" y="51736" z="-5912" heading="42683" respawnDelay="60" /> <!-- Forgotten Face -->
+			<npc id="20968" x="182607" y="50824" z="-6008" heading="17297" respawnDelay="60" /> <!-- Forgotten Face -->
+			<npc id="20968" x="183584" y="48388" z="-5920" heading="11555" respawnDelay="60" /> <!-- Forgotten Face -->
+			<npc id="20968" x="183668" y="50115" z="-6032" heading="43965" respawnDelay="60" /> <!-- Forgotten Face -->
+			<npc id="20968" x="182706" y="55030" z="-5848" heading="39664" respawnDelay="60" /> <!-- Forgotten Face -->
+			<npc id="20968" x="186919" y="52105" z="-5848" heading="34692" respawnDelay="60" /> <!-- Forgotten Face -->
+			<npc id="20968" x="183570" y="52603" z="-5856" heading="32067" respawnDelay="60" /> <!-- Forgotten Face -->
+			<npc id="20968" x="187685" y="46839" z="-5912" heading="46799" respawnDelay="60" /> <!-- Forgotten Face -->
+			<npc id="20968" x="185317" y="50595" z="-5920" heading="23078" respawnDelay="60" /> <!-- Forgotten Face -->
+			<npc id="20968" x="184909" y="47125" z="-5920" heading="13973" respawnDelay="60" /> <!-- Forgotten Face -->
+			<npc id="20969" x="184901" y="49028" z="-6032" heading="57387" respawnDelay="60" /> <!-- Giant's Shadow -->
+			<npc id="20969" x="187898" y="47505" z="-5920" heading="63221" respawnDelay="60" /> <!-- Giant's Shadow -->
+			<npc id="20969" x="187170" y="47493" z="-5936" heading="2576" respawnDelay="60" /> <!-- Giant's Shadow -->
+			<npc id="20969" x="188119" y="47056" z="-5920" heading="59264" respawnDelay="60" /> <!-- Giant's Shadow -->
+			<npc id="20969" x="182910" y="49445" z="-5944" heading="33903" respawnDelay="60" /> <!-- Giant's Shadow -->
+			<npc id="20969" x="188233" y="49269" z="-5840" heading="43283" respawnDelay="60" /> <!-- Giant's Shadow -->
+			<npc id="20969" x="186871" y="47714" z="-5944" heading="58943" respawnDelay="60" /> <!-- Giant's Shadow -->
+			<npc id="20969" x="185164" y="49396" z="-6008" heading="60524" respawnDelay="60" /> <!-- Giant's Shadow -->
+			<npc id="20969" x="183738" y="50384" z="-6016" heading="30685" respawnDelay="60" /> <!-- Giant's Shadow -->
+			<npc id="20969" x="187811" y="49009" z="-5872" heading="38319" respawnDelay="60" /> <!-- Giant's Shadow -->
+			<npc id="20969" x="187223" y="51661" z="-5840" heading="44017" respawnDelay="60" /> <!-- Giant's Shadow -->
+			<npc id="20969" x="183189" y="50376" z="-6016" heading="45184" respawnDelay="60" /> <!-- Giant's Shadow -->
+			<npc id="20969" x="184120" y="47858" z="-5920" heading="23226" respawnDelay="60" /> <!-- Giant's Shadow -->
+			<npc id="20969" x="182354" y="50995" z="-6016" heading="38705" respawnDelay="60" /> <!-- Giant's Shadow -->
+			<npc id="20969" x="181670" y="54478" z="-5896" heading="34492" respawnDelay="60" /> <!-- Giant's Shadow -->
+			<npc id="20969" x="180776" y="53191" z="-6024" heading="7124" respawnDelay="60" /> <!-- Giant's Shadow -->
+			<npc id="20969" x="187099" y="47236" z="-5928" heading="32799" respawnDelay="60" /> <!-- Giant's Shadow -->
+			<npc id="20969" x="186687" y="48641" z="-5928" heading="25865" respawnDelay="60" /> <!-- Giant's Shadow -->
+			<npc id="20969" x="184520" y="47902" z="-5928" heading="60740" respawnDelay="60" /> <!-- Giant's Shadow -->
+			<npc id="20969" x="185738" y="50599" z="-5920" heading="62275" respawnDelay="60" /> <!-- Giant's Shadow -->
+			<npc id="20969" x="186262" y="47485" z="-5968" heading="13778" respawnDelay="60" /> <!-- Giant's Shadow -->
+			<npc id="20969" x="184912" y="48104" z="-5968" heading="12801" respawnDelay="60" /> <!-- Giant's Shadow -->
+			<npc id="20970" x="173525" y="57977" z="-5912" heading="26224" respawnDelay="60" /> <!-- Soldier of Ancient Times -->
+			<npc id="20970" x="175050" y="54307" z="-6032" heading="58351" respawnDelay="60" /> <!-- Soldier of Ancient Times -->
+			<npc id="20970" x="173555" y="56055" z="-5944" heading="34015" respawnDelay="60" /> <!-- Soldier of Ancient Times -->
+			<npc id="20970" x="176150" y="56439" z="-5920" heading="42757" respawnDelay="60" /> <!-- Soldier of Ancient Times -->
+			<npc id="20970" x="172914" y="55555" z="-5952" heading="31287" respawnDelay="60" /> <!-- Soldier of Ancient Times -->
+			<npc id="20970" x="173501" y="57566" z="-5912" heading="60701" respawnDelay="60" /> <!-- Soldier of Ancient Times -->
+			<npc id="20970" x="173253" y="57319" z="-5912" heading="46849" respawnDelay="60" /> <!-- Soldier of Ancient Times -->
+			<npc id="20970" x="174125" y="58343" z="-5864" heading="9714" respawnDelay="60" /> <!-- Soldier of Ancient Times -->
+			<npc id="20970" x="178820" y="54109" z="-5984" heading="4691" respawnDelay="60" /> <!-- Soldier of Ancient Times -->
+			<npc id="20970" x="174904" y="54431" z="-6024" heading="28681" respawnDelay="60" /> <!-- Soldier of Ancient Times -->
+			<npc id="20970" x="174542" y="55261" z="-6000" heading="19330" respawnDelay="60" /> <!-- Soldier of Ancient Times -->
+			<npc id="20970" x="179833" y="56375" z="-5864" heading="12216" respawnDelay="60" /> <!-- Soldier of Ancient Times -->
+			<npc id="20970" x="174665" y="57727" z="-5888" heading="19638" respawnDelay="60" /> <!-- Soldier of Ancient Times -->
+			<npc id="20970" x="174209" y="58288" z="-5856" heading="1487" respawnDelay="60" /> <!-- Soldier of Ancient Times -->
+			<npc id="20970" x="177144" y="56555" z="-5912" heading="45994" respawnDelay="60" /> <!-- Soldier of Ancient Times -->
+			<npc id="20970" x="179581" y="54156" z="-5992" heading="13982" respawnDelay="60" /> <!-- Soldier of Ancient Times -->
+			<npc id="20970" x="177368" y="54962" z="-5984" heading="47258" respawnDelay="60" /> <!-- Soldier of Ancient Times -->
+			<npc id="20970" x="178853" y="52418" z="-5920" heading="22075" respawnDelay="60" /> <!-- Soldier of Ancient Times -->
+			<npc id="20970" x="178537" y="54529" z="-5960" heading="10968" respawnDelay="60" /> <!-- Soldier of Ancient Times -->
+			<npc id="20970" x="176344" y="56607" z="-5912" heading="16062" respawnDelay="60" /> <!-- Soldier of Ancient Times -->
+			<npc id="20970" x="176089" y="53197" z="-5928" heading="33400" respawnDelay="60" /> <!-- Soldier of Ancient Times -->
+			<npc id="20970" x="172820" y="54009" z="-5920" heading="26024" respawnDelay="60" /> <!-- Soldier of Ancient Times -->
+			<npc id="20971" x="180521" y="51375" z="-5936" heading="34949" respawnDelay="60" /> <!-- Warrior of Ancient Times -->
+			<npc id="20971" x="178097" y="53847" z="-6016" heading="15958" respawnDelay="60" /> <!-- Warrior of Ancient Times -->
+			<npc id="20971" x="181567" y="50579" z="-5928" heading="43622" respawnDelay="60" /> <!-- Warrior of Ancient Times -->
+			<npc id="20971" x="181614" y="49874" z="-5920" heading="64239" respawnDelay="60" /> <!-- Warrior of Ancient Times -->
+			<npc id="20971" x="181904" y="50434" z="-5920" heading="57008" respawnDelay="60" /> <!-- Warrior of Ancient Times -->
+			<npc id="20971" x="182378" y="52744" z="-5952" heading="17358" respawnDelay="60" /> <!-- Warrior of Ancient Times -->
+			<npc id="20971" x="181072" y="53118" z="-6008" heading="56171" respawnDelay="60" /> <!-- Warrior of Ancient Times -->
+			<npc id="20971" x="180598" y="51361" z="-5936" heading="9544" respawnDelay="60" /> <!-- Warrior of Ancient Times -->
+			<npc id="20971" x="179584" y="56055" z="-5888" heading="58807" respawnDelay="60" /> <!-- Warrior of Ancient Times -->
+			<npc id="20971" x="180886" y="54096" z="-5960" heading="5122" respawnDelay="60" /> <!-- Warrior of Ancient Times -->
+			<npc id="20971" x="180105" y="52034" z="-5928" heading="46143" respawnDelay="60" /> <!-- Warrior of Ancient Times -->
+			<npc id="20971" x="179965" y="54164" z="-5992" heading="48207" respawnDelay="60" /> <!-- Warrior of Ancient Times -->
+			<npc id="20971" x="177091" y="55185" z="-5984" heading="13776" respawnDelay="60" /> <!-- Warrior of Ancient Times -->
+			<npc id="20971" x="185273" y="50818" z="-5920" heading="12718" respawnDelay="60" /> <!-- Warrior of Ancient Times -->
+			<npc id="20971" x="187351" y="46433" z="-5864" heading="46293" respawnDelay="60" /> <!-- Warrior of Ancient Times -->
+			<npc id="20971" x="188331" y="47098" z="-5920" heading="53707" respawnDelay="60" /> <!-- Warrior of Ancient Times -->
+			<npc id="20971" x="183687" y="50632" z="-6016" heading="65216" respawnDelay="60" /> <!-- Warrior of Ancient Times -->
+			<npc id="20971" x="180923" y="54819" z="-5912" heading="48528" respawnDelay="60" /> <!-- Warrior of Ancient Times -->
+			<npc id="20971" x="188283" y="49617" z="-5832" heading="38902" respawnDelay="60" /> <!-- Warrior of Ancient Times -->
+			<npc id="20971" x="186513" y="48368" z="-5952" heading="62114" respawnDelay="60" /> <!-- Warrior of Ancient Times -->
+			<npc id="20971" x="181616" y="53193" z="-5968" heading="26808" respawnDelay="60" /> <!-- Warrior of Ancient Times -->
+			<npc id="20971" x="187527" y="50134" z="-5864" heading="36222" respawnDelay="60" /> <!-- Warrior of Ancient Times -->
+			<npc id="20972" x="176824" y="54465" z="-6016" heading="6582" respawnDelay="60" /> <!-- Shaman of Ancient Times -->
+			<npc id="20972" x="183293" y="52484" z="-5888" heading="20648" respawnDelay="60" /> <!-- Shaman of Ancient Times -->
+			<npc id="20972" x="181962" y="53303" z="-5928" heading="40520" respawnDelay="60" /> <!-- Shaman of Ancient Times -->
+			<npc id="20972" x="180186" y="52771" z="-5984" heading="50098" respawnDelay="60" /> <!-- Shaman of Ancient Times -->
+			<npc id="20972" x="178806" y="52395" z="-5920" heading="49469" respawnDelay="60" /> <!-- Shaman of Ancient Times -->
+			<npc id="20972" x="179551" y="52173" z="-5920" heading="55112" respawnDelay="60" /> <!-- Shaman of Ancient Times -->
+			<npc id="20972" x="178931" y="56726" z="-5840" heading="57345" respawnDelay="60" /> <!-- Shaman of Ancient Times -->
+			<npc id="20972" x="182362" y="54973" z="-5856" heading="26371" respawnDelay="60" /> <!-- Shaman of Ancient Times -->
+			<npc id="20972" x="177583" y="57431" z="-5848" heading="36855" respawnDelay="60" /> <!-- Shaman of Ancient Times -->
+			<npc id="20972" x="181089" y="52125" z="-6016" heading="55227" respawnDelay="60" /> <!-- Shaman of Ancient Times -->
+			<npc id="20972" x="179409" y="54584" z="-5960" heading="47430" respawnDelay="60" /> <!-- Shaman of Ancient Times -->
+			<npc id="20972" x="181081" y="52927" z="-6016" heading="42285" respawnDelay="60" /> <!-- Shaman of Ancient Times -->
+			<npc id="20972" x="177849" y="55858" z="-5928" heading="10783" respawnDelay="60" /> <!-- Shaman of Ancient Times -->
+			<npc id="20972" x="179324" y="52253" z="-5920" heading="651" respawnDelay="60" /> <!-- Shaman of Ancient Times -->
+			<npc id="20972" x="177455" y="54739" z="-6000" heading="30286" respawnDelay="60" /> <!-- Shaman of Ancient Times -->
+			<npc id="20972" x="176397" y="52855" z="-5904" heading="40961" respawnDelay="60" /> <!-- Shaman of Ancient Times -->
+			<npc id="20972" x="179032" y="54346" z="-5968" heading="2814" respawnDelay="60" /> <!-- Shaman of Ancient Times -->
+			<npc id="20972" x="177922" y="54211" z="-6008" heading="48207" respawnDelay="60" /> <!-- Shaman of Ancient Times -->
+			<npc id="20972" x="181908" y="49118" z="-5880" respawnDelay="60" /> <!-- Shaman of Ancient Times -->
+			<npc id="20972" x="184652" y="52000" z="-5912" heading="47739" respawnDelay="60" /> <!-- Shaman of Ancient Times -->
+			<npc id="20972" x="182513" y="52563" z="-5960" heading="21719" respawnDelay="60" /> <!-- Shaman of Ancient Times -->
+			<npc id="20972" x="183335" y="49481" z="-5976" heading="20088" respawnDelay="60" /> <!-- Shaman of Ancient Times -->
+			<npc id="20973" x="183367" y="53845" z="-5840" heading="51333" respawnDelay="60" /> <!-- Forgotten Ancient People -->
+			<npc id="20973" x="183682" y="52829" z="-5848" heading="10118" respawnDelay="60" /> <!-- Forgotten Ancient People -->
+			<npc id="20973" x="188385" y="49855" z="-5808" heading="40075" respawnDelay="60" /> <!-- Forgotten Ancient People -->
+			<npc id="20973" x="182585" y="51012" z="-6024" heading="31199" respawnDelay="60" /> <!-- Forgotten Ancient People -->
+			<npc id="20973" x="187614" y="46445" z="-5872" heading="63429" respawnDelay="60" /> <!-- Forgotten Ancient People -->
+			<npc id="20973" x="186773" y="48505" z="-5928" heading="32293" respawnDelay="60" /> <!-- Forgotten Ancient People -->
+			<npc id="20973" x="186336" y="49079" z="-5936" heading="18938" respawnDelay="60" /> <!-- Forgotten Ancient People -->
+			<npc id="20973" x="186393" y="46776" z="-5912" heading="5600" respawnDelay="60" /> <!-- Forgotten Ancient People -->
+			<npc id="20973" x="183627" y="48263" z="-5920" heading="17444" respawnDelay="60" /> <!-- Forgotten Ancient People -->
+			<npc id="20973" x="184369" y="50628" z="-5968" heading="43194" respawnDelay="60" /> <!-- Forgotten Ancient People -->
+			<npc id="20973" x="180274" y="52043" z="-5936" heading="61980" respawnDelay="60" /> <!-- Forgotten Ancient People -->
+			<npc id="20973" x="187873" y="49000" z="-5856" heading="34982" respawnDelay="60" /> <!-- Forgotten Ancient People -->
+			<npc id="20973" x="187651" y="47013" z="-5912" heading="48837" respawnDelay="60" /> <!-- Forgotten Ancient People -->
+			<npc id="20973" x="187434" y="46420" z="-5864" heading="31509" respawnDelay="60" /> <!-- Forgotten Ancient People -->
+			<npc id="20973" x="184401" y="51464" z="-5920" heading="24575" respawnDelay="60" /> <!-- Forgotten Ancient People -->
+			<npc id="20973" x="186290" y="51484" z="-5872" heading="17024" respawnDelay="60" /> <!-- Forgotten Ancient People -->
+			<npc id="20973" x="185568" y="49912" z="-5944" heading="20440" respawnDelay="60" /> <!-- Forgotten Ancient People -->
+			<npc id="20973" x="185649" y="50978" z="-5920" heading="59287" respawnDelay="60" /> <!-- Forgotten Ancient People -->
+			<npc id="20973" x="183614" y="49566" z="-6008" heading="19330" respawnDelay="60" /> <!-- Forgotten Ancient People -->
+			<npc id="20973" x="180831" y="50396" z="-5912" heading="15086" respawnDelay="60" /> <!-- Forgotten Ancient People -->
+			<npc id="20973" x="184331" y="47713" z="-5920" heading="45994" respawnDelay="60" /> <!-- Forgotten Ancient People -->
+			<npc id="20973" x="184353" y="49628" z="-6040" heading="41395" respawnDelay="60" /> <!-- Forgotten Ancient People -->
+			<!-- Helios -->
+			<npc id="23727" x="183032" y="59975" z="-7232" heading="0" respawnDelay="60" /> <!-- Shaqrima Bathus -->
+			<npc id="23727" x="183740" y="59895" z="-7232" heading="10981" respawnDelay="60" /> <!-- Shaqrima Bathus -->
+			<npc id="23727" x="184068" y="59933" z="-7232" heading="65113" respawnDelay="60" /> <!-- Shaqrima Bathus -->
+			<npc id="23727" x="183467" y="59846" z="-7232" heading="63503" respawnDelay="60" /> <!-- Shaqrima Bathus -->
+			<npc id="23727" x="185788" y="57623" z="-7232" heading="51157" respawnDelay="60" /> <!-- Shaqrima Bathus -->
+			<npc id="23727" x="185828" y="57383" z="-7232" heading="0" respawnDelay="60" /> <!-- Shaqrima Bathus -->
+			<npc id="23727" x="187786" y="60144" z="-7232" heading="0" respawnDelay="60" /> <!-- Shaqrima Bathus -->
+			<npc id="23727" x="187506" y="60064" z="-7232" heading="0" respawnDelay="60" /> <!-- Shaqrima Bathus -->
+			<npc id="23727" x="187222" y="61080" z="-7232" heading="0" respawnDelay="60" /> <!-- Shaqrima Bathus -->
+			<npc id="23727" x="187262" y="60800" z="-7232" heading="0" respawnDelay="60" /> <!-- Shaqrima Bathus -->
+			<npc id="23727" x="187275" y="60301" z="-7232" heading="41552" respawnDelay="60" /> <!-- Shaqrima Bathus -->
+			<npc id="23727" x="187281" y="60337" z="-7232" heading="37117" respawnDelay="60" /> <!-- Shaqrima Bathus -->
+			<npc id="23727" x="186911" y="59615" z="-7208" heading="45915" respawnDelay="60" /> <!-- Shaqrima Bathus -->
+			<npc id="23727" x="187930" y="61665" z="-7232" heading="0" respawnDelay="60" /> <!-- Shaqrima Bathus -->
+			<npc id="23727" x="187730" y="61865" z="-7232" heading="0" respawnDelay="60" /> <!-- Shaqrima Bathus -->
+			<npc id="23727" x="187178" y="62753" z="-7232" heading="10900" respawnDelay="60" /> <!-- Shaqrima Bathus -->
+			<npc id="23727" x="187228" y="62839" z="-7232" heading="40181" respawnDelay="60" /> <!-- Shaqrima Bathus -->
+			<npc id="23727" x="187338" y="57763" z="-7232" heading="12983" respawnDelay="60" /> <!-- Shaqrima Bathus -->
+			<npc id="23727" x="187058" y="57403" z="-7232" heading="0" respawnDelay="60" /> <!-- Shaqrima Bathus -->
+			<npc id="23727" x="185286" y="56026" z="-7232" heading="26527" respawnDelay="60" /> <!-- Shaqrima Bathus -->
+			<npc id="23727" x="185446" y="56266" z="-7232" heading="0" respawnDelay="60" /> <!-- Shaqrima Bathus -->
+			<npc id="23727" x="186672" y="55999" z="-7232" heading="3253" respawnDelay="60" /> <!-- Shaqrima Bathus -->
+			<npc id="23727" x="185866" y="55004" z="-7232" heading="65520" respawnDelay="60" /> <!-- Shaqrima Bathus -->
+			<npc id="23727" x="186754" y="55138" z="-7232" heading="31740" respawnDelay="60" /> <!-- Shaqrima Bathus -->
+			<npc id="23727" x="188283" y="54796" z="-7232" heading="52855" respawnDelay="60" /> <!-- Shaqrima Bathus -->
+			<npc id="23727" x="189775" y="61625" z="-6096" heading="56798" respawnDelay="60" /> <!-- Shaqrima Bathus -->
+			<npc id="23727" x="189935" y="61665" z="-6096" heading="0" respawnDelay="60" /> <!-- Shaqrima Bathus -->
+			<npc id="23727" x="189542" y="61857" z="-6104" heading="37664" respawnDelay="60" /> <!-- Shaqrima Bathus -->
+			<npc id="23727" x="189182" y="61657" z="-6104" heading="0" respawnDelay="60" /> <!-- Shaqrima Bathus -->
+			<npc id="23727" x="189897" y="62153" z="-7232" heading="0" respawnDelay="60" /> <!-- Shaqrima Bathus -->
+			<npc id="23727" x="191621" y="59694" z="-7232" heading="0" respawnDelay="60" /> <!-- Shaqrima Bathus -->
+			<npc id="23727" x="191941" y="59654" z="-7232" heading="0" respawnDelay="60" /> <!-- Shaqrima Bathus -->
+			<npc id="23727" x="191767" y="61145" z="-6096" heading="33975" respawnDelay="60" /> <!-- Shaqrima Bathus -->
+			<npc id="23727" x="191690" y="60934" z="-6096" heading="54603" respawnDelay="60" /> <!-- Shaqrima Bathus -->
+			<npc id="23727" x="190655" y="59663" z="-7232" heading="0" respawnDelay="60" /> <!-- Shaqrima Bathus -->
+			<npc id="23727" x="190806" y="59545" z="-7232" heading="5910" respawnDelay="60" /> <!-- Shaqrima Bathus -->
+			<npc id="23727" x="190806" y="59545" z="-7232" heading="6015" respawnDelay="60" /> <!-- Shaqrima Bathus -->
+			<npc id="23727" x="191910" y="61942" z="-7232" heading="3464" respawnDelay="60" /> <!-- Shaqrima Bathus -->
+			<npc id="23727" x="191790" y="61942" z="-7232" heading="3528" respawnDelay="60" /> <!-- Shaqrima Bathus -->
+			<npc id="23727" x="190695" y="59383" z="-7232" heading="53522" respawnDelay="60" /> <!-- Shaqrima Bathus -->
+			<npc id="23727" x="193122" y="59299" z="-7232" heading="24579" respawnDelay="60" /> <!-- Shaqrima Bathus -->
+			<npc id="23727" x="192960" y="59548" z="-7232" heading="33028" respawnDelay="60" /> <!-- Shaqrima Bathus -->
+			<npc id="23727" x="193377" y="61737" z="-7232" heading="0" respawnDelay="60" /> <!-- Shaqrima Bathus -->
+			<npc id="23727" x="193377" y="61737" z="-7232" heading="0" respawnDelay="60" /> <!-- Shaqrima Bathus -->
+			<npc id="23727" x="190921" y="61657" z="-6104" heading="0" respawnDelay="60" /> <!-- Shaqrima Bathus -->
+			<npc id="23727" x="191201" y="61777" z="-6104" heading="20713" respawnDelay="60" /> <!-- Shaqrima Bathus -->
+			<npc id="23727" x="186834" y="54898" z="-7232" heading="41474" respawnDelay="60" /> <!-- Shaqrima Bathus -->
+			<npc id="23727" x="188283" y="54796" z="-7232" heading="52855" respawnDelay="60" /> <!-- Shaqrima Bathus -->
+			<npc id="23727" x="186912" y="56279" z="-7240" heading="0" respawnDelay="60" /> <!-- Shaqrima Bathus -->
+			<npc id="23727" x="187827" y="56306" z="-7232" heading="1170" respawnDelay="60" /> <!-- Shaqrima Bathus -->
+			<npc id="23727" x="188091" y="55331" z="-7232" heading="0" respawnDelay="60" /> <!-- Shaqrima Bathus -->
+			<npc id="23727" x="188319" y="57205" z="-7232" heading="48368" respawnDelay="60" /> <!-- Shaqrima Bathus -->
+			<npc id="23727" x="187831" y="56838" z="-7232" heading="41378" respawnDelay="60" /> <!-- Shaqrima Bathus -->
+			<npc id="23727" x="185791" y="55241" z="-7232" heading="0" respawnDelay="60" /> <!-- Shaqrima Bathus -->
+			<npc id="23728" x="183754" y="59792" z="-7232" heading="30177" respawnDelay="60" /> <!-- Shaqrima Carcass -->
+			<npc id="23728" x="185508" y="57583" z="-7232" heading="55131" respawnDelay="60" /> <!-- Shaqrima Carcass -->
+			<npc id="23728" x="185508" y="57703" z="-7232" heading="25301" respawnDelay="60" /> <!-- Shaqrima Carcass -->
+			<npc id="23728" x="184936" y="60135" z="-7232" heading="35957" respawnDelay="60" /> <!-- Shaqrima Carcass -->
+			<npc id="23728" x="184613" y="59920" z="-7232" heading="32370" respawnDelay="60" /> <!-- Shaqrima Carcass -->
+			<npc id="23728" x="187826" y="59944" z="-7232" heading="0" respawnDelay="60" /> <!-- Shaqrima Carcass -->
+			<npc id="23728" x="187466" y="59984" z="-7232" heading="0" respawnDelay="60" /> <!-- Shaqrima Carcass -->
+			<npc id="23728" x="187062" y="60880" z="-7232" heading="42928" respawnDelay="60" /> <!-- Shaqrima Carcass -->
+			<npc id="23728" x="187142" y="61120" z="-7232" heading="0" respawnDelay="60" /> <!-- Shaqrima Carcass -->
+			<npc id="23728" x="187340" y="62687" z="-7232" heading="39834" respawnDelay="60" /> <!-- Shaqrima Carcass -->
+			<npc id="23728" x="187167" y="62840" z="-7232" heading="56168" respawnDelay="60" /> <!-- Shaqrima Carcass -->
+			<npc id="23728" x="187650" y="61585" z="-7232" heading="49307" respawnDelay="60" /> <!-- Shaqrima Carcass -->
+			<npc id="23728" x="187530" y="61505" z="-7232" heading="1512" respawnDelay="60" /> <!-- Shaqrima Carcass -->
+			<npc id="23728" x="187338" y="57523" z="-7232" heading="28822" respawnDelay="60" /> <!-- Shaqrima Carcass -->
+			<npc id="23728" x="185566" y="55946" z="-7232" heading="64864" respawnDelay="60" /> <!-- Shaqrima Carcass -->
+			<npc id="23728" x="185166" y="56586" z="-7232" heading="43731" respawnDelay="60" /> <!-- Shaqrima Carcass -->
+			<npc id="23728" x="187112" y="56159" z="-7240" heading="59536" respawnDelay="60" /> <!-- Shaqrima Carcass -->
+			<npc id="23728" x="186898" y="57323" z="-7232" heading="41577" respawnDelay="60" /> <!-- Shaqrima Carcass -->
+			<npc id="23728" x="185671" y="54921" z="-7232" heading="23221" respawnDelay="60" /> <!-- Shaqrima Carcass -->
+			<npc id="23728" x="187234" y="55178" z="-7232" heading="5995" respawnDelay="60" /> <!-- Shaqrima Carcass -->
+			<npc id="23728" x="188411" y="55091" z="-7232" heading="36337" respawnDelay="60" /> <!-- Shaqrima Carcass -->
+			<npc id="23728" x="190415" y="59303" z="-7232" heading="33051" respawnDelay="60" /> <!-- Shaqrima Carcass -->
+			<npc id="23728" x="190295" y="59463" z="-7232" heading="44865" respawnDelay="60" /> <!-- Shaqrima Carcass -->
+			<npc id="23728" x="190135" y="61585" z="-6096" heading="57356" respawnDelay="60" /> <!-- Shaqrima Carcass -->
+			<npc id="23728" x="189382" y="62017" z="-6104" heading="53788" respawnDelay="60" /> <!-- Shaqrima Carcass -->
+			<npc id="23728" x="189222" y="61697" z="-6104" heading="57156" respawnDelay="60" /> <!-- Shaqrima Carcass -->
+			<npc id="23728" x="189889" y="62192" z="-7232" heading="0" respawnDelay="60" /> <!-- Shaqrima Carcass -->
+			<npc id="23728" x="191781" y="59974" z="-7232" heading="20605" respawnDelay="60" /> <!-- Shaqrima Carcass -->
+			<npc id="23728" x="190806" y="59545" z="-7232" heading="6015" respawnDelay="60" /> <!-- Shaqrima Carcass -->
+			<npc id="23728" x="190806" y="59545" z="-7232" heading="5929" respawnDelay="60" /> <!-- Shaqrima Carcass -->
+			<npc id="23728" x="190921" y="61857" z="-6104" heading="30076" respawnDelay="60" /> <!-- Shaqrima Carcass -->
+			<npc id="23728" x="190681" y="62017" z="-6104" heading="55841" respawnDelay="60" /> <!-- Shaqrima Carcass -->
+			<npc id="23728" x="190255" y="61865" z="-6096" heading="0" respawnDelay="60" /> <!-- Shaqrima Carcass -->
+			<npc id="23728" x="192301" y="59494" z="-7232" heading="0" respawnDelay="60" /> <!-- Shaqrima Carcass -->
+			<npc id="23728" x="192922" y="59339" z="-7232" heading="20818" respawnDelay="60" /> <!-- Shaqrima Carcass -->
+			<npc id="23728" x="193457" y="61068" z="-6104" heading="7618" respawnDelay="60" /> <!-- Shaqrima Carcass -->
+			<npc id="23728" x="193107" y="61318" z="-6104" heading="49726" respawnDelay="60" /> <!-- Shaqrima Carcass -->
+			<npc id="23728" x="193402" y="59859" z="-7232" heading="3095" respawnDelay="60" /> <!-- Shaqrima Carcass -->
+			<npc id="23728" x="193057" y="61878" z="-6104" heading="32055" respawnDelay="60" /> <!-- Shaqrima Carcass -->
+			<npc id="23728" x="192807" y="62078" z="-6104" heading="45596" respawnDelay="60" /> <!-- Shaqrima Carcass -->
+			<npc id="23728" x="193377" y="61737" z="-7232" heading="0" respawnDelay="60" /> <!-- Shaqrima Carcass -->
+			<npc id="23728" x="193377" y="61737" z="-7232" heading="0" respawnDelay="60" /> <!-- Shaqrima Carcass -->
+			<npc id="23728" x="193377" y="61737" z="-7232" heading="0" respawnDelay="60" /> <!-- Shaqrima Carcass -->
+			<npc id="23728" x="193377" y="61737" z="-7232" heading="0" respawnDelay="60" /> <!-- Shaqrima Carcass -->
+			<npc id="23728" x="188199" y="56845" z="-7232" heading="33282" respawnDelay="60" /> <!-- Shaqrima Carcass -->
+			<npc id="23728" x="186834" y="55258" z="-7232" heading="45505" respawnDelay="60" /> <!-- Shaqrima Carcass -->
+			<npc id="23728" x="186834" y="54738" z="-7232" heading="35942" respawnDelay="60" /> <!-- Shaqrima Carcass -->
+			<npc id="23728" x="188411" y="55091" z="-7232" heading="36337" respawnDelay="60" /> <!-- Shaqrima Carcass -->
+			<npc id="23728" x="186712" y="56359" z="-7240" heading="35487" respawnDelay="60" /> <!-- Shaqrima Carcass -->
+			<npc id="23728" x="186752" y="56079" z="-7232" heading="8490" respawnDelay="60" /> <!-- Shaqrima Carcass -->
+			<npc id="23728" x="187418" y="57163" z="-7232" heading="28536" respawnDelay="60" /> <!-- Shaqrima Carcass -->
+			<npc id="23728" x="187891" y="55691" z="-7232" heading="0" respawnDelay="60" /> <!-- Shaqrima Carcass -->
+			<npc id="23728" x="188159" y="57045" z="-7232" heading="56256" respawnDelay="60" /> <!-- Shaqrima Carcass -->
+			<npc id="23728" x="185591" y="55161" z="-7232" heading="56204" respawnDelay="60" /> <!-- Shaqrima Carcass -->
+			<npc id="23728" x="185871" y="55161" z="-7232" heading="1909" respawnDelay="60" /> <!-- Shaqrima Carcass -->
+			<npc id="23729" x="183392" y="60215" z="-7232" heading="58045" respawnDelay="60" /> <!-- Shaqrima Kshana -->
+			<npc id="23729" x="183500" y="59881" z="-7232" heading="29705" respawnDelay="60" /> <!-- Shaqrima Kshana -->
+			<npc id="23729" x="185931" y="60101" z="-7232" heading="2791" respawnDelay="60" /> <!-- Shaqrima Kshana -->
+			<npc id="23729" x="184365" y="59965" z="-7232" heading="25335" respawnDelay="60" /> <!-- Shaqrima Kshana -->
+			<npc id="23729" x="187786" y="60384" z="-7232" heading="0" respawnDelay="60" /> <!-- Shaqrima Kshana -->
+			<npc id="23729" x="187262" y="61200" z="-7232" heading="0" respawnDelay="60" /> <!-- Shaqrima Kshana -->
+			<npc id="23729" x="187071" y="59815" z="-7232" heading="25936" respawnDelay="60" /> <!-- Shaqrima Kshana -->
+			<npc id="23729" x="187620" y="62927" z="-7232" heading="35576" respawnDelay="60" /> <!-- Shaqrima Kshana -->
+			<npc id="23729" x="187770" y="61905" z="-7232" heading="26478" respawnDelay="60" /> <!-- Shaqrima Kshana -->
+			<npc id="23729" x="185286" y="56066" z="-7232" heading="20896" respawnDelay="60" /> <!-- Shaqrima Kshana -->
+			<npc id="23729" x="186148" y="57023" z="-7232" heading="46144" respawnDelay="60" /> <!-- Shaqrima Kshana -->
+			<npc id="23729" x="186592" y="56279" z="-7240" heading="50830" respawnDelay="60" /> <!-- Shaqrima Kshana -->
+			<npc id="23729" x="186938" y="57243" z="-7232" heading="43903" respawnDelay="60" /> <!-- Shaqrima Kshana -->
+			<npc id="23729" x="185711" y="55081" z="-7232" heading="61826" respawnDelay="60" /> <!-- Shaqrima Kshana -->
+			<npc id="23729" x="187314" y="55218" z="-7232" heading="64865" respawnDelay="60" /> <!-- Shaqrima Kshana -->
+			<npc id="23729" x="190055" y="61505" z="-6096" heading="4520" respawnDelay="60" /> <!-- Shaqrima Kshana -->
+			<npc id="23729" x="189382" y="61737" z="-6104" heading="9927" respawnDelay="60" /> <!-- Shaqrima Kshana -->
+			<npc id="23729" x="191845" y="60582" z="-7232" heading="58756" respawnDelay="60" /> <!-- Shaqrima Kshana -->
+			<npc id="23729" x="190575" y="59823" z="-7232" heading="3758" respawnDelay="60" /> <!-- Shaqrima Kshana -->
+			<npc id="23729" x="190896" y="60770" z="-7240" heading="50607" respawnDelay="60" /> <!-- Shaqrima Kshana -->
+			<npc id="23729" x="190801" y="61457" z="-6104" heading="6564" respawnDelay="60" /> <!-- Shaqrima Kshana -->
+			<npc id="23729" x="192110" y="61582" z="-7232" heading="47939" respawnDelay="60" /> <!-- Shaqrima Kshana -->
+			<npc id="23729" x="191701" y="59414" z="-7232" heading="54487" respawnDelay="60" /> <!-- Shaqrima Kshana -->
+			<npc id="23729" x="193257" y="60718" z="-6104" heading="1049" respawnDelay="60" /> <!-- Shaqrima Kshana -->
+			<npc id="23729" x="193322" y="59419" z="-7232" heading="3129" respawnDelay="60" /> <!-- Shaqrima Kshana -->
+			<npc id="23729" x="193121" y="60690" z="-7240" heading="12091" respawnDelay="60" /> <!-- Shaqrima Kshana -->
+			<npc id="23729" x="192607" y="62628" z="-6104" heading="48649" respawnDelay="60" /> <!-- Shaqrima Kshana -->
+			<npc id="23729" x="188479" y="57085" z="-7232" heading="49821" respawnDelay="60" /> <!-- Shaqrima Kshana -->
+			<npc id="23729" x="186794" y="54738" z="-7232" heading="25946" respawnDelay="60" /> <!-- Shaqrima Kshana -->
+			<npc id="23729" x="188291" y="55131" z="-7232" heading="42842" respawnDelay="60" /> <!-- Shaqrima Kshana -->
+			<npc id="23729" x="187032" y="56359" z="-7240" heading="48555" respawnDelay="60" /> <!-- Shaqrima Kshana -->
+			<npc id="23729" x="185511" y="55281" z="-7232" heading="11655" respawnDelay="60" /> <!-- Shaqrima Kshana -->
+			<npc id="23733" x="187331" y="55306" z="-4568" heading="34862" respawnDelay="60" /> <!-- Lesser Giant Warrior -->
+			<npc id="23733" x="188141" y="56484" z="-4568" heading="29025" respawnDelay="60" /> <!-- Lesser Giant Warrior -->
+			<npc id="23733" x="181604" y="61461" z="-3992" heading="37295" respawnDelay="60" /> <!-- Lesser Giant Warrior -->
+			<npc id="23733" x="181541" y="62520" z="-3992" heading="47999" respawnDelay="60" /> <!-- Lesser Giant Warrior -->
+			<npc id="23733" x="183339" y="61971" z="-3992" heading="56137" respawnDelay="60" /> <!-- Lesser Giant Warrior -->
+			<npc id="23733" x="183489" y="59343" z="-3992" heading="21426" respawnDelay="60" /> <!-- Lesser Giant Warrior -->
+			<npc id="23733" x="183348" y="58050" z="-3992" heading="6966" respawnDelay="60" /> <!-- Lesser Giant Warrior -->
+			<npc id="23733" x="186201" y="58065" z="-4560" heading="44930" respawnDelay="60" /> <!-- Lesser Giant Warrior -->
+			<npc id="23733" x="185644" y="58322" z="-4520" heading="15235" respawnDelay="60" /> <!-- Lesser Giant Warrior -->
+			<npc id="23733" x="185460" y="61185" z="-4152" heading="29189" respawnDelay="60" /> <!-- Lesser Giant Warrior -->
+			<npc id="23733" x="185687" y="60146" z="-4248" heading="26055" respawnDelay="60" /> <!-- Lesser Giant Warrior -->
+			<npc id="23733" x="184325" y="60676" z="-3992" heading="10749" respawnDelay="60" /> <!-- Lesser Giant Warrior -->
+			<npc id="23733" x="185894" y="61080" z="-4152" heading="6001" respawnDelay="60" /> <!-- Lesser Giant Warrior -->
+			<npc id="23733" x="185984" y="62828" z="-4976" heading="19961" respawnDelay="60" /> <!-- Lesser Giant Warrior -->
+			<npc id="23733" x="186098" y="62465" z="-4976" heading="42168" respawnDelay="60" /> <!-- Lesser Giant Warrior -->
+			<npc id="23733" x="187420" y="57280" z="-4568" heading="4425" respawnDelay="60" /> <!-- Lesser Giant Warrior -->
+			<npc id="23733" x="186887" y="57532" z="-4568" heading="2104" respawnDelay="60" /> <!-- Lesser Giant Warrior -->
+			<npc id="23733" x="185786" y="56006" z="-4568" heading="43595" respawnDelay="60" /> <!-- Lesser Giant Warrior -->
+			<npc id="23733" x="188096" y="56859" z="-4568" heading="10185" respawnDelay="60" /> <!-- Lesser Giant Warrior -->
+			<npc id="23733" x="186452" y="54827" z="-4568" heading="41818" respawnDelay="60" /> <!-- Lesser Giant Warrior -->
+			<npc id="23733" x="187386" y="54785" z="-4568" heading="43163" respawnDelay="60" /> <!-- Lesser Giant Warrior -->
+			<npc id="23733" x="188421" y="62639" z="-4976" heading="63432" respawnDelay="60" /> <!-- Lesser Giant Warrior -->
+			<npc id="23733" x="193048" y="61159" z="-4984" heading="42118" respawnDelay="60" /> <!-- Lesser Giant Warrior -->
+			<npc id="23733" x="190715" y="61299" z="-4984" heading="56155" respawnDelay="60" /> <!-- Lesser Giant Warrior -->
+			<npc id="23733" x="191013" y="61792" z="-4984" heading="62346" respawnDelay="60" /> <!-- Lesser Giant Warrior -->
+			<npc id="23734" x="187759" y="56628" z="-4568" heading="3243" respawnDelay="60" /> <!-- Lesser Giant Wizard -->
+			<npc id="23734" x="182346" y="61874" z="-3992" heading="55381" respawnDelay="60" /> <!-- Lesser Giant Wizard -->
+			<npc id="23734" x="181627" y="62768" z="-3992" heading="1780" respawnDelay="60" /> <!-- Lesser Giant Wizard -->
+			<npc id="23734" x="183753" y="59719" z="-3992" heading="16419" respawnDelay="60" /> <!-- Lesser Giant Wizard -->
+			<npc id="23734" x="184406" y="60867" z="-3992" heading="26682" respawnDelay="60" /> <!-- Lesser Giant Wizard -->
+			<npc id="23734" x="183542" y="62641" z="-3992" heading="43083" respawnDelay="60" /> <!-- Lesser Giant Wizard -->
+			<npc id="23734" x="183458" y="57983" z="-3992" heading="52949" respawnDelay="60" /> <!-- Lesser Giant Wizard -->
+			<npc id="23734" x="186148" y="58064" z="-4560" heading="50192" respawnDelay="60" /> <!-- Lesser Giant Wizard -->
+			<npc id="23734" x="186130" y="59635" z="-4328" heading="64655" respawnDelay="60" /> <!-- Lesser Giant Wizard -->
+			<npc id="23734" x="185653" y="60464" z="-4200" heading="27309" respawnDelay="60" /> <!-- Lesser Giant Wizard -->
+			<npc id="23734" x="185982" y="60276" z="-4232" heading="16383" respawnDelay="60" /> <!-- Lesser Giant Wizard -->
+			<npc id="23734" x="186272" y="59807" z="-4304" heading="2838" respawnDelay="60" /> <!-- Lesser Giant Wizard -->
+			<npc id="23734" x="188299" y="62818" z="-4976" heading="31384" respawnDelay="60" /> <!-- Lesser Giant Wizard -->
+			<npc id="23734" x="186275" y="62785" z="-4976" heading="58320" respawnDelay="60" /> <!-- Lesser Giant Wizard -->
+			<npc id="23734" x="188042" y="57621" z="-4568" heading="33232" respawnDelay="60" /> <!-- Lesser Giant Wizard -->
+			<npc id="23734" x="187915" y="57231" z="-4568" heading="18259" respawnDelay="60" /> <!-- Lesser Giant Wizard -->
+			<npc id="23734" x="185892" y="56246" z="-4568" heading="33117" respawnDelay="60" /> <!-- Lesser Giant Wizard -->
+			<npc id="23734" x="187738" y="56878" z="-4568" heading="11547" respawnDelay="60" /> <!-- Lesser Giant Wizard -->
+			<npc id="23734" x="187262" y="55024" z="-4568" heading="47191" respawnDelay="60" /> <!-- Lesser Giant Wizard -->
+			<npc id="23734" x="191461" y="61372" z="-4984" heading="61959" respawnDelay="60" /> <!-- Lesser Giant Wizard -->
+			<npc id="23734" x="191657" y="61991" z="-4984" heading="48805" respawnDelay="60" /> <!-- Lesser Giant Wizard -->
+			<npc id="23734" x="192428" y="61159" z="-4984" heading="16576" respawnDelay="60" /> <!-- Lesser Giant Wizard -->
+			<npc id="23734" x="185666" y="54946" z="-4568" heading="36164" respawnDelay="60" /> <!-- Lesser Giant Wizard -->
+			<npc id="23735" x="173813" y="55117" z="-4368" heading="0" respawnDelay="60" /> <!-- Captive Familiar Spirit -->
+			<npc id="23735" x="175599" y="54691" z="-4344" heading="0" respawnDelay="60" /> <!-- Captive Familiar Spirit -->
+			<npc id="23735" x="175359" y="54974" z="-4352" heading="0" respawnDelay="60" /> <!-- Captive Familiar Spirit -->
+			<npc id="23735" x="174674" y="55074" z="-4368" heading="0" respawnDelay="60" /> <!-- Captive Familiar Spirit -->
+			<npc id="23735" x="177746" y="54100" z="-3968" heading="0" respawnDelay="60" /> <!-- Captive Familiar Spirit -->
+			<npc id="23735" x="177462" y="54446" z="-3968" heading="0" respawnDelay="60" /> <!-- Captive Familiar Spirit -->
+			<npc id="23735" x="179581" y="53467" z="-3968" heading="0" respawnDelay="60" /> <!-- Captive Familiar Spirit -->
+			<npc id="23735" x="179710" y="53810" z="-3968" heading="0" respawnDelay="60" /> <!-- Captive Familiar Spirit -->
+			<npc id="23735" x="179975" y="54289" z="-3968" heading="0" respawnDelay="60" /> <!-- Captive Familiar Spirit -->
+			<npc id="23735" x="178624" y="55027" z="-3992" heading="0" respawnDelay="60" /> <!-- Captive Familiar Spirit -->
+			<npc id="23735" x="178804" y="53666" z="-3968" heading="0" respawnDelay="60" /> <!-- Captive Familiar Spirit -->
+			<npc id="23735" x="178566" y="54566" z="-3992" heading="0" respawnDelay="60" /> <!-- Captive Familiar Spirit -->
+			<npc id="23735" x="178185" y="54694" z="-3992" heading="0" respawnDelay="60" /> <!-- Captive Familiar Spirit -->
+			<npc id="23735" x="178158" y="55356" z="-3976" heading="0" respawnDelay="60" /> <!-- Captive Familiar Spirit -->
+			<npc id="23735" x="179053" y="55465" z="-3968" heading="0" respawnDelay="60" /> <!-- Captive Familiar Spirit -->
+			<npc id="23735" x="178616" y="55330" z="-3976" heading="0" respawnDelay="60" /> <!-- Captive Familiar Spirit -->
+			<npc id="23735" x="182082" y="51829" z="-4344" heading="0" respawnDelay="60" /> <!-- Captive Familiar Spirit -->
+			<npc id="23735" x="181436" y="52742" z="-4344" heading="0" respawnDelay="60" /> <!-- Captive Familiar Spirit -->
+			<npc id="23735" x="181385" y="52502" z="-4344" heading="0" respawnDelay="60" /> <!-- Captive Familiar Spirit -->
+			<npc id="23735" x="174527" y="54811" z="-4352" heading="0" respawnDelay="60" /> <!-- Captive Familiar Spirit -->
+			<npc id="23735" x="173475" y="56276" z="-4344" heading="0" respawnDelay="60" /> <!-- Captive Familiar Spirit -->
+			<npc id="23735" x="173155" y="55796" z="-4344" heading="0" respawnDelay="60" /> <!-- Captive Familiar Spirit -->
+			<npc id="23735" x="173363" y="55566" z="-4344" heading="0" respawnDelay="60" /> <!-- Captive Familiar Spirit -->
+			<npc id="23735" x="174508" y="55984" z="-4352" heading="0" respawnDelay="60" /> <!-- Captive Familiar Spirit -->
+			<npc id="23735" x="174831" y="56041" z="-4352" heading="0" respawnDelay="60" /> <!-- Captive Familiar Spirit -->
+			<npc id="23735" x="175397" y="56139" z="-4344" heading="0" respawnDelay="60" /> <!-- Captive Familiar Spirit -->
+			<npc id="23735" x="175453" y="55492" z="-4344" heading="0" respawnDelay="60" /> <!-- Captive Familiar Spirit -->
+			<npc id="23735" x="175348" y="55749" z="-4352" heading="0" respawnDelay="60" /> <!-- Captive Familiar Spirit -->
+			<npc id="23735" x="174819" y="55521" z="-4368" heading="0" respawnDelay="60" /> <!-- Captive Familiar Spirit -->
+			<npc id="23735" x="175213" y="62747" z="-4368" heading="0" respawnDelay="60" /> <!-- Captive Familiar Spirit -->
+			<npc id="23735" x="174839" y="63005" z="-4368" heading="0" respawnDelay="60" /> <!-- Captive Familiar Spirit -->
+			<npc id="23735" x="174681" y="62584" z="-4368" heading="0" respawnDelay="60" /> <!-- Captive Familiar Spirit -->
+			<npc id="23735" x="176349" y="60687" z="-4368" heading="0" respawnDelay="60" /> <!-- Captive Familiar Spirit -->
+			<npc id="23735" x="176293" y="61985" z="-4368" heading="0" respawnDelay="60" /> <!-- Captive Familiar Spirit -->
+			<npc id="23735" x="176442" y="62492" z="-4368" heading="0" respawnDelay="60" /> <!-- Captive Familiar Spirit -->
+			<npc id="23735" x="176208" y="62941" z="-4368" heading="0" respawnDelay="60" /> <!-- Captive Familiar Spirit -->
+			<npc id="23735" x="180038" y="60227" z="-3992" heading="0" respawnDelay="60" /> <!-- Captive Familiar Spirit -->
+			<npc id="23735" x="179681" y="60499" z="-3992" heading="0" respawnDelay="60" /> <!-- Captive Familiar Spirit -->
+			<npc id="23735" x="179153" y="60290" z="-3992" heading="0" respawnDelay="60" /> <!-- Captive Familiar Spirit -->
+			<npc id="23735" x="178921" y="59975" z="-3992" heading="0" respawnDelay="60" /> <!-- Captive Familiar Spirit -->
+			<npc id="23735" x="181902" y="60473" z="-3992" heading="0" respawnDelay="60" /> <!-- Captive Familiar Spirit -->
+			<npc id="23735" x="181071" y="60434" z="-3992" heading="0" respawnDelay="60" /> <!-- Captive Familiar Spirit -->
+			<npc id="23735" x="182323" y="59634" z="-3992" heading="0" respawnDelay="60" /> <!-- Captive Familiar Spirit -->
+			<npc id="23735" x="182339" y="60307" z="-3992" heading="0" respawnDelay="60" /> <!-- Captive Familiar Spirit -->
+			<npc id="23735" x="182153" y="58979" z="-3992" heading="0" respawnDelay="60" /> <!-- Captive Familiar Spirit -->
+			<npc id="23735" x="185366" y="49159" z="-4368" heading="0" respawnDelay="60" /> <!-- Captive Familiar Spirit -->
+			<npc id="23735" x="186363" y="49628" z="-4344" heading="0" respawnDelay="60" /> <!-- Captive Familiar Spirit -->
+			<npc id="23735" x="186231" y="49330" z="-4352" heading="0" respawnDelay="60" /> <!-- Captive Familiar Spirit -->
+			<npc id="23735" x="184609" y="49167" z="-4344" heading="0" respawnDelay="60" /> <!-- Captive Familiar Spirit -->
+			<npc id="23735" x="184576" y="49576" z="-4344" heading="0" respawnDelay="60" /> <!-- Captive Familiar Spirit -->
+			<npc id="23735" x="185737" y="50200" z="-4344" heading="0" respawnDelay="60" /> <!-- Captive Familiar Spirit -->
+			<npc id="23735" x="185256" y="48548" z="-4352" heading="0" respawnDelay="60" /> <!-- Captive Familiar Spirit -->
+			<npc id="23735" x="185596" y="48641" z="-4368" heading="0" respawnDelay="60" /> <!-- Captive Familiar Spirit -->
+			<npc id="23735" x="185869" y="47347" z="-4344" heading="0" respawnDelay="60" /> <!-- Captive Familiar Spirit -->
+			<npc id="23735" x="185926" y="47589" z="-4344" heading="0" respawnDelay="60" /> <!-- Captive Familiar Spirit -->
+			<npc id="23735" x="186968" y="48197" z="-4344" heading="0" respawnDelay="60" /> <!-- Captive Familiar Spirit -->
+			<npc id="23735" x="186392" y="47915" z="-4344" heading="0" respawnDelay="60" /> <!-- Captive Familiar Spirit -->
+			<npc id="23735" x="183282" y="50951" z="-4344" heading="0" respawnDelay="60" /> <!-- Captive Familiar Spirit -->
+			<npc id="23735" x="183821" y="51802" z="-4344" heading="0" respawnDelay="60" /> <!-- Captive Familiar Spirit -->
+			<npc id="23735" x="183507" y="52394" z="-4360" heading="0" respawnDelay="60" /> <!-- Captive Familiar Spirit -->
+			<npc id="23735" x="184101" y="52498" z="-4344" heading="8934" respawnDelay="60" /> <!-- Captive Familiar Spirit -->
+			<npc id="23735" x="183301" y="51824" z="-4368" heading="0" respawnDelay="60" /> <!-- Captive Familiar Spirit -->
+			<npc id="23735" x="183761" y="52049" z="-4360" heading="52503" respawnDelay="60" /> <!-- Captive Familiar Spirit -->
+			<npc id="23735" x="183218" y="51340" z="-4352" heading="0" respawnDelay="60" /> <!-- Captive Familiar Spirit -->
+			<npc id="23735" x="184042" y="52426" z="-4344" heading="987" respawnDelay="60" /> <!-- Captive Familiar Spirit -->
+			<npc id="23735" x="182702" y="52121" z="-4368" heading="0" respawnDelay="60" /> <!-- Captive Familiar Spirit -->
+			<npc id="23735" x="182280" y="53071" z="-4352" heading="0" respawnDelay="60" /> <!-- Captive Familiar Spirit -->
+			<npc id="23735" x="183474" y="52820" z="-4344" heading="0" respawnDelay="60" /> <!-- Captive Familiar Spirit -->
+			<npc id="23736" x="173432" y="54966" z="-4344" heading="0" respawnDelay="60" /> <!-- Captive Hell Demon -->
+			<npc id="23736" x="178116" y="54900" z="-3984" heading="0" respawnDelay="60" /> <!-- Captive Hell Demon -->
+			<npc id="23736" x="178142" y="53934" z="-3968" heading="0" respawnDelay="60" /> <!-- Captive Hell Demon -->
+			<npc id="23736" x="179658" y="53991" z="-3976" heading="0" respawnDelay="60" /> <!-- Captive Hell Demon -->
+			<npc id="23736" x="179045" y="55084" z="-3984" heading="0" respawnDelay="60" /> <!-- Captive Hell Demon -->
+			<npc id="23736" x="179408" y="54736" z="-3992" heading="0" respawnDelay="60" /> <!-- Captive Hell Demon -->
+			<npc id="23736" x="175798" y="54938" z="-4344" heading="0" respawnDelay="60" /> <!-- Captive Hell Demon -->
+			<npc id="23736" x="173899" y="55664" z="-4368" heading="0" respawnDelay="60" /> <!-- Captive Hell Demon -->
+			<npc id="23736" x="173531" y="55950" z="-4352" heading="0" respawnDelay="60" /> <!-- Captive Hell Demon -->
+			<npc id="23736" x="174222" y="56334" z="-4344" heading="0" respawnDelay="60" /> <!-- Captive Hell Demon -->
+			<npc id="23736" x="175151" y="56244" z="-4344" heading="0" respawnDelay="60" /> <!-- Captive Hell Demon -->
+			<npc id="23736" x="175577" y="55940" z="-4344" heading="0" respawnDelay="60" /> <!-- Captive Hell Demon -->
+			<npc id="23736" x="174393" y="62735" z="-4368" heading="0" respawnDelay="60" /> <!-- Captive Hell Demon -->
+			<npc id="23736" x="176430" y="61465" z="-4368" heading="0" respawnDelay="60" /> <!-- Captive Hell Demon -->
+			<npc id="23736" x="180715" y="60143" z="-3992" heading="0" respawnDelay="60" /> <!-- Captive Hell Demon -->
+			<npc id="23736" x="189670" y="51733" z="-4368" heading="0" respawnDelay="60" /> <!-- Captive Hell Demon -->
+			<npc id="23736" x="190914" y="52987" z="-4368" heading="0" respawnDelay="60" /> <!-- Captive Hell Demon -->
+			<npc id="23736" x="190660" y="50908" z="-4368" heading="0" respawnDelay="60" /> <!-- Captive Hell Demon -->
+			<npc id="23736" x="191603" y="49959" z="-4368" heading="0" respawnDelay="60" /> <!-- Captive Hell Demon -->
+			<npc id="23737" x="173109" y="61376" z="-4368" heading="0" respawnDelay="60" /> <!-- Captive Succubus -->
+			<npc id="23737" x="175439" y="61053" z="-4368" heading="0" respawnDelay="60" /> <!-- Captive Succubus -->
+			<npc id="23737" x="174629" y="61407" z="-4368" heading="0" respawnDelay="60" /> <!-- Captive Succubus -->
+			<npc id="23737" x="174386" y="60640" z="-4368" heading="0" respawnDelay="60" /> <!-- Captive Succubus -->
+			<npc id="23737" x="174814" y="60783" z="-4368" heading="0" respawnDelay="60" /> <!-- Captive Succubus -->
+			<npc id="23737" x="173315" y="61758" z="-4368" heading="0" respawnDelay="60" /> <!-- Captive Succubus -->
+			<npc id="23737" x="177806" y="54990" z="-3968" heading="0" respawnDelay="60" /> <!-- Captive Succubus -->
+			<npc id="23737" x="178150" y="54320" z="-3984" heading="0" respawnDelay="60" /> <!-- Captive Succubus -->
+			<npc id="23737" x="177791" y="55373" z="-3968" heading="1801" respawnDelay="60" /> <!-- Captive Succubus -->
+			<npc id="23737" x="179974" y="53954" z="-3968" heading="0" respawnDelay="60" /> <!-- Captive Succubus -->
+			<npc id="23737" x="180147" y="54447" z="-3968" heading="0" respawnDelay="60" /> <!-- Captive Succubus -->
+			<npc id="23737" x="180064" y="54850" z="-3968" heading="0" respawnDelay="60" /> <!-- Captive Succubus -->
+			<npc id="23737" x="179831" y="55134" z="-3968" heading="0" respawnDelay="60" /> <!-- Captive Succubus -->
+			<npc id="23737" x="179046" y="54779" z="-3992" heading="0" respawnDelay="60" /> <!-- Captive Succubus -->
+			<npc id="23737" x="178946" y="54167" z="-3992" heading="0" respawnDelay="60" /> <!-- Captive Succubus -->
+			<npc id="23737" x="179315" y="53952" z="-3984" heading="0" respawnDelay="60" /> <!-- Captive Succubus -->
+			<npc id="23737" x="178226" y="55549" z="-3968" heading="64955" respawnDelay="60" /> <!-- Captive Succubus -->
+			<npc id="23737" x="181893" y="53328" z="-4344" heading="0" respawnDelay="60" /> <!-- Captive Succubus -->
+			<npc id="23737" x="173384" y="62821" z="-4368" heading="0" respawnDelay="60" /> <!-- Captive Succubus -->
+			<npc id="23737" x="173189" y="62350" z="-4368" heading="0" respawnDelay="60" /> <!-- Captive Succubus -->
+			<npc id="23737" x="174879" y="62489" z="-4368" heading="0" respawnDelay="60" /> <!-- Captive Succubus -->
+			<npc id="23737" x="175024" y="61824" z="-4368" heading="0" respawnDelay="60" /> <!-- Captive Succubus -->
+			<npc id="23737" x="180378" y="59959" z="-3992" heading="49652" respawnDelay="60" /> <!-- Captive Succubus -->
+			<npc id="23737" x="180837" y="59570" z="-3992" heading="0" respawnDelay="60" /> <!-- Captive Succubus -->
+			<npc id="23737" x="181079" y="58585" z="-3992" heading="0" respawnDelay="60" /> <!-- Captive Succubus -->
+			<npc id="23737" x="181783" y="58699" z="-3992" heading="0" respawnDelay="60" /> <!-- Captive Succubus -->
+			<npc id="23737" x="182367" y="58570" z="-3992" heading="0" respawnDelay="60" /> <!-- Captive Succubus -->
+			<npc id="23737" x="185693" y="49433" z="-4368" heading="0" respawnDelay="60" /> <!-- Captive Succubus -->
+			<npc id="23737" x="186026" y="49648" z="-4352" heading="0" respawnDelay="60" /> <!-- Captive Succubus -->
+			<npc id="23737" x="184995" y="49182" z="-4360" heading="0" respawnDelay="60" /> <!-- Captive Succubus -->
+			<npc id="23737" x="185242" y="49893" z="-4344" heading="0" respawnDelay="60" /> <!-- Captive Succubus -->
+			<npc id="23737" x="185672" y="49737" z="-4360" heading="0" respawnDelay="60" /> <!-- Captive Succubus -->
+			<npc id="23737" x="185244" y="48169" z="-4344" heading="0" respawnDelay="60" /> <!-- Captive Succubus -->
+			<npc id="23737" x="186361" y="48373" z="-4368" heading="0" respawnDelay="60" /> <!-- Captive Succubus -->
+			<npc id="23737" x="185704" y="47937" z="-4352" heading="0" respawnDelay="60" /> <!-- Captive Succubus -->
+			<npc id="23737" x="185978" y="47818" z="-4352" heading="0" respawnDelay="60" /> <!-- Captive Succubus -->
+			<npc id="23737" x="186879" y="48347" z="-4344" heading="0" respawnDelay="60" /> <!-- Captive Succubus -->
+			<npc id="23737" x="186611" y="47768" z="-4344" heading="0" respawnDelay="60" /> <!-- Captive Succubus -->
+			<npc id="23737" x="186524" y="48651" z="-4360" heading="0" respawnDelay="60" /> <!-- Captive Succubus -->
+			<npc id="23737" x="183744" y="52075" z="-4360" heading="54586" respawnDelay="60" /> <!-- Captive Succubus -->
+			<npc id="23737" x="183219" y="53204" z="-4344" heading="0" respawnDelay="60" /> <!-- Captive Succubus -->
+			<npc id="23737" x="182482" y="52723" z="-4368" heading="0" respawnDelay="60" /> <!-- Captive Succubus -->
+			<npc id="23737" x="182588" y="51920" z="-4360" heading="0" respawnDelay="60" /> <!-- Captive Succubus -->
+			<npc id="23738" x="175755" y="55260" z="-4344" heading="0" respawnDelay="60" /> <!-- Captive Phantom -->
+			<npc id="23738" x="174452" y="54517" z="-4344" heading="0" respawnDelay="60" /> <!-- Captive Phantom -->
+			<npc id="23738" x="173110" y="55485" z="-4344" heading="0" respawnDelay="60" /> <!-- Captive Phantom -->
+			<npc id="23738" x="174591" y="56186" z="-4344" heading="0" respawnDelay="60" /> <!-- Captive Phantom -->
+			<npc id="23738" x="174492" y="55604" z="-4368" heading="24288" respawnDelay="60" /> <!-- Captive Phantom -->
+			<npc id="23738" x="173258" y="61004" z="-4368" heading="0" respawnDelay="60" /> <!-- Captive Phantom -->
+			<npc id="23738" x="175896" y="60626" z="-4368" heading="0" respawnDelay="60" /> <!-- Captive Phantom -->
+			<npc id="23738" x="180608" y="59504" z="-3992" heading="0" respawnDelay="60" /> <!-- Captive Phantom -->
+			<npc id="23738" x="180691" y="58582" z="-3992" heading="0" respawnDelay="60" /> <!-- Captive Phantom -->
+			<npc id="23738" x="182077" y="52730" z="-4360" heading="0" respawnDelay="60" /> <!-- Captive Phantom -->
+			<npc id="23738" x="190304" y="52496" z="-4368" heading="0" respawnDelay="60" /> <!-- Captive Phantom -->
+			<npc id="23738" x="190942" y="51954" z="-4368" heading="0" respawnDelay="60" /> <!-- Captive Phantom -->
+			<npc id="23738" x="190942" y="51954" z="-4368" heading="0" respawnDelay="60" /> <!-- Captive Phantom -->
+			<npc id="23738" x="191568" y="50096" z="-4368" heading="0" respawnDelay="60" /> <!-- Captive Phantom -->
+			<npc id="23738" x="192400" y="50908" z="-4368" heading="0" respawnDelay="60" /> <!-- Captive Phantom -->
+			<npc id="23738" x="190817" y="50871" z="-4368" heading="0" respawnDelay="60" /> <!-- Captive Phantom -->
+			<npc id="23738" x="186573" y="49306" z="-4344" heading="0" respawnDelay="60" /> <!-- Captive Phantom -->
+			<npc id="23738" x="185306" y="49568" z="-4352" heading="0" respawnDelay="60" /> <!-- Captive Phantom -->
+			<npc id="23738" x="186128" y="48592" z="-4368" heading="0" respawnDelay="60" /> <!-- Captive Phantom -->
+			<npc id="23738" x="185310" y="47991" z="-4344" heading="0" respawnDelay="60" /> <!-- Captive Phantom -->
+			<npc id="23738" x="186911" y="47934" z="-4344" heading="0" respawnDelay="60" /> <!-- Captive Phantom -->
+			<npc id="23738" x="183594" y="51124" z="-4344" heading="0" respawnDelay="60" /> <!-- Captive Phantom -->
+			<npc id="23738" x="182928" y="52576" z="-4368" heading="0" respawnDelay="60" /> <!-- Captive Phantom -->
+			<npc id="23738" x="182471" y="51476" z="-4344" heading="0" respawnDelay="60" /> <!-- Captive Phantom -->
+			<npc id="23742" x="179829" y="59758" z="-3992" heading="0" respawnDelay="60" /> <!-- Naia Bathus, Demons Foreman -->
+			<npc id="23742" x="181681" y="59694" z="-3992" heading="18184" respawnDelay="60" /> <!-- Naia Bathus, Demons Foreman -->
+			<npc id="23742" x="183856" y="61536" z="-3996" heading="0" respawnDelay="60" /> <!-- Naia Bathus, Demons Foreman -->
+			<npc id="23742" x="187696" y="62576" z="-4976" heading="0" respawnDelay="60" /> <!-- Naia Bathus, Demons Foreman -->
+			<npc id="23742" x="187745" y="57149" z="-4568" heading="49994" respawnDelay="60" /> <!-- Naia Bathus, Demons Foreman -->
+			<npc id="23742" x="186198" y="55063" z="-4568" heading="11818" respawnDelay="60" /> <!-- Naia Bathus, Demons Foreman -->
+			<npc id="23742" x="190496" y="59397" z="-4976" heading="0" respawnDelay="60" /> <!-- Naia Bathus, Demons Foreman -->
+			<npc id="23742" x="191121" y="61608" z="-4976" heading="0" respawnDelay="60" /> <!-- Naia Bathus, Demons Foreman -->
+			<npc id="23742" x="193568" y="59376" z="-4984" heading="0" respawnDelay="60" /> <!-- Naia Bathus, Demons Foreman -->
+			<npc id="23742" x="192892" y="61627" z="-4976" heading="0" respawnDelay="60" /> <!-- Naia Bathus, Demons Foreman -->
+			<npc id="23742" x="192139" y="52072" z="-4368" heading="49953" respawnDelay="60" /> <!-- Naia Bathus, Demons Foreman -->
+			<npc id="23742" x="188193" y="54751" z="-4568" heading="34252" respawnDelay="60" /> <!-- Naia Bathus, Demons Foreman -->
+			<npc id="23743" x="174046" y="61861" z="-4368" heading="0" respawnDelay="60" /> <!-- Naia Karkus, Demons Foreman -->
+			<npc id="23743" x="175510" y="61862" z="-4368" heading="0" respawnDelay="60" /> <!-- Naia Karkus, Demons Foreman -->
+			<npc id="23743" x="183904" y="58992" z="-3992" heading="0" respawnDelay="60" /> <!-- Naia Karkus, Demons Foreman -->
+			<npc id="23743" x="187878" y="57383" z="-4568" heading="0" respawnDelay="60" /> <!-- Naia Karkus, Demons Foreman -->
+			<npc id="23743" x="192862" y="61655" z="-4976" heading="59055" respawnDelay="60" /> <!-- Naia Karkus, Demons Foreman -->
+			<npc id="23744" x="182160" y="61904" z="-3992" heading="3951" respawnDelay="60" /> <!-- Naia Kshana, Demons Foreman -->
+			<npc id="23744" x="186597" y="55063" z="-4568" heading="40509" respawnDelay="60" /> <!-- Naia Kshana, Demons Foreman -->
+			<npc id="23744" x="186198" y="54751" z="-4568" heading="8659" respawnDelay="60" /> <!-- Naia Kshana, Demons Foreman -->
+			<npc id="23744" x="188638" y="62794" z="-4976" heading="0" respawnDelay="60" /> <!-- Naia Kshana, Demons Foreman -->
+			<npc id="23744" x="191273" y="61919" z="-4984" heading="48132" respawnDelay="60" /> <!-- Naia Kshana, Demons Foreman -->
+			<npc id="23746" x="175793" y="62330" z="-4368" heading="21535" respawnDelay="60" /> <!-- Recovering Lesser Giant Warrior -->
+			<npc id="23746" x="192993" y="59819" z="-4976" heading="12960" respawnDelay="60" /> <!-- Recovering Lesser Giant Warrior -->
+			<npc id="23746" x="189032" y="62303" z="-4976" heading="37758" respawnDelay="60" /> <!-- Recovering Lesser Giant Warrior -->
+			<npc id="23746" x="175312" y="62005" z="-4368" heading="7065" respawnDelay="60" /> <!-- Recovering Lesser Giant Warrior -->
+			<npc id="23746" x="175263" y="61738" z="-4368" heading="11547" respawnDelay="60" /> <!-- Recovering Lesser Giant Warrior -->
+			<npc id="23746" x="181416" y="59666" z="-3992" heading="46598" respawnDelay="60" /> <!-- Recovering Lesser Giant Warrior -->
+			<npc id="23746" x="181704" y="59543" z="-3984" heading="9457" respawnDelay="60" /> <!-- Recovering Lesser Giant Warrior -->
+			<npc id="23746" x="181216" y="59203" z="-3992" heading="10381" respawnDelay="60" /> <!-- Recovering Lesser Giant Warrior -->
+			<npc id="23746" x="191944" y="51916" z="-4368" heading="15308" respawnDelay="60" /> <!-- Recovering Lesser Giant Warrior -->
+			<npc id="23746" x="191793" y="51923" z="-4368" heading="49500" respawnDelay="60" /> <!-- Recovering Lesser Giant Warrior -->
+			<npc id="23746" x="192531" y="52466" z="-4368" heading="4099" respawnDelay="60" /> <!-- Recovering Lesser Giant Warrior -->
+			<npc id="23746" x="191753" y="52188" z="-4368" heading="54222" respawnDelay="60" /> <!-- Recovering Lesser Giant Warrior -->
+			<npc id="23746" x="192516" y="51954" z="-4368" heading="1429" respawnDelay="60" /> <!-- Recovering Lesser Giant Warrior -->
+			<npc id="23746" x="181458" y="59387" z="-3992" heading="1057" respawnDelay="60" /> <!-- Recovering Lesser Giant Warrior -->
+			<npc id="23746" x="190181" y="59392" z="-4976" heading="20483" respawnDelay="60" /> <!-- Recovering Lesser Giant Warrior -->
+			<npc id="23746" x="190165" y="59445" z="-4976" heading="53057" respawnDelay="60" /> <!-- Recovering Lesser Giant Warrior -->
+			<npc id="23746" x="190959" y="61936" z="-4984" heading="19023" respawnDelay="60" /> <!-- Recovering Lesser Giant Warrior -->
+			<npc id="23746" x="193202" y="61165" z="-4984" heading="34862" respawnDelay="60" /> <!-- Recovering Lesser Giant Warrior -->
+			<npc id="23746" x="192308" y="61416" z="-4984" heading="5636" respawnDelay="60" /> <!-- Recovering Lesser Giant Warrior -->
+			<npc id="23746" x="192784" y="61477" z="-4984" heading="21453" respawnDelay="60" /> <!-- Recovering Lesser Giant Warrior -->
+			<npc id="23746" x="193049" y="59247" z="-4976" heading="9016" respawnDelay="60" /> <!-- Recovering Lesser Giant Warrior -->
+			<npc id="23747" x="173893" y="61466" z="-4368" heading="42258" respawnDelay="60" /> <!-- Recovering Lesser Giant Wizard -->
+			<npc id="23747" x="174103" y="62127" z="-4368" heading="41574" respawnDelay="60" /> <!-- Recovering Lesser Giant Wizard -->
+			<npc id="23747" x="179701" y="59784" z="-3992" heading="9530" respawnDelay="60" /> <!-- Recovering Lesser Giant Wizard -->
+			<npc id="23747" x="179731" y="59847" z="-3992" heading="61794" respawnDelay="60" /> <!-- Recovering Lesser Giant Wizard -->
+			<npc id="23747" x="179571" y="59386" z="-3992" heading="26298" respawnDelay="60" /> <!-- Recovering Lesser Giant Wizard -->
+			<npc id="23747" x="188780" y="62770" z="-4976" heading="42258" respawnDelay="60" /> <!-- Recovering Lesser Giant Wizard -->
+			<npc id="23747" x="191348" y="61628" z="-4984" heading="48503" respawnDelay="60" /> <!-- Recovering Lesser Giant Wizard -->
+			<npc id="23747" x="190664" y="62092" z="-4984" heading="53603" respawnDelay="60" /> <!-- Recovering Lesser Giant Wizard -->
+			<npc id="23747" x="190760" y="59031" z="-4976" heading="39238" respawnDelay="60" /> <!-- Recovering Lesser Giant Wizard -->
+			<npc id="23747" x="190881" y="59146" z="-4976" heading="6453" respawnDelay="60" /> <!-- Recovering Lesser Giant Wizard -->
+			<npc id="23747" x="193385" y="61104" z="-4984" heading="2470" respawnDelay="60" /> <!-- Recovering Lesser Giant Wizard -->
+			<npc id="23747" x="192916" y="61481" z="-4984" heading="15677" respawnDelay="60" /> <!-- Recovering Lesser Giant Wizard -->
+			<npc id="23747" x="193721" y="59507" z="-4976" heading="22243" respawnDelay="60" /> <!-- Recovering Lesser Giant Wizard -->
+			<npc id="23747" x="193667" y="59361" z="-4976" heading="6904" respawnDelay="60" /> <!-- Recovering Lesser Giant Wizard -->
+			<npc id="23749" x="175041" y="62265" z="-4368" heading="21654" respawnDelay="60" /> <!-- Root of the Lesser Giant -->
+			<npc id="23749" x="189569" y="52323" z="-4368" heading="18938" respawnDelay="60" /> <!-- Root of the Lesser Giant -->
+			<npc id="23749" x="189879" y="52082" z="-4368" heading="48478" respawnDelay="60" /> <!-- Root of the Lesser Giant -->
+			<npc id="23749" x="190106" y="54294" z="-4368" heading="38061" respawnDelay="60" /> <!-- Root of the Lesser Giant -->
+			<npc id="23749" x="190184" y="53699" z="-4368" heading="29852" respawnDelay="60" /> <!-- Root of the Lesser Giant -->
+			<npc id="23749" x="192042" y="52401" z="-4368" heading="15598" respawnDelay="60" /> <!-- Root of the Lesser Giant -->
+			<npc id="23749" x="192202" y="52376" z="-4360" heading="54856" respawnDelay="60" /> <!-- Root of the Lesser Giant -->
+			<npc id="23749" x="192400" y="52019" z="-4368" heading="52020" respawnDelay="60" /> <!-- Root of the Lesser Giant -->
+			<npc id="23749" x="192568" y="52280" z="-4368" heading="25334" respawnDelay="60" /> <!-- Root of the Lesser Giant -->
+			<npc id="23749" x="192568" y="52730" z="-4368" heading="32817" respawnDelay="60" /> <!-- Root of the Lesser Giant -->
+			<npc id="23749" x="194019" y="53014" z="-4368" heading="63782" respawnDelay="60" /> <!-- Root of the Lesser Giant -->
+			<npc id="23749" x="194238" y="51906" z="-4368" heading="44232" respawnDelay="60" /> <!-- Root of the Lesser Giant -->
+			<npc id="23749" x="194213" y="53108" z="-4368" heading="4401" respawnDelay="60" /> <!-- Root of the Lesser Giant -->
+			<npc id="23749" x="193704" y="52699" z="-4368" heading="55286" respawnDelay="60" /> <!-- Root of the Lesser Giant -->
+			<npc id="23749" x="194006" y="52822" z="-4368" heading="27988" respawnDelay="60" /> <!-- Root of the Lesser Giant -->
+			<npc id="23749" x="194167" y="52001" z="-4368" heading="23753" respawnDelay="60" /> <!-- Root of the Lesser Giant -->
+			<npc id="23749" x="194046" y="52636" z="-4368" heading="5289" respawnDelay="60" /> <!-- Root of the Lesser Giant -->
+			<npc id="23749" x="193809" y="52197" z="-4368" heading="30445" respawnDelay="60" /> <!-- Root of the Lesser Giant -->
+			<npc id="23749" x="193743" y="53717" z="-4368" heading="34303" respawnDelay="60" /> <!-- Root of the Lesser Giant -->
+			<npc id="23749" x="194135" y="54193" z="-4368" heading="53528" respawnDelay="60" /> <!-- Root of the Lesser Giant -->
+			<npc id="23749" x="193795" y="54113" z="-4368" heading="45231" respawnDelay="60" /> <!-- Root of the Lesser Giant -->
+			<npc id="23749" x="194301" y="54516" z="-4368" heading="26133" respawnDelay="60" /> <!-- Root of the Lesser Giant -->
+			<npc id="23749" x="190499" y="53973" z="-4368" heading="654" respawnDelay="60" /> <!-- Root of the Lesser Giant -->
+			<npc id="23749" x="190440" y="53773" z="-4368" heading="49913" respawnDelay="60" /> <!-- Root of the Lesser Giant -->
+			<npc id="23749" x="191146" y="50779" z="-4368" heading="31233" respawnDelay="60" /> <!-- Root of the Lesser Giant -->
+			<npc id="23749" x="192163" y="50009" z="-4368" heading="53931" respawnDelay="60" /> <!-- Root of the Lesser Giant -->
+			<npc id="23749" x="190558" y="54373" z="-4368" heading="9606" respawnDelay="60" /> <!-- Root of the Lesser Giant -->
+			<npc id="23749" x="190086" y="54023" z="-4368" heading="14026" respawnDelay="60" /> <!-- Root of the Lesser Giant -->
+			<npc id="23749" x="190086" y="53873" z="-4368" heading="56499" respawnDelay="60" /> <!-- Root of the Lesser Giant -->
+			<npc id="23749" x="189555" y="54523" z="-4368" heading="57520" respawnDelay="60" /> <!-- Root of the Lesser Giant -->
+			<npc id="23749" x="175104" y="61588" z="-4368" heading="11664" respawnDelay="60" /> <!-- Root of the Lesser Giant -->
+			<npc id="23749" x="175296" y="61849" z="-4368" heading="59368" respawnDelay="60" /> <!-- Root of the Lesser Giant -->
+			<npc id="23749" x="181666" y="59614" z="-3984" heading="49403" respawnDelay="60" /> <!-- Root of the Lesser Giant -->
+			<npc id="23749" x="181266" y="59514" z="-3992" heading="45512" respawnDelay="60" /> <!-- Root of the Lesser Giant -->
+			<npc id="23749" x="182116" y="59764" z="-3992" heading="2042" respawnDelay="60" /> <!-- Root of the Lesser Giant -->
+			<npc id="23749" x="181822" y="62122" z="-3992" heading="20171" respawnDelay="60" /> <!-- Root of the Lesser Giant -->
+			<npc id="23749" x="181459" y="62594" z="-3992" heading="19585" respawnDelay="60" /> <!-- Root of the Lesser Giant -->
+			<npc id="23749" x="182300" y="62058" z="-3992" heading="15218" respawnDelay="60" /> <!-- Root of the Lesser Giant -->
+			<npc id="23749" x="182415" y="61248" z="-3992" heading="10412" respawnDelay="60" /> <!-- Root of the Lesser Giant -->
+			<npc id="23749" x="182216" y="61597" z="-3992" heading="3848" respawnDelay="60" /> <!-- Root of the Lesser Giant -->
+			<npc id="23749" x="182066" y="59064" z="-3992" heading="21634" respawnDelay="60" /> <!-- Root of the Lesser Giant -->
+			<npc id="23749" x="184246" y="58979" z="-3992" heading="18938" respawnDelay="60" /> <!-- Root of the Lesser Giant -->
+			<npc id="23749" x="184317" y="58710" z="-3992" heading="15411" respawnDelay="60" /> <!-- Root of the Lesser Giant -->
+			<npc id="23749" x="183716" y="58815" z="-3992" heading="57893" respawnDelay="60" /> <!-- Root of the Lesser Giant -->
+			<npc id="23749" x="183973" y="58884" z="-3992" heading="33155" respawnDelay="60" /> <!-- Root of the Lesser Giant -->
+			<npc id="23754" x="174196" y="61911" z="-4368" heading="9495" respawnDelay="60" /> <!-- Essence of the Lesser Giant -->
+			<npc id="23754" x="174396" y="61511" z="-4368" heading="43356" respawnDelay="60" /> <!-- Essence of the Lesser Giant -->
+			<npc id="23754" x="179859" y="59460" z="-3984" heading="41207" respawnDelay="60" /> <!-- Essence of the Lesser Giant -->
+			<npc id="23754" x="180109" y="59910" z="-3992" heading="20416" respawnDelay="60" /> <!-- Essence of the Lesser Giant -->
+			<npc id="23754" x="180078" y="59938" z="-3992" heading="62640" respawnDelay="60" /> <!-- Essence of the Lesser Giant -->
+			<npc id="23754" x="183339" y="60618" z="-3992" heading="8008" respawnDelay="60" /> <!-- Essence of the Lesser Giant -->
+			<npc id="23754" x="183865" y="60487" z="-3992" heading="61783" respawnDelay="60" /> <!-- Essence of the Lesser Giant -->
+			<npc id="23754" x="183699" y="61887" z="-3992" heading="37777" respawnDelay="60" /> <!-- Essence of the Lesser Giant -->
+			<npc id="23754" x="184213" y="61718" z="-3992" heading="48382" respawnDelay="60" /> <!-- Essence of the Lesser Giant -->
+			<npc id="23754" x="180259" y="59060" z="-3992" heading="23433" respawnDelay="60" /> <!-- Essence of the Lesser Giant -->
+			<npc id="23754" x="189957" y="51824" z="-4368" heading="5289" respawnDelay="60" /> <!-- Essence of the Lesser Giant -->
+			<npc id="23754" x="190477" y="52587" z="-4368" heading="18138" respawnDelay="60" /> <!-- Essence of the Lesser Giant -->
+			<npc id="23754" x="190248" y="54532" z="-4368" heading="28104" respawnDelay="60" /> <!-- Essence of the Lesser Giant -->
+			<npc id="23754" x="193718" y="53916" z="-4368" heading="6060" respawnDelay="60" /> <!-- Essence of the Lesser Giant -->
+			<npc id="23754" x="194049" y="54074" z="-4368" heading="60411" respawnDelay="60" /> <!-- Essence of the Lesser Giant -->
+			<npc id="23754" x="194143" y="54257" z="-4368" heading="26492" respawnDelay="60" /> <!-- Essence of the Lesser Giant -->
+			<npc id="23754" x="194347" y="54009" z="-4368" heading="46162" respawnDelay="60" /> <!-- Essence of the Lesser Giant -->
+			<npc id="23754" x="191955" y="49909" z="-4368" heading="49667" respawnDelay="60" /> <!-- Essence of the Lesser Giant -->
+			<npc id="23754" x="192294" y="49699" z="-4368" heading="23844" respawnDelay="60" /> <!-- Essence of the Lesser Giant -->
+			<npc id="23754" x="189622" y="53598" z="-4368" heading="0" respawnDelay="60" /> <!-- Essence of the Lesser Giant -->
+			<npc id="23754" x="190519" y="54526" z="-4368" heading="0" respawnDelay="60" /> <!-- Essence of the Lesser Giant -->
+			<!-- NPCs -->
+			<npc id="34217" x="186962" y="60952" z="-4968" heading="61752" respawnDelay="60" /> <!-- Schumadriba -->
+			<npc id="34218" x="183843" y="47280" z="-4360" heading="31324" respawnDelay="60" /> <!-- Retbach -->
+			<npc id="34219" x="174448" y="52896" z="-4360" heading="49448" respawnDelay="60" /> <!-- Sthor -->
+			<npc id="34220" x="186938" y="60855" z="-4968" heading="62181" respawnDelay="60" /> <!-- Vetle -->
+			<npc id="34223" x="174502" y="52923" z="-4360" heading="16204" respawnDelay="60" /> <!-- Giant Trackers Teleport Device -->
+			<npc id="34223" x="178048" y="52288" z="-3984" heading="12853" respawnDelay="60" /> <!-- Giant Trackers Teleport Device -->
+			<npc id="34223" x="187368" y="59626" z="-4976" heading="49181" respawnDelay="60" /> <!-- Giant Trackers Teleport Device -->
+			<npc id="34223" x="183680" y="47568" z="-4360" heading="5696" respawnDelay="60" /> <!-- Giant Trackers Teleport Device -->
+			<npc id="34223" x="181251" y="50448" z="-4360" heading="8423" respawnDelay="60" /> <!-- Giant Trackers Teleport Device -->
+			<npc id="34226" x="183760" y="60400" z="-7232" heading="16780" respawnDelay="60" /> <!-- Relic Control Device -->
+			<npc id="34226" x="182432" y="60400" z="-7232" heading="16780" respawnDelay="60" /> <!-- Relic Control Device -->
+			<npc id="34226" x="183397" y="59550" z="-7232" heading="48920" respawnDelay="60" /> <!-- Relic Control Device -->
+			<npc id="34226" x="184548" y="59550" z="-7232" heading="48920" respawnDelay="60" /> <!-- Relic Control Device -->
+			<npc id="34226" x="184912" y="60400" z="-7232" heading="16780" respawnDelay="60" /> <!-- Relic Control Device -->
+			<npc id="34226" x="186062" y="60400" z="-7232" heading="16780" respawnDelay="60" /> <!-- Relic Control Device -->
+			<npc id="34226" x="185697" y="59550" z="-7232" heading="48920" respawnDelay="60" /> <!-- Relic Control Device -->
+			<npc id="34237" x="187046" y="60917" z="-4968" heading="65456" respawnDelay="60" /> <!-- Krenaht -->
+		</group>
+			<npc periodOfDay="day" id="23740" x="186939" y="56150" z="-4576" heading="0" respawnDelay="2700" respawnRandom="600" /> <!-- Schlien -->
+			<npc periodOfDay="night" id="23739" x="186939" y="56150" z="-4576" heading="0" respawnDelay="2700" respawnRandom="600" /> <!-- Marka -->
 	</spawn>
 </list>

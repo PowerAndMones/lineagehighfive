@@ -290,6 +290,7 @@ Task 25b - v2.1: карточка персонажа на главной бор�
 Ожидаемый тест v2.4: (1) клан-окно Missions: список 8 миссий, статус по уровню, получение награды (адена/репутация/фама); (2) Beauty Shop: NPC в городах/кнопка клиента, покупка причёски за адену, облик виден другим; (3) Nursery: вход у Моря Спор (соло, 85+), таймер на экране, очки за мобов, награда у Tie; (4) таймеры интерфейса (0x8F) на экране.
 Следующие кандидаты: Kartia solo 85 (полный порт), VIP Attendance (ежедневный вход), оставшиеся пробелы протокола (GMView*, FakePlayerInfo, SiegeDefenderList, олимпиадные, MPCC, pledge recruit).
 
+
 ## Task 31 - v2.5: модальное PIN-окно в мире (блок UI), чистка Nursery NPC
 
 Дата: 29/10/2026. Баг-репорт после теста v2.4: «Инвентарь не открывается, с нпс нету половина что творится, баффы так в клиенте где HP MP CP не показывает и 0 сек на скриншоте видно» + лог GS + 2 скриншота (модальное окно с цифровой клавиатурой ПРЯМО В МИРЕ; ошибка клиента «检查角色力量时出现问题(7680)» в окне «Бои Олимпиады» через ~6 сек после входа).
@@ -341,3 +342,37 @@ Dragon Valley (сервер-сайд проверен): спавны на мес
 Сборка: ядро 1944 файла exit 0 (после удаления ServerPacketsSalvation). GameServer.jar 2511 классов (1:1 с v2.5 минус удалённый класс). Zip v2.6: 26756 записей, на базе v2.5-пакета с заменённым GameServer.jar.
 
 Ожидаемый тест v2.6: (1) инвентарь открывается; (2) НПС отображаются полностью, мобы видны (включая Dragon Valley); (3) иконки бафов с корректным временем; (4) магазины/клан/почта/олимпиадные окна работают; (5) модальное окно пароля в мире не появляется (фикс v2.5 в этой сборке тоже присутствует).
+## v2.5 — полная диагностика трёх багов клиента 140 + порт спавнов/шаблонов Salvation 5.0
+
+Диагностика (побайтовая сверка с эталоном L2J_Mobius_05.0_Salvation):
+- NpcInfo/ServerObjectInfo/ItemList/ExQuestItemList/InventoryUpdate/ExStorageMaxCount/HennaInfo/MultiSellList/склады/GM-просмотры/почта — верифицированы байт-в-байт, БЕЗ изменений
+- Базовые (не-EX) опкоды SM/CM между HF и Salvation — идентичны (дифф 505/763 пакетов), допущение адаптера подтверждено
+- writeString (UTF-16LE+null), NpcInfoType (маски/длины), SalvationAveMap — идентичны/безопасны
+- КОРЕНЬ БАГА 1 (мобы невидимы, Dragon Valley пуст): клиент 140 не имеет npcgrp/npcname-данных для СТАРЫХ HF-ID мобов перестроенных зон (DV 22537-22552 заменены в Essence на 23423+). Эталон спавнит мир ЗОНОВЫМ датапаком (165 файлов, 33893 записи) только с клиент-валидными ID; старые HF-тайлы у него в spawns/old (не грузятся)
+
+Фикс БАГА 1 (порт датапака):
+- spawns/ заменён на эталонный (минус old/): 165 файлов, 33789 конверсий respawnTime="Xsec|min|hour"->respawnDelay="N"; ai="DayNightSpawns" (231 файл) -> сглаживание групп dayTime/nightTime в periodOfDay="day|night" (нативный DayNightSpawnManager HF); spawnByDefault/ai атрибуты сняты; <list enabled="true"> добавлен (HF-парсер падал NPE - теперь null-safe)
+- 5379 NPC-шаблонов долиты из эталона (10461->15840; 65 новых файлов 23000-25999/26000-26999/34000+; покрытие: 0 отсутствующих шаблонов для всех спавнов эталона)
+- Кастомы сохранены: BeautyShop, Nursery, PlunderousPlains, DaimonsAltar, YetisTable, TreasureBoxes, Gremlins, UndergroundColiseum, FakePlayers
+- XSD расширены до диалекта эталона: spawns.xsd - spawn контент перестроен на repeat-choice (AIData/territory/banned_territory/territories/parameters/npc/group в любом порядке), group+npc смешанные (parameters/minions/locations), npc attrs dbSave/dbName, x/y/z опциональны, territoryDef; npcs.xsd - mpReward, lucky (dropLists), abnormalResist (stats), critical/attackSpeed -> decimal, status/@isDeathPenalty
+- respawnRandom "12hour" и пр. -> секунды (2701 конверсий); RaidbossSpawns territories/dbSave валидны; EilhalderVonHellmann locations -> первая точка
+- Валидация lxml: 189/189 npc, 173/173 spawns XSD-валидны; известное ограничение: HarnakUndergroundRuins (107 территория-спавнов, инстанс-зона) скипается HF-загрузчиком (нет inline-territories)
+
+Фикс БАГА 3 (бафы "0 сек" / пустой бар у HP/MP/CP) + совместимость:
+- НОВЫЙ пакет ExAbnormalStatusUpdateFromTarget (ref EX 0xE6): id/level/sublevel/abnormalType(short)/optionalTime/effectorObjectId; шлётся в Player.setTarget при salvation-режиме (в HF этого пакета не было ВООБЩЕ - у клиента 140 бар бафов цели питается им)
+- НОВЫЙ пакет NpcInfoAbnormalVisualEffect (0x4B): лёгкий AVE-апдейт NPC (objectId, transformation=0, AVE clientIds через SalvationAveMap); Npc.updateAbnormalEffect шлёт его в salvation-режиме вместо полного NpcInfo
+- RelationChanged: маски SEND_ONE/SEND_MULTI исправлены 0x01/0x02 -> 0x02/0x04 (ref)
+- ConfirmDlg: тип параметра byte -> int (ref; диалоги подтверждений читались неверно)
+- AskJoinPledge: добавлено имя просителя (новый конструктор + вызов в RequestJoinPledge)
+- ExListPartyMatchingWaitingRoom: переписан по ref (name/class/level/instanceId/instanceTimes; _members наполнялся только в legacy-ветке - salvation всегда слал пустой список)
+- ExUserInfoCubic: реальный agathionId; SkillList subLevel/lastLearned - остаются 0 (в HF модели нет данных)
+- AbnormalStatusUpdate: isAura() недоступен в HF-модели - остаётся isToggle()->-1; layout верифицирован как идентичный ref
+- Player.sendItemList (salvation): +ExAdenaInvenCount/ExUserInfoInvenWeight через 800мс (ref sendItemList/updateAdenaAndWeight)
+
+Фикс БАГА 2 (инвентарь не открывается):
+- Все инвентарные пакеты сверлены с эталоном и совпадают (ItemList(1)/(2), ExQuestItemList, InventoryUpdate, item-запись cddcQcchQccddc 43 байта); EnterWorld-набор полный
+- Вероятная причина у пользователя - каскад от невидимых мобов/битых пакетов выше; weight-block добавлен как ref-parity. Требуется свежий лог GS если не воспроизведётся
+
+Сборка: ядро 1947 файлов exit 0 (javac 21.0.2, preview).
+Релиз v2.5: см. ниже.
+
