@@ -525,7 +525,9 @@ public class PlayerConfig
 		}
 		ENABLE_KEYBOARD_MOVEMENT = config.getBoolean("KeyboardMovement", true);
 		UNSTUCK_INTERVAL = config.getInt("UnstuckInterval", 300);
-		TELEPORT_WATCHDOG_TIMEOUT = config.getInt("TeleportWatchdogTimeout", 0);
+		// Salvation 140 clients complete the server-side teleport via Appearing; the watchdog
+		// guarantees spawnMe() even if that packet is lost or never sent (default 10 s).
+		TELEPORT_WATCHDOG_TIMEOUT = config.getInt("TeleportWatchdogTimeout", 10);
 		PLAYER_SPAWN_PROTECTION = config.getInt("PlayerSpawnProtection", 0);
 		PLAYER_TELEPORT_PROTECTION = config.getInt("PlayerTeleportProtection", 0);
 		RANDOM_RESPAWN_IN_TOWN_ENABLED = config.getBoolean("RandomRespawnInTownEnabled", true);

@@ -59,15 +59,15 @@ public class AbnormalStatusUpdate extends ServerPacket
 					buffer.writeShort(0); // skill sub level
 					buffer.writeInt(skill.getAbnormalType() != null ? skill.getAbnormalType().getClientId() : 0);
 					final int salvationTime = skill.isToggle() ? -1 : info.getTime();
-					if ((salvationTime >= 0) && (salvationTime < Short.MAX_VALUE))
+					// Salvation (protocol 140) optional int: plain short, or short(32767) + int.
+					if (salvationTime >= Short.MAX_VALUE)
 					{
-						buffer.writeByte(1);
-						buffer.writeShort(salvationTime);
+						buffer.writeShort(Short.MAX_VALUE);
+						buffer.writeInt(salvationTime);
 					}
 					else
 					{
-						buffer.writeByte(0);
-						buffer.writeInt(salvationTime);
+						buffer.writeShort(salvationTime);
 					}
 				}
 			}

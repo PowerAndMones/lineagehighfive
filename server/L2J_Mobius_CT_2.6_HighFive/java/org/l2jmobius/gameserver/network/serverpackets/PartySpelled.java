@@ -62,15 +62,15 @@ public class PartySpelled extends ServerPacket
 					buffer.writeShort(0); // skill sub level
 					buffer.writeInt(info.getSkill().getAbnormalType() != null ? info.getSkill().getAbnormalType().getClientId() : 0);
 					final int time = info.getTime();
-					if ((time >= 0) && (time < Short.MAX_VALUE))
+					// Salvation (protocol 140) optional int: plain short, or short(32767) + int.
+					if (time >= Short.MAX_VALUE)
 					{
-						buffer.writeByte(1);
-						buffer.writeShort(time);
+						buffer.writeShort(Short.MAX_VALUE);
+						buffer.writeInt(time);
 					}
 					else
 					{
-						buffer.writeByte(0);
-						buffer.writeInt(time);
+						buffer.writeShort(time);
 					}
 				}
 			}

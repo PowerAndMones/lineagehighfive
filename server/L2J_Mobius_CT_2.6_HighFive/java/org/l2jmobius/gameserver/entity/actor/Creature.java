@@ -584,9 +584,6 @@ public abstract class Creature extends WorldObject
 		spawnMe(getX(), getY(), getZ());
 		setTeleporting(false);
 		
-		// Salvation (protocol 140): tell the client the teleport transition is over.
-		sendPacket(new ExTeleportToLocationActivate(this));
-		
 		if (EventDispatcher.getInstance().hasListener(EventType.ON_CREATURE_TELEPORTED, this))
 		{
 			EventDispatcher.getInstance().notifyEventAsync(new OnCreatureTeleported(this), this);
@@ -866,6 +863,21 @@ public abstract class Creature extends WorldObject
 		if (heading != 0)
 		{
 			setHeading(heading);
+		}
+		
+		// Salvation (protocol 140): the client ends the teleport transition (loading overlay)
+		// only when this packet arrives. The stock High Five client finishes on its own and
+		// sends Appearing afterwards; the Salvation client waits for the packet, so it must
+		// be sent immediately, otherwise the player is stuck on a black screen and the
+		// server-side completion (spawnMe via Appearing) never happens (deadlock).
+		if (isPlayer())
+		{
+			final Player telePlayer = asPlayer();
+			final GameClient teleClient = telePlayer.getClient();
+			if ((teleClient != null) && teleClient.isSalvationMode())
+			{
+				telePlayer.sendPacket(new ExTeleportToLocationActivate(this));
+			}
 		}
 		
 		// Allow recall of the detached characters.

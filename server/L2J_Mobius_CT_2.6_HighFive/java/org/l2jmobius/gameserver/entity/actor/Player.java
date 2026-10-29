@@ -11383,9 +11383,6 @@ public class Player extends Playable
 	{
 		super.onTeleported();
 		
-		// Salvation (protocol 140): teleport transition finished.
-		sendPacket(new ExTeleportToLocationActivate(this));
-		
 		if (isInAirShip())
 		{
 			getAirShip().sendInfo(this);

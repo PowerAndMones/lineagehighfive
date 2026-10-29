@@ -222,3 +222,32 @@ Task 25b - v2.1: карточка персонажа на главной бор�
 - Опкоды сверены: Ex2ndPasswordCheck H5 FE:0xE5 -> Salvation FE:0x105 (override + translateOutgoingOpcode согласованы), входящая мапа 0xA6->0x93 на месте
 
 Сборка: ядро 1923 файла exit 0. Деплой: заменить файлы, рестарт GS. SQL не нужен.
+
+## Task 29 - v2.3: телепорт (чёрный экран), иконки бафов (0 сек), PIN-окно при входе, текстуры главной Alt+B
+
+Дата: 29/10/2026. Баг-репорт после теста v2.2: "Телепорт так и не заработал. Алт-б кривое досихпор, но при переходе куда-то становится нормально, на главной все криво. Баффнутся смог, но половина бафов не видно и моргают как будто 0 сек осталось. При входе досихпор просит пароль какой-то" + лог GS (полная сессия 10:55-11:08) + скриншоты (PIN-окно "Бои Олимпиады" с клавиатурой; ошибка клиента "角色配对检查出现问题(7680)").
+
+Ключевой факт из лога v2.2: клиент Salvation 140 так и НЕ прислал Ex 0xA6 (2nd password check) ни в AUTHENTICATED, ни в ENTERING - значит фикс v2.2 (расширение state-гейтов) не мог сработать, а диалог клиент рисует сам.
+
+Баг 1: чёрный экран после телепорта (ДЕДЛОК)
+- Сравнение с эталоном: в Creature.teleToLocation эталон шлёт ExTeleportToLocationActivate СРАЗУ после setXYZ ("Send teleport finished packet to player"), а у нас пакет уходил только из onTeleported()
+- onTeleported() для присоединённого игрока вызывается только из Appearing (CM 0x3A) или TeleportWatchdogTask (включён при TeleportWatchdogTimeout>0, у нас дефолт 0 = выключен)
+- Клиент Salvation завершает телепорт-переход ТОЛЬКО по ExTeleportToLocationActivate и шлёт Appearing только после него -> круговое ожидание: сервер ждёт Appearing, клиент ждёт Activate -> вечный чёрный экран. На стоковом HF-клиенте бага нет: там переход завершается по внутреннему таймеру
+- Fix: ExTeleportToLocationActivate шлём немедленно в teleToLocation (только salvation-режим; в оригинальном HF enum пакета нет - HF-клиентам не шлём), из onTeleported (Creature+Player) убраны дубли; TeleportWatchdogTimeout default 0 -> 10 (страховка spawnMe)
+- ExShowSeedMapInfo переведён на Salvation-формат [count]{[id][sysMsgId]} (был HF-формат с координатами - клиент читал мусор; клиент запрашивает seed phase при входе и вокруг телепорта)
+
+Баг 2: иконки бафов - половина не видна, моргают "0 сек"
+- Эталонный Salvation ServerPacket.writeOptionalInt: время = writeShort(value), либо writeShort(32767)+writeInt(value) если >= 32767. БЕЗ тегового байта
+- Мы изобрели layout [byte 1 + short] / [byte 0 + int] - на 1 байт больше на каждый эффект -> десинхронизация AbnormalStatusUpdate после первого эффекта -> клиент парсит мусор (иконки пропадают, таймеры 0 сек)
+- Fix: AbnormalStatusUpdate, PartySpelled, ExOlympiadSpelledInfo - правильный optional-int (toggle-скиллы шлют -1 как short)
+
+Баг 3: PIN-окно при входе (фантомное "второй пароль")
+- Раз клиент не шлёт Ex 0xA6 вообще, сервер должен ответить проактивно: Ex2ndPasswordCheck(PASSWORD_OK=2) отправляется в 3 точках: после CharSelectionInfo (LoginServerThread), перед CharSelected (CharacterSelect), отложенно через 2 сек после EnterWorld (закрывает диалог, если клиент его уже открыл)
+- Идём по эталону: PASSWORD_OK = 2, формат пакета [windowType][0], SM Ex2ndPasswordCheck FE:0xE5 -> Salvation FE:0x105 ремапится корректно
+
+Баг 4: Alt+B главная "кривая", остальные страницы нормальные
+- home.html и navigation.html используют кнопки L2UI_CT1.OlympiadWnd_DF_* (26/18 штук) - набора нет в Essence-клиенте (кнопки рендерятся битыми боксами). Рабочие страницы (gatekeeper/buffer/merchant/premium/info) используют L2UI_CT1.Button_DF + Windows_DF_TooltipBG - потому и "при переходе нормально"
+- Fix: все OlympiadWnd_DF_* заменены на Button_DF/Button_DF_Down в home.html и navigation.html
+- CM 0xa6 RequestSkillCoolTime пущен в ENTERING (клиент шлёт его при инициализации UI мира)
+
+Сборка: ядро 1923 файла exit 0. Деплой: заменить файлы, рестарт GS. SQL не нужен.

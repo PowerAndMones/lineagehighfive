@@ -21,21 +21,13 @@
 package org.l2jmobius.gameserver.network.serverpackets;
 
 import org.l2jmobius.commons.network.buffer.WriteBuffer;
-import org.l2jmobius.gameserver.entity.Location;
 import org.l2jmobius.gameserver.managers.SeedOfDestructionManager;
-import org.l2jmobius.gameserver.managers.SeedOfInfinityManager;
 import org.l2jmobius.gameserver.network.GameClient;
 import org.l2jmobius.gameserver.network.ServerPackets;
 
 public class ExShowSeedMapInfo extends ServerPacket
 {
 	public static final ExShowSeedMapInfo STATIC_PACKET = new ExShowSeedMapInfo();
-	
-	private static final Location[] ENTRANCES =
-	{
-		new Location(-246857, 251960, 4331, 1),
-		new Location(-213770, 210760, 4400, 2),
-	};
 	
 	private ExShowSeedMapInfo()
 	{
@@ -45,25 +37,15 @@ public class ExShowSeedMapInfo extends ServerPacket
 	public void writeImpl(GameClient client, WriteBuffer buffer)
 	{
 		ServerPackets.EX_SHOW_SEED_MAP_INFO.writeId(this, buffer);
-		buffer.writeInt(ENTRANCES.length);
-		for (Location loc : ENTRANCES)
-		{
-			buffer.writeInt(loc.getX());
-			buffer.writeInt(loc.getY());
-			buffer.writeInt(loc.getZ());
-			switch (loc.getHeading())
-			{
-				case 1: // Seed of Destruction
-				{
-					buffer.writeInt(2770 + SeedOfDestructionManager.getInstance().getSoDState());
-					break;
-				}
-				case 2: // Seed of Immortality
-				{
-					buffer.writeInt(SeedOfInfinityManager.getCurrentStage() + 2765);
-					break;
-				}
-			}
-		}
+		// Salvation (protocol 140) layout: [count] then per seed [id][sysMsgId] - no coordinates.
+		buffer.writeInt(2); // seed count
+		
+		// Seed of Destruction
+		buffer.writeInt(1); // id
+		buffer.writeInt(2770 + SeedOfDestructionManager.getInstance().getSoDState()); // sys msg id
+		
+		// Seed of Infinity
+		buffer.writeInt(2); // id
+		buffer.writeInt(2766); // sys msg id
 	}
 }

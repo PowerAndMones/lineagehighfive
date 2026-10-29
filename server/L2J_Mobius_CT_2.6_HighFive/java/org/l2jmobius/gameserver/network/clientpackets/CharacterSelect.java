@@ -47,6 +47,7 @@ import org.l2jmobius.gameserver.network.Disconnection;
 import org.l2jmobius.gameserver.network.GameClient;
 import org.l2jmobius.gameserver.network.holders.CharacterInfoHolder;
 import org.l2jmobius.gameserver.network.serverpackets.CharSelected;
+import org.l2jmobius.gameserver.network.serverpackets.Ex2ndPasswordCheck;
 import org.l2jmobius.gameserver.network.serverpackets.LeaveWorld;
 import org.l2jmobius.gameserver.network.serverpackets.NpcHtmlMessage;
 import org.l2jmobius.gameserver.network.serverpackets.SSQInfo;
@@ -224,6 +225,11 @@ public class CharacterSelect extends ClientPacket
 					
 					client.sendPacket(new SSQInfo());
 					client.setConnectionState(ConnectionState.ENTERING);
+					if (client.isSalvationMode())
+					{
+						// Proactively close the secondary password flow before entering the world.
+						client.sendPacket(new Ex2ndPasswordCheck(Ex2ndPasswordCheck.PASSWORD_OK));
+					}
 					client.sendPacket(new CharSelected(cha, client.getSessionId().playOkID1));
 				}
 			}

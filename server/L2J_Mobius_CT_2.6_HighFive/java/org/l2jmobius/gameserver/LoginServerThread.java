@@ -78,6 +78,7 @@ import org.l2jmobius.gameserver.network.loginserverpackets.send.SendMail;
 import org.l2jmobius.gameserver.network.loginserverpackets.send.ServerStatus;
 import org.l2jmobius.gameserver.network.loginserverpackets.send.TempBan;
 import org.l2jmobius.gameserver.network.serverpackets.CharSelectionInfo;
+import org.l2jmobius.gameserver.network.serverpackets.Ex2ndPasswordCheck;
 import org.l2jmobius.gameserver.network.serverpackets.LoginFail;
 import org.l2jmobius.gameserver.network.serverpackets.SystemMessage;
 
@@ -346,6 +347,14 @@ public class LoginServerThread extends Thread
 									final CharSelectionInfo cl = new CharSelectionInfo(wcToRemove.account, wcToRemove.gameClient.getSessionId().playOkID1);
 									wcToRemove.gameClient.sendPacket(cl);
 									wcToRemove.gameClient.setCharSelection(cl.getCharInfo());
+									if (wcToRemove.gameClient.isSalvationMode())
+									{
+										// The Salvation 140 client never sends RequestEx2ndPasswordCheck by itself;
+										// unless it receives Ex2ndPasswordCheck(PASSWORD_OK) it opens the blocking
+										// secondary password dialog (scrambled keypad window) at world entry.
+										wcToRemove.gameClient.sendPacket(new Ex2ndPasswordCheck(Ex2ndPasswordCheck.PASSWORD_OK));
+										LOGGER.info("SALVATION: sent Ex2ndPasswordCheck(PASSWORD_OK) after CharSelectionInfo");
+									}
 									LOGGER.info("SALVATION: auth ok for " + wcToRemove.account + ", CharSelectionInfo sent (" + cl.getCharInfo().size() + " characters)");
 								}
 								else
