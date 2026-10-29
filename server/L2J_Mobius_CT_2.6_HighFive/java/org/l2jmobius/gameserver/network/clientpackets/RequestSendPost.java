@@ -16,6 +16,8 @@
  */
 package org.l2jmobius.gameserver.network.clientpackets;
 
+import org.l2jmobius.gameserver.network.GameClient;
+
 import static org.l2jmobius.gameserver.entity.itemcontainer.Inventory.ADENA_ID;
 import static org.l2jmobius.gameserver.entity.itemcontainer.Inventory.MAX_ADENA;
 
@@ -264,7 +266,13 @@ public class RequestSendPost extends ClientPacket
 			player.setMultiSell(null); // Should not trade during mail.
 			
 			MailManager.getInstance().sendMessage(msg);
-			player.sendPacket(ExNoticePostSent.valueOf(true));
+			// Salvation (protocol 140) reuses opcode 0xB4 for ExChangePostState:
+			// ExNoticePostSent would be misparsed by those clients.
+			final GameClient senderClient = getClient();
+			if ((senderClient == null) || !senderClient.isSalvationMode())
+			{
+				player.sendPacket(ExNoticePostSent.valueOf(true));
+			}
 			player.sendPacket(SystemMessageId.MAIL_SUCCESSFULLY_SENT);
 		}
 	}

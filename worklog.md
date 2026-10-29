@@ -312,3 +312,32 @@ Task 25b - v2.1: карточка персонажа на главной бор�
 Сборка: ядро 1945 файлов exit 0 (дважды: до и после восстановления табов). CI 40883515507 для 49a22c1b.
 
 Ожидаемый тест v2.5: (1) вход в мир БЕЗ модального окна пароля и ошибки 7680; (2) инвентарь открывается; (3) диалоги НПС полные; (4) иконки бафов с таймерами; (5) если окно пароля всё ещё появляется при входе (до мира) - триггер чисто клиентский (локальный кэш аккаунта клиента), тогда проверить на другом аккаунте/персонаже и с чистым клиентом.
+
+## Task 32 - v2.6: двойной ремап Ex-опкодов (системный баг протокола), аудит Dragon Valley
+
+Дата: 29/10/2026. Баг-репорт после v2.5: «в Dragon Valley нет мобов; HF-мобы в принципе не показываются» (+ ранее: инвентарь не открывается, NPC «наполовину», бафы 0 сек).
+
+ДИАГНОЗ (главная причина ВСЕХ трёх групп симптомов из v2.4/v2.5):
+Пакет v2.3/v2.4/v2.5 отправлял Ex-пакеты клиенту 140 с ДВОЙНЫМ ремапом опкода:
+(1) ServerPackets.writeId - в salvation-режиме писал Salvation-ID из таблицы оверайдов ServerPacketsSalvation (147 пакетов);
+(2) GameClient.encrypt - затем прогонял уже записанный опкод через EX_SM_LOCAL_TO_SALVATION (remap локального HF-ID) ЕЩЁ РАЗ.
+Итог: 127/147 Ex-пакетов приходили клиенту со сдвинутым ID (например ExQuestItemList 0xC7->0xC8 = ExGmViewQuestItemList; ExBuySellList 0xB8->0xB9 = ExCloseRaidSocket; ExBrExtraUserInfo 0xDB->0xDC; Pledge/duel/manor/variation/olympiad - весь блок). Клиент парсил их как ЧУЖИЕ пакеты - каскадные UI-сбои (инвентарь/NPC/бафы/почта/клан/магазин).
+
+Фикс (единая точка ремапа):
+- ServerPackets.writeId: убрана ветка оверайдов - ID теперь всегда локальный; Salvation-ремап ТОЛЬКО в GameClient.encrypt через таблицу
+- SalvationProtocol.EX_SM_LOCAL_TO_SALVATION: 21 исправленная запись по эталону (вся airship-семья 0x60-0x9A, ExSendUiEvent 0x8E->0x8F - сохранён фикс 0x8F, ExNotifyBirthday 0x8F->0x90, ExGetBookmarkInfo 0x84->0x85, MPCC 0x4B/0x5B, PVP_MATCH 0x89-0x8B, PcCafe 0x44)
+- ServerPacketsSalvation.java удалён
+- Заглушены в salvation-режиме пакеты, отсутствующие в эталоне и парсируемые клиентом как чужие: ExSubPledgeSkillAdd (0x4B = NpcInfoAbnormalVisualEffect!) - Clan.java; ExNoticePostSent (0xB4 = ExChangePostState) - RequestSendPost.java. Остальные коллизии - мёртвый код (не инстанцируются) либо пакеты-тёзки (различие имён enum)
+- CM-направление верифицировано полностью: 170/170 regular опкодов совпадают, Ex CM - 0 ложных обработчиков; UNMAPPED (220) - Salvation-only фичи, отсутствующие в HF (клиент шлёт - сервер игнорирует, не коррупция)
+
+Верификация после фикса (скрипты в /home/z/my-project/scripts):
+- verify_double_remap.py: 0 corrupted / 147
+- resolve_collisions.py: 0 TABLE-FIX
+- verify_opcodes.py / verify_cm_mapping.py / check_collisions.py - зелёные
+- Побайтово подтверждены: ItemList/ExQuestItemList (sendType 1/2 + writeItem140 = эталонный writeItem), StatusUpdate, ShortBuffStatusUpdate, AbnormalStatusUpdate (sublevel+abnormalType+optional time), UserInfo (mask-блоки 1:1, UserInfoType enum идентичен), NpcInfo (salvation-ветка mask-based = эталон, NpcInfoType идентичен)
+
+Dragon Valley (сервер-сайд проверен): спавны на месте - dist/game/data/spawns/Giran/DragonValley.xml (3 зоны giran06_cave_01..03: Cave Servant/Maiden/Keeper, gargoyles, Headless Knight, Blood Queen) + блочные спавны Others/24_21.xml и др. Невидимость мобов = следствие битых Ex-опкодов/NpcInfo-каскада, не спавнов.
+
+Сборка: ядро 1944 файла exit 0 (после удаления ServerPacketsSalvation). GameServer.jar 2511 классов (1:1 с v2.5 минус удалённый класс). Zip v2.6: 26756 записей, на базе v2.5-пакета с заменённым GameServer.jar.
+
+Ожидаемый тест v2.6: (1) инвентарь открывается; (2) НПС отображаются полностью, мобы видны (включая Dragon Valley); (3) иконки бафов с корректным временем; (4) магазины/клан/почта/олимпиадные окна работают; (5) модальное окно пароля в мире не появляется (фикс v2.5 в этой сборке тоже присутствует).
