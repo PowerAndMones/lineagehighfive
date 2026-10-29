@@ -201,3 +201,24 @@ Task 25b - v2.1: карточка персонажа на главной бор�
 Деплой для пользователя: скачать v2.1.1, распаковать с заменой, выполнить sql/buffer_schemes.sql на game DB, проверить config/Custom/CommunityBoard.ini (CustomCommunityBoard=True), рестарт.
 
 Урок: перед публикацией релиза сверять список файлов архива с CI-артефактом (наличие GameServer.jar/LoginServer.jar) - добавить в чеклист publish-скриптов.
+
+## Task 28 - v2.2: фикс Alt+B страниц (парсер HTML) + фикс окна "второго пароля" (чёрный экран после телепорта)
+
+Дата: 29/10/2026. Баг-репорт: "Телепортнулся черный экран. И по середине экрана какой то пароль просит и еще алт-б кривое какой то и не открывает баффер телепорт" + 3 скриншота (окно вторичного пароля с цифровой клавиатурой; рабочий home борда; страница борда с ошибкой клиента "Nested tags not match - closed by TR while started with TABLE").
+
+Баг 1: Alt+B - не открываются бафер/телепорт/магазин/премиум (ошибка парсера HTML клиента)
+- navigation.html: каждая строка вкладок закрывалась ДВАЖДЫ ("</td></tr>" + лишний "</tr>" следующей строкой) - 8 лишних "</tr>"
+- Все статические страницы (buffer/main, gatekeeper/main, merchant/main, premium/main, info/main, dropsearch) вставляют navigation через плейсхолдер %navigation% -> битая навигация ломала ВСЕ страницы
+- home.html не использует %navigation% (свои 9 вкладок) - поэтому home рендерился, остальное нет
+- Fix: убраны дубли "</tr>" (10 tr = 10 /tr); добавлен чекер scripts/check_cb_html.py (стек-валидатор как парсер клиента L2): 24 файла - 0 проблем; Java-страницы (HomeBoard/RankBoard) проверены подсчётом пар тегов - сбалансированы
+
+Баг 2: окно "второго пароля" + чёрный экран после телепорта
+- Клиент Salvation 140 шлёт CM D0 Ex 0xA6 REQUEST_EX_2ND_PASSWORD_CHECK в состоянии ENTERING (и повторно при реинициализации UI мира после телепорта)
+- Наша мапа Salvation->local корректна (0xA6->0x93), но локальный enum пускал trio 2nd-password только в AUTHENTICATED -> ТИХИЙ дроп в Ex-пути GamePacketHandler (без лога!) -> сервер не отвечает Ex2ndPasswordCheck -> клиент показывает модальное окно пароля, блокирующее отрисовку (чёрный экран)
+- Конфиг SecondaryAuth.xml enabled=false (как у эталона) - если бы пакет дошёл, хендлер ответил бы PASSWORD_OK и окна бы не было; проблема была в state-дропе
+- Fix 1: ExClientPackets - REQUEST_EX_2ND_PASSWORD_CHECK/VERIFY/REQ теперь AUTHENTICATED+ENTERING+IN_GAME (хендлеры клиентские, Player не нужен - проверено)
+- Fix 2: GamePacketHandler Ex-путь - дроп по состоянию теперь логируется в salvation-режиме (раньше молчал, что и спрятало баг); обычный путь уже логировал
+- Красная селёдка из лога: "dropped client packet id=0xa6 ... ENTERING" - это обычный CM RequestSkillCoolTime (0xA6) в обычном пути, у эталона тоже IN_GAME-only, безвредно (клиент повторяет в IN_GAME)
+- Опкоды сверены: Ex2ndPasswordCheck H5 FE:0xE5 -> Salvation FE:0x105 (override + translateOutgoingOpcode согласованы), входящая мапа 0xA6->0x93 на месте
+
+Сборка: ядро 1923 файла exit 0. Деплой: заменить файлы, рестарт GS. SQL не нужен.

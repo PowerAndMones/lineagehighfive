@@ -108,6 +108,10 @@ public class GamePacketHandler implements PacketHandler<GameClient>
 			// Check connection state.
 			if (!packetEnum.getConnectionStates().contains(client.getConnectionState()))
 			{
+				if (client.isSalvationMode())
+				{
+					LOGGER.info("SALVATION: dropped client Ex packet id=0x" + Integer.toHexString(exPacketId) + " " + packetEnum.name() + " - wrong connection state " + client.getConnectionState());
+				}
 				return null;
 			}
 			

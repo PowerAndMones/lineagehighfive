@@ -35,9 +35,11 @@ import org.l2jmobius.gameserver.network.clientpackets.*;
 public enum ExClientPackets
 {
 	REQUEST_GOTO_LOBBY(0x36, RequestGotoLobby::new, ConnectionState.AUTHENTICATED),
-	REQUEST_EX_2ND_PASSWORD_CHECK(0x93, RequestEx2ndPasswordCheck::new, ConnectionState.AUTHENTICATED),
-	REQUEST_EX_2ND_PASSWORD_VERIFY(0x94, RequestEx2ndPasswordVerify::new, ConnectionState.AUTHENTICATED),
-	REQUEST_EX_2ND_PASSWORD_REQ(0x95, RequestEx2ndPasswordReq::new, ConnectionState.AUTHENTICATED),
+	// Salvation 140 client sends the secondary auth handshake while ENTERING and re-sends it on world UI re-init (e.g. after teleport);
+	// packets must be accepted there so the server replies Ex2ndPasswordCheck(PASSWORD_OK) - otherwise the client shows a blocking password dialog.
+	REQUEST_EX_2ND_PASSWORD_CHECK(0x93, RequestEx2ndPasswordCheck::new, ConnectionState.AUTHENTICATED, ConnectionState.ENTERING, ConnectionState.IN_GAME),
+	REQUEST_EX_2ND_PASSWORD_VERIFY(0x94, RequestEx2ndPasswordVerify::new, ConnectionState.AUTHENTICATED, ConnectionState.ENTERING, ConnectionState.IN_GAME),
+	REQUEST_EX_2ND_PASSWORD_REQ(0x95, RequestEx2ndPasswordReq::new, ConnectionState.AUTHENTICATED, ConnectionState.ENTERING, ConnectionState.IN_GAME),
 	REQUEST_MANOR_LIST(0x01, RequestManorList::new, ConnectionState.IN_GAME),
 	REQUEST_PROCEDURE_CROP_LIST(0x02, RequestProcureCropList::new, ConnectionState.IN_GAME),
 	REQUEST_SET_SEED(0x03, RequestSetSeed::new, ConnectionState.IN_GAME),
