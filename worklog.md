@@ -376,3 +376,28 @@ Dragon Valley (сервер-сайд проверен): спавны на мес
 Сборка: ядро 1947 файлов exit 0 (javac 21.0.2, preview).
 Релиз v2.5: см. ниже.
 
+
+## v2.7 — порт спавнов/шаблонов Salvation 5.0 + недостающие пакеты (поверх v2.6)
+
+База: rebase на remote v2.5/v2.6 (Ex2ndPasswordCheck-модал 7680 + двойной Ex-remap исправлены ранее). NpcInfo/ServerObjectInfo/ItemList/InventoryUpdate/склады/почта верифицированы байт-в-байт против эталона - без изменений.
+
+КОРЕНЬ "мобов нет" (Dragon Valley пуст, "мобов от хф в принципе нету"): клиент 140 не содержит npcgrp/npcname-данных старых HF-ID мобов перестроенных в Essence зон (DV 22537-22552 -> 23423+ и т.д.). Эталон грузит только зон-спавны с клиент-валидными ID (старые HF-тайлы у него в spawns/old, не загружаются).
+
+Спавны (главный фикс v2.7):
+- dist/game/data/spawns заменён на эталонный (без old/): 165 файлов, 33789 respawnTime->respawnDelay, ai="DayNightSpawns" (231) -> periodOfDay day/night (нативный DayNightSpawnManager), <list enabled="true"> добавлен, ai/spawnByDefault сняты
+- Кастомы сохранены: BeautyShop/Nursery/PlunderousPlains/DaimonsAltar/YetisTable/TreasureBoxes/Gremlins/UndergroundColiseum/FakePlayers; KrateisCube - эталонный (FantasyIsle)
+- respawnRandom "30sec|12hour" -> секунды (2701); EilhalderVonHellmann locations -> первая точка
+- Известное ограничение: HarnakUndergroundRuins (107 npc на inline-territories, инстанс-зона) HF-загрузчиком скипается (warning) - инстансовые зоны спавнятся скриптами
+
+NPC-шаблоны: +5379 из эталона (10,461 -> 15,840; 65 новых XML 23000-26999/34000+); 0 отсутствующих шаблонов для всех спавнов эталона
+
+XSD (диалект эталона): spawns.xsd - spawn=repeat-choice(AIData/territory/banned_territory/territories/parameters/npc/group), npc смешанный (parameters/minions/locations), attrs dbSave/dbName/periodOfDay, x/y/z optional, territoryDef, group territories; npcs.xsd - mpReward/lucky/abnormalResist, critical+attackSpeed decimal, status/@isDeathPenalty. Валидация: 189/189 npc + 173/173 spawns XSD-чисто (lxml)
+
+Новые пакеты:
+- ExAbnormalStatusUpdateFromTarget (локально 0xFE 0xE9 -> Salvation 0xE6 через расширенный EX_SM_LOCAL_TO_SALVATION[0xE9]=230; локальный 0xE6 занят Ex2ndPasswordVerify->0x106): бар бафов цели при setTarget - в HF отсутствовал ВООБЩЕ
+- NpcInfoAbnormalVisualEffect (0x4B): лёгкий AVE-апдейт NPC; Npc.updateAbnormalEffect шлёт его в salvation-режиме; согласовано с v2.6-подавлением ExSubPledgeSkillAdd/ExNoticePostSent (0x4B/0xB4 коллизии)
+
+Фиксы пакетов (ref-parity): RelationChanged SEND_ONE/SEND_MULTI 0x02/0x04; ConfirmDlg тип параметра int; AskJoinPledge имя просителя; ExListPartyMatchingWaitingRoom переписан по ref (был всегда пустой в salvation); ExUserInfoCubic реальный agathionId; sendItemList + weight/adena-блок 800мс
+
+Сборка: 1946 файлов exit 0.
+Релиз v2.7: см. ниже.

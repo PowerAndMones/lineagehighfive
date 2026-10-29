@@ -353,7 +353,7 @@ public enum ServerPackets
         EX_SHOW_ADVENTURER_GUIDE_BOOK(0xFE, 0x38),
         EX_SHOW_SCREEN_MESSAGE(0xFE, 0x39),
         // Salvation (protocol 140) target buff bar; ref build id 0xE6.
-        EX_ABNORMAL_STATUS_UPDATE_FROM_TARGET(0xFE, 0xE6),
+        EX_ABNORMAL_STATUS_UPDATE_FROM_TARGET(0xFE, 0xE9),
         PLEDGE_SKILL_LIST(0xFE, 0x3A),
         PLEDGE_SKILL_LIST_ADD(0xFE, 0x3B),
         PLEDGE_POWER_GRADE_LIST(0xFE, 0x3C),
