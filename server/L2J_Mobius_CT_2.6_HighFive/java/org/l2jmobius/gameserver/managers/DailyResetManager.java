@@ -35,6 +35,7 @@ import org.l2jmobius.gameserver.entity.World;
 import org.l2jmobius.gameserver.entity.actor.Player;
 import org.l2jmobius.gameserver.entity.clan.Clan;
 import org.l2jmobius.gameserver.entity.clan.ClanMember;
+import org.l2jmobius.gameserver.mechanics.variables.PlayerVariables;
 import org.l2jmobius.gameserver.mechanics.events.EventDispatcher;
 import org.l2jmobius.gameserver.mechanics.events.EventType;
 import org.l2jmobius.gameserver.mechanics.events.holders.OnDailyReset;
@@ -103,6 +104,7 @@ public class DailyResetManager
 		if (calendar.get(Calendar.DAY_OF_WEEK) == Calendar.WEDNESDAY)
 		{
 			clanLeaderApply();
+			resetDailyMissionRewards();
 		}
 		
 		// Daily tasks.
@@ -161,6 +163,32 @@ public class DailyResetManager
 		}
 		
 		LOGGER.info("Clan leaders have been updated.");
+	}
+	
+	/**
+	 * Weekly (Wednesday) reset of the Salvation 140 daily mission claim counter.
+	 */
+	private void resetDailyMissionRewards()
+	{
+		// Update data for offline players.
+		try (Connection con = DatabaseFactory.getConnection();
+			PreparedStatement ps = con.prepareStatement("DELETE FROM character_variables WHERE var = ? AND charId IN (SELECT charId FROM characters WHERE online = 0)"))
+		{
+			ps.setString(1, PlayerVariables.DAILY_MISSION_COUNT);
+			ps.executeUpdate();
+		}
+		catch (Exception e)
+		{
+			LOGGER.warning("Could not reset daily mission rewards: " + e.getMessage());
+		}
+		
+		// Update data for online players.
+		for (Player player : World.getPlayers())
+		{
+			player.getVariables().remove(PlayerVariables.DAILY_MISSION_COUNT);
+		}
+		
+		LOGGER.info("Daily mission rewards have been reset.");
 	}
 	
 	private void resetDailySkills()

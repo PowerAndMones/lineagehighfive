@@ -55,6 +55,7 @@ public class ScriptEngine implements IXmlReader
 	public static final Path SCRIPT_FOLDER = ServerConfig.SCRIPT_ROOT.toPath();
 	public static final Path MASTER_HANDLER_FILE = Paths.get(SCRIPT_FOLDER.toString(), "handlers", "MasterHandler.java");
 	public static final Path EFFECT_MASTER_HANDLER_FILE = Paths.get(SCRIPT_FOLDER.toString(), "handlers", "EffectMasterHandler.java");
+	public static final Path ONE_DAY_REWARD_MASTER_HANDLER_FILE = Paths.get(SCRIPT_FOLDER.toString(), "handlers", "DailyMissionMasterHandler.java");
 	
 	private static final ScriptExecutor SCRIPT_EXECUTOR = new ScriptExecutor();
 	private static final Set<String> EXCLUSIONS = new HashSet<>();

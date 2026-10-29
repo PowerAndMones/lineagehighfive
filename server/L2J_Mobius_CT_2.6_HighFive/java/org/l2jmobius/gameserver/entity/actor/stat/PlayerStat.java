@@ -44,6 +44,7 @@ import org.l2jmobius.gameserver.mechanics.stats.Formulas;
 import org.l2jmobius.gameserver.mechanics.stats.MoveType;
 import org.l2jmobius.gameserver.mechanics.stats.Stat;
 import org.l2jmobius.gameserver.network.SystemMessageId;
+import org.l2jmobius.gameserver.network.serverpackets.ExPledgeMissionRewardCount;
 import org.l2jmobius.gameserver.network.serverpackets.ExVitalityPointInfo;
 import org.l2jmobius.gameserver.network.serverpackets.ExVoteSystemInfo;
 import org.l2jmobius.gameserver.network.serverpackets.PledgeShowMemberListUpdate;
@@ -271,6 +272,9 @@ public class PlayerStat extends PlayableStat
 		{
 			EventDispatcher.getInstance().notifyEventAsync(new OnPlayerLevelChanged(player, getLevel(), getLevel() + value), player);
 		}
+		
+		// Update daily mission counter (Salvation 140 clan missions).
+		player.sendPacket(new ExPledgeMissionRewardCount(player));
 		
 		final boolean levelIncreased = super.addLevel(value);
 		if (levelIncreased)

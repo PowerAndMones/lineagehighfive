@@ -78,6 +78,8 @@ import org.l2jmobius.gameserver.network.serverpackets.PledgeShowInfoUpdate;
 import org.l2jmobius.gameserver.network.serverpackets.PledgeShowMemberListAll;
 import org.l2jmobius.gameserver.network.serverpackets.PledgeShowMemberListDeleteAll;
 import org.l2jmobius.gameserver.network.serverpackets.PledgeShowMemberListUpdate;
+import org.l2jmobius.gameserver.network.serverpackets.ExPledgeMissionInfo;
+import org.l2jmobius.gameserver.network.serverpackets.ExPledgeMissionRewardCount;
 import org.l2jmobius.gameserver.network.serverpackets.PledgeSkillList;
 import org.l2jmobius.gameserver.network.serverpackets.PledgeSkillList.SubPledgeSkill;
 import org.l2jmobius.gameserver.network.serverpackets.PledgeSkillListAdd;
@@ -374,6 +376,9 @@ public class Clan
 		player.setPledgeClass(ClanMember.calculatePledgeClass(player));
 		player.sendPacket(new PledgeShowMemberListUpdate(player));
 		player.sendPacket(new PledgeSkillList(this));
+		// Salvation 140 daily missions (clan "Missions" tab).
+		player.sendPacket(new ExPledgeMissionInfo(player));
+		player.sendPacket(new ExPledgeMissionRewardCount(player));
 		addSkillEffects(player);
 		
 		// Notify to scripts.

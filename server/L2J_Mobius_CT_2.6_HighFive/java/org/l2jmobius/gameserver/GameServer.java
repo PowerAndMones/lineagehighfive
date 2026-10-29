@@ -80,6 +80,7 @@ import org.l2jmobius.gameserver.data.xml.FenceData;
 import org.l2jmobius.gameserver.data.xml.FishData;
 import org.l2jmobius.gameserver.data.xml.FishingMonstersData;
 import org.l2jmobius.gameserver.data.xml.FishingRodsData;
+import org.l2jmobius.gameserver.data.xml.DailyMissionData;
 import org.l2jmobius.gameserver.data.xml.HennaData;
 import org.l2jmobius.gameserver.data.xml.HitConditionBonusData;
 import org.l2jmobius.gameserver.data.xml.InitialEquipmentData;
@@ -112,6 +113,7 @@ import org.l2jmobius.gameserver.entity.groups.matching.PartyMatchRoomList;
 import org.l2jmobius.gameserver.entity.groups.matching.PartyMatchWaitingList;
 import org.l2jmobius.gameserver.entity.spawns.AutoSpawnHandler;
 import org.l2jmobius.gameserver.geoengine.GeoEngine;
+import org.l2jmobius.gameserver.handler.DailyMissionHandler;
 import org.l2jmobius.gameserver.handler.EffectHandler;
 import org.l2jmobius.gameserver.managers.AirShipManager;
 import org.l2jmobius.gameserver.managers.AntiFeedManager;
@@ -263,6 +265,9 @@ public class GameServer
 		FishingRodsData.getInstance();
 		HennaData.getInstance();
 		PrimeShopData.getInstance();
+		// Daily missions (Salvation 140 clan "Missions" tab): register handlers, then load XML.
+		DailyMissionHandler.getInstance().executeScript();
+		DailyMissionData.getInstance();
 		PcCafePointsManager.getInstance();
 		ItemLifeTimeTaskManager.getInstance();
 		

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Daily missions for the Salvation 140 clan "Missions" tab.
+     Adapted for the CT 2.6 High Five codebase: main class only (no dual classes),
+     level milestones up to the server max level 85, x50-scaled adena rewards,
+     plus clan reputation (-200) and personal fame (-300) special rewards. -->
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="xsd/DailyMission.xsd">
+	<reward id="3001" name="Reach Main Class Lv. 20" requiredCompletion="20">
+		<handler name="level">
+			<param name="minLevel">20</param>
+		</handler>
+		<items>
+			<item id="57" count="500000" />
+			<item id="-200" count="50" />
+			<item id="-300" count="100" />
+		</items>
+	</reward>
+	<reward id="3002" name="Reach Main Class Lv. 40" requiredCompletion="40">
+		<handler name="level">
+			<param name="minLevel">40</param>
+		</handler>
+		<items>
+			<item id="57" count="1000000" />
+			<item id="-200" count="100" />
+			<item id="-300" count="200" />
+		</items>
+	</reward>
+	<reward id="3003" name="Reach Main Class Lv. 52" requiredCompletion="52">
+		<handler name="level">
+			<param name="minLevel">52</param>
+		</handler>
+		<items>
+			<item id="57" count="2000000" />
+			<item id="-200" count="150" />
+			<item id="-300" count="300" />
+		</items>
+	</reward>
+	<reward id="3004" name="Reach Main Class Lv. 61" requiredCompletion="61">
+		<handler name="level">
+			<param name="minLevel">61</param>
+		</handler>
+		<items>
+			<item id="57" count="3000000" />
+			<item id="-200" count="200" />
+			<item id="-300" count="400" />
+		</items>
+	</reward>
+	<reward id="3005" name="Reach Main Class Lv. 76" requiredCompletion="76">
+		<handler name="level">
+			<param name="minLevel">76</param>
+		</handler>
+		<items>
+			<item id="57" count="5000000" />
+			<item id="-200" count="250" />
+			<item id="-300" count="500" />
+		</items>
+	</reward>
+	<reward id="3006" name="Reach Main Class Lv. 80" requiredCompletion="80">
+		<handler name="level">
+			<param name="minLevel">80</param>
+		</handler>
+		<items>
+			<item id="57" count="8000000" />
+			<item id="-200" count="300" />
+			<item id="-300" count="600" />
+		</items>
+	</reward>
+	<reward id="3007" name="Reach Main Class Lv. 84" requiredCompletion="84">
+		<handler name="level">
+			<param name="minLevel">84</param>
+		</handler>
+		<items>
+			<item id="57" count="12000000" />
+			<item id="-200" count="400" />
+			<item id="-300" count="800" />
+		</items>
+	</reward>
+	<reward id="3008" name="Reach Main Class Lv. 85" requiredCompletion="85">
+		<handler name="level">
+			<param name="minLevel">85</param>
+		</handler>
+		<items>
+			<item id="57" count="20000000" />
+			<item id="-200" count="500" />
+			<item id="-300" count="1000" />
+		</items>
+	</reward>
+</list>

@@ -40,6 +40,9 @@ public enum ExClientPackets
 	REQUEST_EX_2ND_PASSWORD_CHECK(0x93, RequestEx2ndPasswordCheck::new, ConnectionState.AUTHENTICATED, ConnectionState.ENTERING, ConnectionState.IN_GAME),
 	REQUEST_EX_2ND_PASSWORD_VERIFY(0x94, RequestEx2ndPasswordVerify::new, ConnectionState.AUTHENTICATED, ConnectionState.ENTERING, ConnectionState.IN_GAME),
 	REQUEST_EX_2ND_PASSWORD_REQ(0x95, RequestEx2ndPasswordReq::new, ConnectionState.AUTHENTICATED, ConnectionState.ENTERING, ConnectionState.IN_GAME),
+	// Salvation 140 daily missions (clan "Missions" tab); local ids are free 0x98/0x99 slots.
+	REQUEST_EX_PLEDGE_MISSION_INFO(0x98, RequestExPledgeMissionInfo::new, ConnectionState.IN_GAME),
+	REQUEST_EX_PLEDGE_MISSION_REWARD(0x99, RequestExPledgeMissionReward::new, ConnectionState.IN_GAME),
 	REQUEST_MANOR_LIST(0x01, RequestManorList::new, ConnectionState.IN_GAME),
 	REQUEST_PROCEDURE_CROP_LIST(0x02, RequestProcureCropList::new, ConnectionState.IN_GAME),
 	REQUEST_SET_SEED(0x03, RequestSetSeed::new, ConnectionState.IN_GAME),

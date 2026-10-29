@@ -209,6 +209,9 @@ public enum ServerPackets
 	PET_INFO(0xB2),
 	EX_TELEPORT_TO_LOCATION_ACTIVATE(0xFE, 0x14A),
 	EX_PET_INFO(0xFE, 0x15E),
+	// Salvation-only daily missions (clan interface "Missions" tab), written directly in Salvation opcode space.
+	EX_PLEDGE_MISSION_INFO(0xFE, 0x1E0),
+	EX_PLEDGE_MISSION_REWARD_COUNT(0xFE, 0x1E1),
 	PET_ITEM_LIST(0xB3),
 	PET_INVENTORY_UPDATE(0xB4),
 	ALLIANCE_INFO(0xB5),

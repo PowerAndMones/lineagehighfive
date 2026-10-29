@@ -53,6 +53,8 @@ public class PlayerVariables extends AbstractVariables
 	
 	// Public variables.
 	public static final String RESTORE_LOCATION = "RESTORE_LOCATION";
+	public static final String DAILY_MISSION_COUNT = "DAILY_MISSION_COUNT";
+	public static final String DAILY_MISSION_ONE_TIME = "DAILY_MISSION_ONE_TIME";
 	public static final String UI_KEY_MAPPING = "UI_KEY_MAPPING";
 	public static final String AUTO_USE_SETTINGS = "AUTO_USE_SETTINGS";
 	public static final String AUTO_USE_ACTIONS = "AUTO_USE_ACTIONS";
