@@ -80,6 +80,7 @@ import org.l2jmobius.gameserver.data.xml.FenceData;
 import org.l2jmobius.gameserver.data.xml.FishData;
 import org.l2jmobius.gameserver.data.xml.FishingMonstersData;
 import org.l2jmobius.gameserver.data.xml.FishingRodsData;
+import org.l2jmobius.gameserver.data.xml.BeautyShopData;
 import org.l2jmobius.gameserver.data.xml.DailyMissionData;
 import org.l2jmobius.gameserver.data.xml.HennaData;
 import org.l2jmobius.gameserver.data.xml.HitConditionBonusData;
@@ -268,6 +269,7 @@ public class GameServer
 		// Daily missions (Salvation 140 clan "Missions" tab): register handlers, then load XML.
 		DailyMissionHandler.getInstance().executeScript();
 		DailyMissionData.getInstance();
+		BeautyShopData.getInstance();
 		PcCafePointsManager.getInstance();
 		ItemLifeTimeTaskManager.getInstance();
 		

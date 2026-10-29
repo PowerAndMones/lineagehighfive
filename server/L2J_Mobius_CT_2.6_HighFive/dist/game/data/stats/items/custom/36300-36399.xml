@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/items.xsd">
+	<!-- Beauty Shop Ticket (Salvation 140 port) - currency for the La Vie En Rose beauty shop. -->
+	<item id="36308" name="Beauty Shop Ticket" type="EtcItem">
+		<set name="icon" val="icon.royal_beauty_item" />
+		<set name="weight" val="5" />
+		<set name="is_sellable" val="false" />
+		<set name="is_stackable" val="true" />
+		<set name="is_freightable" val="true" />
+		<set name="material" val="PAPER" />
+	</item>
+</list>

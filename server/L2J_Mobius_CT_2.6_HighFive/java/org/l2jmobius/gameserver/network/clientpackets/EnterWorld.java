@@ -39,6 +39,7 @@ import org.l2jmobius.gameserver.data.sql.AnnouncementsTable;
 import org.l2jmobius.gameserver.data.sql.ClanHallTable;
 import org.l2jmobius.gameserver.data.sql.OfflineTraderTable;
 import org.l2jmobius.gameserver.data.xml.AdminData;
+import org.l2jmobius.gameserver.data.xml.BeautyShopData;
 import org.l2jmobius.gameserver.data.xml.EnchantItemGroupsData;
 import org.l2jmobius.gameserver.data.xml.SkillTreeData;
 import org.l2jmobius.gameserver.entity.World;
@@ -47,6 +48,7 @@ import org.l2jmobius.gameserver.entity.actor.Player;
 import org.l2jmobius.gameserver.entity.actor.appearance.PlayerAppearance;
 import org.l2jmobius.gameserver.entity.actor.enums.creature.Race;
 import org.l2jmobius.gameserver.entity.actor.enums.player.IllegalActionPunishmentType;
+import org.l2jmobius.gameserver.entity.actor.enums.player.Sex;
 import org.l2jmobius.gameserver.entity.actor.enums.player.TeleportWhereType;
 import org.l2jmobius.gameserver.entity.actor.holders.player.Couple;
 import org.l2jmobius.gameserver.entity.clan.Clan;
@@ -97,6 +99,7 @@ import org.l2jmobius.gameserver.network.serverpackets.CreatureSay;
 import org.l2jmobius.gameserver.network.serverpackets.Die;
 import org.l2jmobius.gameserver.network.serverpackets.EtcStatusUpdate;
 import org.l2jmobius.gameserver.network.serverpackets.ExAdenaInvenCount;
+import org.l2jmobius.gameserver.network.serverpackets.ExBeautyItemList;
 import org.l2jmobius.gameserver.network.serverpackets.ExBasicActionList;
 import org.l2jmobius.gameserver.network.serverpackets.ExGetBookMarkInfoPacket;
 import org.l2jmobius.gameserver.network.serverpackets.ExNoticePostArrived;
@@ -721,6 +724,13 @@ public class EnterWorld extends ClientPacket
 		}
 		
 		player.broadcastUserInfo();
+		
+		// Cache the beauty shop price list in the client (Salvation 140).
+		final Sex playerSex = player.getAppearance().isFemale() ? Sex.FEMALE : Sex.MALE;
+		if (BeautyShopData.getInstance().hasBeautyData(player.getRace(), playerSex))
+		{
+			player.sendPacket(new ExBeautyItemList(player));
+		}
 		
 		// Prevent relogin in game gfx.
 		player.sendPacket(new ValidateLocation(player));

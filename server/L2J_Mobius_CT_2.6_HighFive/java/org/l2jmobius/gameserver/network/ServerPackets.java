@@ -212,6 +212,12 @@ public enum ServerPackets
 	// Salvation-only daily missions (clan interface "Missions" tab), written directly in Salvation opcode space.
 	EX_PLEDGE_MISSION_INFO(0xFE, 0x1E0),
 	EX_PLEDGE_MISSION_REWARD_COUNT(0xFE, 0x1E1),
+	// Salvation-only beauty shop packets (La Vie En Rose / client button).
+	EX_SHOW_BEAUTY_MENU(0xFE, 0x134),
+	EX_RESPONSE_BEAUTY_LIST(0xFE, 0x135),
+	EX_RESPONSE_BEAUTY_REGIST_RESET(0xFE, 0x136),
+	EX_RESPONSE_RESET_LIST(0xFE, 0x137),
+	EX_BEAUTY_ITEM_LIST(0xFE, 0x179),
 	PET_ITEM_LIST(0xB3),
 	PET_INVENTORY_UPDATE(0xB4),
 	ALLIANCE_INFO(0xB5),

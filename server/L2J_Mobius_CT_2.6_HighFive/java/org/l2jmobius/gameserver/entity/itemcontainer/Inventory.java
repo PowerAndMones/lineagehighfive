@@ -74,6 +74,7 @@ public abstract class Inventory extends ItemContainer
 	
 	// Common Items
 	public static final int ADENA_ID = 57;
+	public static final int BEAUTY_TICKET_ID = 36308;
 	public static final int ANCIENT_ADENA_ID = 5575;
 	
 	public static final long MAX_ADENA = PlayerConfig.MAX_ADENA;

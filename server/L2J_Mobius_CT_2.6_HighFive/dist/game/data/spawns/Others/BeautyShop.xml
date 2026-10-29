@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list enabled="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/spawns.xsd">
+	<!-- La Vie En Rose - Beauty Shop (Salvation 140 port). Coordinates from the Salvation reference datapack. -->
+	<spawn name="beauty_shop_giran">
+		<npc id="33825" x="81752" y="149631" z="-3464" heading="49153" respawnDelay="60" /> <!-- La Vie En Rose -->
+		<npc id="33854" x="81758" y="149574" z="-3464" heading="38013" respawnDelay="60" /> <!-- Beauty Shop Helper -->
+		<npc id="33855" x="81743" y="149510" z="-3464" heading="60187" respawnDelay="60" /> <!-- Beauty Shop Helper -->
+		<npc id="33857" x="81710" y="149574" z="-3464" heading="56529" respawnDelay="60" /> <!-- Beauty Shop Helper -->
+	</spawn>
+	<spawn name="beauty_shop_aden">
+		<npc id="33825" x="146468" y="27822" z="-2264" heading="65323" respawnDelay="60" /> <!-- La Vie En Rose -->
+	</spawn>
+	<spawn name="beauty_shop_dion">
+		<npc id="33825" x="15145" y="143472" z="-2672" heading="57049" respawnDelay="60" /> <!-- La Vie En Rose -->
+	</spawn>
+	<spawn name="beauty_shop_rune">
+		<npc id="33825" x="43463" y="-48421" z="-792" heading="19404" respawnDelay="60" /> <!-- La Vie En Rose -->
+	</spawn>
+	<spawn name="beauty_shop_schuttgart">
+		<npc id="33825" x="86158" y="-143435" z="-1336" heading="63814" respawnDelay="60" /> <!-- La Vie En Rose -->
+	</spawn>
+</list>

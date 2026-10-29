@@ -175,9 +175,9 @@ public class CharInfo extends ServerPacket
 		buffer.writeDouble(_player.getAttackSpeedMultiplier());
 		buffer.writeDouble(_player.getCollisionRadius());
 		buffer.writeDouble(_player.getCollisionHeight());
-		buffer.writeInt(appearance.getHairStyle());
-		buffer.writeInt(appearance.getHairColor());
-		buffer.writeInt(appearance.getFace());
+		buffer.writeInt(_player.getVisualHair());
+		buffer.writeInt(_player.getVisualHairColor());
+		buffer.writeInt(_player.getVisualFace());
 		buffer.writeString(_gmSeeInvis ? "Invisible" : appearance.getVisibleTitle());
 		if (!_player.isCursedWeaponEquipped())
 		{
@@ -303,9 +303,9 @@ public class CharInfo extends ServerPacket
 		buffer.writeDouble(_player.getAttackSpeedMultiplier());
 		buffer.writeDouble(_player.getCollisionRadius());
 		buffer.writeDouble(_player.getCollisionHeight());
-		buffer.writeInt(appearance.getHairStyle());
-		buffer.writeInt(appearance.getHairColor());
-		buffer.writeInt(appearance.getFace());
+		buffer.writeInt(_player.getVisualHair());
+		buffer.writeInt(_player.getVisualHairColor());
+		buffer.writeInt(_player.getVisualFace());
 		buffer.writeString(_gmSeeInvis ? "Invisible" : appearance.getVisibleTitle());
 		buffer.writeInt(!_player.isCursedWeaponEquipped() ? _player.getClanId() : 0);
 		buffer.writeInt(!_player.isCursedWeaponEquipped() ? _player.getClanCrestId() : 0);

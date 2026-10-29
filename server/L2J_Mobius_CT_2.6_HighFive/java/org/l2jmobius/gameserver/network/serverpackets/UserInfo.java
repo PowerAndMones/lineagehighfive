@@ -374,11 +374,10 @@ public class UserInfo extends AbstractMaskPacket<UserInfoType>
 		
 		if (containsMask(UserInfoType.APPAREANCE))
 		{
-			final PlayerAppearance appearance = _player.getAppearance();
 			buffer.writeShort(15);
-			buffer.writeInt(appearance.getHairStyle());
-			buffer.writeInt(appearance.getHairColor());
-			buffer.writeInt(appearance.getFace());
+			buffer.writeInt(_player.getVisualHair());
+			buffer.writeInt(_player.getVisualHairColor());
+			buffer.writeInt(_player.getVisualFace());
 			buffer.writeByte(false); // hair accessory - not present in High Five
 		}
 		

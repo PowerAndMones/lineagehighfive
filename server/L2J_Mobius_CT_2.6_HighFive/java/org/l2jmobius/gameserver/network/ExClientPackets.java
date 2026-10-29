@@ -43,6 +43,11 @@ public enum ExClientPackets
 	// Salvation 140 daily missions (clan "Missions" tab); local ids are free 0x98/0x99 slots.
 	REQUEST_EX_PLEDGE_MISSION_INFO(0x98, RequestExPledgeMissionInfo::new, ConnectionState.IN_GAME),
 	REQUEST_EX_PLEDGE_MISSION_REWARD(0x99, RequestExPledgeMissionReward::new, ConnectionState.IN_GAME),
+	// Salvation 140 beauty shop (La Vie En Rose NPC and client button).
+	REQUEST_SHOW_BEAUTY_LIST(0x9A, RequestShowBeautyList::new, ConnectionState.IN_GAME),
+	REQUEST_REGIST_BEAUTY(0x9B, RequestRegistBeauty::new, ConnectionState.IN_GAME),
+	REQUEST_SHOW_RESET_SHOP_LIST(0x9C, RequestShowResetShopList::new, ConnectionState.IN_GAME),
+	NOTIFY_EXIT_BEAUTY_SHOP(0x9D, NotifyExitBeautyShop::new, ConnectionState.IN_GAME),
 	REQUEST_MANOR_LIST(0x01, RequestManorList::new, ConnectionState.IN_GAME),
 	REQUEST_PROCEDURE_CROP_LIST(0x02, RequestProcureCropList::new, ConnectionState.IN_GAME),
 	REQUEST_SET_SEED(0x03, RequestSetSeed::new, ConnectionState.IN_GAME),

@@ -1033,6 +1033,12 @@ public class RequestActionUse extends ClientPacket
 				tryBroadcastSocial(player, 8);
 				break;
 			}
+			case 89: // Beauty Shop (Salvation 140 client button): greet + refresh appearance, the window opens client-side.
+			{
+				tryBroadcastSocial(player, 30);
+				player.broadcastUserInfo();
+				break;
+			}
 			case 30: // Social Waiting
 			{
 				tryBroadcastSocial(player, 9);

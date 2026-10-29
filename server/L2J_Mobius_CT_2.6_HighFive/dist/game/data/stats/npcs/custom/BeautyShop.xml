@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../xsd/npcs.xsd">
+	<!-- La Vie En Rose - Beauty Shop (Salvation 140 port). -->
+	<npc id="33825" level="99" type="Folk" name="La Vie En Rose" title="Beauty Shop Manager">
+		<race>CONSTRUCT</race>
+		<sex>FEMALE</sex>
+		<stats str="88" int="79" dex="55" wit="78" con="82" men="78">
+			<vitals hp="8446" hpRegen="8.5" mp="2355" mpRegen="3" />
+			<speed>
+				<walk ground="60" />
+				<run ground="1" />
+			</speed>
+			<attack physical="1949.95" magical="1331.56" critical="4" attackSpeed="253" range="40" type="FIST" distance="80" width="120" random="5" accuracy="5" />
+			<defence physical="405.66" magical="296.84" />
+			<attribute>
+				<defence fire="20" water="20" wind="20" earth="20" holy="20" dark="20" />
+			</attribute>
+			<abnormalResist physical="0" magical="0" />
+		</stats>
+		<status attackable="false" />
+		<skillList>
+			<skill id="4416" level="2" /> <!-- Magic Creatures -->
+			<skill id="4390" level="1" /> <!-- NPC Abnormal Immunity -->
+			<skill id="4415" level="1" /> <!-- Bare Hands -->
+			<skill id="4045" level="1" /> <!-- Resist Full Magic Attack -->
+		</skillList>
+		<collision>
+			<radius normal="25" />
+			<height normal="20" />
+		</collision>
+	</npc>
+	<npc id="33854" level="85" type="Folk" name="Beauty Shop Helper">
+		<race>ETC</race>
+		<sex>FEMALE</sex>
+		<equipment rhand="15280" />
+		<stats str="88" int="79" dex="55" wit="78" con="82" men="78">
+			<vitals hp="39" hpRegen="2" mp="40" mpRegen="0.9" />
+			<speed>
+				<walk ground="60" />
+				<run ground="1" />
+			</speed>
+			<attack physical="1949.95" magical="1331.56" critical="4" attackSpeed="253" range="40" type="FIST" distance="80" width="120" random="5" accuracy="5" />
+			<defence physical="405.66" magical="296.84" />
+			<attribute>
+				<defence fire="20" water="20" wind="20" earth="20" holy="20" dark="20" />
+			</attribute>
+			<abnormalResist physical="0" magical="0" />
+		</stats>
+		<status attackable="false" />
+		<skillList>
+			<skill id="4416" level="26" /> <!-- Magic Creatures -->
+			<skill id="4390" level="1" /> <!-- NPC Abnormal Immunity -->
+			<skill id="4415" level="1" /> <!-- Bare Hands -->
+			<skill id="4045" level="1" /> <!-- Resist Full Magic Attack -->
+		</skillList>
+		<collision>
+			<radius normal="8" />
+			<height normal="23" />
+		</collision>
+	</npc>
+	<npc id="33855" level="85" type="Folk" name="Beauty Shop Helper">
+		<race>ETC</race>
+		<sex>FEMALE</sex>
+		<equipment rhand="15280" />
+		<stats str="88" int="79" dex="55" wit="78" con="82" men="78">
+			<vitals hp="39" hpRegen="2" mp="40" mpRegen="0.9" />
+			<speed>
+				<walk ground="60" />
+				<run ground="1" />
+			</speed>
+			<attack physical="1949.95" magical="1331.56" critical="4" attackSpeed="253" range="40" type="FIST" distance="80" width="120" random="5" accuracy="5" />
+			<defence physical="405.66" magical="296.84" />
+			<attribute>
+				<defence fire="20" water="20" wind="20" earth="20" holy="20" dark="20" />
+			</attribute>
+			<abnormalResist physical="0" magical="0" />
+		</stats>
+		<status attackable="false" />
+		<skillList>
+			<skill id="4416" level="26" /> <!-- Magic Creatures -->
+			<skill id="4390" level="1" /> <!-- NPC Abnormal Immunity -->
+			<skill id="4415" level="1" /> <!-- Bare Hands -->
+			<skill id="4045" level="1" /> <!-- Resist Full Magic Attack -->
+		</skillList>
+		<collision>
+			<radius normal="8" />
+			<height normal="23" />
+		</collision>
+	</npc>
+	<npc id="33856" level="85" type="Folk" name="Beauty Shop Helper">
+		<race>ETC</race>
+		<sex>FEMALE</sex>
+		<equipment rhand="15280" />
+		<stats str="88" int="79" dex="55" wit="78" con="82" men="78">
+			<vitals hp="39" hpRegen="2" mp="40" mpRegen="0.9" />
+			<speed>
+				<walk ground="60" />
+				<run ground="1" />
+			</speed>
+			<attack physical="1949.95" magical="1331.56" critical="4" attackSpeed="253" range="40" type="FIST" distance="80" width="120" random="5" accuracy="5" />
+			<defence physical="405.66" magical="296.84" />
+			<attribute>
+				<defence fire="20" water="20" wind="20" earth="20" holy="20" dark="20" />
+			</attribute>
+			<abnormalResist physical="0" magical="0" />
+		</stats>
+		<status attackable="false" />
+		<skillList>
+			<skill id="4416" level="26" /> <!-- Magic Creatures -->
+			<skill id="4390" level="1" /> <!-- NPC Abnormal Immunity -->
+			<skill id="4415" level="1" /> <!-- Bare Hands -->
+			<skill id="4045" level="1" /> <!-- Resist Full Magic Attack -->
+		</skillList>
+		<collision>
+			<radius normal="8" />
+			<height normal="23" />
+		</collision>
+	</npc>
+	<npc id="33857" level="85" type="Folk" name="Beauty Shop Helper">
+		<race>ETC</race>
+		<sex>FEMALE</sex>
+		<equipment rhand="15280" />
+		<stats str="88" int="79" dex="55" wit="78" con="82" men="78">
+			<vitals hp="39" hpRegen="2" mp="40" mpRegen="0.9" />
+			<speed>
+				<walk ground="60" />
+				<run ground="1" />
+			</speed>
+			<attack physical="1949.95" magical="1331.56" critical="4" attackSpeed="253" range="40" type="FIST" distance="80" width="120" random="5" accuracy="5" />
+			<defence physical="405.66" magical="296.84" />
+			<attribute>
+				<defence fire="20" water="20" wind="20" earth="20" holy="20" dark="20" />
+			</attribute>
+			<abnormalResist physical="0" magical="0" />
+		</stats>
+		<status attackable="false" />
+		<skillList>
+			<skill id="4416" level="26" /> <!-- Magic Creatures -->
+			<skill id="4390" level="1" /> <!-- NPC Abnormal Immunity -->
+			<skill id="4415" level="1" /> <!-- Bare Hands -->
+			<skill id="4045" level="1" /> <!-- Resist Full Magic Attack -->
+		</skillList>
+		<collision>
+			<radius normal="8" />
+			<height normal="23" />
+		</collision>
+	</npc>
+</list>

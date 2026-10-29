@@ -3190,6 +3190,39 @@ public class Player extends Playable
 	}
 	
 	/**
+	 * @return the Beauty Tickets amount of the Player.
+	 */
+	public long getBeautyTickets()
+	{
+		final Item item = _inventory.getItemByItemId(Inventory.BEAUTY_TICKET_ID);
+		return item != null ? item.getCount() : 0;
+	}
+	
+	/**
+	 * Reduces the Beauty Tickets amount of the Player.
+	 * @return {@code true} if the reduction succeeded.
+	 */
+	public boolean reduceBeautyTickets(ItemProcessType process, long count, WorldObject reference, boolean sendMessage)
+	{
+		if (count > getBeautyTickets())
+		{
+			if (sendMessage)
+			{
+				sendPacket(SystemMessageId.INCORRECT_ITEM_COUNT_2);
+			}
+			
+			return false;
+		}
+		
+		if (count > 0)
+		{
+			return destroyItemByItemId(process, Inventory.BEAUTY_TICKET_ID, count, reference, sendMessage);
+		}
+		
+		return true;
+	}
+	
+	/**
 	 * Add adena to Inventory of the Player and send a Server->Client InventoryUpdate packet to the Player.
 	 * @param process : ItemProcessType identifier of process triggering this action
 	 * @param count : int Quantity of adena to be added
@@ -10426,6 +10459,57 @@ public class Player extends Playable
 		}
 		
 		return true;
+	}
+	
+	/**
+	 * Sets the beauty shop hair.
+	 * @param hairId the hair style id
+	 */
+	public void setVisualHair(int hairId)
+	{
+		getVariables().set("visualHairId", hairId);
+	}
+	
+	/**
+	 * Sets the beauty shop hair color.
+	 * @param colorId the hair color id
+	 */
+	public void setVisualHairColor(int colorId)
+	{
+		getVariables().set("visualHairColorId", colorId);
+	}
+	
+	/**
+	 * Sets the beauty shop modified face.
+	 * @param faceId the face id
+	 */
+	public void setVisualFace(int faceId)
+	{
+		getVariables().set("visualFaceId", faceId);
+	}
+	
+	/**
+	 * @return the beauty shop hair, or the base one if not changed.
+	 */
+	public int getVisualHair()
+	{
+		return getVariables().getInt("visualHairId", _appearance.getHairStyle());
+	}
+	
+	/**
+	 * @return the beauty shop hair color, or the base one if not changed.
+	 */
+	public int getVisualHairColor()
+	{
+		return getVariables().getInt("visualHairColorId", _appearance.getHairColor());
+	}
+	
+	/**
+	 * @return the beauty shop modified face, or the base one if not changed.
+	 */
+	public int getVisualFace()
+	{
+		return getVariables().getInt("visualFaceId", _appearance.getFace());
 	}
 	
 	public boolean isNoble()
