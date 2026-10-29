@@ -182,3 +182,22 @@ Task 25b - v2.1: карточка персонажа на главной бор�
 2. home.html: современный дизайн (панели L2UI_CT1.Windows_DF_TooltipBG 690px, шапка Онлайн X/Y, 9 вкладок, карточка ПЕРСОНАЖ, БЫСТРЫЕ ДЕЙСТВИЯ, новости); все bypass ведут на реальные хендлеры v2.0 (включая _bbsclass)
 3. Валидация: ядро 1923 exit 0, скрипты 1292 exit 0
 4. Примечание: локальная сессия независимо сделала то же направление (backup-v1.10-altb) - взята база v2.0, поверх неё добавлены плейсхолдеры и новая главная
+
+## Task 27 - v2.1.1: хотфикс упаковки релиза (сервер падал при старте, Exit code 1)
+
+Дата: 29/10/2026. Баг-репорт пользователя: "Ошибку почему то дает" + скриншот "Game Server terminated abnormally! Exit code: 1 (Uncaught Java exception or wrong Java version.) Check log/error.log".
+
+Диагноз (без лога, по составу архивов):
+- Сравнение zip v2.1 (26 920 419 байт) с v1.10 (28 775 509) и CI-артефактом коммита 4155889a (run 40813683917, 28 793 632) показало: в релизном архиве v2.1 ОТСУТСТВОВАЛИ libs/GameServer.jar (5.07 MB), libs/LoginServer.jar (298 KB), db_installer/DatabaseInstaller.jar, readme.txt, sql/buffer_schemes.sql
+- Репак-скрипт релиза взял dist-контент и сторонние libs, но не включил собранные CI jar'ы; лишними оказались только -sources.jar (безвредно)
+- Следствие: java -cp libs/* не находила Main-Class -> мгновенный exit 1 -> диалог лаунчера "Uncaught Java exception or wrong Java version" (ложное указание на Java)
+- Проверено, что сам код v2.1 не виноват: SchemeBufferTable.loadPlayerSchemes обёрнут try/catch (отсутствие таблицы buffer_schemes не роняет GS); ScriptExecutor при ошибке компиляции скриптов бросает RuntimeException, но скрипты v2.0/v2.1 валидированы (1923 core + 1292 scripts exit 0)
+
+Исправление:
+- Взят нативный CI-артефакт коммита 4155889a (GameServer.jar Build-Date 2026-10-29 03:43:17, 2327 классов) - полный архив
+- Опубликован релиз v2.1.1 (asset L2J_Mobius_CT_2.6_HighFive_x50_Salvation140_v2_1_1.zip, 28 793 632 байта)
+- Битый asset v2.1 удалён и заменён тем же исправным архивом (старая ссылка теперь отдаёт рабочий zip)
+
+Деплой для пользователя: скачать v2.1.1, распаковать с заменой, выполнить sql/buffer_schemes.sql на game DB, проверить config/Custom/CommunityBoard.ini (CustomCommunityBoard=True), рестарт.
+
+Урок: перед публикацией релиза сверять список файлов архива с CI-артефактом (наличие GameServer.jar/LoginServer.jar) - добавить в чеклист publish-скриптов.
