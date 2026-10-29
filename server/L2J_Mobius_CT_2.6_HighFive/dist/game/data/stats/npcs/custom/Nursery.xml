@@ -62,8 +62,6 @@
 			<skill id="4415" level="3" /> <!-- One-handed Sword -->
 			<skill id="4416" level="3" /> <!-- Beast -->
 			<skill id="5465" level="1" /> <!-- Earth Attack -->
-			<skill id="14231" level="1" /> <!-- Creation's Rage -->
-			<skill id="14765" level="2" /> <!-- Blood Siphon Resistance -->
 		</skillList>
 		<ai aggroRange="600" isAggressive="true" clanHelpRange="300">
 			<clanList>
@@ -73,22 +71,15 @@
 		<dropLists>
 			<drop>
 				<item id="57" min="213" max="497" chance="70" /> <!-- Adena -->
-				<item id="36562" min="1" max="1" chance="0.29" /> <!-- Greater Cokes -->
-				<item id="36563" min="1" max="1" chance="0.07" /> <!-- Synthetic Cokes -->
-				<item id="17526" min="1" max="1" chance="0.00" /> <!-- Scroll: Enchant Weapon (R-grade) -->
 				<item id="8600" min="1" max="1" chance="10" /> <!-- Herb of Life -->
 				<item id="8601" min="1" max="1" chance="8" /> <!-- Major Herb of Life -->
 				<item id="8602" min="1" max="1" chance="2" /> <!-- Superior Herb of Life -->
 				<item id="8603" min="1" max="1" chance="19.8" /> <!-- Herb of Mana -->
 				<item id="8604" min="1" max="1" chance="9.9" /> <!-- Major Herb of Mana -->
 				<item id="8605" min="1" max="1" chance="3.3" /> <!-- Superior Herb of Mana -->
-				<item id="34849" min="1" max="1" chance="0.7" /> <!-- Mysterious Herb of Power -->
-				<item id="34850" min="1" max="1" chance="0.7" /> <!-- Mysterious Herb of Magic -->
 				<item id="13028" min="1" max="1" chance="0.1" /> <!-- Vitality Replenishing Herb -->
 			</drop>
 			<spoil>
-				<item id="40205" min="1" max="1" chance="5.20" /> <!-- Requiem Fragment -->
-				<item id="40210" min="1" max="1" chance="0.00" /> <!-- Recipe: R (100%) -->
 			</spoil>
 			<lucky>
 				<item id="39629" min="1" max="1" chance="100" /> <!-- Fortune Pocket - Stage 1 -->
@@ -127,8 +118,6 @@
 			<skill id="4415" level="3" /> <!-- One-handed Sword -->
 			<skill id="4416" level="3" /> <!-- Beast -->
 			<skill id="5465" level="1" /> <!-- Earth Attack -->
-			<skill id="14232" level="1" /> <!-- Yoke of Thorns -->
-			<skill id="14765" level="2" /> <!-- Blood Siphon Resistance -->
 		</skillList>
 		<ai aggroRange="600" isAggressive="true" clanHelpRange="300">
 			<clanList>
@@ -138,23 +127,15 @@
 		<dropLists>
 			<drop>
 				<item id="57" min="214" max="499" chance="70" /> <!-- Adena -->
-				<item id="36562" min="1" max="1" chance="0.3" /> <!-- Greater Cokes -->
-				<item id="36563" min="1" max="1" chance="0.07" /> <!-- Synthetic Cokes -->
-				<item id="30425" min="1" max="1" chance="0.03" /> <!-- Recipe: Blessed Spiritshot (R-grade) -->
-				<item id="17526" min="1" max="1" chance="0.00" /> <!-- Scroll: Enchant Weapon (R-grade) -->
 				<item id="8600" min="1" max="1" chance="10" /> <!-- Herb of Life -->
 				<item id="8601" min="1" max="1" chance="8" /> <!-- Major Herb of Life -->
 				<item id="8602" min="1" max="1" chance="2" /> <!-- Superior Herb of Life -->
 				<item id="8603" min="1" max="1" chance="19.8" /> <!-- Herb of Mana -->
 				<item id="8604" min="1" max="1" chance="9.9" /> <!-- Major Herb of Mana -->
 				<item id="8605" min="1" max="1" chance="3.3" /> <!-- Superior Herb of Mana -->
-				<item id="34849" min="1" max="1" chance="0.7" /> <!-- Mysterious Herb of Power -->
-				<item id="34850" min="1" max="1" chance="0.7" /> <!-- Mysterious Herb of Magic -->
 				<item id="13028" min="1" max="1" chance="0.1" /> <!-- Vitality Replenishing Herb -->
 			</drop>
 			<spoil>
-				<item id="36562" min="1" max="1" chance="0.3" /> <!-- Greater Cokes -->
-				<item id="36563" min="1" max="1" chance="0.07" /> <!-- Synthetic Cokes -->
 			</spoil>
 			<lucky>
 				<item id="39629" min="1" max="1" chance="100" /> <!-- Fortune Pocket - Stage 1 -->
@@ -192,8 +173,6 @@
 			<skill id="4415" level="3" /> <!-- One-handed Sword -->
 			<skill id="4416" level="3" /> <!-- Beast -->
 			<skill id="5465" level="1" /> <!-- Earth Attack -->
-			<skill id="14233" level="1" /> <!-- Shock Wave -->
-			<skill id="14765" level="2" /> <!-- Blood Siphon Resistance -->
 		</skillList>
 		<ai aggroRange="600" isAggressive="true" clanHelpRange="300">
 			<clanList>
@@ -203,22 +182,15 @@
 		<dropLists>
 			<drop>
 				<item id="57" min="244" max="569" chance="70" /> <!-- Adena -->
-				<item id="36562" min="1" max="1" chance="0.3" /> <!-- Greater Cokes -->
-				<item id="36563" min="1" max="1" chance="0.07" /> <!-- Synthetic Cokes -->
-				<item id="17527" min="1" max="1" chance="0.03" /> <!-- Scroll: Enchant Armor (R-grade) -->
 				<item id="8600" min="1" max="1" chance="10" /> <!-- Herb of Life -->
 				<item id="8601" min="1" max="1" chance="8" /> <!-- Major Herb of Life -->
 				<item id="8602" min="1" max="1" chance="2" /> <!-- Superior Herb of Life -->
 				<item id="8603" min="1" max="1" chance="19.8" /> <!-- Herb of Mana -->
 				<item id="8604" min="1" max="1" chance="9.9" /> <!-- Major Herb of Mana -->
 				<item id="8605" min="1" max="1" chance="3.3" /> <!-- Superior Herb of Mana -->
-				<item id="34849" min="1" max="1" chance="0.7" /> <!-- Mysterious Herb of Power -->
-				<item id="34850" min="1" max="1" chance="0.7" /> <!-- Mysterious Herb of Magic -->
 				<item id="13028" min="1" max="1" chance="0.1" /> <!-- Vitality Replenishing Herb -->
 			</drop>
 			<spoil>
-				<item id="40205" min="1" max="1" chance="5.91" /> <!-- Requiem Fragment -->
-				<item id="40210" min="1" max="1" chance="0.00" /> <!-- Recipe: R (100%) -->
 			</spoil>
 			<lucky>
 				<item id="39629" min="1" max="1" chance="100" /> <!-- Fortune Pocket - Stage 1 -->
@@ -256,8 +228,6 @@
 			<skill id="4415" level="3" /> <!-- One-handed Sword -->
 			<skill id="4416" level="3" /> <!-- Beast -->
 			<skill id="5465" level="1" /> <!-- Earth Attack -->
-			<skill id="14231" level="1" /> <!-- Creation's Rage -->
-			<skill id="14765" level="2" /> <!-- Blood Siphon Resistance -->
 		</skillList>
 		<ai aggroRange="600" isAggressive="true" clanHelpRange="300">
 			<clanList>
@@ -267,22 +237,15 @@
 		<dropLists>
 			<drop>
 				<item id="57" min="235" max="548" chance="70" /> <!-- Adena -->
-				<item id="36562" min="1" max="1" chance="0.3" /> <!-- Greater Cokes -->
-				<item id="36563" min="1" max="1" chance="0.07" /> <!-- Synthetic Cokes -->
-				<item id="17527" min="1" max="1" chance="0.03" /> <!-- Scroll: Enchant Armor (R-grade) -->
 				<item id="8600" min="1" max="1" chance="10" /> <!-- Herb of Life -->
 				<item id="8601" min="1" max="1" chance="8" /> <!-- Major Herb of Life -->
 				<item id="8602" min="1" max="1" chance="2" /> <!-- Superior Herb of Life -->
 				<item id="8603" min="1" max="1" chance="19.8" /> <!-- Herb of Mana -->
 				<item id="8604" min="1" max="1" chance="9.9" /> <!-- Major Herb of Mana -->
 				<item id="8605" min="1" max="1" chance="3.3" /> <!-- Superior Herb of Mana -->
-				<item id="34849" min="1" max="1" chance="0.7" /> <!-- Mysterious Herb of Power -->
-				<item id="34850" min="1" max="1" chance="0.7" /> <!-- Mysterious Herb of Magic -->
 				<item id="13028" min="1" max="1" chance="0.1" /> <!-- Vitality Replenishing Herb -->
 			</drop>
 			<spoil>
-				<item id="36562" min="1" max="1" chance="0.3" /> <!-- Greater Cokes -->
-				<item id="36563" min="1" max="1" chance="0.07" /> <!-- Synthetic Cokes -->
 			</spoil>
 			<lucky>
 				<item id="39629" min="1" max="1" chance="100" /> <!-- Fortune Pocket - Stage 1 -->
@@ -320,8 +283,6 @@
 			<skill id="4415" level="3" /> <!-- One-handed Sword -->
 			<skill id="4416" level="3" /> <!-- Beast -->
 			<skill id="5465" level="1" /> <!-- Earth Attack -->
-			<skill id="14232" level="1" /> <!-- Yoke of Thorns -->
-			<skill id="14765" level="2" /> <!-- Blood Siphon Resistance -->
 		</skillList>
 		<ai aggroRange="600" isAggressive="true" clanHelpRange="300">
 			<clanList>
@@ -331,23 +292,15 @@
 		<dropLists>
 			<drop>
 				<item id="57" min="235" max="548" chance="70" /> <!-- Adena -->
-				<item id="36562" min="1" max="1" chance="0.29" /> <!-- Greater Cokes -->
-				<item id="36563" min="1" max="1" chance="0.07" /> <!-- Synthetic Cokes -->
-				<item id="17527" min="1" max="1" chance="0.02" /> <!-- Scroll: Enchant Armor (R-grade) -->
-				<item id="30423" min="1" max="1" chance="0.02" /> <!-- Recipe: Soulshot (R-grade) -->
 				<item id="8600" min="1" max="1" chance="10" /> <!-- Herb of Life -->
 				<item id="8601" min="1" max="1" chance="8" /> <!-- Major Herb of Life -->
 				<item id="8602" min="1" max="1" chance="2" /> <!-- Superior Herb of Life -->
 				<item id="8603" min="1" max="1" chance="19.8" /> <!-- Herb of Mana -->
 				<item id="8604" min="1" max="1" chance="9.9" /> <!-- Major Herb of Mana -->
 				<item id="8605" min="1" max="1" chance="3.3" /> <!-- Superior Herb of Mana -->
-				<item id="34849" min="1" max="1" chance="0.7" /> <!-- Mysterious Herb of Power -->
-				<item id="34850" min="1" max="1" chance="0.7" /> <!-- Mysterious Herb of Magic -->
 				<item id="13028" min="1" max="1" chance="0.1" /> <!-- Vitality Replenishing Herb -->
 			</drop>
 			<spoil>
-				<item id="40205" min="1" max="1" chance="5.65" /> <!-- Requiem Fragment -->
-				<item id="40210" min="1" max="1" chance="0.00" /> <!-- Recipe: R (100%) -->
 			</spoil>
 			<lucky>
 				<item id="39629" min="1" max="1" chance="100" /> <!-- Fortune Pocket - Stage 1 -->

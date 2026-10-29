@@ -108,7 +108,6 @@ import org.l2jmobius.gameserver.network.serverpackets.ExRotation;
 import org.l2jmobius.gameserver.network.serverpackets.ExShowContactList;
 import org.l2jmobius.gameserver.network.serverpackets.ExShowScreenMessage;
 import org.l2jmobius.gameserver.network.serverpackets.ExStorageMaxCount;
-import org.l2jmobius.gameserver.network.serverpackets.Ex2ndPasswordCheck;
 import org.l2jmobius.gameserver.network.serverpackets.ExSubjobInfo;
 import org.l2jmobius.gameserver.network.serverpackets.ExUserInfoEquipSlot;
 import org.l2jmobius.gameserver.network.serverpackets.ExUserInfoInvenWeight;
@@ -470,11 +469,11 @@ public class EnterWorld extends ClientPacket
 			player.sendPacket(new ExWorldChatCnt(player));
 		}
 		
-		// Salvation (protocol 140): the client opens the secondary password dialog at world
-		// entry unless it receives Ex2ndPasswordCheck(PASSWORD_OK). CharSelectionInfo and
-		// CharacterSelect already answered; this delayed packet closes the dialog if the
-		// client re-opens it during world UI initialization.
-		ThreadPool.schedule(() -> client.sendPacket(new Ex2ndPasswordCheck(Ex2ndPasswordCheck.PASSWORD_OK)), 2000);
+		// Salvation (protocol 140): v2.5 - the delayed in-world Ex2ndPasswordCheck send was removed.
+		// The reference (Salvation 5.0) never sends secondary-password packets while the client
+		// is in the world; the in-game send coincided with the client opening a modal keypad
+		// dialog (error 7680) that blocked inventory/NPC/buff UI. Pre-world answers in
+		// CharSelectionInfo and CharacterSelect remain in place.
 		
 		
 		// Send Action list
