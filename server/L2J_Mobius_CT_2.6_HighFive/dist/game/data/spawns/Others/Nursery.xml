@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list enabled="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/spawns.xsd">
+	<!-- Nursery (Salvation 140 port): outdoor entry NPCs at the two nursery corridors, Sea of Spores. -->
+	<spawn name="nursery_entry_1">
+		<npc id="33152" x="-179631" y="153336" z="2607" heading="16384" respawnDelay="60" /> <!-- Soldier Tie -->
+	</spawn>
+	<spawn name="nursery_entry_2">
+		<npc id="33152" x="-177286" y="153337" z="2605" heading="16384" respawnDelay="60" /> <!-- Soldier Tie -->
+	</spawn>
+</list>

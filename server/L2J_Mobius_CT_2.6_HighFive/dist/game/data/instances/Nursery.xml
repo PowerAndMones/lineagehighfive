@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Nursery (Salvation 140 port): solo instance, Sea of Spores. Territory-based spawn
+     groups of the reference datapack are converted to 50 fixed spawn points. -->
+<instance id="171" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../xsd/instance.xsd">
+	<activityTime val="60" />
+	<allowSummon val="false" />
+	<emptyDestroyTime val="300" />
+	<showTimer val="false" />
+	<spawnPoints>
+		<Location x="-185854" y="147882" z="-15314" />
+	</spawnPoints>
+	<exitPoint x="-178262" y="153430" z="2477" />
+	<reenter additionStyle="ON_FINISH">
+		<reset time="43200000" /> <!-- 12 hours -->
+	</reenter>
+	<spawnlist>
+		<group name="GAME_NPC">
+			<npc id="33152" x="-185857" y="147420" z="-15296" heading="11632" respawn="120" respawnRandom="30" />
+		</group>
+		<group name="GAME_MONSTERS">
+			<npc id="23033" x="-185154" y="147882" z="-15314" heading="0" respawn="60" />
+			<npc id="23033" x="-185063" y="147981" z="-15314" heading="1310" respawn="60" />
+			<npc id="23033" x="-184988" y="148104" z="-15314" heading="2621" respawn="60" />
+			<npc id="23033" x="-184932" y="148246" z="-15314" heading="3932" respawn="60" />
+			<npc id="23033" x="-184900" y="148406" z="-15314" heading="5242" respawn="60" />
+			<npc id="23033" x="-184895" y="148578" z="-15314" heading="6553" respawn="60" />
+			<npc id="23033" x="-184919" y="148759" z="-15314" heading="7864" respawn="60" />
+			<npc id="23033" x="-184974" y="148944" z="-15314" heading="9175" respawn="60" />
+			<npc id="23033" x="-185063" y="149128" z="-15314" heading="10485" respawn="60" />
+			<npc id="23033" x="-185184" y="149305" z="-15314" heading="11796" respawn="60" />
+			<npc id="23034" x="-185337" y="149470" z="-15314" heading="13107" respawn="60" />
+			<npc id="23034" x="-185522" y="149617" z="-15314" heading="14417" respawn="60" />
+			<npc id="23034" x="-185806" y="148644" z="-15314" heading="15728" respawn="60" />
+			<npc id="23034" x="-185908" y="148741" z="-15314" heading="17039" respawn="60" />
+			<npc id="23034" x="-186033" y="148823" z="-15314" heading="18350" respawn="60" />
+			<npc id="23034" x="-186180" y="148885" z="-15314" heading="19660" respawn="60" />
+			<npc id="23034" x="-186344" y="148924" z="-15314" heading="20971" respawn="60" />
+			<npc id="23034" x="-186523" y="148936" z="-15314" heading="22282" respawn="60" />
+			<npc id="23034" x="-186711" y="148919" z="-15314" heading="23592" respawn="60" />
+			<npc id="23034" x="-186905" y="148869" z="-15314" heading="24903" respawn="60" />
+			<npc id="23035" x="-187099" y="148787" z="-15314" heading="26214" respawn="60" />
+			<npc id="23035" x="-187288" y="148670" z="-15314" heading="27525" respawn="60" />
+			<npc id="23035" x="-187466" y="148520" z="-15314" heading="28835" respawn="60" />
+			<npc id="23035" x="-186562" y="148063" z="-15314" heading="30146" respawn="60" />
+			<npc id="23035" x="-186675" y="147985" z="-15314" heading="31457" respawn="60" />
+			<npc id="23035" x="-186779" y="147882" z="-15314" heading="32768" respawn="60" />
+			<npc id="23035" x="-186867" y="147753" z="-15314" heading="34078" respawn="60" />
+			<npc id="23035" x="-186937" y="147603" z="-15314" heading="35389" respawn="60" />
+			<npc id="23035" x="-186984" y="147434" z="-15314" heading="36700" respawn="60" />
+			<npc id="23035" x="-187004" y="147249" z="-15314" heading="38010" respawn="60" />
+			<npc id="23036" x="-186994" y="147053" z="-15314" heading="39321" respawn="60" />
+			<npc id="23036" x="-186952" y="146850" z="-15314" heading="40632" respawn="60" />
+			<npc id="23036" x="-186876" y="146646" z="-15314" heading="41943" respawn="60" />
+			<npc id="23036" x="-186765" y="146445" z="-15314" heading="43253" respawn="60" />
+			<npc id="23036" x="-186619" y="146255" z="-15314" heading="44564" respawn="60" />
+			<npc id="23036" x="-186099" y="147125" z="-15314" heading="45875" respawn="60" />
+			<npc id="23036" x="-186021" y="147005" z="-15314" heading="47185" respawn="60" />
+			<npc id="23036" x="-185916" y="146894" z="-15314" heading="48496" respawn="60" />
+			<npc id="23036" x="-185785" y="146798" z="-15314" heading="49807" respawn="60" />
+			<npc id="23036" x="-185632" y="146719" z="-15314" heading="51118" respawn="60" />
+			<npc id="23037" x="-185458" y="146664" z="-15314" heading="52428" respawn="60" />
+			<npc id="23037" x="-185267" y="146636" z="-15314" heading="53739" respawn="60" />
+			<npc id="23037" x="-185064" y="146637" z="-15314" heading="55050" respawn="60" />
+			<npc id="23037" x="-184852" y="146671" z="-15314" heading="56360" respawn="60" />
+			<npc id="23037" x="-184638" y="146740" z="-15314" heading="57671" respawn="60" />
+			<npc id="23037" x="-184426" y="146844" z="-15314" heading="58982" respawn="60" />
+			<npc id="23037" x="-185186" y="147514" z="-15314" heading="60293" respawn="60" />
+			<npc id="23037" x="-185055" y="147565" z="-15314" heading="61603" respawn="60" />
+			<npc id="23037" x="-184928" y="147644" z="-15314" heading="62914" respawn="60" />
+			<npc id="23037" x="-184809" y="147750" z="-15314" heading="64225" respawn="60" />
+		</group>
+	</spawnlist>
+</instance>

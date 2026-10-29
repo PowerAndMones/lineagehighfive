@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/items.xsd">
+	<!-- Nursery solo instance (Salvation 140 port) items. -->
+	<item id="17602" name="Tissue Energy Crystal" type="EtcItem">
+		<set name="icon" val="icon.etc_crystal_green_i00" />
+		<set name="weight" val="2" />
+		<set name="is_stackable" val="true" />
+		<set name="is_sellable" val="true" />
+		<set name="material" val="CRYSTAL" />
+	</item>
+	<item id="17610" name="Tissue Energy Residue" type="EtcItem">
+		<set name="icon" val="icon.etc_dragon_blood_i00" />
+		<set name="weight" val="2" />
+		<set name="is_stackable" val="true" />
+		<set name="is_sellable" val="false" />
+		<set name="is_questitem" val="true" />
+		<set name="material" val="LIQUID" />
+	</item>
+</list>
